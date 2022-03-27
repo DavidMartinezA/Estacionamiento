@@ -1,4 +1,4 @@
-package com.dominio.estacionamiento
+package com.dominio.estacionamiento.modelo
 
 import com.dominio.estacionamiento.modelo.Estacionamiento
 import com.dominio.usuario.modelo.UsuarioCarro
