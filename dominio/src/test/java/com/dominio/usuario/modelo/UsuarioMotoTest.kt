@@ -1,5 +1,6 @@
 package com.dominio.usuario.modelo
 
+import com.example.modelo.usuario.modelo.UsuarioMoto
 import org.junit.Test
 
 class UsuarioMotoTest {

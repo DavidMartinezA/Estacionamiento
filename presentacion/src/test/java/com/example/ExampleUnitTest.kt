@@ -1,4 +1,4 @@
-package com.example.estacionamiento
+package com.example
 
 import org.junit.Test
 
