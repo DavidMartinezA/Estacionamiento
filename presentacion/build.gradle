@@ -2,6 +2,7 @@ plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
     id 'jacoco'
+
 }
 
 android {
@@ -74,8 +75,8 @@ task jacocoTestReport(type: JacocoReport, dependsOn: [':presentacion:testDebugUn
             "$modulePresentacion.buildDir/outputs/unit_test_code_coverage/debugUnitTest/testDebugUnitTest.exec"
 
     def executionFileForUnitTestInOtherModule =
-            "$moduleDominio.buildDir/jacoco/testDebugUnitTest.exec"
             "$modulePresentacion.buildDir/jacoco/testDebugUnitTest.exec"
+            "$moduleDominio.buildDir/jacoco/testDebugUnitTest.exec"
 
     def executionFiles = layout.files(
             executionFilesFromConnectedAndroidTest,

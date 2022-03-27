@@ -11,16 +11,17 @@ class UsuarioCarroTest {
 
         //Arrange
         val mensajeEsperado = "Formato De Placa No Valido"
+        val placa = "123456"
 
         //Act
         try {
 
-            val usuarioCarroTest = UsuarioCarro("123456")
+            val usuarioCarroTest = UsuarioCarro(placa)
             Assert.fail()
-        } catch (ex: FormatoPlacaExcepcion) {
+        } catch (placaExcepcion: FormatoPlacaExcepcion) {
 
             //Assert
-            Assert.assertEquals(mensajeEsperado, ex.message)
+            Assert.assertEquals(mensajeEsperado, placaExcepcion.message)
         }
     }
 
@@ -29,11 +30,12 @@ class UsuarioCarroTest {
 
         //Arrange
         val mensajeEsperado = "Formato De Placa No Valido"
+        val placa = "abcdef"
 
-        //Act
+            //Act
         try {
 
-            val usuarioCarroTest = UsuarioCarro("abcdef")
+            val usuarioCarroTest = UsuarioCarro(placa)
             Assert.fail()
         } catch (ex: FormatoPlacaExcepcion) {
 
@@ -47,11 +49,11 @@ class UsuarioCarroTest {
 
         //Arrange
         val mensajeEsperado = "Formato De Placa No Valido"
-
+        val placa = ""
         //Act
         try {
 
-            val usuarioCarroTest = UsuarioCarro("")
+            val usuarioCarroTest = UsuarioCarro(placa)
             Assert.fail()
         } catch (ex: FormatoPlacaExcepcion) {
 

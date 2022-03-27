@@ -56,7 +56,7 @@ class UsuarioMotoTest {
         val placa = "hSu-53c"
 
         //Act
-        val usuarioMotoTest= UsuarioMoto("hSu-53c")
+        val usuarioMotoTest= UsuarioMoto(placa)
 
         //Assert
         assert(!usuarioMotoTest.cilindrajeAlto)
