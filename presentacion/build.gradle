@@ -9,7 +9,7 @@ android {
     compileSdk 32
 
     defaultConfig {
-        applicationId "com.example.estacionamiento"
+        applicationId "com.com.cobro.com.cobro.modelo.estacionamiento"
         minSdk 26
         targetSdk 32
         versionCode 1
@@ -47,14 +47,14 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
 
     // Dependencias de modulos
-    implementation project(path: ':dominio')
+    implementation project(path: ':com.cobro.dominio')
 }
 
 // tarea para los reportes de analisis de codigo
-task jacocoTestReport(type: JacocoReport, dependsOn: [':presentacion:testDebugUnitTest',':dominio:testDebugUnitTest']) {
+task jacocoTestReport(type: JacocoReport, dependsOn: [':presentacion:testDebugUnitTest',':com.cobro.dominio:testDebugUnitTest']) {
 
     def modulePresentacion = project(':presentacion')
-    def moduleDominio = project(':dominio')
+    def moduleDominio = project(':com.cobro.dominio')
 
     def directoriesToCoverage = layout.files(
             "$modulePresentacion.buildDir/tmp/kotlin-classes/debug",

@@ -1,6 +1,6 @@
-package com.dominio.estacionamiento.modelo
+package com.example.modelo.estacionamiento
 
-import com.dominio.usuario.modelo.Usuario
+import com.example.modelo.usuario.modelo.Usuario
 
 abstract class Estacionamiento (){
 
@@ -13,7 +13,7 @@ abstract class Estacionamiento (){
     private val DIAS_PERMITIDOS = arrayListOf(7, 1)
 
 
-    fun restriccionDeIngreso(usuario: Usuario,diaDeLaSemana: Int):Boolean{
+    fun restriccionDeIngreso(usuario: Usuario, diaDeLaSemana: Int):Boolean{
 
 
         var restringido = false
