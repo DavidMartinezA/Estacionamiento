@@ -1,7 +1,6 @@
-package com.example.modelo
+package com.dominio.estacionamiento
 
-import com.example.modelo.usuario.modelo.UsuarioCarro
-import com.example.modelo.estacionamiento.EstacionamientoCarros
+import com.dominio.usuario.modelo.UsuarioCarro
 import org.junit.Test
 
 class EstacionamientoCarrosTest {

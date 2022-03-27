@@ -1,6 +1,6 @@
-package com.example.modelo.usuario.repositorio
+package com.dominio.usuario.repositorio
 
-import com.example.modelo.usuario.modelo.Usuario
+import com.dominio.usuario.modelo.Usuario
 
 interface RepositorioUsuario {
 

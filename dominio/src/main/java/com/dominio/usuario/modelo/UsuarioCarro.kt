@@ -1,4 +1,4 @@
-package com.example.modelo.usuario.modelo
+package com.dominio.usuario.modelo
 
 class UsuarioCarro(placaVehiculo:String): Usuario(placaVehiculo) {
 }

@@ -1,4 +1,6 @@
-package com.example.modelo.estacionamiento
+package com.dominio.estacionamiento
+
+import com.dominio.estacionamiento.modelo.Estacionamiento
 
 class EstacionamientoCarros: Estacionamiento() {
 

@@ -2,7 +2,7 @@ package com.example
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.example.estacionamiento.R
+import dominio.estacionamiento.R
 
 
 class MainActivity : AppCompatActivity() {

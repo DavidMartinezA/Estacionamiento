@@ -1,6 +1,6 @@
-package com.example.modelo.estacionamiento
+package com.dominio.estacionamiento.modelo
 
-import com.example.modelo.usuario.modelo.Usuario
+import com.dominio.usuario.modelo.Usuario
 
 abstract class Estacionamiento (){
 

@@ -1,7 +1,7 @@
 package com.dominio.usuario.modelo
 
-import com.example.modelo.usuario.Excepciones.FormatoPlacaExcepcion
-import com.example.modelo.usuario.modelo.UsuarioCarro
+import com.dominio.usuario.Excepciones.FormatoPlacaExcepcion
+import com.dominio.usuario.modelo.UsuarioCarro
 import org.junit.Assert
 import org.junit.Test
 

@@ -1,8 +1,8 @@
-package com.example.modelo.usuario.servicio
+package com.dominio.servicio
 
-import com.example.modelo.usuario.Excepciones.UsuarioNoExisteExcepcion
-import com.example.modelo.usuario.modelo.Usuario
-import com.example.modelo.usuario.repositorio.RepositorioUsuario
+import com.dominio.usuario.Excepciones.UsuarioNoExisteExcepcion
+import com.dominio.usuario.modelo.Usuario
+import com.dominio.usuario.repositorio.RepositorioUsuario
 
 class ServicioUsuario(var repositorioUsuario: RepositorioUsuario, var usuario: Usuario) {
 
