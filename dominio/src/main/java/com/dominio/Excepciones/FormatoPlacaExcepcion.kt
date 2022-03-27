@@ -1,3 +1,3 @@
-package com.dominio.usuario.Excepciones
+package com.dominio.Excepciones
 
 class FormatoPlacaExcepcion: Exception("Formato De Placa No Valido")

@@ -7,18 +7,17 @@ abstract class Estacionamiento (){
     companion object{
 
         const val RESTRICCION_INGRESO_LETRA_INICIAL_PLACA = 'A'
-
     }
-    protected abstract val capacidaDelParqueadero :Int
-    private val DIAS_PERMITIDOS = arrayListOf(7, 1)
 
+    protected abstract val capacidaDelParqueadero :Int
+    private val diasPermitidos = arrayListOf(7, 1)
 
     fun restriccionDeIngreso(usuario: Usuario, diaDeLaSemana: Int):Boolean{
 
 
         var restringido = false
         if (usuario.placaVehiculo.uppercase().first() == RESTRICCION_INGRESO_LETRA_INICIAL_PLACA) {
-            restringido = !DIAS_PERMITIDOS.contains(diaDeLaSemana)
+            restringido = !diasPermitidos.contains(diaDeLaSemana)
         }
         return restringido
     }

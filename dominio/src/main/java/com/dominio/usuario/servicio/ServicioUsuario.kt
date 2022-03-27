@@ -1,6 +1,6 @@
-package com.dominio.servicio
+package com.dominio.usuario.servicio
 
-import com.dominio.usuario.Excepciones.UsuarioNoExisteExcepcion
+import com.dominio.Excepciones.UsuarioNoExisteExcepcion
 import com.dominio.usuario.modelo.Usuario
 import com.dominio.usuario.repositorio.RepositorioUsuario
 
@@ -9,10 +9,14 @@ class ServicioUsuario(var repositorioUsuario: RepositorioUsuario, var usuario: U
     fun guardar(usuario: Usuario) {
         if (!repositorioUsuario.usuarioExiste(usuario)) {
             repositorioUsuario.guardarUsuario(usuario) // debo guardar la hora tambien
+        } else {
+            throw UsuarioNoExisteExcepcion()
         }
+
     }
 
     fun eliminar(usuario: Usuario) {
+
         if (repositorioUsuario.usuarioExiste(usuario)) {
             repositorioUsuario.eliminarUsuario(usuario)
         } else {
