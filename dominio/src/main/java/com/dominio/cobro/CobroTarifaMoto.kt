@@ -1,12 +1,10 @@
 package com.dominio.cobro
 
 import com.dominio.excepciones.TipoDeUsuarioNoAdmitidoExcepcion
-import com.dominio.usuario.modelo.Usuario
 import com.dominio.usuario.modelo.UsuarioMoto
-import com.dominio.usuario.repositorio.RepositorioUsuario
 import com.dominio.usuario.servicio.ServicioUsuario
 
-class CobroTarifaMoto:CobroTarifa() {
+class CobroTarifaMoto: CobroTarifa() {
     override val valorHora = 1000
     override val valorDia = 8000
 

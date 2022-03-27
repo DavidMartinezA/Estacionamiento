@@ -5,7 +5,7 @@ import com.dominio.usuario.modelo.Usuario
 import com.dominio.usuario.modelo.UsuarioCarro
 import com.dominio.usuario.modelo.UsuarioMoto
 
-class Estacionamiento() {
+open class Estacionamiento() {
 
     companion object {
 
@@ -14,7 +14,7 @@ class Estacionamiento() {
         const val RESTRICCION_INGRESO_LETRA_INICIAL_PLACA = 'A'
     }
 
-    var capacidaDelParqueadero: Boolean = false
+    private var capacidaDelParqueadero: Boolean = false
     private val diasPermitidos = arrayListOf(7, 1)
 
     fun consultarCapacidad(usuario: Usuario, listaUsuarios: List<Usuario>): Boolean {
