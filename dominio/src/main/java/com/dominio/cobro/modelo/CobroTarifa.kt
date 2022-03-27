@@ -1,22 +1,23 @@
-package com.dominio.cobro
+package com.dominio.cobro.modelo
 
-import com.dominio.usuario.servicio.ServicioUsuario
+import com.dominio.usuario.modelo.Usuario
 
 abstract class CobroTarifa {
 
-    companion object{
-        const val HORAS_EN_EL_DIA= 24
+    companion object {
+        const val HORAS_EN_EL_DIA = 24
     }
+
     protected abstract val valorHora: Int
     protected abstract val valorDia: Int
     private var tarifaParqueoTotal = 0
 
-    open fun cobroTarifa(duracionServicioEstacionamiento:Int,servicioUsuario: ServicioUsuario): Int {
+    open fun cobroTarifa(duracionServicioEstacionamiento: Int, usuario: Usuario): Int {
 
-        var horasCobro= 0
-        var diasEnHoras = 0
+        var horasCobro: Int
+        val diasEnHoras: Int
         val calculoCobro = (duracionServicioEstacionamiento / HORAS_EN_EL_DIA).toString()
-        var diasCobro = 0
+        var diasCobro: Int
 
         if (duracionServicioEstacionamiento > 0) {
             when (duracionServicioEstacionamiento) {

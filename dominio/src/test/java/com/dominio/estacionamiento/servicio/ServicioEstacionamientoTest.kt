@@ -1,9 +1,5 @@
 package com.dominio.estacionamiento.servicio
 
-import org.junit.Assert.*
-
-import org.junit.Test
-
 class ServicioEstacionamientoTest {
 
 

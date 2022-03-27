@@ -1,6 +1,7 @@
-package com.dominio.cobro
+package com.dominio.cobro.modelo
 
 import com.dominio.excepciones.TipoDeUsuarioNoAdmitidoExcepcion
+import com.dominio.usuario.modelo.Usuario
 import com.dominio.usuario.modelo.UsuarioMoto
 import com.dominio.usuario.servicio.ServicioUsuario
 
@@ -13,10 +14,10 @@ class CobroTarifaMoto: CobroTarifa() {
         private const val COBRO_ADICIONAL_ALTO_CILINDRAJE = 2000
     }
 
-    override fun cobroTarifa(duracionServicioEstacionamiento: Int, servicioUsuario: ServicioUsuario): Int {
-        var tarifaParqueoTotal = super.cobroTarifa(duracionServicioEstacionamiento, servicioUsuario)
+    public override fun cobroTarifa(duracionServicioEstacionamiento: Int, usuario: Usuario): Int {
+        var tarifaParqueoTotal = super.cobroTarifa(duracionServicioEstacionamiento, usuario)
 
-        if ((servicioUsuario.usuario as? UsuarioMoto)?.cilindrajeAlto == true) {
+        if ((usuario as? UsuarioMoto)?.cilindrajeAlto == true) {
             tarifaParqueoTotal += COBRO_ADICIONAL_ALTO_CILINDRAJE
         }else{
             throw  TipoDeUsuarioNoAdmitidoExcepcion()

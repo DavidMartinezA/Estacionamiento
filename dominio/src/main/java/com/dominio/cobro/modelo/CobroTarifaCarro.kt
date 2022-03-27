@@ -1,4 +1,4 @@
-package com.dominio.cobro
+package com.dominio.cobro.modelo
 
 class CobroTarifaCarro: CobroTarifa() {
 

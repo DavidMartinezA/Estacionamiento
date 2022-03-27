@@ -1,9 +1,10 @@
 package com.dominio.estacionamiento.servicio
 
-import com.dominio.cobro.CobroTarifaCarro
-import com.dominio.cobro.CobroTarifaMoto
+import com.dominio.cobro.modelo.CobroTarifaCarro
+import com.dominio.cobro.modelo.CobroTarifaMoto
 import com.dominio.estacionamiento.modelo.Estacionamiento
 import com.dominio.excepciones.IngresoNoPermitidoRestriccionExcepcion
+import com.dominio.usuario.modelo.Usuario
 import com.dominio.usuario.modelo.UsuarioMoto
 import com.dominio.usuario.servicio.ServicioUsuario
 import java.time.LocalDateTime
@@ -27,18 +28,20 @@ class ServicioEstacionamiento: Estacionamiento() {
         }
     }
 
-    fun salidaDeUsuariosEstacionamiento(servicioUsuario: ServicioUsuario,
+
+    fun salidaDeUsuariosEstacionamiento(usuario: Usuario,
                                         cobroTarifaMoto: CobroTarifaMoto,
-                                        cobroTarifaCarro: CobroTarifaCarro): Int {
+                                        cobroTarifaCarro: CobroTarifaCarro
+    ): Int {
         val fechaSalida = LocalDateTime.now().toLocalDate()
-        val registroIngreso= servicioUsuario.usuario.fechaIngreso
+        val registroIngreso= usuario.fechaIngreso
         val duracionServicioEstacionamiento= 8//Todo operacion para calcular las horas entre dos fechas
 
-        if (servicioUsuario.usuario is UsuarioMoto){
-            cobroTarifa = CobroTarifaMoto().cobroTarifa(duracionServicioEstacionamiento,servicioUsuario)
+        cobroTarifa = if (usuario is UsuarioMoto){
+            CobroTarifaMoto().cobroTarifa(duracionServicioEstacionamiento,usuario)
+        }else{
+            CobroTarifaCarro().cobroTarifa(duracionServicioEstacionamiento,usuario)
         }
-
         return cobroTarifa
-
     }
 }
