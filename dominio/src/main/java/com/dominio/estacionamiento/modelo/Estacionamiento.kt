@@ -1,19 +1,39 @@
 package com.dominio.estacionamiento.modelo
 
+import com.dominio.Excepciones.TipoDeUsuarioNoAdmitidoExcepcion
 import com.dominio.usuario.modelo.Usuario
+import com.dominio.usuario.modelo.UsuarioCarro
+import com.dominio.usuario.modelo.UsuarioMoto
 
-abstract class Estacionamiento (){
+class Estacionamiento (){
 
     companion object{
 
+        const val CAPACIDAD_ESTACIONAMIENTO_CARROS = 20
+        const val CAPACIDAD_ESTACIONAMIENTO_MOTOS = 10
         const val RESTRICCION_INGRESO_LETRA_INICIAL_PLACA = 'A'
     }
 
-    protected abstract val capacidaDelParqueadero :Int
+    private var capacidaDelParqueadero :Int = 0
     private val diasPermitidos = arrayListOf(7, 1)
 
-    fun restriccionDeIngreso(usuario: Usuario, diaDeLaSemana: Int):Boolean{
+    fun consultarCapacidad(usuario: Usuario): Int{
 
+        capacidaDelParqueadero = when(usuario){
+            is UsuarioCarro->{
+                CAPACIDAD_ESTACIONAMIENTO_CARROS
+            }
+            is UsuarioMoto->{
+                CAPACIDAD_ESTACIONAMIENTO_MOTOS
+            }
+            else->{
+                throw TipoDeUsuarioNoAdmitidoExcepcion()
+            }
+        }
+        return capacidaDelParqueadero
+    }
+
+    fun restriccionDeIngreso(usuario: Usuario, diaDeLaSemana: Int):Boolean{
 
         var restringido = false
         if (usuario.placaVehiculo.uppercase().first() == RESTRICCION_INGRESO_LETRA_INICIAL_PLACA) {
