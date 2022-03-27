@@ -1,4 +1,4 @@
-package com.example.domain.usuario.modelo
+package com.dominio.usuario.modelo
 
 import org.junit.Test
 

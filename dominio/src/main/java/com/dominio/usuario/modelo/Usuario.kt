@@ -1,6 +1,6 @@
-package com.example.domain.usuario.modelo
+package com.dominio.usuario.modelo
 
-import com.example.domain.usuario.Excepciones.FormatoPlacaExcepcion
+import com.dominio.usuario.Excepciones.FormatoPlacaExcepcion
 
 abstract class Usuario(val placaVehiculo: String) {
 
