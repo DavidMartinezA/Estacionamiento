@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Estacionamiento">
         <activity
-            android:name="com.example.dominio.estacionamiento.MainActivity"
+            android:name="com.example.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
