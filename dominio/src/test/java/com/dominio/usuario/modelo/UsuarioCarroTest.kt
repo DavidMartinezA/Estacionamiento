@@ -1,6 +1,6 @@
 package com.dominio.usuario.modelo
 
-import com.dominio.Excepciones.FormatoPlacaExcepcion
+import com.dominio.excepciones.FormatoPlacaExcepcion
 import org.junit.Assert
 import org.junit.Test
 

@@ -1,6 +1,6 @@
 package com.dominio.usuario.servicio
 
-import com.dominio.Excepciones.UsuarioNoExisteExcepcion
+import com.dominio.excepciones.UsuarioNoExisteExcepcion
 import com.dominio.usuario.modelo.Usuario
 import com.dominio.usuario.repositorio.RepositorioUsuario
 

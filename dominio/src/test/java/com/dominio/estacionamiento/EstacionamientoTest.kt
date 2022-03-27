@@ -68,4 +68,9 @@ class EstacionamientoTest {
         //Assert
         assert(!restringido)
     }
+    //TODO crear test
+    fun consultarCapacidad_CapacidadCorrectaCarros_CapacidadTrue(){}
+    fun consultarCapacidad_CapacidadCorrectaMotos_CapacidadTrue(){}
+    fun consultarCapacidad_CapacidadIncorrectaCarros_CapacidadFalse(){}
+    fun consultarCapacidad_CapacidadIncorrectaMotos_CapacidadFalse(){}
 }
