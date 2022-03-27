@@ -1,7 +1,9 @@
-package com.example.estacionamiento
+package com.example
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.example.estacionamiento.R
+
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
