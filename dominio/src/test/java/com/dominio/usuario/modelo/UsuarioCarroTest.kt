@@ -89,7 +89,7 @@ class UsuarioCarroTest {
         //Act
         try {
 
-            val usuarioCarroTest = UsuarioCarro("AVC531C")
+            val usuarioCarroTest = UsuarioCarro("HSU-531C")
             Assert.fail()
         } catch (ex: FormatoPlacaExcepcion) {
 
