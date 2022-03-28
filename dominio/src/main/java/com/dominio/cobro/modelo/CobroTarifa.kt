@@ -22,7 +22,7 @@ abstract class CobroTarifa {
         if (duracionServicioEstacionamiento > 0) {
             when (duracionServicioEstacionamiento) {
                 in 0..8 -> {
-                    tarifaParqueoTotal = duracionServicioEstacionamiento * valorHora
+                    tarifaParqueoTotal = (duracionServicioEstacionamiento * valorHora)
                 }
                 in 9..24 -> {
                     tarifaParqueoTotal = valorDia

@@ -4,7 +4,6 @@ import com.dominio.excepciones.TipoDeUsuarioNoAdmitidoExcepcion
 import com.dominio.usuario.modelo.Usuario
 import com.dominio.usuario.modelo.UsuarioCarro
 import com.dominio.usuario.modelo.UsuarioMoto
-import com.dominio.usuario.servicio.ServicioUsuario
 
 open class Estacionamiento() {
 

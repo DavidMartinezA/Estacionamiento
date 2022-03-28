@@ -1,8 +1,8 @@
-package com.dominio.usuario.repositorio
+package com.dominio.estacionamiento.repositorio
 
 import com.dominio.usuario.modelo.Usuario
 
-interface RepositorioUsuario {
+interface RepositorioEstacionamiento {
 
     fun usuarioExiste(usuario: Usuario): Boolean
 
