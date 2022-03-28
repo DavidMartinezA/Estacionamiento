@@ -1,7 +1,6 @@
 package com.dominio.estacionamiento.servicio
 
 import com.dominio.excepciones.FormatoPlacaExcepcion
-import com.dominio.usuario.modelo.Usuario
 import com.dominio.usuario.modelo.UsuarioCarro
 import com.dominio.usuario.modelo.UsuarioMoto
 import com.dominio.usuario.repositorio.RepositorioUsuario
@@ -17,7 +16,7 @@ import org.mockito.junit.MockitoJUnitRunner
 class ServicioEstacionamientoTest {
 
     @Mock
-    private lateinit var mockrRepositorioUsuario: RepositorioUsuario
+    private lateinit var mockRepositorioUsuario: RepositorioUsuario
 
     @Before
     fun before() {
@@ -27,25 +26,34 @@ class ServicioEstacionamientoTest {
     @Test
     fun ingresoUsuarioEstacionamiento_ParametrosCorrectos_UsuarioGuardado() {
 
+        //Arrange
         val usuarioCarroTest = UsuarioCarro("hsu531")
-        val listaUsuarios = ArrayList<Usuario>()
-        listaUsuarios.add(usuarioCarroTest)
-        mockrRepositorioUsuario.guardarUsuario(usuarioCarroTest)
 
+        //Act
+        try {
+
+            mockRepositorioUsuario.guardarUsuario(usuarioCarroTest)
+
+        } catch (ex: FormatoPlacaExcepcion) {
+            //Assert
+            Assert.assertEquals(usuarioCarroTest, ex.message)
+        }
+
+        //Assert
+        Assert.assertNotNull(mockRepositorioUsuario)
     }
 
     @Test
     fun ingresoUsuarioEstacionamiento_ParametrosVacios_LanzarExcepcion() {
 
+        //Arrange
         val mensajeEsperado = "Formato De Placa No Valido"
-        val listaUsuarios = ArrayList<Usuario>()
+        val usuarioMotoTest = UsuarioMoto("", true)
 
+        //Act
         try {
 
-            val usuarioMotoTest = UsuarioMoto("", true)
-            listaUsuarios.add(usuarioMotoTest)
-
-            mockrRepositorioUsuario.guardarUsuario(usuarioMotoTest)
+            mockRepositorioUsuario.guardarUsuario(usuarioMotoTest)
             Assert.fail()
         } catch (ex: FormatoPlacaExcepcion) {
 

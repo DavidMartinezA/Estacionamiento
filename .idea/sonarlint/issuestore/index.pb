@@ -11,7 +11,15 @@ p
 @dominio/src/main/java/com/dominio/usuario/modelo/UsuarioCarro.kt,5/4/544031efcf363019d5f84321edc47d69fe860f8d
 
 Odominio/src/test/java/com/dominio/estacionamiento/modelo/EstacionamientoTest.kt,c/f/cfe661377d7174c09b0b1951c7a2ff21871f33a7
-u
-Edominio/src/main/java/com/dominio/usuario/servicio/ServicioUsuario.kt,3/6/36f6d1a8566f871f9af871ceaadf519c73d05eab
 r
 Bdominio/src/main/java/com/dominio/cobro/modelo/CobroTarifaCarro.kt,d/2/d22512cf7411594b3d0d699b35feb2392366c6b8
+x
+Hdominio/src/test/java/com/dominio/usuario/servico/ServicioUsuarioTest.kt,4/4/4437f8164a29fc47406354a0f9d84175cb3cfda0
+‡
+Wdominio/src/main/java/com/dominio/excepciones/IngresoNoPermitidoRestriccionExcepcion.kt,4/6/46bd952a342160f4fc4fc2d2945413466cc83a38
+o
+?dominio/src/test/java/com/dominio/cobro/CobroTarifaCarroTest.kt,c/5/c5052ea1b5130acac1b402b27d123e54e003f1ea
+n
+>dominio/src/test/java/com/dominio/cobro/CobroTarifaMotoTest.kt,7/e/7e8dc1e31fdfa63ca77977b63a4795cf758f2b84
+q
+Adominio/src/main/java/com/dominio/cobro/modelo/CobroTarifaMoto.kt,5/a/5ab61e4154857114f2f0e6c22be5dcd1cf4ffc15
