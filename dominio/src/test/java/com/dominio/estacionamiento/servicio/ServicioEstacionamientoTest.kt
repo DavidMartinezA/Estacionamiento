@@ -48,13 +48,14 @@ class ServicioEstacionamientoTest {
 
         //Arrange
         val mensajeEsperado = "Formato De Placa No Valido"
-        val usuarioMotoTest = UsuarioMoto("", true)
+
 
         //Act
         try {
 
+            val usuarioMotoTest = UsuarioMoto("", true)
             mockRepositorioUsuario.guardarUsuario(usuarioMotoTest)
-            Assert.fail()
+
         } catch (ex: FormatoPlacaExcepcion) {
 
             //Assert
