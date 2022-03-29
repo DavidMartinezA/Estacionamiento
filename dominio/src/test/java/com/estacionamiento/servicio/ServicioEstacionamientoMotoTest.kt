@@ -3,8 +3,7 @@ package com.estacionamiento.servicio
 import com.estacionamiento.repositorio.RepositorioEstacionamiento
 import com.excepciones.FormatoPlacaExcepcion
 import com.excepciones.UsuarioNoExisteExcepcion
-
-import com.usuario.modelo.UsuarioVehiculoCarro
+import com.usuario.modelo.UsuarioVehiculoMoto
 import org.junit.Assert
 import org.junit.Before
 import org.junit.Test
@@ -15,7 +14,7 @@ import org.mockito.junit.MockitoJUnitRunner
 
 
 @RunWith(MockitoJUnitRunner::class)
-class ServicioEstacionamientoTest {
+class ServicioEstacionamientoMotoTest {
 
     @Mock
     private lateinit var repositorioEstacionamiento: RepositorioEstacionamiento
@@ -33,10 +32,10 @@ class ServicioEstacionamientoTest {
 
         //Act
         try {
-            val usuarioCarro = UsuarioVehiculoCarro("")
+            val usuarioMoto = UsuarioVehiculoMoto("")
             val servicioEstacionamiento =
-                ServicioEstacionamiento(usuarioCarro, repositorioEstacionamiento)
-            servicioEstacionamiento.salidaDeUsuariosEstacionamiento(usuarioCarro)
+                ServicioEstacionamientoMoto(usuarioMoto, repositorioEstacionamiento)
+            servicioEstacionamiento.salidaDeUsuariosEstacionamiento(usuarioMoto)
 
         } catch (ex: FormatoPlacaExcepcion) {
             //Assert
@@ -50,14 +49,14 @@ class ServicioEstacionamientoTest {
 
         //Arrange
         val mensajeEsperado = "UsuarioVehiculo No Existe"
-        val usuarioCarro = UsuarioVehiculoCarro("hsu531")
+        val usuarioMoto = UsuarioVehiculoMoto("hsu531")
 
         val servicioEstacionamiento =
-            ServicioEstacionamiento(usuarioCarro, repositorioEstacionamiento)
+            ServicioEstacionamientoMoto(usuarioMoto, repositorioEstacionamiento)
 
         //Act
         try {
-            servicioEstacionamiento.salidaDeUsuariosEstacionamiento(usuarioCarro)
+            servicioEstacionamiento.salidaDeUsuariosEstacionamiento(usuarioMoto)
 
         } catch (ex: UsuarioNoExisteExcepcion) {
             //Assert
