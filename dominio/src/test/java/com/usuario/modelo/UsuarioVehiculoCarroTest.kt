@@ -1,7 +1,6 @@
-package com.usuario
+package com.usuario.modelo
 
 import com.excepciones.FormatoPlacaExcepcion
-import com.usuario.modelo.UsuarioVehiculoCarro
 import org.junit.Assert
 import org.junit.Test
 

@@ -1,6 +1,5 @@
-package com.usuario
+package com.usuario.modelo
 
-import com.usuario.modelo.UsuarioVehiculoMoto
 import org.junit.Test
 
 class UsuarioVehiculoMotoTest {

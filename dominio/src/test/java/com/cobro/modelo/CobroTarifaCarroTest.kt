@@ -1,6 +1,5 @@
-package com.cobro
+package com.cobro.modelo
 
-import com.cobro.modelo.CobroTarifaCarro
 import com.usuario.modelo.UsuarioVehiculoCarro
 import org.junit.Test
 
