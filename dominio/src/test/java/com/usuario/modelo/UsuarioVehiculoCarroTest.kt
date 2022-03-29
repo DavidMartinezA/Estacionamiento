@@ -193,11 +193,8 @@ class UsuarioVehiculoCarroTest {
     @Test
     fun usuarioCarroPlaca_FormatoAlfanumericoCorrectoLetraMinusculaYMayuscula_PalacaValida() {
 
-        //Arrange
-        val usuarioCarroTest: UsuarioVehiculoCarro
-
         //Act
-        usuarioCarroTest = UsuarioVehiculoCarro("hSu531")
+        val usuarioCarroTest: UsuarioVehiculoCarro = UsuarioVehiculoCarro("hSu531")
 
         //Assert
         Assert.assertNotNull(usuarioCarroTest)
@@ -206,9 +203,6 @@ class UsuarioVehiculoCarroTest {
 
     @Test
     fun usuarioCarroPlaca_FormatoAlfanumericoCorrectoLetraMinusculaConSeparadorGuion_PalacaValida() {
-
-        //Arrange
-        val mensajeEsperado = "Formato De Placa No Valido"
 
         //Act
         val usuarioCarroTest = UsuarioVehiculoCarro("hsu-531")
@@ -220,9 +214,6 @@ class UsuarioVehiculoCarroTest {
 
     @Test
     fun usuarioCarroPlaca_FormatoAlfanumericoCorrectoLetraMayusculaConSeparador_PalacaValida() {
-
-        //Arrange
-        val mensajeEsperado = "Formato De Placa No Valido"
 
         //Act
         val usuarioCarroTest = UsuarioVehiculoCarro("HSU-531")
