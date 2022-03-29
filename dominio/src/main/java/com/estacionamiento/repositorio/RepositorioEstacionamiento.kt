@@ -1,14 +1,14 @@
 package com.estacionamiento.repositorio
 
-import com.usuario.Usuario
+import com.usuario.modelo.UsuarioVehiculo
 
 interface RepositorioEstacionamiento {
 
-    fun usuarioExiste(usuario: Usuario): Boolean
+    fun usuarioExiste(usuarioVehiculo: UsuarioVehiculo): Boolean
 
-    fun guardarUsuario(usuario: Usuario)
+    fun guardarUsuario(usuarioVehiculo: UsuarioVehiculo)
 
-    fun eliminarUsuario(usuario: Usuario)
+    fun eliminarUsuario(usuarioVehiculo: UsuarioVehiculo)
 
-    fun listaUsuarios(): ArrayList<Usuario>
+    fun listaUsuarios(): ArrayList<UsuarioVehiculo>
 }

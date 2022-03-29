@@ -6,56 +6,55 @@ import com.estacionamiento.modelo.Estacionamiento
 import com.estacionamiento.repositorio.RepositorioEstacionamiento
 import com.excepciones.IngresoNoPermitidoRestriccionExcepcion
 import com.excepciones.UsuarioNoExisteExcepcion
-import com.usuario.Usuario
-import com.usuario.UsuarioMoto
+import com.usuario.modelo.UsuarioVehiculo
+import com.usuario.modelo.UsuarioVehiculoMoto
 import java.time.Duration
 import java.time.LocalDateTime
 import kotlin.math.ceil
 
 class ServicioEstacionamiento(
-    var usuario: Usuario,
-    var repositorioEstacionamiento: RepositorioEstacionamiento,
-) : Estacionamiento() {
+    var usuarioVehiculo: UsuarioVehiculo,
+    private val repositorioEstacionamiento: RepositorioEstacionamiento,
+) {
 
     fun ingresoUsuarioEstacionamiento() {
 
+        val estacionamiento = Estacionamiento()
         val diaDeLaSemana = LocalDateTime.now().dayOfWeek.value
-        val capacidad = if (repositorioEstacionamiento.usuarioExiste(usuario)) {
-            Estacionamiento().consultarCapacidad(usuario,
+        val capacidad = if (repositorioEstacionamiento.usuarioExiste(usuarioVehiculo)) {
+            estacionamiento.consultarCapacidad(usuarioVehiculo,
                 repositorioEstacionamiento.listaUsuarios())
         } else {
             false
         }
-        val restriccion =
-            Estacionamiento().restriccionDeIngreso(usuario, diaDeLaSemana)
 
-        if (capacidad && !restriccion) {
-            usuario.fechaIngreso = LocalDateTime.now().toLocalDate()
-            repositorioEstacionamiento.guardarUsuario(usuario)
+        if (capacidad && !estacionamiento.restriccionDeIngreso(usuarioVehiculo, diaDeLaSemana)) {
+            usuarioVehiculo.fechaIngreso = LocalDateTime.now().toLocalDate()
+            repositorioEstacionamiento.guardarUsuario(usuarioVehiculo)
         } else {
             throw IngresoNoPermitidoRestriccionExcepcion()
         }
     }
 
-    fun salidaDeUsuariosEstacionamiento(usuario: Usuario): Int {
+    fun salidaDeUsuariosEstacionamiento(usuarioVehiculo: UsuarioVehiculo): Int {
 
         val cobroTarifa: Int
         val fechaSalida = LocalDateTime.now().toLocalDate()
-        if (repositorioEstacionamiento.usuarioExiste(usuario)) {
+        if (repositorioEstacionamiento.usuarioExiste(usuarioVehiculo)) {
 
-            val registroIngreso = usuario.fechaIngreso
             val duracionServicioEstacionamiento =
-                ceil(Duration.between(registroIngreso, fechaSalida).toHours().toString()
+                ceil(Duration.between(usuarioVehiculo.fechaIngreso, fechaSalida).toHours()
+                    .toString()
                     .toDouble()).toInt()
 
-            if (usuario is UsuarioMoto) {
+            if (usuarioVehiculo is UsuarioVehiculoMoto) {
                 cobroTarifa =
-                    CobroTarifaMoto().cobroTarifa(duracionServicioEstacionamiento, usuario)
-                repositorioEstacionamiento.eliminarUsuario(usuario)
+                    CobroTarifaMoto().cobroTarifa(duracionServicioEstacionamiento, usuarioVehiculo)
+                repositorioEstacionamiento.eliminarUsuario(usuarioVehiculo)
             } else {
                 cobroTarifa =
-                    CobroTarifaCarro().cobroTarifa(duracionServicioEstacionamiento, usuario)
-                repositorioEstacionamiento.eliminarUsuario(usuario)
+                    CobroTarifaCarro().cobroTarifa(duracionServicioEstacionamiento, usuarioVehiculo)
+                repositorioEstacionamiento.eliminarUsuario(usuarioVehiculo)
             }
         } else {
             throw UsuarioNoExisteExcepcion()

@@ -1,7 +1,7 @@
 package com.cobro
 
 import com.cobro.modelo.CobroTarifaMoto
-import com.usuario.UsuarioMoto
+import com.usuario.modelo.UsuarioVehiculoMoto
 import org.junit.Test
 
 class CobroTarifaMotoTest {
@@ -10,7 +10,7 @@ class CobroTarifaMotoTest {
 
         //Arrange
         val cobro = CobroTarifaMoto()
-        val usuario = UsuarioMoto("hsu531", true)
+        val usuario = UsuarioVehiculoMoto("hsu531", true)
         val duracionServicio = 10
         //Act
         val tarifa = cobro.cobroTarifa(duracionServicio, usuario)
@@ -23,7 +23,7 @@ class CobroTarifaMotoTest {
 
         //Arrange
         val cobro = CobroTarifaMoto()
-        val usuario = UsuarioMoto("hsu531", false)
+        val usuario = UsuarioVehiculoMoto("hsu531", false)
         val duracionServicio = 10
         //Act
         val tarifa = cobro.cobroTarifa(duracionServicio, usuario)
@@ -36,7 +36,7 @@ class CobroTarifaMotoTest {
 
         //Arrange
         val cobro = CobroTarifaMoto()
-        val usuario = UsuarioMoto("hsu531")
+        val usuario = UsuarioVehiculoMoto("hsu531")
         val duracionServicio = -10
         //Act
         val tarifa = cobro.cobroTarifa(duracionServicio, usuario)
@@ -49,7 +49,7 @@ class CobroTarifaMotoTest {
 
         //Arrange
         val cobro = CobroTarifaMoto()
-        val usuario = UsuarioMoto("hsu531", true)
+        val usuario = UsuarioVehiculoMoto("hsu531", true)
         val duracionServicio = -10
         //Act
         val tarifa = cobro.cobroTarifa(duracionServicio, usuario)
@@ -63,7 +63,7 @@ class CobroTarifaMotoTest {
 
         //Arrange
         val cobro = CobroTarifaMoto()
-        val usuario = UsuarioMoto("hsu531", true)
+        val usuario = UsuarioVehiculoMoto("hsu531", true)
         val duracionServicio = 6
         //Act
         val tarifa = cobro.cobroTarifa(duracionServicio, usuario)
@@ -76,7 +76,7 @@ class CobroTarifaMotoTest {
 
         //Arrange
         val cobro = CobroTarifaMoto()
-        val usuario = UsuarioMoto("hsu531", false)
+        val usuario = UsuarioVehiculoMoto("hsu531", false)
         val duracionServicio = 6
         //Act
         val tarifa = cobro.cobroTarifa(duracionServicio, usuario)
@@ -90,7 +90,7 @@ class CobroTarifaMotoTest {
 
         //Arrange
         val cobro = CobroTarifaMoto()
-        val usuario = UsuarioMoto("hsu531", true)
+        val usuario = UsuarioVehiculoMoto("hsu531", true)
         val duracionServicio = 48
         //Act
         val tarifa = cobro.cobroTarifa(duracionServicio, usuario)
@@ -103,7 +103,7 @@ class CobroTarifaMotoTest {
 
         //Arrange
         val cobro = CobroTarifaMoto()
-        val usuario = UsuarioMoto("hsu531", false)
+        val usuario = UsuarioVehiculoMoto("hsu531", false)
         val duracionServicio = 48
         //Act
         val tarifa = cobro.cobroTarifa(duracionServicio, usuario)
@@ -117,7 +117,7 @@ class CobroTarifaMotoTest {
 
         //Arrange
         val cobro = CobroTarifaMoto()
-        val usuario = UsuarioMoto("hsu531", false)
+        val usuario = UsuarioVehiculoMoto("hsu531", false)
         val duracionServicio = 9
         //Act
         val tarifa = cobro.cobroTarifa(duracionServicio, usuario)
@@ -130,7 +130,7 @@ class CobroTarifaMotoTest {
 
         //Arrange
         val cobro = CobroTarifaMoto()
-        val usuario = UsuarioMoto("hsu531", false)
+        val usuario = UsuarioVehiculoMoto("hsu531", false)
         val duracionServicio = 2376
         //Act
         val tarifa = cobro.cobroTarifa(duracionServicio, usuario)
@@ -143,7 +143,7 @@ class CobroTarifaMotoTest {
 
         //Arrange
         val cobro = CobroTarifaMoto()
-        val usuario = UsuarioMoto("hsu531", true)
+        val usuario = UsuarioVehiculoMoto("hsu531", true)
         val duracionServicio = 2376
         //Act
         val tarifa = cobro.cobroTarifa(duracionServicio, usuario)

@@ -1,10 +1,11 @@
 package com.usuario
 
 import com.excepciones.FormatoPlacaExcepcion
+import com.usuario.modelo.UsuarioVehiculoCarro
 import org.junit.Assert
 import org.junit.Test
 
-class UsuarioCarroTest {
+class UsuarioVehiculoCarroTest {
 
     @Test
     fun usuarioCarroPlaca_SoloNumeros_LanzarExcepcion() {
@@ -16,7 +17,7 @@ class UsuarioCarroTest {
         //Act
         try {
 
-            val usuarioCarroTest = UsuarioCarro(placa)
+            val usuarioCarroTest = UsuarioVehiculoCarro(placa)
             Assert.fail()
         } catch (placaExcepcion: FormatoPlacaExcepcion) {
 
@@ -35,7 +36,7 @@ class UsuarioCarroTest {
             //Act
         try {
 
-            val usuarioCarroTest = UsuarioCarro(placa)
+            val usuarioCarroTest = UsuarioVehiculoCarro(placa)
             Assert.fail()
         } catch (ex: FormatoPlacaExcepcion) {
 
@@ -53,7 +54,7 @@ class UsuarioCarroTest {
         //Act
         try {
 
-            val usuarioCarroTest = UsuarioCarro(placa)
+            val usuarioCarroTest = UsuarioVehiculoCarro(placa)
             Assert.fail()
         } catch (ex: FormatoPlacaExcepcion) {
 
@@ -71,7 +72,7 @@ class UsuarioCarroTest {
         //Act
         try {
 
-            val usuarioCarroTest = UsuarioCarro("AbCdEf")
+            val usuarioCarroTest = UsuarioVehiculoCarro("AbCdEf")
             Assert.fail()
         } catch (ex: FormatoPlacaExcepcion) {
 
@@ -89,7 +90,7 @@ class UsuarioCarroTest {
         //Act
         try {
 
-            val usuarioCarroTest = UsuarioCarro("HSU-531C")
+            val usuarioCarroTest = UsuarioVehiculoCarro("HSU-531C")
             Assert.fail()
         } catch (ex: FormatoPlacaExcepcion) {
 
@@ -107,7 +108,7 @@ class UsuarioCarroTest {
         //Act
         try {
 
-            val usuarioCarroTest = UsuarioCarro("AVC1")
+            val usuarioCarroTest = UsuarioVehiculoCarro("AVC1")
             Assert.fail()
         } catch (ex: FormatoPlacaExcepcion) {
 
@@ -125,7 +126,7 @@ class UsuarioCarroTest {
         //Act
         try {
 
-            val usuarioCarroTest = UsuarioCarro("HSUCTU")
+            val usuarioCarroTest = UsuarioVehiculoCarro("HSUCTU")
             Assert.fail()
         } catch (ex: FormatoPlacaExcepcion) {
 
@@ -143,7 +144,7 @@ class UsuarioCarroTest {
         //Act
         try {
 
-            val usuarioCarroTest = UsuarioCarro("abcdef")
+            val usuarioCarroTest = UsuarioVehiculoCarro("abcdef")
             Assert.fail()
         } catch (ex: FormatoPlacaExcepcion) {
 
@@ -161,7 +162,7 @@ class UsuarioCarroTest {
         //Act
         try {
 
-            val usuarioCarroTest = UsuarioCarro("ab*c531")
+            val usuarioCarroTest = UsuarioVehiculoCarro("ab*c531")
             Assert.fail()
         } catch (ex: FormatoPlacaExcepcion) {
 
@@ -180,7 +181,7 @@ class UsuarioCarroTest {
         //Act
         try {
 
-            val usuarioCarroTest = UsuarioCarro("abc*531")
+            val usuarioCarroTest = UsuarioVehiculoCarro("abc*531")
             Assert.fail()
         } catch (ex: FormatoPlacaExcepcion) {
 
@@ -194,10 +195,10 @@ class UsuarioCarroTest {
     fun usuarioCarroPlaca_FormatoAlfanumericoCorrectoLetraMinusculaYMayuscula_PalacaValida() {
 
         //Arrange
-        val usuarioCarroTest: UsuarioCarro
+        val usuarioCarroTest: UsuarioVehiculoCarro
 
         //Act
-        usuarioCarroTest = UsuarioCarro("hSu531")
+        usuarioCarroTest = UsuarioVehiculoCarro("hSu531")
 
         //Assert
         Assert.assertNotNull(usuarioCarroTest)
@@ -211,7 +212,7 @@ class UsuarioCarroTest {
         val mensajeEsperado = "Formato De Placa No Valido"
 
         //Act
-        val usuarioCarroTest = UsuarioCarro("hsu-531")
+        val usuarioCarroTest = UsuarioVehiculoCarro("hsu-531")
 
         //Assert
         Assert.assertNotNull(usuarioCarroTest)
@@ -225,7 +226,7 @@ class UsuarioCarroTest {
         val mensajeEsperado = "Formato De Placa No Valido"
 
         //Act
-        val usuarioCarroTest = UsuarioCarro("HSU-531")
+        val usuarioCarroTest = UsuarioVehiculoCarro("HSU-531")
 
         //Assert
         Assert.assertNotNull(usuarioCarroTest)

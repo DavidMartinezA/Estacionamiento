@@ -1,8 +1,9 @@
 package com.usuario
 
+import com.usuario.modelo.UsuarioVehiculoMoto
 import org.junit.Test
 
-class UsuarioMotoTest {
+class UsuarioVehiculoMotoTest {
 
     @Test
     fun usuarioMotoPlaca_FormatoAlfanumericoCorrectoMotoCincoCamposAltoCilindrajeFalso_CilindrajeAltoFalse() {
@@ -12,7 +13,7 @@ class UsuarioMotoTest {
         val altoCilindraje = false
 
         //Act
-        val usuarioMotoTest= UsuarioMoto(placa, altoCilindraje)
+        val usuarioMotoTest = UsuarioVehiculoMoto(placa, altoCilindraje)
 
         //Assert
         assert(!usuarioMotoTest.cilindrajeAlto)
@@ -27,7 +28,7 @@ class UsuarioMotoTest {
         val altoCilindraje = true
 
         //Act
-        val usuarioMotoTest= UsuarioMoto(placa, altoCilindraje)
+        val usuarioMotoTest = UsuarioVehiculoMoto(placa, altoCilindraje)
 
         //Assert
         assert(usuarioMotoTest.cilindrajeAlto)
@@ -42,7 +43,7 @@ class UsuarioMotoTest {
         val altoCilindraje = true
 
         //Act
-        val usuarioMotoTest= UsuarioMoto(placa, altoCilindraje)
+        val usuarioMotoTest = UsuarioVehiculoMoto(placa, altoCilindraje)
 
         //Assert
         assert(usuarioMotoTest.cilindrajeAlto)
@@ -56,7 +57,7 @@ class UsuarioMotoTest {
         val placa = "hSu-53c"
 
         //Act
-        val usuarioMotoTest= UsuarioMoto(placa)
+        val usuarioMotoTest = UsuarioVehiculoMoto(placa)
 
         //Assert
         assert(!usuarioMotoTest.cilindrajeAlto)

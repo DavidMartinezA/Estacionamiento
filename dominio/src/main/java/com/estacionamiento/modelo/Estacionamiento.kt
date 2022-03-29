@@ -1,11 +1,11 @@
 package com.estacionamiento.modelo
 
 import com.excepciones.TipoDeUsuarioNoAdmitidoExcepcion
-import com.usuario.Usuario
-import com.usuario.UsuarioCarro
-import com.usuario.UsuarioMoto
+import com.usuario.modelo.UsuarioVehiculo
+import com.usuario.modelo.UsuarioVehiculoCarro
+import com.usuario.modelo.UsuarioVehiculoMoto
 
-open class Estacionamiento() {
+class Estacionamiento() {
 
     companion object {
 
@@ -17,16 +17,19 @@ open class Estacionamiento() {
     private var capacidaDelParqueadero: Boolean = false
     private val diasPermitidos = arrayListOf(7, 1)
 
-    fun consultarCapacidad(usuario: Usuario, listaUsuarios: List<Usuario>): Boolean {
+    fun consultarCapacidad(
+        usuarioVehiculo: UsuarioVehiculo,
+        listaUsuarioVehiculos: List<UsuarioVehiculo>,
+    ): Boolean {
 
-        capacidaDelParqueadero = when (usuario) {
-            is UsuarioCarro -> {
+        capacidaDelParqueadero = when (usuarioVehiculo) {
+            is UsuarioVehiculoCarro -> {
                 CAPACIDAD_ESTACIONAMIENTO_CARROS >
-                        listaUsuarios.filterIsInstance<UsuarioCarro>().size
+                        listaUsuarioVehiculos.filterIsInstance<UsuarioVehiculoCarro>().size
             }
-            is UsuarioMoto -> {
+            is UsuarioVehiculoMoto -> {
                 CAPACIDAD_ESTACIONAMIENTO_MOTOS >
-                        listaUsuarios.filterIsInstance<UsuarioMoto>().size
+                        listaUsuarioVehiculos.filterIsInstance<UsuarioVehiculoMoto>().size
             }
             else -> {
                 throw TipoDeUsuarioNoAdmitidoExcepcion()
@@ -35,10 +38,12 @@ open class Estacionamiento() {
         return capacidaDelParqueadero
     }
 
-    fun restriccionDeIngreso(usuario: Usuario, diaDeLaSemana: Int): Boolean {
+    fun restriccionDeIngreso(usuarioVehiculo: UsuarioVehiculo, diaDeLaSemana: Int): Boolean {
 
         var restringido = false
-        if (usuario.placaVehiculo.uppercase().first() == RESTRICCION_INGRESO_LETRA_INICIAL_PLACA) {
+        if (usuarioVehiculo.placaVehiculo.uppercase()
+                .first() == RESTRICCION_INGRESO_LETRA_INICIAL_PLACA
+        ) {
             restringido = !diasPermitidos.contains(diaDeLaSemana)
         }
         return restringido

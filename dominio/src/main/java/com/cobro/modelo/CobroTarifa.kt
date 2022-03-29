@@ -1,6 +1,6 @@
 package com.cobro.modelo
 
-import com.usuario.Usuario
+import com.usuario.modelo.UsuarioVehiculo
 
 abstract class CobroTarifa {
 
@@ -12,7 +12,10 @@ abstract class CobroTarifa {
     protected abstract val valorDia: Int
     private var tarifaParqueoTotal = 0
 
-    open fun cobroTarifa(duracionServicioEstacionamiento: Int, usuario: Usuario): Int {
+    open fun cobroTarifa(
+        duracionServicioEstacionamiento: Int,
+        usuarioVehiculo: UsuarioVehiculo,
+    ): Int {
 
         var horasCobro: Int
         val diasEnHoras: Int
