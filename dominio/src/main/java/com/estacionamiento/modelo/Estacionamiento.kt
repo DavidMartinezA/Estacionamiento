@@ -14,7 +14,7 @@ abstract class Estacionamiento(val usuarioVehiculo: UsuarioVehiculo) {
 
     private val diasPermitidos = arrayListOf(7, 1)
 
-    abstract fun consultarCapacidad(): Boolean
+
 
     fun restriccionDeIngreso(diaDeLaSemana: Int): Boolean {
 
@@ -26,5 +26,8 @@ abstract class Estacionamiento(val usuarioVehiculo: UsuarioVehiculo) {
         }
         return restringido
     }
+
+    abstract fun consultarCapacidad(): Boolean
+
 
 }

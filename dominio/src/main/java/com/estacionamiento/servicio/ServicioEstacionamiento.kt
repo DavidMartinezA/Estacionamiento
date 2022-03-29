@@ -4,19 +4,18 @@ import com.estacionamiento.repositorio.RepositorioEstacionamiento
 import com.usuario.modelo.UsuarioVehiculo
 
 abstract class ServicioEstacionamiento(
-    var usuarioVehiculo: UsuarioVehiculo,
-    private val repositorioEstacionamiento: RepositorioEstacionamiento,
+    protected var usuarioVehiculo: UsuarioVehiculo,
+    protected val repositorioEstacionamiento: RepositorioEstacionamiento,
 ) {
 
+    protected fun guardarUsuario() {
 
-    fun guardarUsuario() {
-
-        if (!repositorioEstacionamiento.usuarioExiste(usuarioVehiculo)) {
-            repositorioEstacionamiento.guardarUsuario(usuarioVehiculo)
+        if (!repositorioEstacionamiento.usuarioExiste(this.usuarioVehiculo)) {
+            repositorioEstacionamiento.guardarUsuario(this.usuarioVehiculo)
         }
     }
 
-    fun eliminarUsuario() {
+    protected fun eliminarUsuario() {
 
         if (repositorioEstacionamiento.usuarioExiste(usuarioVehiculo)) {
             repositorioEstacionamiento.eliminarUsuario(usuarioVehiculo)
@@ -26,5 +25,10 @@ abstract class ServicioEstacionamiento(
     fun consultarListaUsuarios(): ArrayList<UsuarioVehiculo> {
         return repositorioEstacionamiento.listaUsuarios()
     }
+
+    abstract fun ingresoUsuarioEstacionamiento()
+
+
+    abstract fun salidaDeUsuariosEstacionamiento()
 
 }

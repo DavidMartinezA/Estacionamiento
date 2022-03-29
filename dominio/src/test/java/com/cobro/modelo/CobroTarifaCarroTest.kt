@@ -1,9 +1,11 @@
 package com.cobro.modelo
 
-import com.usuario.modelo.UsuarioVehiculoCarro
-import org.junit.Test
+import org.junit.runner.RunWith
+import org.mockito.junit.MockitoJUnitRunner
 
+@RunWith(MockitoJUnitRunner::class)
 class CobroTarifaCarroTest {
+/*
 
     val cobroTarifa = CobroTarifaCarro()
 
@@ -91,6 +93,7 @@ class CobroTarifaCarroTest {
         //Assert
         assert(tarifa == 792000)
     }
+*/
 
 }
 

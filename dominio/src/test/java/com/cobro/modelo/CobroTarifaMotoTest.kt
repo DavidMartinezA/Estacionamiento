@@ -1,25 +1,55 @@
 package com.cobro.modelo
 
+import com.estacionamiento.repositorio.RepositorioEstacionamiento
+import com.estacionamiento.servicio.ServicioEstacionamientoMoto
+import com.excepciones.UsuarioNoExisteExcepcion
 import com.usuario.modelo.UsuarioVehiculoMoto
+import org.junit.Assert
+import org.junit.Before
 import org.junit.Test
+import org.junit.runner.RunWith
+import org.mockito.Mock
+import org.mockito.Mockito
+import org.mockito.MockitoAnnotations
+import org.mockito.junit.MockitoJUnitRunner
+import java.time.LocalDateTime
 
+@RunWith(MockitoJUnitRunner::class)
 class CobroTarifaMotoTest {
 
-    val cobroTarifa = CobroTarifaMoto()
+    @Mock
+    private lateinit var repositorioEstacionamiento: RepositorioEstacionamiento
+
+
+    @Before
+    fun before() {
+        MockitoAnnotations.initMocks(this)
+    }
 
     @Test
     fun cobroTarifa_ParametroCorrectoCilindrajeAltoTrue_CobroTarifa() {
 
         //Arrange
+        val mensajeEsperado = "UsuarioVehiculo No Existe"
         val usuario = UsuarioVehiculoMoto("hsu531", true)
-        val duracionServicio = 10
+        usuario.fechaIngreso = LocalDateTime.now().toLocalDate()
+        val servicioEstacionamiento =
+            ServicioEstacionamientoMoto(usuario, repositorioEstacionamiento)
 
+        Mockito.`when`(repositorioEstacionamiento.usuarioExiste(usuario)).thenReturn(true)
+        Mockito.`when`(repositorioEstacionamiento.eliminarUsuario(usuario))
         //Act
-        val tarifa = cobroTarifa.cobroTarifa(duracionServicio, usuario)
+        val serviciocobroTarifa = CobroTarifaMoto(usuario).cobroTarifa()
+        try {
+            servicioEstacionamiento.salidaDeUsuariosEstacionamiento()
 
-        //Assert
-        assert(tarifa == 6000)
+        } catch (ex: UsuarioNoExisteExcepcion) {
+            //Assert
+            Assert.assertEquals(mensajeEsperado, ex.message)
+
+        }
     }
+/*
 
     @Test
     fun cobroTarifa_ParametroCorrectoCilindrajeAltoFalse_CobroTarifa() {
@@ -29,10 +59,11 @@ class CobroTarifaMotoTest {
         val duracionServicio = 10
 
         //Act
-        val tarifa = cobroTarifa.cobroTarifa(duracionServicio, usuario)
+        val tarifa = CobroTarifa.cobroTarifa(duracionServicio, usuario)
         //Assert
 
-        assert(tarifa == 4000)
+        //Assert
+        Assert.assertNotNull(usuarioCarroTest)
     }
 
     @Test
@@ -161,5 +192,6 @@ class CobroTarifaMotoTest {
         //Assert
         assert(tarifa == 398000)
     }
+*/
 
 }

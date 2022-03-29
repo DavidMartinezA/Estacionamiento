@@ -194,7 +194,7 @@ class UsuarioVehiculoCarroTest {
     fun usuarioCarroPlaca_FormatoAlfanumericoCorrectoLetraMinusculaYMayuscula_PalacaValida() {
 
         //Act
-        val usuarioCarroTest: UsuarioVehiculoCarro = UsuarioVehiculoCarro("hSu531")
+        val usuarioCarroTest = UsuarioVehiculoCarro("hSu531")
 
         //Assert
         Assert.assertNotNull(usuarioCarroTest)

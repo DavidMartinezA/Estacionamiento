@@ -1,6 +1,8 @@
 package com.cobro.modelo
 
-class CobroTarifaCarro: CobroTarifa() {
+import com.usuario.modelo.UsuarioVehiculo
+
+class CobroTarifaCarro(usuarioVehiculo: UsuarioVehiculo) : CobroTarifa(usuarioVehiculo) {
 
     override val valorHora = 1000
     override val valorDia = 8000

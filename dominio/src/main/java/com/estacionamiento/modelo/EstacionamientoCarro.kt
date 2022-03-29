@@ -7,7 +7,7 @@ import com.usuario.modelo.UsuarioVehiculoMoto
 
 class EstacionamientoCarro(
     usuarioVehiculoCarro: UsuarioVehiculoCarro,
-    val servicioEstacionamiento: ServicioEstacionamiento,
+    private val servicioEstacionamiento: ServicioEstacionamiento,
 ) : Estacionamiento(usuarioVehiculoCarro) {
 
     override val capacidadEstacionamiento = 10
