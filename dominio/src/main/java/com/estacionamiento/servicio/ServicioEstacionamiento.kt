@@ -1,15 +1,13 @@
 package com.estacionamiento.servicio
 
-
 import com.estacionamiento.modelo.Estacionamiento
 import com.estacionamiento.repositorio.RepositorioEstacionamiento
 import com.excepciones.IngresoNoPermitidoRestriccionExcepcion
 import com.usuario.modelo.UsuarioVehiculo
 
-
 abstract class ServicioEstacionamiento(
-    protected var estacionamiento: Estacionamiento,
-    protected val repositorioEstacionamiento: RepositorioEstacionamiento,
+    var estacionamiento: Estacionamiento,
+    val repositorioEstacionamiento: RepositorioEstacionamiento,
 ) {
 
     abstract fun consultaDisponibilidadEstacionamiento(): Boolean
