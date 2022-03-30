@@ -39,8 +39,6 @@ s
 Cdominio/src/test/java/com/usuario/modelo/UsuarioVehiculoMotoTest.kt,5/9/598ee2e0c956e0dda131bb10f1ddafe9467c3e93
 q
 Adominio/src/main/java/com/excepciones/UsuarioNoExisteExcepcion.kt,3/b/3b44a62a7788f545cc1f6b07f9ada92ac411d235
-n
->dominio/src/test/java/com/cobro/modelo/CobroTarifaCarroTest.kt,1/7/1741bc2b9fcddc5bc7a0a3dbb9647677e274f910
 w
 Gdominio/src/test/java/com/estacionamiento/modelo/EstacionamientoTest.kt,3/c/3c35973a8d6e940e0f7a0866e05b28bf2cdf81cf
 …
@@ -55,7 +53,3 @@ k
 ;dominio/src/main/java/com/usuario/modelo/UsuarioVehiculo.kt,7/9/79d276cde6426db533bfe946b195462b4f9310f8
 ‚
 Rdominio/src/main/java/com/estacionamiento/servicio/ServicioEstacionamientoCarro.kt,6/4/64a25b0dd697caddc3cd04919dee7bd56dfcba96
-i
-9dominio/src/main/java/com/cobro/modelo/CobroTarifaMoto.kt,0/e/0ece559a4a32318cdb594529aca83cd071986636
-j
-:dominio/src/main/java/com/cobro/modelo/CobroTarifaCarro.kt,2/0/20f32fee459c26fa199fd39a0a89bb1aff14e237
