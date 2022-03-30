@@ -10,6 +10,7 @@ class ServicioCobroTarifaMoto(
     cobroTarifa: CobroTarifa,
 ) :
     ServicioCobroTarifa(servicioEstacionamiento, cobroTarifa) {
+
     override var tarifaCobroServicioEstacionamiento = 0
 
     override fun cobroDuracionServicio(): Int {
@@ -18,7 +19,8 @@ class ServicioCobroTarifaMoto(
             servicioEstacionamiento.repositorioEstacionamiento.usuarioExiste(servicioEstacionamiento.estacionamiento.usuarioVehiculo)
 
         if (usuarioExiste) {
-            cobroTarifa.cobroTarifa(duracionServicioEstacionamiento())
+            tarifaCobroServicioEstacionamiento =
+                cobroTarifa.cobroTarifa(duracionServicioEstacionamiento())
         }
         return tarifaCobroServicioEstacionamiento
     }

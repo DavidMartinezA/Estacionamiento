@@ -24,7 +24,31 @@ class ServicioCobroTarifaMotoTest {
     private val patronHora = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")
 
     @Test
-    fun cobroDuracionServicio_UsuarioNoExiste_CobroDeTarifa() {
+    fun cobroDuracionServicio_UsuarioExiste_CobroDeTarifa() {
+
+        //Arrange
+        val horaIngreso = "2022-01-01 00:05:01"
+        val horaSalida = "2022-01-01 05:59:00"
+        val horaProporcionadaDeIngreso = LocalDateTime.parse(horaIngreso, patronHora)
+        val horaProporcionadaDesalida = LocalDateTime.parse(horaSalida, patronHora)
+        val usuario = UsuarioVehiculoMoto("hsu531", true)
+        val estacionamiento = EstacionamientoMoto(usuario, horaProporcionadaDeIngreso)
+        val servicioEstacionamiento =
+            ServicioEstacionamientoMoto(estacionamiento, repositorioEstacionamiento)
+        val cobroTarifaMoto = CobroTarifaMoto(estacionamiento)
+        val servicioCobroTarifaMoto = ServicioCobroTarifaMoto(servicioEstacionamiento,
+            horaProporcionadaDesalida,
+            cobroTarifaMoto)
+
+        Mockito.`when`(repositorioEstacionamiento.usuarioExiste(usuario)).thenReturn(true)
+
+        val servicio = servicioCobroTarifaMoto.cobroDuracionServicio()
+
+        assert(servicio == 4500)
+    }
+
+    @Test
+    fun cobroDuracionServicio_UsuarioNoExiste_LanzarExcepcion() {
 
         //Arrange
         val mensajeEsperado = "UsuarioVehiculo No Existe"
@@ -40,12 +64,14 @@ class ServicioCobroTarifaMotoTest {
         val servicioCobroTarifaMoto = ServicioCobroTarifaMoto(servicioEstacionamiento,
             horaProporcionadaDesalida,
             cobroTarifaMoto)
-        Mockito.`when`(repositorioEstacionamiento.usuarioExiste(usuario)).thenReturn(false)
+
+        Mockito.`when`(repositorioEstacionamiento.usuarioExiste(usuario)).thenReturn(true)
+
 
         //Act
         try {
 
-            val cobroDuracionServicio = servicioCobroTarifaMoto.cobroDuracionServicio()
+            val servicio = servicioCobroTarifaMoto.cobroDuracionServicio()
 
         } catch (ex: UsuarioNoExisteExcepcion) {
 
@@ -54,6 +80,5 @@ class ServicioCobroTarifaMotoTest {
         }
 
     }
-
 
 }
