@@ -1,18 +1,12 @@
 package com.cobro.modelo
 
 import com.estacionamiento.repositorio.RepositorioEstacionamiento
-import com.estacionamiento.servicio.ServicioEstacionamientoMoto
-import com.excepciones.UsuarioNoExisteExcepcion
-import com.usuario.modelo.UsuarioVehiculoMoto
-import org.junit.Assert
 import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.mockito.Mock
-import org.mockito.Mockito
 import org.mockito.MockitoAnnotations
 import org.mockito.junit.MockitoJUnitRunner
-import java.time.LocalDateTime
 
 @RunWith(MockitoJUnitRunner::class)
 class CobroTarifaMotoTest {
@@ -29,25 +23,8 @@ class CobroTarifaMotoTest {
     @Test
     fun cobroTarifa_ParametroCorrectoCilindrajeAltoTrue_CobroTarifa() {
 
-        //Arrange
-        val mensajeEsperado = "UsuarioVehiculo No Existe"
-        val usuario = UsuarioVehiculoMoto("hsu531", true)
-        usuario.fechaIngreso = LocalDateTime.now().toLocalDate()
-        val servicioEstacionamiento =
-            ServicioEstacionamientoMoto(usuario, repositorioEstacionamiento)
 
-        Mockito.`when`(repositorioEstacionamiento.usuarioExiste(usuario)).thenReturn(true)
-        Mockito.`when`(repositorioEstacionamiento.eliminarUsuario(usuario))
-        //Act
-        val serviciocobroTarifa = CobroTarifaMoto(usuario).cobroTarifa()
-        try {
-            servicioEstacionamiento.salidaDeUsuariosEstacionamiento()
-
-        } catch (ex: UsuarioNoExisteExcepcion) {
-            //Assert
-            Assert.assertEquals(mensajeEsperado, ex.message)
-
-        }
+    }
     }
 /*
 
@@ -194,4 +171,3 @@ class CobroTarifaMotoTest {
     }
 */
 
-}
