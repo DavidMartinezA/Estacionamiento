@@ -1,26 +1,27 @@
 package com.cobro.servicio
 
+import com.cobro.modelo.CobroTarifa
 import com.estacionamiento.servicio.ServicioEstacionamiento
 import java.time.Duration
-import java.time.LocalDate
-import kotlin.math.ceil
+import java.time.LocalDateTime
 
 abstract class ServicioCobroTarifa(
-    open val servicioEstacionamiento: ServicioEstacionamiento,
+    protected val servicioEstacionamiento: ServicioEstacionamiento,
+    protected val cobroTarifa: CobroTarifa,
 ) {
 
-    abstract var tarifaCobroServicioEstacionamiento: Int
-    abstract var horaFechaSalidaUsuarioUsuario: LocalDate
+    protected abstract var tarifaCobroServicioEstacionamiento: Int
+    protected abstract var horaFechaSalidaUsuarioUsuario: LocalDateTime
 
-    abstract fun registroCobroDuracionServicio(): Int
+    abstract fun cobroDuracionServicio(): Int
 
     fun duracionServicioEstacionamiento(): Int {
 
-        return ceil(Duration.between(horaFechaSalidaUsuarioUsuario,
-            servicioEstacionamiento.estacionamiento.horaFechaIngresoUsuario)
-            .toHours()
-            .toString()
-            .toDouble()).toInt()
+        val horaIngreso = servicioEstacionamiento.estacionamiento.horaFechaIngresoUsuario
+        val duracion = Duration.between(horaIngreso,
+            horaFechaSalidaUsuarioUsuario).toHours()
+
+        return Math.toIntExact(duracion)
     }
 
 }

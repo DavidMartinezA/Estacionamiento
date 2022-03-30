@@ -1,11 +1,11 @@
 package com.estacionamiento.modelo
 
 import com.usuario.modelo.UsuarioVehiculo
-import java.time.LocalDate
+import java.time.LocalDateTime
 
 abstract class Estacionamiento(
     val usuarioVehiculo: UsuarioVehiculo,
-    var horaFechaIngresoUsuario: LocalDate,
+    var horaFechaIngresoUsuario: LocalDateTime,
 ) {
 
     companion object {

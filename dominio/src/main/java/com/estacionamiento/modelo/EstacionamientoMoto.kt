@@ -1,9 +1,9 @@
 package com.estacionamiento.modelo
 
 import com.usuario.modelo.UsuarioVehiculo
-import java.time.LocalDate
+import java.time.LocalDateTime
 
-class EstacionamientoMoto(usuarioVehiculo: UsuarioVehiculo, horaFechaIngreso: LocalDate) :
+class EstacionamientoMoto(usuarioVehiculo: UsuarioVehiculo, horaFechaIngreso: LocalDateTime) :
     Estacionamiento(usuarioVehiculo, horaFechaIngreso) {
 
     override val capacidadEstacionamiento = 10

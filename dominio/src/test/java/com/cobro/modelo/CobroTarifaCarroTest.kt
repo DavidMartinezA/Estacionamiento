@@ -3,12 +3,12 @@ package com.cobro.modelo
 import com.estacionamiento.modelo.EstacionamientoCarro
 import com.usuario.modelo.UsuarioVehiculoCarro
 import org.junit.Test
-import java.time.LocalDate
+import java.time.LocalDateTime
 
 class CobroTarifaCarroTest {
 
     private val usuario = UsuarioVehiculoCarro("hsu531")
-    private val estacionamiento = EstacionamientoCarro(usuario, LocalDate.now())
+    private val estacionamiento = EstacionamientoCarro(usuario, LocalDateTime.now())
     private val cobroTarifa = CobroTarifaCarro(estacionamiento)
 
     @Test

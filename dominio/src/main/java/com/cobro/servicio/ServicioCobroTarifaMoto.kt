@@ -1,18 +1,18 @@
 package com.cobro.servicio
 
-import com.cobro.modelo.CobroTarifaMoto
+import com.cobro.modelo.CobroTarifa
 import com.estacionamiento.servicio.ServicioEstacionamiento
-import java.time.LocalDate
+import java.time.LocalDateTime
 
 class ServicioCobroTarifaMoto(
-    override val servicioEstacionamiento: ServicioEstacionamiento,
-    override var horaFechaSalidaUsuarioUsuario: LocalDate,
-    private val cobroTarifa: CobroTarifaMoto,
+    servicioEstacionamiento: ServicioEstacionamiento,
+    override var horaFechaSalidaUsuarioUsuario: LocalDateTime,
+    cobroTarifa: CobroTarifa,
 ) :
-    ServicioCobroTarifa(servicioEstacionamiento) {
+    ServicioCobroTarifa(servicioEstacionamiento, cobroTarifa) {
     override var tarifaCobroServicioEstacionamiento = 0
 
-    override fun registroCobroDuracionServicio(): Int {
+    override fun cobroDuracionServicio(): Int {
 
         val usuarioExiste =
             servicioEstacionamiento.repositorioEstacionamiento.usuarioExiste(servicioEstacionamiento.estacionamiento.usuarioVehiculo)

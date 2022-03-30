@@ -3,7 +3,8 @@ package com.cobro.modelo
 import com.estacionamiento.modelo.EstacionamientoMoto
 import com.usuario.modelo.UsuarioVehiculoMoto
 import org.junit.Test
-import java.time.LocalDate
+
+import java.time.LocalDateTime
 
 class CobroTarifaMotoTest {
 
@@ -12,7 +13,7 @@ class CobroTarifaMotoTest {
 
         //Arrange
         val usuario = UsuarioVehiculoMoto("hsu53c", true)
-        val estacionamiento = EstacionamientoMoto(usuario, LocalDate.now())
+        val estacionamiento = EstacionamientoMoto(usuario, LocalDateTime.now())
         val cobroTarifa = CobroTarifaMoto(estacionamiento)
         val duracionServicio = 10
 
