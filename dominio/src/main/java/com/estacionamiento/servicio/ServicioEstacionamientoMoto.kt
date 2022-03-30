@@ -1,51 +1,24 @@
 package com.estacionamiento.servicio
 
-import com.cobro.modelo.CobroTarifaCarro
-import com.estacionamiento.modelo.EstacionamientoMoto
+import com.estacionamiento.modelo.Estacionamiento
 import com.estacionamiento.repositorio.RepositorioEstacionamiento
-import com.excepciones.IngresoNoPermitidoRestriccionExcepcion
-import com.excepciones.UsuarioNoExisteExcepcion
-import com.usuario.modelo.UsuarioVehiculoMoto
-import java.time.LocalDateTime
+import com.usuario.modelo.UsuarioVehiculo
+import com.usuario.modelo.UsuarioVehiculoCarro
 
 class ServicioEstacionamientoMoto(
-    private var usuarioVehiculoMoto: UsuarioVehiculoMoto,
+    estacionamiento: Estacionamiento,
     repositorioEstacionamiento: RepositorioEstacionamiento,
-) : ServicioEstacionamiento(usuarioVehiculoMoto, repositorioEstacionamiento) {
+) : ServicioEstacionamiento(estacionamiento, repositorioEstacionamiento) {
 
-    private var espacioDisponibleEnEstacionamiento = false
 
-    override fun ingresoUsuarioEstacionamiento() {
-
-        val estacionamiento = EstacionamientoMoto(usuarioVehiculoMoto, this)
-        val diaDeLaSemana = LocalDateTime.now().dayOfWeek.value
-        val usuarioNoExiste = !repositorioEstacionamiento.usuarioExiste(usuarioVehiculoMoto)
-
-        if (usuarioNoExiste) {
-            espacioDisponibleEnEstacionamiento = estacionamiento.consultarCapacidad()
+    override fun consultaDisponibilidadEstacionamiento(): Boolean {
+        var existeEspacio = false
+        val listaCarros: ArrayList<UsuarioVehiculo> =
+            repositorioEstacionamiento.listaUsuarios()
+        if (listaCarros.filterIsInstance<UsuarioVehiculoCarro>().size < estacionamiento.capacidadEstacionamiento) {
+            existeEspacio = true
         }
-
-        if (espacioDisponibleEnEstacionamiento && !estacionamiento.restriccionDeIngreso(
-                diaDeLaSemana)
-        ) {
-            usuarioVehiculo.fechaIngreso = LocalDateTime.now().toLocalDate()
-            guardarUsuario()
-        } else {
-            throw IngresoNoPermitidoRestriccionExcepcion()
-        }
+        return existeEspacio
     }
-
-    override fun salidaDeUsuariosEstacionamiento() {
-
-        if (repositorioEstacionamiento.usuarioExiste(usuarioVehiculo)) {
-
-            val usuario = usuarioVehiculo as UsuarioVehiculoMoto
-            CobroTarifaCarro(usuario).cobroTarifa(CobroTarifaCarro(usuarioVehiculo)
-                .duracionServicioEstacionamiento())
-            eliminarUsuario()
-        } else {
-            throw UsuarioNoExisteExcepcion()
-        }
-    }
-
 }
+

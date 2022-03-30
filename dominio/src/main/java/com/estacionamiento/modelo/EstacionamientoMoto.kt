@@ -1,21 +1,11 @@
 package com.estacionamiento.modelo
 
-import com.estacionamiento.servicio.ServicioEstacionamientoMoto
 import com.usuario.modelo.UsuarioVehiculo
-import com.usuario.modelo.UsuarioVehiculoMoto
+import java.time.LocalDate
 
-class EstacionamientoMoto(
-    usuarioVehiculo: UsuarioVehiculoMoto,
-    private val servicioEstacionamientoMoto: ServicioEstacionamientoMoto,
-) : Estacionamiento(usuarioVehiculo) {
+class EstacionamientoMoto(usuarioVehiculo: UsuarioVehiculo, horaFechaIngreso: LocalDate) :
+    Estacionamiento(usuarioVehiculo, horaFechaIngreso) {
 
     override val capacidadEstacionamiento = 10
-
-    override fun consultarCapacidad(): Boolean {
-        val listaMotos: ArrayList<UsuarioVehiculo> =
-            servicioEstacionamientoMoto.consultarListaUsuarios()
-        return listaMotos.filterIsInstance<UsuarioVehiculoMoto>().size < capacidadEstacionamiento
-    }
-
 
 }

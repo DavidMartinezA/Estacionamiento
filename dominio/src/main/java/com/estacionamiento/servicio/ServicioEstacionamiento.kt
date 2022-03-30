@@ -1,24 +1,30 @@
 package com.estacionamiento.servicio
 
+
+import com.estacionamiento.modelo.Estacionamiento
 import com.estacionamiento.repositorio.RepositorioEstacionamiento
+import com.excepciones.IngresoNoPermitidoRestriccionExcepcion
 import com.usuario.modelo.UsuarioVehiculo
 
+
 abstract class ServicioEstacionamiento(
-    protected var usuarioVehiculo: UsuarioVehiculo,
+    protected var estacionamiento: Estacionamiento,
     protected val repositorioEstacionamiento: RepositorioEstacionamiento,
 ) {
 
+    abstract fun consultaDisponibilidadEstacionamiento(): Boolean
+
     protected fun guardarUsuario() {
 
-        if (!repositorioEstacionamiento.usuarioExiste(this.usuarioVehiculo)) {
-            repositorioEstacionamiento.guardarUsuario(this.usuarioVehiculo)
+        if (!repositorioEstacionamiento.usuarioExiste(estacionamiento.usuarioVehiculo)) {
+            repositorioEstacionamiento.guardarUsuario(estacionamiento.usuarioVehiculo)
         }
     }
 
-    protected fun eliminarUsuario() {
+    fun eliminarUsuario() {
 
-        if (repositorioEstacionamiento.usuarioExiste(usuarioVehiculo)) {
-            repositorioEstacionamiento.eliminarUsuario(usuarioVehiculo)
+        if (repositorioEstacionamiento.usuarioExiste(estacionamiento.usuarioVehiculo)) {
+            repositorioEstacionamiento.eliminarUsuario(estacionamiento.usuarioVehiculo)
         }
     }
 
@@ -26,9 +32,23 @@ abstract class ServicioEstacionamiento(
         return repositorioEstacionamiento.listaUsuarios()
     }
 
-    abstract fun ingresoUsuarioEstacionamiento()
+    fun ingresoUsuarioEstacionamiento(diaDeLaSemana: Int) {
 
+        var espacioDisponibleEnEstacionamiento = false
 
-    abstract fun salidaDeUsuariosEstacionamiento()
+        val usuarioNoExiste =
+            !repositorioEstacionamiento.usuarioExiste(estacionamiento.usuarioVehiculo)
+
+        if (usuarioNoExiste) {
+            espacioDisponibleEnEstacionamiento = consultaDisponibilidadEstacionamiento()
+        }
+        if (espacioDisponibleEnEstacionamiento && !estacionamiento.restriccionDeIngreso(
+                diaDeLaSemana)
+        ) {
+            repositorioEstacionamiento.guardarUsuario(estacionamiento.usuarioVehiculo)
+        } else {
+            throw IngresoNoPermitidoRestriccionExcepcion()
+        }
+    }
 
 }

@@ -1,8 +1,12 @@
 package com.estacionamiento.modelo
 
 import com.usuario.modelo.UsuarioVehiculo
+import java.time.LocalDate
 
-abstract class Estacionamiento(val usuarioVehiculo: UsuarioVehiculo) {
+abstract class Estacionamiento(
+    val usuarioVehiculo: UsuarioVehiculo,
+    var horaFechaIngresoUsuario: LocalDate,
+) {
 
     companion object {
 
@@ -10,11 +14,8 @@ abstract class Estacionamiento(val usuarioVehiculo: UsuarioVehiculo) {
 
     }
 
-    abstract val capacidadEstacionamiento: Int
-
     private val diasPermitidos = arrayListOf(7, 1)
-
-
+    abstract val capacidadEstacionamiento: Int
 
     fun restriccionDeIngreso(diaDeLaSemana: Int): Boolean {
 
@@ -26,8 +27,5 @@ abstract class Estacionamiento(val usuarioVehiculo: UsuarioVehiculo) {
         }
         return restringido
     }
-
-    abstract fun consultarCapacidad(): Boolean
-
 
 }

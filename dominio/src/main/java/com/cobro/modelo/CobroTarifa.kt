@@ -1,11 +1,8 @@
 package com.cobro.modelo
 
-import com.usuario.modelo.UsuarioVehiculo
-import java.time.Duration
-import java.time.LocalDateTime
-import kotlin.math.ceil
+import com.estacionamiento.modelo.Estacionamiento
 
-abstract class CobroTarifa(val usuarioVehiculo: UsuarioVehiculo) {
+abstract class CobroTarifa(protected var estacionamiento: Estacionamiento) {
 
     companion object {
 
@@ -15,19 +12,7 @@ abstract class CobroTarifa(val usuarioVehiculo: UsuarioVehiculo) {
     protected abstract val valorHora: Int
     protected abstract val valorDia: Int
     private var tarifaParqueoTotal = 0
-    private var duracionServicioEstacionamiento: Int = 0
 
-    fun duracionServicioEstacionamiento(): Int {
-        val fechaSalida = LocalDateTime.now().toLocalDate()
-        duracionServicioEstacionamiento =
-            ceil(Duration.between(usuarioVehiculo.fechaIngreso, fechaSalida)
-                .toHours()
-                .toString()
-                .toDouble()).toInt()
-
-        return duracionServicioEstacionamiento
-
-    }
 
     open fun cobroTarifa(duracionServicioEstacionamiento: Int): Int {
 
