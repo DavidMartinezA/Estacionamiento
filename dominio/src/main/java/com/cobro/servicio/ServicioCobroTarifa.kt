@@ -18,10 +18,14 @@ abstract class ServicioCobroTarifa(
     fun duracionServicioEstacionamiento(): Int {
 
         val horaIngreso = servicioEstacionamiento.estacionamiento.horaFechaIngresoUsuario
-        val duracion = Duration.between(horaIngreso,
-            horaFechaSalidaUsuarioUsuario).toHours()
+        val diferencia = Duration.between(horaIngreso,
+            horaFechaSalidaUsuarioUsuario).dividedBy(60).dividedBy(60)
 
-        return Math.toIntExact(duracion)
+        var horas = diferencia.seconds
+        if (diferencia.nano >= 0) {
+            horas++
+        }
+        return horas.toInt()
     }
 
 }

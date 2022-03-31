@@ -24,10 +24,10 @@ class ServicioCobroTarifaCarroTest {
     private val patronHora = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")
 
     @Test
-    fun duracionServicioEstacionamiento_CincoHoras_CobroTarifa() {
+    fun duracionServicioEstacionamiento_CincoHoras_CincoHoras() {
 
         //Arrange
-        val horaIngreso = "2022-01-01 00:59:01"
+        val horaIngreso = "2022-01-01 00:00:01"
         val horaSalida = "2022-01-01 06:00:00"
         val horaProporcionadaDeIngreso = LocalDateTime.parse(horaIngreso, patronHora)
         val horaProporcionadaDesalida = LocalDateTime.parse(horaSalida, patronHora)
@@ -44,12 +44,12 @@ class ServicioCobroTarifaCarroTest {
 
         //Assert
 
-        assert(duracionServicio == 5)
+        assert(duracionServicio == 6)
 
     }
 
     @Test
-    fun registroCobroDuracionServicio_UsuarioNoExisteDuracionCincoHoras_CincoHoras() {
+    fun registroCobroDuracionServicio_UsuarioNoExisteDuracionCincoHoras_LanzarExcepcion() {
 
         //Arrange
         val mensajeEsperado = "UsuarioVehiculo No Existe"
@@ -102,7 +102,7 @@ class ServicioCobroTarifaCarroTest {
         val cobroTarifaServicio = servicioCobroTarifaCarro.cobroDuracionServicio()
 
         //Assert
-        assert(cobroTarifaServicio == 5000)
+        assert(cobroTarifaServicio == 6000)
 
 
     }
