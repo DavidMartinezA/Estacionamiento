@@ -44,7 +44,7 @@ class ServicioCobroTarifaMotoTest {
 
         val servicio = servicioCobroTarifaMoto.cobroDuracionServicio()
 
-        assert(servicio == 4500)
+        assert(servicio == 5000)
     }
 
     @Test

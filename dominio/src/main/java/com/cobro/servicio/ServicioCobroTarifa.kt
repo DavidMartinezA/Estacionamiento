@@ -17,15 +17,15 @@ abstract class ServicioCobroTarifa(
 
     fun duracionServicioEstacionamiento(): Int {
 
-        val horaIngreso = servicioEstacionamiento.estacionamiento.horaFechaIngresoUsuario
-        val diferencia = Duration.between(horaIngreso,
-            horaFechaSalidaUsuarioUsuario).dividedBy(60).dividedBy(60)
+        val calculoDuracionServicio =
+            Duration.between(servicioEstacionamiento.estacionamiento.horaFechaIngresoUsuario,
+                horaFechaSalidaUsuarioUsuario).dividedBy(60).dividedBy(60)
 
-        var horas = diferencia.seconds
-        if (diferencia.nano >= 0) {
-            horas++
+        var horasServicioEstacionamiento = calculoDuracionServicio.seconds
+        if (calculoDuracionServicio.nano >= 0) {
+            horasServicioEstacionamiento++
         }
-        return horas.toInt()
+        return horasServicioEstacionamiento.toInt()
     }
 
 }
