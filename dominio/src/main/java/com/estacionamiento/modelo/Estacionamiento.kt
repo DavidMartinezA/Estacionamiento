@@ -10,7 +10,7 @@ abstract class Estacionamiento(
 
     companion object {
 
-        private const val RESTRICCION_INGRESO_LETRA_INICIAL_PLACA = 'A'
+        private const val RESTRICCION_INGRESO_PLACA = 'A'
 
     }
 
@@ -20,12 +20,9 @@ abstract class Estacionamiento(
     fun restriccionDeIngreso(diaDeLaSemana: Int): Boolean {
 
         var restringido = false
-        if (usuarioVehiculo.placaVehiculo.uppercase()
-                .first() == RESTRICCION_INGRESO_LETRA_INICIAL_PLACA
-        ) {
+        if (usuarioVehiculo.placaVehiculo.uppercase().first() == RESTRICCION_INGRESO_PLACA) {
             restringido = !diasPermitidos.contains(diaDeLaSemana)
         }
         return restringido
     }
-
 }

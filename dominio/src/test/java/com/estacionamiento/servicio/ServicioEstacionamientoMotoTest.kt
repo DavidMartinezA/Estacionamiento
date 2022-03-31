@@ -1,15 +1,30 @@
 package com.estacionamiento.servicio
 
+import com.estacionamiento.modelo.EstacionamientoCarro
+import com.estacionamiento.repositorio.RepositorioEstacionamiento
+import com.excepciones.UsuarioYaExisteExcepcion
+import com.usuario.modelo.UsuarioVehiculoMoto
+import org.junit.Assert
+import org.junit.Before
+import org.junit.Test
 import org.junit.runner.RunWith
+import org.mockito.Mock
+import org.mockito.Mockito
+import org.mockito.MockitoAnnotations
 import org.mockito.junit.MockitoJUnitRunner
+import java.time.LocalDateTime
 
 
 @RunWith(MockitoJUnitRunner::class)
 class ServicioEstacionamientoMotoTest {
-/*
+
 
     @Mock
     private lateinit var repositorioEstacionamiento: RepositorioEstacionamiento
+
+    private val horaIngreso = LocalDateTime.now()
+    private val usuarioVehiculoMoto = UsuarioVehiculoMoto("HSU531", true)
+    private val estacionamientoMoto = EstacionamientoCarro(usuarioVehiculoMoto, horaIngreso)
 
     @Before
     fun before() {
@@ -17,45 +32,41 @@ class ServicioEstacionamientoMotoTest {
     }
 
     @Test()
-    fun ingresoUsuarioEstacionamiento_ParametrosVacios_LanzarExcepcion() {
+    fun ingresoUsuarioEstacionamiento_UsuarioNoExiste_LanzarExcepcion() {
 
         //Arrange
-        val mensajeEsperado = "Formato De Placa No Valido"
+        val servicioEstacionamientoMoto =
+            ServicioEstacionamientoCarro(estacionamientoMoto, repositorioEstacionamiento)
+        Mockito.`when`(repositorioEstacionamiento.usuarioExiste(usuarioVehiculoMoto))
+            .thenReturn(false)
+
+        //Act
+        val ingresarUsuarios = servicioEstacionamientoMoto.ingresoUsuarioEstacionamiento(1)
+
+
+    }
+
+    @Test()
+    fun ingresoUsuarioEstacionamiento_UsuarioExiste_LanzarExcepcion() {
+
+        //Arrange
+        val mensajeEsperado = "UsuarioVehiculo Ya Existe"
+        val servicioEstacionamientoMoto =
+            ServicioEstacionamientoCarro(estacionamientoMoto, repositorioEstacionamiento)
+        Mockito.`when`(repositorioEstacionamiento.usuarioExiste(usuarioVehiculoMoto))
+            .thenReturn(true)
 
         //Act
         try {
-            val usuarioMoto = UsuarioVehiculoMoto("")
-            val servicioEstacionamiento =
-                ServicioEstacionamientoMoto(usuarioMoto, repositorioEstacionamiento)
-            servicioEstacionamiento.salidaDeUsuariosEstacionamiento(usuarioMoto)
 
-        } catch (ex: FormatoPlacaExcepcion) {
+            var guardarUsuario = servicioEstacionamientoMoto.guardarUsuario()
+            Assert.fail()
+        } catch (ex: UsuarioYaExisteExcepcion) {
+
             //Assert
             Assert.assertEquals(mensajeEsperado, ex.message)
-
         }
     }
 
-    @Test
-    fun salidaUsuarioEstacionamiento_UsuarioNoExiste_LanzarExcepcion() {
-
-        //Arrange
-        val mensajeEsperado = "UsuarioVehiculo No Existe"
-        val usuarioMoto = UsuarioVehiculoMoto("hsu531")
-
-        val servicioEstacionamiento =
-            ServicioEstacionamientoMoto(usuarioMoto, repositorioEstacionamiento)
-
-        //Act
-        try {
-            servicioEstacionamiento.salidaDeUsuariosEstacionamiento(usuarioMoto)
-
-        } catch (ex: UsuarioNoExisteExcepcion) {
-            //Assert
-            Assert.assertEquals(mensajeEsperado, ex.message)
-
-        }
-    }
-*/
 
 }

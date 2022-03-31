@@ -21,8 +21,6 @@ A
 build.gradle,f/0/f07866736216be0ee2aba49e392191aeae700a35
 ;
 Jenkinsfile,0/c/0c2c5c506cef0ed2d3ad2b7e45e97980b66f5520
-
-Odominio/src/main/java/com/excepciones/IngresoNoPermitidoRestriccionExcepcion.kt,0/a/0a514a74a1d0552b967613e52f0e446158223dc4
 n
 >dominio/src/main/java/com/excepciones/FormatoPlacaExcepcion.kt,d/d/ddfb811bef4cc735ae83b90d290c3111ad1c685c
 y
@@ -31,9 +29,3 @@ I
 presentacion/build.gradle,e/7/e7ca75306b9571eb541d042f9c559bee8d1218f8
 H
 sonar-project.properties,2/5/2538046035efb77ecc44e1fd2eec1e2641594d4c
-s
-Cdominio/src/test/java/com/usuario/modelo/UsuarioVehiculoMotoTest.kt,5/9/598ee2e0c956e0dda131bb10f1ddafe9467c3e93
-w
-Gdominio/src/test/java/com/estacionamiento/modelo/EstacionamientoTest.kt,3/c/3c35973a8d6e940e0f7a0866e05b28bf2cdf81cf
-…
-Udominio/src/test/java/com/estacionamiento/servicio/ServicioEstacionamientoMotoTest.kt,e/5/e56726599517717a11ee9accdc731e46e3684ec7
