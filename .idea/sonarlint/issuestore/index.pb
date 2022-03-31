@@ -27,8 +27,6 @@ y
 Idominio/src/main/java/com/excepciones/TipoDeUsuarioNoAdmitidoExcepcion.kt,f/4/f40f7457f53778617e89fbea63964a85a09fd0ee
 I
 presentacion/build.gradle,e/7/e7ca75306b9571eb541d042f9c559bee8d1218f8
-H
-sonar-project.properties,2/5/2538046035efb77ecc44e1fd2eec1e2641594d4c
 ƒ
 Sdominio/src/main/java/com/estacionamiento/repositorio/RepositorioEstacionamiento.kt,f/e/fe0a19f049df66b59592891a93512d28590b5d0e
 o
