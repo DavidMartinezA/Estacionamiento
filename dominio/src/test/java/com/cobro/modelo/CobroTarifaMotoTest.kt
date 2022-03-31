@@ -24,6 +24,22 @@ class CobroTarifaMotoTest {
         assert(tarifa == 6000)
     }
 
+    @Test
+    fun cobroTarifaMoto_DuracionCorrectaCilindrajeAltFalse_CobroDeTarifa() {
+
+        //Arrange
+        val usuario = UsuarioVehiculoMoto("hsu53c", false)
+        val estacionamiento = EstacionamientoMoto(usuario, LocalDateTime.now())
+        val cobroTarifa = CobroTarifaMoto(estacionamiento)
+        val duracionServicio = 10
+
+        //Act
+        val tarifa = cobroTarifa.cobroTarifa(duracionServicio)
+
+        //Assert
+        assert(tarifa == 4000)
+    }
+
 }
 
 
