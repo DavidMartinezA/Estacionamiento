@@ -9,8 +9,6 @@ f
 6presentacion/src/main/java/com/example/MainActivity.kt,2/2/2288984acb169d8b223844ffd92f4dbecb9189bc
 Y
 )presentacion/src/main/AndroidManifest.xml,0/1/01423137c9ba83b646a644dc875abe54f9098a9e
-A
-gradle.properties,2/a/2afbb999f001938c88fa43fc2ef52abf0f8213e4
 ?
 settings.gradle,0/5/05efc8b1657769a27696d478ded1e95f38737233
 7
@@ -19,14 +17,10 @@ A
 gradlew.bat,2/a/2a45a911a8f1836b0b6c5b758962572012d8f8c3
 <
 build.gradle,f/0/f07866736216be0ee2aba49e392191aeae700a35
-;
-Jenkinsfile,0/c/0c2c5c506cef0ed2d3ad2b7e45e97980b66f5520
 n
 >dominio/src/main/java/com/excepciones/FormatoPlacaExcepcion.kt,d/d/ddfb811bef4cc735ae83b90d290c3111ad1c685c
 y
 Idominio/src/main/java/com/excepciones/TipoDeUsuarioNoAdmitidoExcepcion.kt,f/4/f40f7457f53778617e89fbea63964a85a09fd0ee
-I
-presentacion/build.gradle,e/7/e7ca75306b9571eb541d042f9c559bee8d1218f8
 ƒ
 Sdominio/src/main/java/com/estacionamiento/repositorio/RepositorioEstacionamiento.kt,f/e/fe0a19f049df66b59592891a93512d28590b5d0e
 o
@@ -77,3 +71,11 @@ s
 Cdominio/src/main/java/com/estacionamiento/modelo/Estacionamiento.kt,c/b/cb0c8cde1e0749a0422c1d5c213479cf425d566a
 †
 Vdominio/src/test/java/com/estacionamiento/servicio/ServicioEstacionamientoCarroTest.kt,6/4/647c0b691612d6e5734c104fea676f2cd52d703e
+t
+Ddominio/src/main/java/com/cobro/servicio/ServicioCobroTarifaCarro.kt,4/1/41e83cf9e69870226a9ad8c400d0647ce1ed9200
+o
+?dominio/src/main/java/com/cobro/servicio/ServicioCobroTarifa.kt,4/0/409417f1351d89e548469b5263a56fc560576c0b
+w
+Gdominio/src/test/java/com/cobro/servicio/ServicioCobroTarifaMotoTest.kt,a/b/ab9d200787919c39435e48f0220ddefbe7fb6234
+x
+Hdominio/src/test/java/com/cobro/servicio/ServicioCobroTarifaCarroTest.kt,f/5/f5d835f34a09f79cb83a361512a5b78001bd7f19
