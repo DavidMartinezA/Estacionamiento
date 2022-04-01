@@ -9,8 +9,6 @@ f
 6presentacion/src/main/java/com/example/MainActivity.kt,2/2/2288984acb169d8b223844ffd92f4dbecb9189bc
 Y
 )presentacion/src/main/AndroidManifest.xml,0/1/01423137c9ba83b646a644dc875abe54f9098a9e
-?
-settings.gradle,0/5/05efc8b1657769a27696d478ded1e95f38737233
 7
 gradlew,5/b/5bbfa66edb4db3c7c33c5181f43510990d3307f9
 ;
@@ -25,8 +23,6 @@ n
 >dominio/src/main/java/com/excepciones/FormatoPlacaExcepcion.kt,d/d/ddfb811bef4cc735ae83b90d290c3111ad1c685c
 H
 sonar-project.properties,2/5/2538046035efb77ecc44e1fd2eec1e2641594d4c
-I
-presentacion/build.gradle,e/7/e7ca75306b9571eb541d042f9c559bee8d1218f8
 ;
 Jenkinsfile,0/c/0c2c5c506cef0ed2d3ad2b7e45e97980b66f5520
 <

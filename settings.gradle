@@ -15,3 +15,4 @@ dependencyResolutionManagement {
 rootProject.name = "Estacionamiento"
 include ':presentacion'
 include ':dominio'
+include ':infraestructura'

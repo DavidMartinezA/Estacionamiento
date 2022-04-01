@@ -50,19 +50,23 @@ dependencies {
 }
 
 // tarea para los reportes de analisis de codigo
-task jacocoTestReport(type: JacocoReport, dependsOn: [':presentacion:testDebugUnitTest',':dominio:testDebugUnitTest']) {
+task jacocoTestReport(type: JacocoReport, dependsOn: [':presentacion:testDebugUnitTest',':dominio:testDebugUnitTest',
+                                                      ':infraestructura:testDebugUnitTest']) {
 
     def modulePresentacion = project(':presentacion')
     def moduleDominio = project(':dominio')
+    def moduleInfraestructura = project(':infraestructura')
 
     def directoriesToCoverage = layout.files(
             "$modulePresentacion.buildDir/tmp/kotlin-classes/debug",
             "$moduleDominio.buildDir/tmp/kotlin-classes/debug",
+            "$moduleInfraestructura.buildDir/tmp/kotlin-classes/debug",
     )
 
-    def mainSources = layout.files(
+    def mainSources = layout.files("$project.projectDir/src/main/java",
             "$modulePresentacion.projectDir/src/main/java",
             "$moduleDominio.projectDir/src/main/java",
+            "$moduleInfraestructura.projectDir/src/main/java",
     )
 
     def executionFilesFromConnectedAndroidTest = fileTree(
@@ -76,6 +80,7 @@ task jacocoTestReport(type: JacocoReport, dependsOn: [':presentacion:testDebugUn
     def executionFileForUnitTestInOtherModule =
             "$modulePresentacion.buildDir/outputs/unit_test_code_coverage/debugUnitTest/testDebugUnitTest.exec"
             "$moduleDominio.buildDir/outputs/unit_test_code_coverage/debugUnitTest/testDebugUnitTest.exec"
+            "$moduleInfraestructura.buildDir/outputs/unit_test_code_coverage/debugUnitTest/testDebugUnitTest.exec"
 
     def executionFiles = layout.files(
             executionFilesFromConnectedAndroidTest,
