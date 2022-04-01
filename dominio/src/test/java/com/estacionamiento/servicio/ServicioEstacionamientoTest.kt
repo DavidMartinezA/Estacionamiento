@@ -42,9 +42,10 @@ class ServicioEstacionamientoTest {
             .thenReturn(false)
 
         //Act
-        var guardarUsuario = servicioEstacionamientoCarro.ingresoUsuarioEstacionamiento(3)
+        val guardarUsuario = servicioEstacionamientoCarro.ingresoUsuarioEstacionamiento(3)
 
-
+        //Assert
+        Assert.assertNotNull(guardarUsuario)
     }
 
     @Test

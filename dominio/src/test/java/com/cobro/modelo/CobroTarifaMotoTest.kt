@@ -25,7 +25,7 @@ class CobroTarifaMotoTest {
     }
 
     @Test
-    fun cobroTarifaMoto_DuracionCorrectaCilindrajeAltFalse_CobroDeTarifa() {
+    fun cobroTarifaMoto_DuracionCorrectaCilindrajeAltoFalse_CobroDeTarifa() {
 
         //Arrange
         val usuario = UsuarioVehiculoMoto("hsu53c", false)
@@ -41,7 +41,7 @@ class CobroTarifaMotoTest {
     }
 
     @Test
-    fun cobroTarifaMoto_DuracionCincoDiasCilindrajeAltFalse_CobroDeTarifa() {
+    fun cobroTarifaMoto_DuracionCincoDiasCilindrajeAltoFalse_CobroDeTarifa() {
 
         //Arrange
         val usuario = UsuarioVehiculoMoto("hsu53c", false)
@@ -57,7 +57,7 @@ class CobroTarifaMotoTest {
     }
 
     @Test
-    fun cobroTarifaMoto_DuracionCincoDiasMasNueveHorasCilindrajeAltFalse_CobroDeTarifa() {
+    fun cobroTarifaMoto_DuracionCincoDiasMasNueveHorasCilindrajeAltoFalse_CobroDeTarifa() {
 
         //Arrange
         val usuario = UsuarioVehiculoMoto("hsu53c", false)
@@ -73,7 +73,7 @@ class CobroTarifaMotoTest {
     }
 
     @Test
-    fun cobroTarifaMoto_DuracionDiezDiasMasNueveHorasCilindrajeAltFalse_CobroDeTarifa() {
+    fun cobroTarifaMoto_DuracionDiezDiasMasNueveHorasCilindrajeAltoFalse_CobroDeTarifa() {
 
         //Arrange
         val usuario = UsuarioVehiculoMoto("hsu53c", false)
@@ -89,7 +89,7 @@ class CobroTarifaMotoTest {
     }
 
     @Test
-    fun cobroTarifaMoto_DuracionDiezDiasMasSieteHorasCilindrajeAltFalse_CobroDeTarifa() {
+    fun cobroTarifaMoto_DuracionDiezDiasMasSieteHorasCilindrajeAltoFalse_CobroDeTarifa() {
 
         //Arrange
         val usuario = UsuarioVehiculoMoto("hsu53c", false)

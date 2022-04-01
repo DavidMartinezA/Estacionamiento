@@ -7,7 +7,6 @@ import com.excepciones.UsuarioYaExisteExcepcion
 import com.usuario.modelo.UsuarioVehiculo
 import com.usuario.repositorio.RepositorioUsuarioVehiculo
 
-
 class ServicioEstacionamiento(
     var estacionamiento: Estacionamiento,
     val repositorioUsuarioVehiculo: RepositorioUsuarioVehiculo,

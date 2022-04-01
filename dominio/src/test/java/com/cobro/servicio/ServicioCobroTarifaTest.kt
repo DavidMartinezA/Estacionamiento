@@ -78,7 +78,7 @@ class ServicioCobroTarifaTest {
 
 
     @Test
-    fun cobroDuracionServicio_UsuarioNoExisteDuracionCincoHoras_LanzarExcepcion() {
+    fun cobroDuracionServicio_UsuarioNoExiste_LanzarExcepcion() {
 
         //Arrange
         val mensajeEsperado = "UsuarioVehiculo No Existe"
@@ -137,7 +137,7 @@ class ServicioCobroTarifaTest {
     }
 
     @Test
-    fun cobroDuracionServicio_UsuarioExisteMoto_CobroDeTarifa() {
+    fun cobroDuracionServicio_UsuarioMotoSeisHorasCilindrajeAlto_CobroDeTarifa() {
 
         //Arrange
         val horaSalida = "2022-01-01 05:59:00"
@@ -156,30 +156,5 @@ class ServicioCobroTarifaTest {
 
         assert(servicio == 5000)
     }
-
-
-    @Test
-    fun cobroDuracionServicio_UsuarioExisteDuracionCincoHoras_CincoHoras() {
-
-        //Arrange
-        val horaSalida = "2022-01-01 05:59:00"
-        val horaProporcionadaDesalida = LocalDateTime.parse(horaSalida, patronHora)
-        val usuario = UsuarioVehiculoCarro("hsu531")
-        val estacionamiento = EstacionamientoCarro(usuario, horaProporcionadaDeIngreso)
-        val servicioEstacionamiento =
-            ServicioEstacionamiento(estacionamiento, repositorioUsuarioVehiculo)
-        val cobroTarifa = CobroTarifaCarro(estacionamiento)
-        val servicioCobroTarifaCarro = ServicioCobroTarifa(servicioEstacionamiento,
-            cobroTarifa, horaProporcionadaDesalida)
-        Mockito.`when`(repositorioUsuarioVehiculo.usuarioExiste(usuario)).thenReturn(true)
-
-        //Act
-        val cobroTarifaServicio = servicioCobroTarifaCarro.cobroDuracionServicio()
-
-        //Assert
-        assert(cobroTarifaServicio == 6000)
-
-    }
-
 
 }
