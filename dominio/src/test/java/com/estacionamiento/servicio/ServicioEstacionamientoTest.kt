@@ -104,8 +104,6 @@ class ServicioEstacionamientoTest {
         val usuarioVehiculo = UsuarioVehiculoCarro("aaa657")
         val servicioEstacionamientoCarro =
             ServicioEstacionamiento(estacionamientoCarro, repositorioUsuarioVehiculo)
-        Mockito.`when`(repositorioUsuarioVehiculo.usuarioExiste(usuarioVehiculo))
-            .thenReturn(false)
 
         //Act
         try {
@@ -180,6 +178,5 @@ class ServicioEstacionamientoTest {
         //Assert
         assert(capacidad)
     }
-
 
 }
