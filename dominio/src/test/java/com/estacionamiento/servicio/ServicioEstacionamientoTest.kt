@@ -101,7 +101,6 @@ class ServicioEstacionamientoTest {
 
         //Arrange
         val mensajeEsperado = "UsuarioVehiculo No Existe"
-        val usuarioVehiculo = UsuarioVehiculoCarro("aaa657")
         val servicioEstacionamientoCarro =
             ServicioEstacionamiento(estacionamientoCarro, repositorioUsuarioVehiculo)
 

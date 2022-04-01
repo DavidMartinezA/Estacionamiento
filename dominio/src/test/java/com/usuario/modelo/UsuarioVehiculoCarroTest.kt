@@ -6,11 +6,12 @@ import org.junit.Test
 
 class UsuarioVehiculoCarroTest {
 
+    private val mensajeEsperado = "Formato De Placa No Valido"
+
     @Test
     fun usuarioCarroPlaca_SoloNumeros_LanzarExcepcion() {
 
         //Arrange
-        val mensajeEsperado = "Formato De Placa No Valido"
         val placa = "123456"
 
         //Act
@@ -29,10 +30,9 @@ class UsuarioVehiculoCarroTest {
     fun usuarioCarroPlaca_SoloLetras_LanzarExcepcion() {
 
         //Arrange
-        val mensajeEsperado = "Formato De Placa No Valido"
         val placa = "abcdef"
 
-            //Act
+        //Act
         try {
 
             val usuarioCarroTest = UsuarioVehiculoCarro(placa)
@@ -48,7 +48,6 @@ class UsuarioVehiculoCarroTest {
     fun usuarioCarroPlaca_CamposVacios_LanzarExcepcion() {
 
         //Arrange
-        val mensajeEsperado = "Formato De Placa No Valido"
         val placa = ""
         //Act
         try {
@@ -65,9 +64,6 @@ class UsuarioVehiculoCarroTest {
     @Test
     fun usuarioCarroPlaca_SoloLetrasMayusculasYMinusculas_LanzarExcepcion() {
 
-        //Arrange
-        val mensajeEsperado = "Formato De Placa No Valido"
-
         //Act
         try {
 
@@ -82,9 +78,6 @@ class UsuarioVehiculoCarroTest {
 
     @Test
     fun usuarioCarroPlaca_IngresarMasDeSeisCampos_LanzarExcepcion() {
-
-        //Arrange
-        val mensajeEsperado = "Formato De Placa No Valido"
 
         //Act
         try {
@@ -101,9 +94,6 @@ class UsuarioVehiculoCarroTest {
     @Test
     fun usuarioCarroPlaca_IngresarMenosDeCincoCampos_LanzarExcepcion() {
 
-        //Arrange
-        val mensajeEsperado = "Formato De Placa No Valido"
-
         //Act
         try {
 
@@ -118,9 +108,6 @@ class UsuarioVehiculoCarroTest {
 
     @Test
     fun usuarioCarroPlaca_IngresarSoloLetrasMayusculas_LanzarExcepcion() {
-
-        //Arrange
-        val mensajeEsperado = "Formato De Placa No Valido"
 
         //Act
         try {
@@ -137,9 +124,6 @@ class UsuarioVehiculoCarroTest {
     @Test
     fun usuarioCarroPlaca_IngresarSoloLetrasMinusculas_LanzarExcepcion() {
 
-        //Arrange
-        val mensajeEsperado = "Formato De Placa No Valido"
-
         //Act
         try {
 
@@ -154,9 +138,6 @@ class UsuarioVehiculoCarroTest {
 
     @Test
     fun usuarioCarroPlaca_CaracteresEspeciales_LanzarExcepcion() {
-
-        //Arrange
-        val mensajeEsperado = "Formato De Placa No Valido"
 
         //Act
         try {
@@ -173,9 +154,6 @@ class UsuarioVehiculoCarroTest {
 
     @Test
     fun usuarioCarroPlaca_FormatoAlfanumericoCorrectoConSeparadorCaracterEspecial_LanzarExcepcion() {
-
-        //Arrange
-        val mensajeEsperado = "Formato De Placa No Valido"
 
         //Act
         try {
