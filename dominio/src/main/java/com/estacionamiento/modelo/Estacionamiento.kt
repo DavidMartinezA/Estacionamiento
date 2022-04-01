@@ -11,17 +11,17 @@ abstract class Estacionamiento(
     companion object {
 
         private const val RESTRICCION_INGRESO_PLACA = 'A'
+        private val DIAS_PERMITIDOS = arrayListOf(7, 1)
 
     }
 
-    private val diasPermitidos = arrayListOf(7, 1)
     abstract val capacidadEstacionamiento: Int
 
     fun restriccionDeIngreso(diaDeLaSemana: Int): Boolean {
 
         var restringido = false
         if (usuarioVehiculo.placaVehiculo.uppercase().first() == RESTRICCION_INGRESO_PLACA) {
-            restringido = !diasPermitidos.contains(diaDeLaSemana)
+            restringido = !DIAS_PERMITIDOS.contains(diaDeLaSemana)
         }
         return restringido
     }

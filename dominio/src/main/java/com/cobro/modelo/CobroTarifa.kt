@@ -13,7 +13,6 @@ abstract class CobroTarifa(protected var estacionamiento: Estacionamiento) {
     protected abstract val valorDia: Int
     private var tarifaParqueoTotal = 0
 
-
     open fun cobroTarifa(duracionServicioEstacionamiento: Int): Int {
 
         var horasCobro: Int

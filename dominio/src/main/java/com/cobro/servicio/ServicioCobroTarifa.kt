@@ -5,20 +5,19 @@ import com.estacionamiento.servicio.ServicioEstacionamiento
 import java.time.Duration
 import java.time.LocalDateTime
 
-abstract class ServicioCobroTarifa(
-    protected val servicioEstacionamiento: ServicioEstacionamiento,
-    protected val cobroTarifa: CobroTarifa,
+class ServicioCobroTarifa(
+    private val servicioEstacionamiento: ServicioEstacionamiento,
+    private val cobroTarifa: CobroTarifa,
+    private val horaFechaSalidaUsuarioUsuario: LocalDateTime,
 ) {
 
-    protected abstract var tarifaCobroServicioEstacionamiento: Int
-    protected abstract var horaFechaSalidaUsuarioUsuario: LocalDateTime
+    private var tarifaCobroServicioEstacionamiento = 0
 
-    abstract fun cobroDuracionServicio(): Int
 
     fun duracionServicioEstacionamiento(): Int {
 
         val calculoDuracionServicio =
-            Duration.between(servicioEstacionamiento.estacionamiento.horaFechaIngresoUsuario,
+            Duration.between(servicioEstacionamiento.estacionamiento.horaFechaIngresoUsuario, // pedirlo al cobro tarifa
                 horaFechaSalidaUsuarioUsuario).dividedBy(60).dividedBy(60)
 
         var horasServicioEstacionamiento = calculoDuracionServicio.seconds
@@ -26,6 +25,18 @@ abstract class ServicioCobroTarifa(
             horasServicioEstacionamiento++
         }
         return horasServicioEstacionamiento.toInt()
+    }
+
+    fun cobroDuracionServicio(): Int {
+
+        val usuarioExiste =
+            servicioEstacionamiento.repositorioUsuarioVehiculo.usuarioExiste(servicioEstacionamiento.estacionamiento.usuarioVehiculo)
+
+        if (usuarioExiste) {
+            tarifaCobroServicioEstacionamiento =
+                cobroTarifa.cobroTarifa(duracionServicioEstacionamiento())
+        }
+        return tarifaCobroServicioEstacionamiento
     }
 
 }
