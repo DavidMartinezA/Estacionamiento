@@ -438,6 +438,26 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/infraestructura/build/generated/source/kapt/debug/com/example/infraestructura/accesodatos/dao/UsuarioVehiculoDao_Impl.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/infraestructura/build/tmp/kapt3/stubs/debug/com/example/infraestructura/accesodatos/dao/UsuarioVehiculoDao.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/infraestructura/build/tmp/kapt3/stubs/debug/com/example/infraestructura/accesodatos/entidadbasedatos/EntidadDatosUsuarioVehiculo.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/infraestructura/src/main/AndroidManifest.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/infraestructura/src/main/java/com/example/infraestructura/accesodatos/anticorrupcion/TraductorUsuarioVehiculo.kt">
           <value>
             <set />
@@ -458,7 +478,27 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/infraestructura/src/main/java/com/example/infraestructura/accesodatos/convertidortipo/ConvertidorDeTipoDatos.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/infraestructura/src/main/java/com/example/infraestructura/accesodatos/dao/UsuarioVehiculoDao.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/infraestructura/src/main/java/com/example/infraestructura/accesodatos/entidadbasedatos/EntidadDatosUsuarioVehiculo.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/infraestructura/src/main/java/com/example/infraestructura/accesodatos/repositorio/RepositorioEstacionamientoImplRoom.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/infraestructura/src/main/java/com/example/infraestructura/accesodatos/repositorio/RepositorioUsuarioVehiculoImplRoom.kt">
           <value>
             <set />
           </value>

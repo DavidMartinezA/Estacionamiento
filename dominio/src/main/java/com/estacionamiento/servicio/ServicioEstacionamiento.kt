@@ -12,7 +12,7 @@ class ServicioEstacionamiento(
     val repositorioUsuarioVehiculo: RepositorioUsuarioVehiculo,
 ) {
 
-    fun eliminarUsuario() {
+    suspend fun eliminarUsuario() {
         if (repositorioUsuarioVehiculo.usuarioExiste(estacionamiento.usuarioVehiculo)) {
             repositorioUsuarioVehiculo.eliminarUsuario(estacionamiento.usuarioVehiculo)
         } else {
@@ -20,11 +20,11 @@ class ServicioEstacionamiento(
         }
     }
 
-    fun consultarListaUsuarios(): ArrayList<UsuarioVehiculo> {
+    suspend fun consultarListaUsuarios(): List<UsuarioVehiculo> {
         return repositorioUsuarioVehiculo.listaUsuarios()
     }
 
-    fun ingresoUsuarioEstacionamiento(diaDeLaSemana: Int) {
+    suspend fun ingresoUsuarioEstacionamiento(diaDeLaSemana: Int) {
 
         estacionamiento.usuarioVehiculo.horaFechaIngresoUsuario =
             estacionamiento.horaFechaIngresoUsuario
@@ -46,9 +46,9 @@ class ServicioEstacionamiento(
         }
     }
 
-    fun consultaDisponibilidadEstacionamiento(): Boolean {
+    suspend fun consultaDisponibilidadEstacionamiento(): Boolean {
         var existeEspacio = false
-        val listaUsuarioVehiculo: ArrayList<UsuarioVehiculo> =
+        val listaUsuarioVehiculo: List<UsuarioVehiculo> =
             repositorioUsuarioVehiculo.listaUsuarios()
         if (listaUsuarioVehiculo.size < estacionamiento.capacidadEstacionamiento) {
             existeEspacio = true

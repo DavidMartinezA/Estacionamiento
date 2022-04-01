@@ -6,9 +6,9 @@ interface RepositorioUsuarioVehiculo {
 
     fun usuarioExiste(usuarioVehiculo: UsuarioVehiculo): Boolean
 
-    fun guardarUsuario(usuarioVehiculo: UsuarioVehiculo)
+    suspend fun guardarUsuario(usuarioVehiculo: UsuarioVehiculo)
 
-    fun eliminarUsuario(usuarioVehiculo: UsuarioVehiculo)
+    suspend fun eliminarUsuario(usuarioVehiculo: UsuarioVehiculo)
 
-    fun listaUsuarios(): ArrayList<UsuarioVehiculo>
+    suspend fun listaUsuarios(): List<UsuarioVehiculo>
 }
