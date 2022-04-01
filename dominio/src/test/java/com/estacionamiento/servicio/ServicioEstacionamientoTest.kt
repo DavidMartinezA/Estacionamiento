@@ -1,6 +1,7 @@
 package com.estacionamiento.servicio
 
 import com.estacionamiento.modelo.EstacionamientoCarro
+import com.excepciones.IngresoNoPermitidoRestriccionExcepcion
 import com.excepciones.UsuarioNoExisteExcepcion
 import com.excepciones.UsuarioYaExisteExcepcion
 import com.usuario.modelo.UsuarioVehiculo
@@ -49,6 +50,30 @@ class ServicioEstacionamientoTest {
     }
 
     @Test
+    fun ingresoUsuarioEstacionamiento_UsuarioRestringido_LanzarExcepcion() {
+
+        //Arrange
+        val mensajeEsperado = "No Esta Autorizado A Ingresar"
+        val usuario = UsuarioVehiculoCarro("ASU531")
+        val estacionamientoCarro = EstacionamientoCarro(usuario, horaIngreso)
+        val servicioEstacionamientoCarro =
+            ServicioEstacionamiento(estacionamientoCarro, repositorioUsuarioVehiculo)
+        Mockito.`when`(repositorioUsuarioVehiculo.usuarioExiste(usuario))
+            .thenReturn(false)
+
+        //Act
+        try {
+
+            var restringido = servicioEstacionamientoCarro.ingresoUsuarioEstacionamiento(3)
+            Assert.fail()
+        } catch (ex: IngresoNoPermitidoRestriccionExcepcion) {
+
+            //Assert
+            Assert.assertEquals(mensajeEsperado, ex.message)
+        }
+    }
+
+    @Test
     fun ingresoUsuarioEstacionamiento_UsuarioExiste_lanzarExcepcion() {
 
         //Arrange
@@ -76,9 +101,10 @@ class ServicioEstacionamientoTest {
 
         //Arrange
         val mensajeEsperado = "UsuarioVehiculo No Existe"
+        val usuarioVehiculo = UsuarioVehiculoCarro("aaa657")
         val servicioEstacionamientoCarro =
             ServicioEstacionamiento(estacionamientoCarro, repositorioUsuarioVehiculo)
-        Mockito.`when`(repositorioUsuarioVehiculo.usuarioExiste(usuarioVehiculoCarro))
+        Mockito.`when`(repositorioUsuarioVehiculo.usuarioExiste(usuarioVehiculo))
             .thenReturn(false)
 
         //Act
