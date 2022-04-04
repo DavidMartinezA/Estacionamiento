@@ -433,6 +433,11 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/dominio/src/test/java/com/usuario/modelo/UsuarioVehiculoMotoTest.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/dominio/src/test/java/dominio/cobro/CobroTarifaMotoTest.kt">
           <value>
             <set />

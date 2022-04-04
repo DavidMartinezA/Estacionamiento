@@ -10,88 +10,97 @@ class EstacionamientoCarroTest {
     private val horaIngreso = LocalDateTime.now()
 
     @Test
-    fun restriccionDeIngreso_PlacaLetraInicialADiaRestringido_RestringidoTrue() {
+    fun restriccionDeIngreso_placaLetraInicialADiaRestringidoMartes_presentaRestriccion() {
 
         //Arrange
         val usuarioVehiculoCarro = UsuarioVehiculoCarro("ASU531")
         val estacionamientoCarro = EstacionamientoCarro(usuarioVehiculoCarro, horaIngreso)
+        val diaMartes = 2
 
         //Act
-        val restriccionIngreso = estacionamientoCarro.restriccionDeIngreso(2)
+        val restriccionIngreso = estacionamientoCarro.restriccionDeIngreso(diaMartes)
 
         //Assert
         Assert.assertTrue(restriccionIngreso)
     }
 
     @Test
-    fun restriccionDeIngreso_PlacaLetraInicialADiaRestringidoViernes_presentaRestriccion() {
+    fun restriccionDeIngreso_placaLetraInicialADiaRestringidoViernes_presentaRestriccion() {
 
         //Arrange
         val usuarioVehiculoCarro = UsuarioVehiculoCarro("ASU531")
         val estacionamientoCarro = EstacionamientoCarro(usuarioVehiculoCarro, horaIngreso)
+        val diaViernes = 5
 
         //Act
-        val restriccionIngreso = estacionamientoCarro.restriccionDeIngreso(5)
+        val restriccionIngreso = estacionamientoCarro.restriccionDeIngreso(diaViernes)
 
         //Assert
-        assert(restriccionIngreso)
+        Assert.assertTrue(restriccionIngreso)
     }
 
     @Test
-    fun restriccionDeIngreso_PlacaLetraInicialDiferenteADiaRestringido_RestringidoFalse() {
+    fun restriccionDeIngreso_placaLetraInicialDiferenteADiaRestringido_noPresentaRestriccion() {
 
         //Arrange
         val usuarioVehiculoCarro = UsuarioVehiculoCarro("hSU531")
         val estacionamientoCarro = EstacionamientoCarro(usuarioVehiculoCarro, horaIngreso)
+        val diaMiercoles = 3
 
         //Act
-        val restriccionIngreso = estacionamientoCarro.restriccionDeIngreso(3)
+        val restriccionIngreso = estacionamientoCarro.restriccionDeIngreso(diaMiercoles)
 
         //Assert
-        assert(!restriccionIngreso)
+        Assert.assertTrue(!restriccionIngreso)
+
     }
 
     @Test
-    fun restriccionDeIngreso_PlacaLetraInicialDiferenteADiaNoRestringido_RestringidoFalse() {
+    fun restriccionDeIngreso_placaLetraInicialDiferenteADiaNoRestringidoDomingo_noPresentaRestriccion() {
 
         //Arrange
         val usuarioVehiculoCarro = UsuarioVehiculoCarro("hSU531")
         val estacionamientoCarro = EstacionamientoCarro(usuarioVehiculoCarro, horaIngreso)
+        val diaDomingo = 7
 
         //Act
-        val restriccionIngreso = estacionamientoCarro.restriccionDeIngreso(3)
+        val restriccionIngreso = estacionamientoCarro.restriccionDeIngreso(diaDomingo)
 
         //Assert
-        assert(!restriccionIngreso)
+        Assert.assertTrue(!restriccionIngreso)
+
     }
 
     @Test
-    fun restriccionDeIngreso_PlacaLetraInicialADiaNoRestringido_RestringidoFalse() {
+    fun restriccionDeIngreso_placaLetraInicialADiaNoRestringidoLunes_noPresentaRestriccion() {
 
         //Arrange
         val usuarioVehiculoCarro = UsuarioVehiculoCarro("ASU531")
         val estacionamientoCarro = EstacionamientoCarro(usuarioVehiculoCarro, horaIngreso)
+        val diaLunes = 1
 
         //Act
-        val restriccionIngreso = estacionamientoCarro.restriccionDeIngreso(1)
+        val restriccionIngreso = estacionamientoCarro.restriccionDeIngreso(diaLunes)
 
         //Assert
-        assert(!restriccionIngreso)
+        Assert.assertTrue(!restriccionIngreso)
+
     }
 
     @Test
-    fun restriccionDeIngreso_PlacaLetraInicialADiaNoRestringidoDos_RestringidoFalse() {
+    fun restriccionDeIngreso_placaLetraInicialADiaNoRestringidoDomingo_noPresentaRestriccion() {
 
         //Arrange
         val usuarioVehiculoCarro = UsuarioVehiculoCarro("ASU531")
         val estacionamientoCarro = EstacionamientoCarro(usuarioVehiculoCarro, horaIngreso)
+        val diaDomingo = 7
 
         //Act
-        val restriccionIngreso = estacionamientoCarro.restriccionDeIngreso(7)
+        val restriccionIngreso = estacionamientoCarro.restriccionDeIngreso(diaDomingo)
 
         //Assert
-        assert(!restriccionIngreso)
-    }
+        Assert.assertTrue(!restriccionIngreso)
 
+    }
 
 }

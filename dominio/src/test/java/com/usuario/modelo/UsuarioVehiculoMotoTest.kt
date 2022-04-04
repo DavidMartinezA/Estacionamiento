@@ -1,11 +1,12 @@
 package com.usuario.modelo
 
+import org.junit.Assert
 import org.junit.Test
 
 class UsuarioVehiculoMotoTest {
 
     @Test
-    fun usuarioMotoPlaca_FormatoAlfanumericoCorrectoMotoCincoCamposAltoCilindrajeFalso_CilindrajeAltoFalse() {
+    fun initValidacionDeFormatoPlaca_formatoAlfanumericoCorrectoMotoCincoCamposAltoCilindrajeFalso_retornaCilindrajeAltoFalso() {
 
         //Arrange
         val placa = "hSu53"
@@ -15,12 +16,12 @@ class UsuarioVehiculoMotoTest {
         val usuarioMotoTest = UsuarioVehiculoMoto(placa, altoCilindraje)
 
         //Assert
-        assert(!usuarioMotoTest.cilindrajeAlto)
+        Assert.assertTrue(!usuarioMotoTest.cilindrajeAlto)
 
     }
 
     @Test
-    fun usuarioMotoPlaca_FormatoAlfanumericoCorrectoMotoAltoCilindrajeTrue_CilindrajeAltoTrue() {
+    fun initValidacionDeFormatoPlaca_formatoAlfanumericoCorrectoMotoAltoCilindrajeVerdadero_retornaCilindrajeAltoVerdadero() {
 
         //Arrange
         val placa = "hSu53"
@@ -30,12 +31,12 @@ class UsuarioVehiculoMotoTest {
         val usuarioMotoTest = UsuarioVehiculoMoto(placa, altoCilindraje)
 
         //Assert
-        assert(usuarioMotoTest.cilindrajeAlto)
+        Assert.assertTrue(usuarioMotoTest.cilindrajeAlto)
 
     }
 
     @Test
-    fun usuarioMotoPlaca_FormatoAlfanumericoCorrectoMotoUltimoCampoLetraAltoCilindrajeTrue_CilindrajeAltoTrue() {
+    fun initValidacionDeFormatoPlaca_formatoAlfanumericoCorrectoMotoUltimoCampoLetraAltoCilindrajeVerdadero_retornaCilindrajeAltoverdadero() {
 
         //Arrange
         val placa = "hSu53c"
@@ -45,12 +46,12 @@ class UsuarioVehiculoMotoTest {
         val usuarioMotoTest = UsuarioVehiculoMoto(placa, altoCilindraje)
 
         //Assert
-        assert(usuarioMotoTest.cilindrajeAlto)
+        Assert.assertTrue(usuarioMotoTest.cilindrajeAlto)
 
     }
 
     @Test
-    fun usuarioMotoPlaca_FormatoAlfanumericoCorrectoAltoCilindrajePorDefectoFalse_CilindrajeAltoFalse() {
+    fun usuarioMotoPlaca_FormatoAlfanumericoCorrectoAltoCilindrajePorDefectoFalso_retornaCilindrajeAltoFalso() {
 
         //Arrange
         val placa = "hSu-53c"
@@ -59,7 +60,7 @@ class UsuarioVehiculoMotoTest {
         val usuarioMotoTest = UsuarioVehiculoMoto(placa)
 
         //Assert
-        assert(!usuarioMotoTest.cilindrajeAlto)
+        Assert.assertTrue(!usuarioMotoTest.cilindrajeAlto)
 
     }
 }

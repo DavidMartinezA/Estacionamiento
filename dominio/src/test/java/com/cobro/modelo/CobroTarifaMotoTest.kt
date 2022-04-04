@@ -2,6 +2,7 @@ package com.cobro.modelo
 
 import com.estacionamiento.modelo.EstacionamientoMoto
 import com.usuario.modelo.UsuarioVehiculoMoto
+import org.junit.Assert
 import org.junit.Test
 
 import java.time.LocalDateTime
@@ -9,7 +10,7 @@ import java.time.LocalDateTime
 class CobroTarifaMotoTest {
 
     @Test
-    fun cobroTarifaMoto_DuracionCorrectaCilindrajeAltoTrue_CobroDeTarifa() {
+    fun cobroTarifa_duracionDiezHorasMotoCilindrajeAltoVerdadero_retornaCobroDeTarifa() {
 
         //Arrange
         val usuario = UsuarioVehiculoMoto("hsu53c", true)
@@ -21,11 +22,12 @@ class CobroTarifaMotoTest {
         val tarifa = cobroTarifa.cobroTarifa(duracionServicio)
 
         //Assert
-        assert(tarifa == 6000)
+        Assert.assertEquals(tarifa, 6000)
+
     }
 
     @Test
-    fun cobroTarifaMoto_DuracionCorrectaCilindrajeAltoFalse_CobroDeTarifa() {
+    fun cobroTarifa_duracionDiezHorasMotoCilindrajeAltoFalso_retornaCobroDeTarifa() {
 
         //Arrange
         val usuario = UsuarioVehiculoMoto("hsu53c", false)
@@ -37,11 +39,11 @@ class CobroTarifaMotoTest {
         val tarifa = cobroTarifa.cobroTarifa(duracionServicio)
 
         //Assert
-        assert(tarifa == 4000)
+        Assert.assertEquals(tarifa, 4000)
     }
 
     @Test
-    fun cobroTarifaMoto_DuracionCincoDiasCilindrajeAltoFalse_CobroDeTarifa() {
+    fun cobroTarifa_duracionCincoDiasCilindrajeAltoFalse_retornaCobroDeTarifa() {
 
         //Arrange
         val usuario = UsuarioVehiculoMoto("hsu53c", false)
@@ -53,14 +55,14 @@ class CobroTarifaMotoTest {
         val tarifa = cobroTarifa.cobroTarifa(duracionServicio)
 
         //Assert
-        assert(tarifa == 20000)
+        Assert.assertEquals(tarifa, 20000)
     }
 
     @Test
-    fun cobroTarifaMoto_DuracionCincoDiasMasNueveHorasCilindrajeAltoFalse_CobroDeTarifa() {
+    fun cobroTarifa_duracionCincoDiasMasNueveHorasCilindrajeAltoVerdadero_retornaCobroDeTarifa() {
 
         //Arrange
-        val usuario = UsuarioVehiculoMoto("hsu53c", false)
+        val usuario = UsuarioVehiculoMoto("hsu53c", true)
         val estacionamiento = EstacionamientoMoto(usuario, LocalDateTime.now())
         val cobroTarifa = CobroTarifaMoto(estacionamiento)
         val duracionServicio = 129
@@ -69,11 +71,11 @@ class CobroTarifaMotoTest {
         val tarifa = cobroTarifa.cobroTarifa(duracionServicio)
 
         //Assert
-        assert(tarifa == 24000)
+        Assert.assertEquals(tarifa, 26000)
     }
 
     @Test
-    fun cobroTarifaMoto_DuracionDiezDiasMasNueveHorasCilindrajeAltoFalse_CobroDeTarifa() {
+    fun cobroTarifa_duracionDiezDiasMasNueveHorasCilindrajeAltoFalse_retornaCobroDeTarifa() {
 
         //Arrange
         val usuario = UsuarioVehiculoMoto("hsu53c", false)
@@ -85,11 +87,11 @@ class CobroTarifaMotoTest {
         val tarifa = cobroTarifa.cobroTarifa(duracionServicio)
 
         //Assert
-        assert(tarifa == 44000)
+        Assert.assertEquals(tarifa, 44000)
     }
 
     @Test
-    fun cobroTarifaMoto_DuracionDiezDiasMasSieteHorasCilindrajeAltoFalse_CobroDeTarifa() {
+    fun cobroTarifa_DuracionDiezDiasMasSieteHorasCilindrajeAltoFalse_retornaCobroDeTarifa() {
 
         //Arrange
         val usuario = UsuarioVehiculoMoto("hsu53c", false)
@@ -101,11 +103,11 @@ class CobroTarifaMotoTest {
         val tarifa = cobroTarifa.cobroTarifa(duracionServicio)
 
         //Assert
-        assert(tarifa == 43500)
+        Assert.assertEquals(tarifa, 43500)
     }
 
     @Test
-    fun cobroTarifaMoto_DuracionCasoExtremoCilindrajeAltFalse_CobroDeTarifa() {
+    fun cobroTarifaMoto_duracionCasoExtremoCilindrajeAltFalse_retornaCobroDeTarifaCero() {
 
         //Arrange
         val usuario = UsuarioVehiculoMoto("hsu53c", false)
@@ -117,7 +119,7 @@ class CobroTarifaMotoTest {
         val tarifa = cobroTarifa.cobroTarifa(duracionServicio)
 
         //Assert
-        assert(tarifa == 0)
+        Assert.assertEquals(tarifa, 0)
     }
 
 }

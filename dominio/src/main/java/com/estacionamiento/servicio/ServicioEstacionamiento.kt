@@ -1,9 +1,9 @@
 package com.estacionamiento.servicio
 
+import com.estacionamiento.excepcion.IngresoNoPermitidoRestriccionExcepcion
+import com.estacionamiento.excepcion.UsuarioNoExisteExcepcion
+import com.estacionamiento.excepcion.UsuarioYaExisteExcepcion
 import com.estacionamiento.modelo.Estacionamiento
-import com.excepciones.IngresoNoPermitidoRestriccionExcepcion
-import com.excepciones.UsuarioNoExisteExcepcion
-import com.excepciones.UsuarioYaExisteExcepcion
 import com.usuario.modelo.UsuarioVehiculo
 import com.usuario.repositorio.RepositorioUsuarioVehiculo
 

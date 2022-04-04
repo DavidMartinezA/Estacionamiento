@@ -56,8 +56,6 @@ tinfraestructura/src/main/java/com/example/infraestructura/accesodatos/anticorru
 :
 
 .gitignore,a/5/a5cc2925ca8258af241be7e5b0381edf30266302
-i
-9dominio/src/main/java/com/cobro/modelo/CobroTarifaMoto.kt,0/e/0ece559a4a32318cdb594529aca83cd071986636
 s
 Cdominio/src/main/java/com/cobro/servicio/ServicioCobroTarifaMoto.kt,c/4/c4a7ce01a5ed0bcc78f2d22332820fe9e209a75d
 t

@@ -1,6 +1,7 @@
 package com.cobro.servicio
 
 import com.cobro.modelo.CobroTarifa
+import com.estacionamiento.excepcion.UsuarioNoExisteExcepcion
 import com.estacionamiento.servicio.ServicioEstacionamiento
 import java.time.Duration
 import java.time.LocalDateTime
@@ -35,6 +36,8 @@ class ServicioCobroTarifa(
         if (usuarioExiste) {
             tarifaCobroServicioEstacionamiento =
                 cobroTarifa.cobroTarifa(duracionServicioEstacionamiento())
+        } else {
+            throw UsuarioNoExisteExcepcion()
         }
         return tarifaCobroServicioEstacionamiento
     }

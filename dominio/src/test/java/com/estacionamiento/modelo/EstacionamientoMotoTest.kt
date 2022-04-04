@@ -1,6 +1,7 @@
 package com.estacionamiento.modelo
 
 import com.usuario.modelo.UsuarioVehiculoMoto
+import org.junit.Assert
 import org.junit.Test
 import java.time.LocalDateTime
 
@@ -9,30 +10,33 @@ class EstacionamientoMotoTest {
     private val horaIngreso = LocalDateTime.now()
 
     @Test
-    fun restriccionDeIngreso_PlacaLetraInicialADiaRestringidoAltoCilindrajeTrue_RestringidoTrue() {
+    fun restriccionDeIngreso_placaLetraInicialADiaRestringidoMartesAltoCilindrajeTrue_ingresoRestringido() {
 
         //Arrange
         val usuarioVehiculoMoto = UsuarioVehiculoMoto("ASU531", true)
         val estacionamientoMoto = EstacionamientoMoto(usuarioVehiculoMoto, horaIngreso)
+        val diaMartes = 2
 
         //Act
-        val restriccionIngreso = estacionamientoMoto.restriccionDeIngreso(2)
+        val restriccionIngreso = estacionamientoMoto.restriccionDeIngreso(diaMartes)
 
         //Assert
-        assert(restriccionIngreso)
+        Assert.assertTrue(restriccionIngreso)
+
     }
 
     @Test
-    fun restriccionDeIngreso_PlacaLetraInicialADiaRestringidoAltoCilindrajeFalse_RestringidoTrue() {
+    fun restriccionDeIngreso_placaLetraInicialADiaNoRestringidoLunesAltoCilindrajeFalse_ingresoNoRestringido() {
 
         //Arrange
-        val usuarioVehiculoMoto = UsuarioVehiculoMoto("hSU531", false)
+        val usuarioVehiculoMoto = UsuarioVehiculoMoto("ASU531", false)
         val estacionamientoMoto = EstacionamientoMoto(usuarioVehiculoMoto, horaIngreso)
 
         //Act
         val restriccionIngreso = estacionamientoMoto.restriccionDeIngreso(1)
 
         //Assert
-        assert(!restriccionIngreso)
+        Assert.assertTrue(!restriccionIngreso)
+
     }
 }

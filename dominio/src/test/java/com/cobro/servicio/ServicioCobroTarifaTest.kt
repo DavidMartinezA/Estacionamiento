@@ -2,10 +2,10 @@ package com.cobro.servicio
 
 import com.cobro.modelo.CobroTarifaCarro
 import com.cobro.modelo.CobroTarifaMoto
+import com.estacionamiento.excepcion.UsuarioNoExisteExcepcion
 import com.estacionamiento.modelo.EstacionamientoCarro
 import com.estacionamiento.modelo.EstacionamientoMoto
 import com.estacionamiento.servicio.ServicioEstacionamiento
-import com.excepciones.UsuarioNoExisteExcepcion
 import com.usuario.modelo.UsuarioVehiculoCarro
 import com.usuario.modelo.UsuarioVehiculoMoto
 import com.usuario.repositorio.RepositorioUsuarioVehiculo
@@ -37,7 +37,7 @@ class ServicioCobroTarifaTest {
     }
 
     @Test
-    fun duracionServicioEstacionamiento_CincoHorasYMedia_CobroSeisHoras() {
+    fun duracionServicioEstacionamiento_duracionDeCincoHorasYMedia_retornaDuracionServicioSeisHoras() {
 
         //Arrange
         val horaSalida = "2022-01-01 05:30:00"
@@ -52,12 +52,12 @@ class ServicioCobroTarifaTest {
         val duracionServicio = servicioCobroTarifaCarro.duracionServicioEstacionamiento()
 
         //Assert
-        assert(duracionServicio == 6)
+        Assert.assertEquals(duracionServicio, 6)
 
     }
 
     @Test
-    fun duracionServicioEstacionamiento_UnDIa_CobroSeisHoras() {
+    fun duracionServicioEstacionamiento_duracionDeOchoHorasYMedia_retornaDuracionServicioNueveHoras() {
 
         //Arrange
         val horaSalida = "2022-01-01 08:30:00"
@@ -72,44 +72,35 @@ class ServicioCobroTarifaTest {
         val duracionServicio = servicioCobroTarifaCarro.duracionServicioEstacionamiento()
 
         //Assert
-        assert(duracionServicio == 9)
+        Assert.assertEquals(duracionServicio, 9)
 
     }
 
 
     @Test
-    fun cobroDuracionServicio_UsuarioNoExiste_LanzarExcepcion() {
+    fun cobroDuracionServicio_elUsuarioNoExiste_lanzarUnaExcepcion() {
 
         //Arrange
-        val mensajeEsperado = "UsuarioVehiculo No Existe"
         val horaSalida = "2022-01-01 04:59:00"
         val horaProporcionadaDesalida = LocalDateTime.parse(horaSalida, patronHora)
         val estacionamiento = EstacionamientoCarro(usuario, horaProporcionadaDeIngreso)
         val servicioEstacionamiento =
             ServicioEstacionamiento(estacionamiento, repositorioUsuarioVehiculo)
         val cobroTarifa = CobroTarifaCarro(estacionamiento)
-        val servicioCobroTarifaCarro = ServicioCobroTarifa(servicioEstacionamiento,
-            cobroTarifa, horaProporcionadaDesalida)
         Mockito.`when`(repositorioUsuarioVehiculo.usuarioExiste(usuario)).thenReturn(false)
 
         //Act
-        try {
-
-            val cobroTarifaServicio = servicioCobroTarifaCarro.cobroDuracionServicio()
-
-        } catch (ex: UsuarioNoExisteExcepcion) {
-
-            //Assert
-            Assert.assertEquals(mensajeEsperado, ex.message)
+        //Assert
+        Assert.assertThrows(UsuarioNoExisteExcepcion::class.java) {
+            ServicioCobroTarifa(servicioEstacionamiento, cobroTarifa, horaProporcionadaDesalida).cobroDuracionServicio()
         }
 
     }
 
     @Test
-    fun cobroDuracionServicio_UsuarioNoExisteMoto_LanzarExcepcion() {
+    fun cobroDuracionServicio_elUsuarioNoExisteMoto_LanzarUnaExcepcion() {
 
         //Arrange
-        val mensajeEsperado = "UsuarioVehiculo No Existe"
         val horaSalida = "2022-01-01 05:59:00"
         val horaProporcionadaDesalida = LocalDateTime.parse(horaSalida, patronHora)
         val usuario = UsuarioVehiculoMoto("hsu531", true)
@@ -117,21 +108,12 @@ class ServicioCobroTarifaTest {
         val servicioEstacionamiento =
             ServicioEstacionamiento(estacionamiento, repositorioUsuarioVehiculo)
         val cobroTarifaMoto = CobroTarifaMoto(estacionamiento)
-        val servicioCobroTarifaMoto = ServicioCobroTarifa(servicioEstacionamiento, cobroTarifaMoto,
-            horaProporcionadaDesalida)
-
-        Mockito.`when`(repositorioUsuarioVehiculo.usuarioExiste(usuario)).thenReturn(true)
-
+        Mockito.`when`(repositorioUsuarioVehiculo.usuarioExiste(usuario)).thenReturn(false)
 
         //Act
-        try {
-
-            val servicio = servicioCobroTarifaMoto.cobroDuracionServicio()
-
-        } catch (ex: UsuarioNoExisteExcepcion) {
-
-            //Assert
-            Assert.assertEquals(mensajeEsperado, ex.message)
+        //Assert
+        Assert.assertThrows(UsuarioNoExisteExcepcion::class.java) {
+            ServicioCobroTarifa(servicioEstacionamiento, cobroTarifaMoto, horaProporcionadaDesalida).cobroDuracionServicio()
         }
 
     }
@@ -149,12 +131,13 @@ class ServicioCobroTarifaTest {
         val cobroTarifaMoto = CobroTarifaMoto(estacionamiento)
         val servicioCobroTarifaMoto = ServicioCobroTarifa(servicioEstacionamiento, cobroTarifaMoto,
             horaProporcionadaDesalida)
-
         Mockito.`when`(repositorioUsuarioVehiculo.usuarioExiste(usuario)).thenReturn(true)
 
+        //Act
         val servicio = servicioCobroTarifaMoto.cobroDuracionServicio()
 
-        assert(servicio == 5000)
+        //Assert
+        Assert.assertEquals(servicio, 5000)
     }
 
 }
