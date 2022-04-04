@@ -1,12 +1,10 @@
 package com.estacionamiento.servicio
 
-import org.junit.runner.RunWith
-import org.mockito.junit.MockitoJUnitRunner
-
+/*
 @RunWith(MockitoJUnitRunner::class)
 class ServicioEstacionamientoTest {
 
-/*
+
     @Mock
     private lateinit var repositorioUsuarioVehiculo: RepositorioUsuarioVehiculo
 
@@ -167,7 +165,8 @@ class ServicioEstacionamientoTest {
     }
 
 
-*/
+
 
 
 }
+*/
