@@ -1,24 +1,21 @@
 package com.cobro.servicio
 
-import com.cobro.modelo.CobroTarifa
-import com.estacionamiento.servicio.ServicioEstacionamiento
 import java.time.Duration
 import java.time.LocalDateTime
 
-class ServicioCobroTarifa(
-    private val servicioEstacionamiento: ServicioEstacionamiento,
-    private val cobroTarifa: CobroTarifa,
+abstract class ServicioCobroTarifa(
+    private val horaFechaIngresoUsuarioUsuario: LocalDateTime,
     private val horaFechaSalidaUsuarioUsuario: LocalDateTime,
 ) {
 
-    private var tarifaCobroServicioEstacionamiento = 0
-
+    abstract fun cobroDuracionServicio(): Int
 
     fun duracionServicioEstacionamiento(): Int {
 
-        val calculoDuracionServicio =
-            Duration.between(servicioEstacionamiento.estacionamiento.horaFechaIngresoUsuario, // pedirlo al cobro tarifa
-                horaFechaSalidaUsuarioUsuario).dividedBy(60).dividedBy(60)
+        val calculoDuracionServicio = Duration.between(horaFechaIngresoUsuarioUsuario, // pedirlo al cobro tarifa
+            horaFechaSalidaUsuarioUsuario)
+            .dividedBy(60) // Convertir segundos en minutos
+            .dividedBy(60) // convertir minutos en horas
 
         var horasServicioEstacionamiento = calculoDuracionServicio.seconds
         if (calculoDuracionServicio.nano >= 0) {
@@ -26,17 +23,4 @@ class ServicioCobroTarifa(
         }
         return horasServicioEstacionamiento.toInt()
     }
-
-    fun cobroDuracionServicio(): Int {
-
-        val usuarioExiste =
-            servicioEstacionamiento.repositorioUsuarioVehiculo.usuarioExiste(servicioEstacionamiento.estacionamiento.usuarioVehiculo)
-
-        if (usuarioExiste) {
-            tarifaCobroServicioEstacionamiento =
-                cobroTarifa.cobroTarifa(duracionServicioEstacionamiento())
-        }
-        return tarifaCobroServicioEstacionamiento
-    }
-
 }

@@ -4,11 +4,11 @@ import com.cobro.modelo.CobroTarifaCarro
 import com.cobro.modelo.CobroTarifaMoto
 import com.estacionamiento.modelo.EstacionamientoCarro
 import com.estacionamiento.modelo.EstacionamientoMoto
-import com.estacionamiento.servicio.ServicioEstacionamiento
+import com.estacionamiento.servicio.ServicioEstacionamientoMoto
 import com.excepciones.UsuarioNoExisteExcepcion
 import com.usuario.modelo.UsuarioVehiculoCarro
 import com.usuario.modelo.UsuarioVehiculoMoto
-import com.usuario.repositorio.RepositorioUsuarioVehiculo
+import com.usuario.repositorio.RepositorioUsuarioVehiculoMoto
 import org.junit.Assert
 import org.junit.Before
 import org.junit.Test
@@ -24,7 +24,7 @@ import java.time.format.DateTimeFormatter
 class ServicioCobroTarifaTest {
 
     @Mock
-    private lateinit var repositorioUsuarioVehiculo: RepositorioUsuarioVehiculo
+    private lateinit var repositorioUsuarioVehiculoMoto: RepositorioUsuarioVehiculoMoto
 
     private val patronHora = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")
     private var usuario = UsuarioVehiculoCarro("hsu531")
@@ -44,7 +44,7 @@ class ServicioCobroTarifaTest {
         val horaProporcionadaDesalida = LocalDateTime.parse(horaSalida, patronHora)
         val estacionamiento = EstacionamientoCarro(usuario, horaProporcionadaDeIngreso)
         val servicioEstacionamiento =
-            ServicioEstacionamiento(estacionamiento, repositorioUsuarioVehiculo)
+            ServicioEstacionamientoMoto(estacionamiento, repositorioUsuarioVehiculoMoto)
         val cobroTarifa = CobroTarifaCarro(estacionamiento)
         val servicioCobroTarifaCarro = ServicioCobroTarifa(servicioEstacionamiento,
             cobroTarifa, horaProporcionadaDesalida)
@@ -64,7 +64,7 @@ class ServicioCobroTarifaTest {
         val horaProporcionadaDesalida = LocalDateTime.parse(horaSalida, patronHora)
         val estacionamiento = EstacionamientoCarro(usuario, horaProporcionadaDeIngreso)
         val servicioEstacionamiento =
-            ServicioEstacionamiento(estacionamiento, repositorioUsuarioVehiculo)
+            ServicioEstacionamientoMoto(estacionamiento, repositorioUsuarioVehiculoMoto)
         val cobroTarifa = CobroTarifaCarro(estacionamiento)
         val servicioCobroTarifaCarro = ServicioCobroTarifa(servicioEstacionamiento,
             cobroTarifa, horaProporcionadaDesalida)
@@ -86,11 +86,11 @@ class ServicioCobroTarifaTest {
         val horaProporcionadaDesalida = LocalDateTime.parse(horaSalida, patronHora)
         val estacionamiento = EstacionamientoCarro(usuario, horaProporcionadaDeIngreso)
         val servicioEstacionamiento =
-            ServicioEstacionamiento(estacionamiento, repositorioUsuarioVehiculo)
+            ServicioEstacionamientoMoto(estacionamiento, repositorioUsuarioVehiculoMoto)
         val cobroTarifa = CobroTarifaCarro(estacionamiento)
         val servicioCobroTarifaCarro = ServicioCobroTarifa(servicioEstacionamiento,
             cobroTarifa, horaProporcionadaDesalida)
-        Mockito.`when`(repositorioUsuarioVehiculo.usuarioExiste(usuario)).thenReturn(false)
+        Mockito.`when`(repositorioUsuarioVehiculoMoto.usuarioExiste(usuario)).thenReturn(false)
 
         //Act
         try {
@@ -115,12 +115,12 @@ class ServicioCobroTarifaTest {
         val usuario = UsuarioVehiculoMoto("hsu531", true)
         val estacionamiento = EstacionamientoMoto(usuario, horaProporcionadaDeIngreso)
         val servicioEstacionamiento =
-            ServicioEstacionamiento(estacionamiento, repositorioUsuarioVehiculo)
+            ServicioEstacionamientoMoto(estacionamiento, repositorioUsuarioVehiculoMoto)
         val cobroTarifaMoto = CobroTarifaMoto(estacionamiento)
         val servicioCobroTarifaMoto = ServicioCobroTarifa(servicioEstacionamiento, cobroTarifaMoto,
             horaProporcionadaDesalida)
 
-        Mockito.`when`(repositorioUsuarioVehiculo.usuarioExiste(usuario)).thenReturn(true)
+        Mockito.`when`(repositorioUsuarioVehiculoMoto.usuarioExiste(usuario)).thenReturn(true)
 
 
         //Act
@@ -145,12 +145,12 @@ class ServicioCobroTarifaTest {
         val usuario = UsuarioVehiculoMoto("hsu531", true)
         val estacionamiento = EstacionamientoMoto(usuario, horaProporcionadaDeIngreso)
         val servicioEstacionamiento =
-            ServicioEstacionamiento(estacionamiento, repositorioUsuarioVehiculo)
+            ServicioEstacionamientoMoto(estacionamiento, repositorioUsuarioVehiculoMoto)
         val cobroTarifaMoto = CobroTarifaMoto(estacionamiento)
         val servicioCobroTarifaMoto = ServicioCobroTarifa(servicioEstacionamiento, cobroTarifaMoto,
             horaProporcionadaDesalida)
 
-        Mockito.`when`(repositorioUsuarioVehiculo.usuarioExiste(usuario)).thenReturn(true)
+        Mockito.`when`(repositorioUsuarioVehiculoMoto.usuarioExiste(usuario)).thenReturn(true)
 
         val servicio = servicioCobroTarifaMoto.cobroDuracionServicio()
 

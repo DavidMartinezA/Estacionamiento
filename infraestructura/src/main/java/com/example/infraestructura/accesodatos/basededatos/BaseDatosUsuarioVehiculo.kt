@@ -4,13 +4,15 @@ import androidx.room.Database
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
 import com.example.infraestructura.accesodatos.convertidortipo.ConvertidorDeTipoDatos
-import com.example.infraestructura.accesodatos.dao.UsuarioVehiculoDao
-import com.example.infraestructura.accesodatos.entidadbasedatos.EntidadDatosUsuarioVehiculo
+import com.example.infraestructura.accesodatos.dao.UsuarioCarroDao
+import com.example.infraestructura.accesodatos.dao.UsuarioMotoDao
+import com.example.infraestructura.accesodatos.entidadbasedatos.EntidadDatosUsuarioCarro
+import com.example.infraestructura.accesodatos.entidadbasedatos.EntidadDatosUsuarioMoto
 
-
-@Database(entities = [EntidadDatosUsuarioVehiculo::class], version = 1, exportSchema = false)
+@Database(entities = [EntidadDatosUsuarioMoto::class, EntidadDatosUsuarioCarro::class], version = 1, exportSchema = false)
 @TypeConverters(ConvertidorDeTipoDatos::class)
 abstract class BaseDatosUsuarioVehiculo : RoomDatabase() {
 
-    abstract fun usuarioVehiculoDao(): UsuarioVehiculoDao
+    abstract fun usuarioMotoDao(): UsuarioMotoDao
+    abstract fun usuarioCarroDao(): UsuarioCarroDao
 }

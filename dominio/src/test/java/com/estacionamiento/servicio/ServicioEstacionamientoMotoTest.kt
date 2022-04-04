@@ -6,7 +6,7 @@ import com.excepciones.UsuarioNoExisteExcepcion
 import com.excepciones.UsuarioYaExisteExcepcion
 import com.usuario.modelo.UsuarioVehiculo
 import com.usuario.modelo.UsuarioVehiculoCarro
-import com.usuario.repositorio.RepositorioUsuarioVehiculo
+import com.usuario.repositorio.RepositorioUsuarioVehiculoMoto
 import org.junit.Assert
 import org.junit.Before
 import org.junit.Test
@@ -18,10 +18,10 @@ import org.mockito.junit.MockitoJUnitRunner
 import java.time.LocalDateTime
 
 @RunWith(MockitoJUnitRunner::class)
-class ServicioEstacionamientoTest {
+class ServicioEstacionamientoMotoTest {
 
     @Mock
-    private lateinit var repositorioUsuarioVehiculo: RepositorioUsuarioVehiculo
+    private lateinit var repositorioUsuarioVehiculoMoto: RepositorioUsuarioVehiculoMoto
 
     private val horaIngreso = LocalDateTime.now()
     private val usuarioVehiculoCarro = UsuarioVehiculoCarro("HSU531")
@@ -38,8 +38,8 @@ class ServicioEstacionamientoTest {
 
         //Arrange
         val servicioEstacionamientoCarro =
-            ServicioEstacionamiento(estacionamientoCarro, repositorioUsuarioVehiculo)
-        Mockito.`when`(repositorioUsuarioVehiculo.usuarioExiste(usuarioVehiculoCarro))
+            ServicioEstacionamientoMoto(estacionamientoCarro, repositorioUsuarioVehiculoMoto)
+        Mockito.`when`(repositorioUsuarioVehiculoMoto.usuarioExiste(usuarioVehiculoCarro))
             .thenReturn(false)
 
         //Act
@@ -57,8 +57,8 @@ class ServicioEstacionamientoTest {
         val usuario = UsuarioVehiculoCarro("ASU531")
         val estacionamientoCarro = EstacionamientoCarro(usuario, horaIngreso)
         val servicioEstacionamientoCarro =
-            ServicioEstacionamiento(estacionamientoCarro, repositorioUsuarioVehiculo)
-        Mockito.`when`(repositorioUsuarioVehiculo.usuarioExiste(usuario))
+            ServicioEstacionamientoMoto(estacionamientoCarro, repositorioUsuarioVehiculoMoto)
+        Mockito.`when`(repositorioUsuarioVehiculoMoto.usuarioExiste(usuario))
             .thenReturn(false)
 
         //Act
@@ -79,8 +79,8 @@ class ServicioEstacionamientoTest {
         //Arrange
         val mensajeEsperado = "UsuarioVehiculo Ya Existe"
         val servicioEstacionamientoCarro =
-            ServicioEstacionamiento(estacionamientoCarro, repositorioUsuarioVehiculo)
-        Mockito.`when`(repositorioUsuarioVehiculo.usuarioExiste(usuarioVehiculoCarro))
+            ServicioEstacionamientoMoto(estacionamientoCarro, repositorioUsuarioVehiculoMoto)
+        Mockito.`when`(repositorioUsuarioVehiculoMoto.usuarioExiste(usuarioVehiculoCarro))
             .thenReturn(true)
 
         //Act
@@ -102,7 +102,7 @@ class ServicioEstacionamientoTest {
         //Arrange
         val mensajeEsperado = "UsuarioVehiculo No Existe"
         val servicioEstacionamientoCarro =
-            ServicioEstacionamiento(estacionamientoCarro, repositorioUsuarioVehiculo)
+            ServicioEstacionamientoMoto(estacionamientoCarro, repositorioUsuarioVehiculoMoto)
 
         //Act
         try {
@@ -121,8 +121,8 @@ class ServicioEstacionamientoTest {
 
         //Arrange
         val servicioEstacionamientoCarro =
-            ServicioEstacionamiento(estacionamientoCarro, repositorioUsuarioVehiculo)
-        Mockito.`when`(repositorioUsuarioVehiculo.usuarioExiste(usuarioVehiculoCarro))
+            ServicioEstacionamientoMoto(estacionamientoCarro, repositorioUsuarioVehiculoMoto)
+        Mockito.`when`(repositorioUsuarioVehiculoMoto.usuarioExiste(usuarioVehiculoCarro))
             .thenReturn(true)
 
         //Act
@@ -138,8 +138,8 @@ class ServicioEstacionamientoTest {
 
         //Arrange
         val servicioEstacionamientoCarro =
-            ServicioEstacionamiento(estacionamientoCarro, repositorioUsuarioVehiculo)
-        Mockito.`when`(repositorioUsuarioVehiculo.listaUsuarios()).thenReturn(listaUsuarios)
+            ServicioEstacionamientoMoto(estacionamientoCarro, repositorioUsuarioVehiculoMoto)
+        Mockito.`when`(repositorioUsuarioVehiculoMoto.listaUsuarios()).thenReturn(listaUsuarios)
 
         //Act
         val consultaDeListaUsuarios = servicioEstacionamientoCarro.consultarListaUsuarios()
@@ -153,8 +153,8 @@ class ServicioEstacionamientoTest {
 
         //Arrange
         val servicioEstacionamientoCarro =
-            ServicioEstacionamiento(estacionamientoCarro, repositorioUsuarioVehiculo)
-        Mockito.`when`(repositorioUsuarioVehiculo.listaUsuarios()).thenReturn(listaUsuarios)
+            ServicioEstacionamientoMoto(estacionamientoCarro, repositorioUsuarioVehiculoMoto)
+        Mockito.`when`(repositorioUsuarioVehiculoMoto.listaUsuarios()).thenReturn(listaUsuarios)
 
         //Act
         val capacidad = servicioEstacionamientoCarro.consultaDisponibilidadEstacionamiento()
@@ -168,8 +168,8 @@ class ServicioEstacionamientoTest {
 
         //Arrange
         val servicioEstacionamientoCarro =
-            ServicioEstacionamiento(estacionamientoCarro, repositorioUsuarioVehiculo)
-        Mockito.`when`(repositorioUsuarioVehiculo.listaUsuarios()).thenReturn(listaUsuarios)
+            ServicioEstacionamientoMoto(estacionamientoCarro, repositorioUsuarioVehiculoMoto)
+        Mockito.`when`(repositorioUsuarioVehiculoMoto.listaUsuarios()).thenReturn(listaUsuarios)
 
         //Act
         val capacidad = servicioEstacionamientoCarro.consultaDisponibilidadEstacionamiento()

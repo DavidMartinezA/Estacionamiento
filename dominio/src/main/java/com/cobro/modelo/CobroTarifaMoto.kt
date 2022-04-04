@@ -1,9 +1,9 @@
 package com.cobro.modelo
 
-import com.estacionamiento.modelo.Estacionamiento
+import com.estacionamiento.modelo.EstacionamientoMoto
 import com.usuario.modelo.UsuarioVehiculoMoto
 
-class CobroTarifaMoto(estacionamiento: Estacionamiento) : CobroTarifa(estacionamiento) {
+class CobroTarifaMoto(estacionamiento: EstacionamientoMoto) : CobroTarifa(estacionamiento) {
 
     override val valorHora = 500
     override val valorDia = 4000

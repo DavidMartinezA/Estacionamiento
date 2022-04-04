@@ -28,6 +28,11 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/.gitignore">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/Jenkinsfile">
           <value>
             <set />
@@ -278,6 +283,16 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/dominio/src/main/java/com/usuario/repositorio/RepositorioUsuarioVehiculoCarro.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/dominio/src/main/java/com/usuario/repositorio/RepositorioUsuarioVehiculoMoto.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/dominio/src/main/java/dominio/cobro/modelo/CobroTarifa.kt">
           <value>
             <set />
@@ -483,7 +498,27 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/infraestructura/src/main/java/com/example/infraestructura/accesodatos/dao/UsuarioCarroDao.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/infraestructura/src/main/java/com/example/infraestructura/accesodatos/dao/UsuarioMotoDao.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/infraestructura/src/main/java/com/example/infraestructura/accesodatos/dao/UsuarioVehiculoDao.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/infraestructura/src/main/java/com/example/infraestructura/accesodatos/entidadbasedatos/EntidadDatosUsuarioCarro.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/infraestructura/src/main/java/com/example/infraestructura/accesodatos/entidadbasedatos/EntidadDatosUsuarioMoto.kt">
           <value>
             <set />
           </value>
@@ -498,7 +533,22 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/infraestructura/src/main/java/com/example/infraestructura/accesodatos/repositorio/RepositorioUsuarioVehiculoCarroImplRoom.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/infraestructura/src/main/java/com/example/infraestructura/accesodatos/repositorio/RepositorioUsuarioVehiculoImplRoom.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/infraestructura/src/main/java/com/example/infraestructura/accesodatos/repositorio/RepositorioUsuarioVehiculoMotoCarroImplRoom.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/infraestructura/src/main/java/com/example/infraestructura/accesodatos/repositorio/RepositorioUsuarioVehiculoMotoImplRoom.kt">
           <value>
             <set />
           </value>
@@ -539,6 +589,11 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/sonar-project.properties">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$APPLICATION_CONFIG_DIR$/scratches/scratch.kts">
           <value>
             <set />
           </value>
