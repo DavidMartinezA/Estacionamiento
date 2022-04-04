@@ -1,12 +1,12 @@
-package com.example.infraestructura.accesodatos.entidadbasedatos
+package com.example.infraestructura.accesodatos.usuario.entidadbasedatos
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import java.util.*
+import java.time.LocalDateTime
 
 @Entity
 class EntidadDatosUsuarioVehiculo(@PrimaryKey val placaVehiculo: String) {
 
-    var horaFechaIngresoUsuario: Date? = null
+    lateinit var horaFechaIngresoUsuario: LocalDateTime
     var cilindrajeAlto: Boolean = false
 }

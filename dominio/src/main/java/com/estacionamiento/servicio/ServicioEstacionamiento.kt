@@ -12,16 +12,18 @@ class ServicioEstacionamiento(
     val repositorioUsuarioVehiculo: RepositorioUsuarioVehiculo,
 ) {
 
-    suspend fun eliminarUsuario() {
-        if (repositorioUsuarioVehiculo.usuarioExiste(estacionamiento.usuarioVehiculo)) {
-            repositorioUsuarioVehiculo.eliminarUsuario(estacionamiento.usuarioVehiculo)
-        } else {
-            throw UsuarioNoExisteExcepcion()
-        }
-    }
-
     suspend fun consultarListaUsuarios(): List<UsuarioVehiculo> {
         return repositorioUsuarioVehiculo.listaUsuarios()
+    }
+
+    suspend fun consultaDisponibilidadEstacionamiento(): Boolean {
+        var existeEspacio = false
+        val listaUsuarioVehiculo: List<UsuarioVehiculo> =
+            repositorioUsuarioVehiculo.listaUsuarios()
+        if (listaUsuarioVehiculo.size < estacionamiento.capacidadEstacionamiento) {
+            existeEspacio = true
+        }
+        return existeEspacio
     }
 
     suspend fun ingresoUsuarioEstacionamiento(diaDeLaSemana: Int) {
@@ -46,14 +48,12 @@ class ServicioEstacionamiento(
         }
     }
 
-    suspend fun consultaDisponibilidadEstacionamiento(): Boolean {
-        var existeEspacio = false
-        val listaUsuarioVehiculo: List<UsuarioVehiculo> =
-            repositorioUsuarioVehiculo.listaUsuarios()
-        if (listaUsuarioVehiculo.size < estacionamiento.capacidadEstacionamiento) {
-            existeEspacio = true
+    suspend fun eliminarUsuario() {
+        if (repositorioUsuarioVehiculo.usuarioExiste(estacionamiento.usuarioVehiculo)) {
+            repositorioUsuarioVehiculo.eliminarUsuario(estacionamiento.usuarioVehiculo)
+        } else {
+            throw UsuarioNoExisteExcepcion()
         }
-        return existeEspacio
     }
 
 }

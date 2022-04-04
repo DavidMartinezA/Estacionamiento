@@ -1,6 +1,6 @@
 package com.usuario.modelo
 
-import com.excepciones.FormatoPlacaExcepcion
+import com.usuario.excepcion.FormatoPlacaExcepcion
 import org.junit.Assert
 import org.junit.Test
 
@@ -9,25 +9,20 @@ class UsuarioVehiculoCarroTest {
     private val mensajeEsperado = "Formato De Placa No Valido"
 
     @Test
-    fun usuarioCarroPlaca_SoloNumeros_LanzarExcepcion() {
+    fun constructor_soloNumeros_lanzarExcepcion() {
 
         //Arrange
         val placa = "123456"
 
         //Act
-        try {
-
-            val usuarioCarroTest = UsuarioVehiculoCarro(placa)
-            Assert.fail()
-        } catch (placaExcepcion: FormatoPlacaExcepcion) {
-
-            //Assert
-            Assert.assertEquals(mensajeEsperado, placaExcepcion.message)
+        //Assert
+        Assert.assertThrows(FormatoPlacaExcepcion::class.java) {
+            UsuarioVehiculoCarro(placa)
         }
     }
 
     @Test
-    fun usuarioCarroPlaca_SoloLetras_LanzarExcepcion() {
+    fun usuarioCarroPlaca_soloLetras_lanzarExcepcion() {
 
         //Arrange
         val placa = "abcdef"
@@ -45,7 +40,7 @@ class UsuarioVehiculoCarroTest {
     }
 
     @Test
-    fun usuarioCarroPlaca_CamposVacios_LanzarExcepcion() {
+    fun usuarioCarroPlaca_placaVacia_lanzarExcepcion() {
 
         //Arrange
         val placa = ""
@@ -62,7 +57,7 @@ class UsuarioVehiculoCarroTest {
     }
 
     @Test
-    fun usuarioCarroPlaca_SoloLetrasMayusculasYMinusculas_LanzarExcepcion() {
+    fun usuarioCarroPlaca_soloLetrasMayusculasYMinusculas_lanzarExcepcion() {
 
         //Act
         try {
@@ -77,7 +72,7 @@ class UsuarioVehiculoCarroTest {
     }
 
     @Test
-    fun usuarioCarroPlaca_IngresarMasDeSeisCampos_LanzarExcepcion() {
+    fun usuarioCarroPlaca_ingresarMasDeSeisCampos_lanzarExcepcion() {
 
         //Act
         try {
@@ -92,7 +87,7 @@ class UsuarioVehiculoCarroTest {
     }
 
     @Test
-    fun usuarioCarroPlaca_IngresarMenosDeCincoCampos_LanzarExcepcion() {
+    fun usuarioCarroPlaca_ingresarMenosDeCincoCampos_lanzarExcepcion() {
 
         //Act
         try {
@@ -107,7 +102,7 @@ class UsuarioVehiculoCarroTest {
     }
 
     @Test
-    fun usuarioCarroPlaca_IngresarSoloLetrasMayusculas_LanzarExcepcion() {
+    fun usuarioCarroPlaca_ingresarSoloLetrasMayusculas_lanzarExcepcion() {
 
         //Act
         try {
@@ -122,7 +117,7 @@ class UsuarioVehiculoCarroTest {
     }
 
     @Test
-    fun usuarioCarroPlaca_IngresarSoloLetrasMinusculas_LanzarExcepcion() {
+    fun usuarioCarroPlaca_ingresarSoloLetrasMinusculas_lanzarExcepcion() {
 
         //Act
         try {
@@ -137,12 +132,12 @@ class UsuarioVehiculoCarroTest {
     }
 
     @Test
-    fun usuarioCarroPlaca_CaracteresEspeciales_LanzarExcepcion() {
+    fun usuarioCarroPlaca_caracteresEspeciales_lanzarExcepcion() {
 
         //Act
         try {
 
-            val usuarioCarroTest = UsuarioVehiculoCarro("ab*c531")
+            val usuarioCarroTest = UsuarioVehiculoCarro("ab*531")
             Assert.fail()
         } catch (ex: FormatoPlacaExcepcion) {
 

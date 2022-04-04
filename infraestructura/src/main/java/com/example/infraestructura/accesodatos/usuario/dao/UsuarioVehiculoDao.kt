@@ -1,12 +1,10 @@
-package com.example.infraestructura.accesodatos.dao
+package com.example.infraestructura.accesodatos.usuario.dao
 
-import androidx.room.*
-import com.example.infraestructura.accesodatos.entidadbasedatos.EntidadDatosUsuarioVehiculo
-import com.usuario.modelo.UsuarioVehiculo
+import androidx.room.Dao
 
 @Dao
 interface UsuarioVehiculoDao {
-
+/*
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun insertarUsuarioVehiculo(entidadDatosUsuarioVehiculo: EntidadDatosUsuarioVehiculo)
 
@@ -15,6 +13,6 @@ interface UsuarioVehiculoDao {
 
     @RewriteQueriesToDropUnusedColumns
     @Query("SELECT * FROM EntidadDatosUsuarioVehiculo")
-    suspend fun listaUsuariosVehiculo(): List<UsuarioVehiculo>
+    suspend fun listaUsuariosVehiculo(): List<UsuarioVehiculo>*/
 
 }

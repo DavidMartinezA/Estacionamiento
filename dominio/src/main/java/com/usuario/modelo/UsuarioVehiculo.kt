@@ -1,6 +1,6 @@
 package com.usuario.modelo
 
-import com.excepciones.FormatoPlacaExcepcion
+import com.usuario.excepcion.FormatoPlacaExcepcion
 import java.time.LocalDateTime
 
 abstract class UsuarioVehiculo(val placaVehiculo: String) {

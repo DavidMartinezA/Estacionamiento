@@ -1,6 +1,7 @@
 package com.estacionamiento.modelo
 
 import com.usuario.modelo.UsuarioVehiculoCarro
+import org.junit.Assert
 import org.junit.Test
 import java.time.LocalDateTime
 
@@ -19,11 +20,11 @@ class EstacionamientoCarroTest {
         val restriccionIngreso = estacionamientoCarro.restriccionDeIngreso(2)
 
         //Assert
-        assert(restriccionIngreso)
+        Assert.assertTrue(restriccionIngreso)
     }
 
     @Test
-    fun restriccionDeIngreso_PlacaLetraInicialADiaRestringidoDos_RestringidoTrue() {
+    fun restriccionDeIngreso_PlacaLetraInicialADiaRestringidoViernes_presentaRestriccion() {
 
         //Arrange
         val usuarioVehiculoCarro = UsuarioVehiculoCarro("ASU531")
