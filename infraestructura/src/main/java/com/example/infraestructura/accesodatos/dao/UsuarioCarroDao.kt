@@ -14,4 +14,7 @@ interface UsuarioCarroDao {
 
     @Query("SELECT * FROM EntidadDatosUsuarioCarro")
     suspend fun listaUsuariosVehiculo(): List<EntidadDatosUsuarioCarro>
+
+    @Query("SELECT EXISTS (SELECT * FROM EntidadDatosUsuarioCarro WHERE placaVehiculo == :placaVehiculo)")
+    suspend fun usuarioExiste(placaVehiculo: String): Boolean
 }
