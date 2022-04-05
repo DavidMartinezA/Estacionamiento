@@ -13,4 +13,5 @@ import com.example.infraestructura.accesodatos.usuario.entidadbasedatos.EntidadD
 abstract class BaseDatosUsuarioVehiculo : RoomDatabase() {
 
     abstract fun usuarioVehiculoDao(): UsuarioVehiculoDao
+
 }

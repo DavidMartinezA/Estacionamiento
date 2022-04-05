@@ -28,7 +28,7 @@ class ServicioCobroTarifa(
         return horasServicioEstacionamiento.toInt()
     }
 
-    fun cobroDuracionServicio(): Int {
+    suspend fun cobroDuracionServicio(): Int {
 
         val usuarioExiste =
             servicioEstacionamiento.repositorioUsuarioVehiculo.usuarioExiste(servicioEstacionamiento.estacionamiento.usuarioVehiculo)
