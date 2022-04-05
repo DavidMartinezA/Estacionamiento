@@ -448,6 +448,11 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/infraestructura/build/generated/source/kapt/debug/com/example/infraestructura/accesodatos/compartido/basededatos/BaseDatosUsuarioVehiculo_Impl.java">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/infraestructura/build/generated/source/kapt/debug/com/example/infraestructura/accesodatos/dao/UsuarioVehiculoDao_Impl.java">
           <value>
             <set />
@@ -464,6 +469,16 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/infraestructura/build/tmp/kapt3/stubs/debug/com/example/infraestructura/accesodatos/entidadbasedatos/EntidadDatosUsuarioVehiculo.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/infraestructura/build/tmp/kapt3/stubs/debug/com/example/infraestructura/accesodatos/usuario/dao/UsuarioVehiculoCarroDao.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/infraestructura/build/tmp/kapt3/stubs/debug/com/example/infraestructura/accesodatos/usuario/dao/UsuarioVehiculoMotoDao.java">
           <value>
             <set />
           </value>
@@ -494,6 +509,16 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/infraestructura/src/main/java/com/example/infraestructura/accesodatos/compartido/basededatos/BaseDatosUsuarioVehiculo.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/infraestructura/src/main/java/com/example/infraestructura/accesodatos/compartido/basededatos/BaseDatosUsuarioVehiculoCarro.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/infraestructura/src/main/java/com/example/infraestructura/accesodatos/compartido/basededatos/BaseDatosUsuarioVehiculoMoto.kt">
           <value>
             <set />
           </value>

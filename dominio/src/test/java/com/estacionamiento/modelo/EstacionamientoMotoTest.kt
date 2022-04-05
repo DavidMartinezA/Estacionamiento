@@ -36,7 +36,7 @@ class EstacionamientoMotoTest {
         val restriccionIngreso = estacionamientoMoto.restriccionDeIngreso(1)
 
         //Assert
-        Assert.assertTrue(!restriccionIngreso)
+        Assert.assertFalse(restriccionIngreso)
 
     }
 }

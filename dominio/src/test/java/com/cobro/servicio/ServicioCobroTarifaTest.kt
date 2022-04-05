@@ -9,6 +9,8 @@ import com.estacionamiento.servicio.ServicioEstacionamiento
 import com.usuario.modelo.UsuarioVehiculoCarro
 import com.usuario.modelo.UsuarioVehiculoMoto
 import com.usuario.repositorio.RepositorioUsuarioVehiculo
+import kotlinx.coroutines.ExperimentalCoroutinesApi
+import kotlinx.coroutines.test.runTest
 import org.junit.Assert
 import org.junit.Before
 import org.junit.Test
@@ -20,6 +22,7 @@ import org.mockito.junit.MockitoJUnitRunner
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
 
+@OptIn(ExperimentalCoroutinesApi::class)
 @RunWith(MockitoJUnitRunner::class)
 class ServicioCobroTarifaTest {
 
@@ -87,12 +90,15 @@ class ServicioCobroTarifaTest {
         val servicioEstacionamiento =
             ServicioEstacionamiento(estacionamiento, repositorioUsuarioVehiculo)
         val cobroTarifa = CobroTarifaCarro(estacionamiento)
-        Mockito.`when`(repositorioUsuarioVehiculo.usuarioExiste(usuario)).thenReturn(false)
+
 
         //Act
         //Assert
         Assert.assertThrows(UsuarioNoExisteExcepcion::class.java) {
-            ServicioCobroTarifa(servicioEstacionamiento, cobroTarifa, horaProporcionadaDesalida).cobroDuracionServicio()
+            runTest {
+                Mockito.`when`(repositorioUsuarioVehiculo.usuarioExiste(usuario)).thenReturn(false)
+                ServicioCobroTarifa(servicioEstacionamiento, cobroTarifa, horaProporcionadaDesalida).cobroDuracionServicio()
+            }
         }
 
     }
@@ -108,12 +114,14 @@ class ServicioCobroTarifaTest {
         val servicioEstacionamiento =
             ServicioEstacionamiento(estacionamiento, repositorioUsuarioVehiculo)
         val cobroTarifaMoto = CobroTarifaMoto(estacionamiento)
-        Mockito.`when`(repositorioUsuarioVehiculo.usuarioExiste(usuario)).thenReturn(false)
 
         //Act
         //Assert
         Assert.assertThrows(UsuarioNoExisteExcepcion::class.java) {
-            ServicioCobroTarifa(servicioEstacionamiento, cobroTarifaMoto, horaProporcionadaDesalida).cobroDuracionServicio()
+            runTest {
+                Mockito.`when`(repositorioUsuarioVehiculo.usuarioExiste(usuario)).thenReturn(false)
+                ServicioCobroTarifa(servicioEstacionamiento, cobroTarifaMoto, horaProporcionadaDesalida).cobroDuracionServicio()
+            }
         }
 
     }
@@ -131,10 +139,13 @@ class ServicioCobroTarifaTest {
         val cobroTarifaMoto = CobroTarifaMoto(estacionamiento)
         val servicioCobroTarifaMoto = ServicioCobroTarifa(servicioEstacionamiento, cobroTarifaMoto,
             horaProporcionadaDesalida)
-        Mockito.`when`(repositorioUsuarioVehiculo.usuarioExiste(usuario)).thenReturn(true)
+        var servicio = 0
 
         //Act
-        val servicio = servicioCobroTarifaMoto.cobroDuracionServicio()
+        runTest {
+            Mockito.`when`(repositorioUsuarioVehiculo.usuarioExiste(usuario)).thenReturn(true)
+            servicio = servicioCobroTarifaMoto.cobroDuracionServicio()
+        }
 
         //Assert
         Assert.assertEquals(servicio, 5000)

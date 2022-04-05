@@ -12,8 +12,4 @@ interface RepositorioUsuarioVehiculo {
 
     suspend fun listaUsuarios(): List<UsuarioVehiculo>
 
-    suspend fun listaUsuariosMotos(): List<UsuarioVehiculo>
-
-    suspend fun listaUsuariosCarros(): List<UsuarioVehiculo>
-
 }

@@ -16,7 +16,7 @@ class UsuarioVehiculoMotoTest {
         val usuarioMotoTest = UsuarioVehiculoMoto(placa, altoCilindraje)
 
         //Assert
-        Assert.assertTrue(!usuarioMotoTest.cilindrajeAlto)
+        Assert.assertFalse(usuarioMotoTest.cilindrajeAlto)
 
     }
 
@@ -60,7 +60,7 @@ class UsuarioVehiculoMotoTest {
         val usuarioMotoTest = UsuarioVehiculoMoto(placa)
 
         //Assert
-        Assert.assertTrue(!usuarioMotoTest.cilindrajeAlto)
+        Assert.assertFalse(usuarioMotoTest.cilindrajeAlto)
 
     }
 }

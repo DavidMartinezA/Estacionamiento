@@ -9,6 +9,7 @@ class EstacionamientoCarroTest {
 
     private val horaIngreso = LocalDateTime.now()
 
+
     @Test
     fun restriccionDeIngreso_placaLetraInicialADiaRestringidoMartes_presentaRestriccion() {
 
@@ -51,7 +52,7 @@ class EstacionamientoCarroTest {
         val restriccionIngreso = estacionamientoCarro.restriccionDeIngreso(diaMiercoles)
 
         //Assert
-        Assert.assertTrue(!restriccionIngreso)
+        Assert.assertFalse(restriccionIngreso)
 
     }
 
@@ -67,7 +68,7 @@ class EstacionamientoCarroTest {
         val restriccionIngreso = estacionamientoCarro.restriccionDeIngreso(diaDomingo)
 
         //Assert
-        Assert.assertTrue(!restriccionIngreso)
+        Assert.assertFalse(restriccionIngreso)
 
     }
 
@@ -83,7 +84,7 @@ class EstacionamientoCarroTest {
         val restriccionIngreso = estacionamientoCarro.restriccionDeIngreso(diaLunes)
 
         //Assert
-        Assert.assertTrue(!restriccionIngreso)
+        Assert.assertFalse(restriccionIngreso)
 
     }
 
@@ -99,7 +100,7 @@ class EstacionamientoCarroTest {
         val restriccionIngreso = estacionamientoCarro.restriccionDeIngreso(diaDomingo)
 
         //Assert
-        Assert.assertTrue(!restriccionIngreso)
+        Assert.assertFalse(restriccionIngreso)
 
     }
 

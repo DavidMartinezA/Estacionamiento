@@ -17,6 +17,8 @@ import org.junit.Test
 import org.junit.runner.RunWith
 import org.mockito.Mock
 import org.mockito.Mockito
+import org.mockito.Mockito.times
+import org.mockito.Mockito.verify
 import org.mockito.MockitoAnnotations
 import org.mockito.junit.MockitoJUnitRunner
 import java.time.LocalDateTime
@@ -37,7 +39,6 @@ class ServicioEstacionamientoTest {
     fun before() {
         MockitoAnnotations.initMocks(this)
     }
-
 
     @Test
     fun consultarListaUsuarios_parametrosCorrectos_retornaListaUsuarios() = runTest {
@@ -96,26 +97,29 @@ class ServicioEstacionamientoTest {
         Mockito.`when`(repositorioUsuarioVehiculo.guardarUsuario(usuarioVehiculoCarro)).thenReturn(Unit)
 
         //Act
-        val guardarUsuario =
-            ServicioEstacionamiento(estacionamientoCarro, repositorioUsuarioVehiculo).ingresoUsuarioEstacionamiento(diaLunes)
+        ServicioEstacionamiento(estacionamientoCarro, repositorioUsuarioVehiculo).ingresoUsuarioEstacionamiento(diaLunes)
 
+        //Assert
+        verify(repositorioUsuarioVehiculo, times(1)).guardarUsuario(usuarioVehiculoCarro)
     }
 
     @Test
-    fun ingresoUsuarioEstacionamiento_letraInicialADiaRestringidoMiercoles_LanzarUnaExcepcion() {
+    fun ingresoUsuarioEstacionamiento_letraInicialADiaRestringidoMiercoles_lanzarUnaExcepcion() {
 
         //Arrange
-        val diaMiercoles = 3
-        val usuario = UsuarioVehiculoCarro("ASU531")
-        val estacionamientoCarro = EstacionamientoCarro(usuario, horaIngreso)
-        val servicioEstacionamiento = ServicioEstacionamiento(estacionamientoCarro, repositorioUsuarioVehiculo)
 
-        //Act
-        //Assert
+        val diaMiercoles = 3
+        val usuarioCarro = UsuarioVehiculoCarro("ASU531")
+        val estacionamientoCarro = EstacionamientoCarro(usuarioCarro, LocalDateTime.now())
+
+        runTest {
+            Mockito.`when`(repositorioUsuarioVehiculo.usuarioExiste(usuarioCarro)).thenReturn(false)
+            Mockito.`when`(repositorioUsuarioVehiculo.listaUsuarios()).thenReturn(listaUsuarios)
+        }
+
         Assert.assertThrows(IngresoNoPermitidoRestriccionExcepcion::class.java) {
             runTest {
-                Mockito.`when`(repositorioUsuarioVehiculo.listaUsuarios()).thenReturn(listaUsuarios)
-                servicioEstacionamiento.ingresoUsuarioEstacionamiento(diaMiercoles)
+                ServicioEstacionamiento(estacionamientoCarro, repositorioUsuarioVehiculo).ingresoUsuarioEstacionamiento(diaMiercoles)
             }
         }
     }
@@ -126,7 +130,9 @@ class ServicioEstacionamientoTest {
         //Arrange
         val diaMiercoles = 3
         val servicioEstacionamientoCarro = ServicioEstacionamiento(estacionamientoCarro, repositorioUsuarioVehiculo)
-        Mockito.`when`(repositorioUsuarioVehiculo.usuarioExiste(usuarioVehiculoCarro)).thenReturn(true)
+        runTest {
+            Mockito.`when`(repositorioUsuarioVehiculo.usuarioExiste(usuarioVehiculoCarro)).thenReturn(true)
+        }
 
         //Act
         //Assert
@@ -142,12 +148,14 @@ class ServicioEstacionamientoTest {
 
         //Arrange
         val servicioEstacionamientoCarro = ServicioEstacionamiento(estacionamientoCarro, repositorioUsuarioVehiculo)
-        Mockito.`when`(repositorioUsuarioVehiculo.usuarioExiste(usuarioVehiculoCarro)).thenReturn(false)
 
         //Act
         //Assert
         Assert.assertThrows(UsuarioNoExisteExcepcion::class.java) {
-            runTest { servicioEstacionamientoCarro.eliminarUsuario() }
+            runTest {
+                Mockito.`when`(repositorioUsuarioVehiculo.usuarioExiste(usuarioVehiculoCarro)).thenReturn(false)
+                servicioEstacionamientoCarro.eliminarUsuario()
+            }
         }
     }
 
@@ -156,11 +164,11 @@ class ServicioEstacionamientoTest {
 
         //Arrange
         val servicioEstacionamientoCarro = ServicioEstacionamiento(estacionamientoCarro, repositorioUsuarioVehiculo)
-        Mockito.`when`(repositorioUsuarioVehiculo.usuarioExiste(usuarioVehiculoCarro)).thenReturn(true)
 
         //Act
         runTest {
-            val guardarUsuario = servicioEstacionamientoCarro.eliminarUsuario()
+            Mockito.`when`(repositorioUsuarioVehiculo.usuarioExiste(usuarioVehiculoCarro)).thenReturn(true)
+            servicioEstacionamientoCarro.eliminarUsuario()
         }
     }
 
