@@ -91,7 +91,7 @@ class CobroTarifaMotoTest {
     }
 
     @Test
-    fun cobroTarifa_DuracionDiezDiasMasSieteHorasCilindrajeAltoFalse_retornaCobroDeTarifa() {
+    fun cobroTarifa_duracionDiezDiasMasSieteHorasCilindrajeAltoFalse_retornaCobroDeTarifa() {
 
         //Arrange
         val usuario = UsuarioVehiculoMoto("hsu53c", false)

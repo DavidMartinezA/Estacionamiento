@@ -79,7 +79,6 @@ class ServicioCobroTarifaTest {
 
     }
 
-
     @Test
     fun cobroDuracionServicio_elUsuarioNoExiste_lanzarUnaExcepcion() {
 
@@ -90,7 +89,6 @@ class ServicioCobroTarifaTest {
         val servicioEstacionamiento =
             ServicioEstacionamiento(estacionamiento, repositorioUsuarioVehiculo)
         val cobroTarifa = CobroTarifaCarro(estacionamiento)
-
 
         //Act
         //Assert
@@ -104,7 +102,7 @@ class ServicioCobroTarifaTest {
     }
 
     @Test
-    fun cobroDuracionServicio_elUsuarioNoExisteMoto_LanzarUnaExcepcion() {
+    fun cobroDuracionServicio_elUsuarioNoExisteMoto_lanzarUnaExcepcion() {
 
         //Arrange
         val horaSalida = "2022-01-01 05:59:00"
@@ -127,7 +125,7 @@ class ServicioCobroTarifaTest {
     }
 
     @Test
-    fun cobroDuracionServicio_UsuarioMotoSeisHorasCilindrajeAlto_CobroDeTarifa() {
+    fun cobroDuracionServicio_usuarioMotoSeisHorasCilindrajeAlto_cobroDeTarifa() {
 
         //Arrange
         val horaSalida = "2022-01-01 05:59:00"

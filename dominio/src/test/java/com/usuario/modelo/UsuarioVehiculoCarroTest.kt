@@ -141,33 +141,37 @@ class UsuarioVehiculoCarroTest {
     @Test
     fun initValidacionDeFormatoPlaca_formatoAlfanumericoCorrectoLetraMinusculaYMayuscula_formatoPlacaValido() {
 
+        //Arrange
         //Act
         val usuarioCarroTest = UsuarioVehiculoCarro("hSu531")
 
         //Assert
-        Assert.assertNotNull(usuarioCarroTest)
+        Assert.assertEquals(usuarioCarroTest.placaVehiculo, "hSu531")
 
     }
 
     @Test
     fun initValidacionDeFormatoPlaca_formatoAlfanumericoCorrectoLetraMinusculaConSeparadorGuion_formatoPlacaValido() {
 
+        //Arrange
         //Act
         val usuarioCarroTest = UsuarioVehiculoCarro("hsu-531")
 
         //Assert
-        Assert.assertNotNull(usuarioCarroTest)
+        Assert.assertEquals(usuarioCarroTest.placaVehiculo, "hsu-531")
 
     }
 
     @Test
     fun initValidacionDeFormatoPlaca_formatoAlfanumericoCorrectoLetraMayusculaConSeparador_formatoPlacaValido() {
 
+        //Arrange
         //Act
         val usuarioCarroTest = UsuarioVehiculoCarro("HSU-531")
 
         //Assert
-        Assert.assertNotNull(usuarioCarroTest)
+        Assert.assertEquals(usuarioCarroTest.placaVehiculo, "HSU-531")
+
 
     }
 

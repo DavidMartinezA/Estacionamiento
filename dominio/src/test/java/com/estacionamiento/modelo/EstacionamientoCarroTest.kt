@@ -9,6 +9,35 @@ class EstacionamientoCarroTest {
 
     private val horaIngreso = LocalDateTime.now()
 
+    @Test
+    fun validacionDeCreacionEstacionamiento_usuarioYHoraCorrectos_retornaElUsuario() {
+
+        //Arrange
+        val usuario = UsuarioVehiculoCarro("has531")
+        val validacion = EstacionamientoCarro(usuario, LocalDateTime.now())
+
+        //Act
+        val validacionUsuario = validacion.usuarioVehiculo
+
+        //Assert
+        Assert.assertEquals(validacionUsuario, usuario)
+    }
+
+    @Test
+    fun validacionDeCreacionEstacionamiento_usuarioYHoraCorrectos_retornaLaHora() {
+
+        //Arrange
+        val usuario = UsuarioVehiculoCarro("has531")
+        val hora = LocalDateTime.now()
+
+        val validacion = EstacionamientoCarro(usuario, hora)
+
+        //Act
+        val validacionhora = validacion.horaFechaIngresoUsuario
+
+        //Assert
+        Assert.assertEquals(validacionhora, hora)
+    }
 
     @Test
     fun restriccionDeIngreso_placaLetraInicialADiaRestringidoMartes_presentaRestriccion() {

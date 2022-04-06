@@ -593,7 +593,22 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/infraestructura/src/main/java/com/example/infraestructura/accesodatos/usuario/entidadbasedatos/EntidadDatosEstacionamientoConUsuarios.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/infraestructura/src/main/java/com/example/infraestructura/accesodatos/usuario/entidadbasedatos/EntidadDatosUsuarioCarro.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/infraestructura/src/main/java/com/example/infraestructura/accesodatos/usuario/entidadbasedatos/EntidadDatosUsuarioEstacionamiento.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/infraestructura/src/main/java/com/example/infraestructura/accesodatos/usuario/entidadbasedatos/EntidadDatosUsuarioMoto.kt">
           <value>
             <set />
           </value>

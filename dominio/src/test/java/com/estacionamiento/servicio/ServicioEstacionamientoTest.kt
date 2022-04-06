@@ -69,17 +69,19 @@ class ServicioEstacionamientoTest {
     }
 
     @Test
-    fun disponibilidadEstacionamiento_estacionamientoConCapacidadMotos_RetornaCapacidadMotosVerdadero() {
+    fun disponibilidadEstacionamiento_estacionamientoConCapacidadMotos_retornaCapacidadMotosVerdadero() {
 
         //Arrange
         val usuarioVehiculoMoto = UsuarioVehiculoMoto("HSU531", true)
         val listaUsuarios: ArrayList<UsuarioVehiculo> = arrayListOf(usuarioVehiculoMoto)
         val estacionamientoMoto = EstacionamientoMoto(usuarioVehiculoMoto, horaIngreso)
         var capacidad = false
+        runTest {
+            Mockito.`when`(repositorioUsuarioVehiculo.listaUsuarios()).thenReturn(listaUsuarios)
+        }
 
         //Act
         runTest {
-            Mockito.`when`(repositorioUsuarioVehiculo.listaUsuarios()).thenReturn(listaUsuarios)
             capacidad =
                 ServicioEstacionamiento(estacionamientoMoto, repositorioUsuarioVehiculo).consultaDisponibilidadEstacionamiento()
         }
@@ -88,7 +90,7 @@ class ServicioEstacionamientoTest {
     }
 
     @Test
-    fun ingresoUsuarioEstacionamiento_UsuarioNoExiste_usuarioRegistradoNoRetorna() = runTest {
+    fun ingresoUsuarioEstacionamiento_elUsuarioNoExiste_usuarioRegistradoNoRetorna() = runTest {
 
         //Arrange
         val diaLunes = 1
@@ -143,30 +145,36 @@ class ServicioEstacionamientoTest {
     }
 
     @Test
-    fun eliminarUsuario_UsuarioNoExiste_lanzarUnaExcepcion() {
+    fun eliminarUsuario_elUsuarioNoExiste_lanzarUnaExcepcion() {
 
         //Arrange
         val servicioEstacionamientoCarro = ServicioEstacionamiento(estacionamientoCarro, repositorioUsuarioVehiculo)
-
+        runTest {
+            Mockito.`when`(repositorioUsuarioVehiculo.usuarioExiste(usuarioVehiculoCarro)).thenReturn(false)
+        }
         //Act
         //Assert
         Assert.assertThrows(UsuarioNoExisteExcepcion::class.java) {
             runTest {
-                Mockito.`when`(repositorioUsuarioVehiculo.usuarioExiste(usuarioVehiculoCarro)).thenReturn(false)
+
                 servicioEstacionamientoCarro.eliminarUsuario()
             }
         }
     }
+
 
     @Test
     fun eliminarUsuario_elUsuarioExiste_eliminaElUsuario() {
 
         //Arrange
         val servicioEstacionamientoCarro = ServicioEstacionamiento(estacionamientoCarro, repositorioUsuarioVehiculo)
-
-        //Act
         runTest {
             Mockito.`when`(repositorioUsuarioVehiculo.usuarioExiste(usuarioVehiculoCarro)).thenReturn(true)
+        }
+
+        //Act
+        //Assert
+        runTest {
             servicioEstacionamientoCarro.eliminarUsuario()
         }
     }
