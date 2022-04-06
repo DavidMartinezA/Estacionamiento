@@ -19,7 +19,7 @@ class ServicioEstacionamiento(
     suspend fun consultaDisponibilidadEstacionamiento(): Boolean {
         var existeEspacio = false
         val listaUsuarioVehiculo: List<UsuarioVehiculo> =
-            repositorioUsuarioVehiculo.listaUsuarios()
+            repositorioUsuarioVehiculo.listaUsuarios().filter { usuario -> usuario.tipoDeVehiculo == estacionamiento.tipoDeUsuario }
         if (listaUsuarioVehiculo.size < estacionamiento.capacidadEstacionamiento) {
             existeEspacio = true
         }

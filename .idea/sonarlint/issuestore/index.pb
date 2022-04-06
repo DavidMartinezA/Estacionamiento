@@ -19,8 +19,6 @@ T
 $.idea/codeStyles/codeStyleConfig.xml,d/d/dd7b3350c29c49497756c7f32c69a3bed18b1cba
 ?
 settings.gradle,0/5/05efc8b1657769a27696d478ded1e95f38737233
-|
-Linfraestructura/src/test/java/com/example/infraestructura/ExampleUnitTest.kt,a/b/abf4850adaf3f1a4023aa045fdceb9d6c402f5b9
 R
 "infraestructura/proguard-rules.pro,a/3/a331c05c32e855a30276e65dfafec3dc4b883aed
 ‹
@@ -35,8 +33,6 @@ T
 $dominio/src/main/AndroidManifest.xml,c/9/c93e86b92ecdb1b7e984b64fd28c450f7fc9e6f3
 j
 :dominio/src/main/java/com/cobro/modelo/CobroTarifaCarro.kt,2/0/20f32fee459c26fa199fd39a0a89bb1aff14e237
-w
-Gdominio/src/main/java/com/estacionamiento/modelo/EstacionamientoMoto.kt,5/b/5b0b6bcb29b8ccf2ce7120b50bfb77d66fb5a08d
 :
 
 .gitignore,a/5/a5cc2925ca8258af241be7e5b0381edf30266302
@@ -44,8 +40,6 @@ e
 5dominio/src/main/java/com/cobro/modelo/CobroTarifa.kt,b/4/b4a369ff6341036916f1a68fe33c32780b71328b
 t
 Ddominio/src/main/java/com/usuario/excepcion/FormatoPlacaExcepcion.kt,c/c/cc66668514a3d333e0675fd7b5004bba0c25f9c7
-L
-infraestructura/build.gradle,9/6/96eb12a4ec4c48850eba1857cb67210b13e2ce42
 i
 9dominio/src/main/java/com/cobro/modelo/CobroTarifaMoto.kt,0/e/0ece559a4a32318cdb594529aca83cd071986636
 
@@ -56,5 +50,29 @@ H
 sonar-project.properties,2/5/2538046035efb77ecc44e1fd2eec1e2641594d4c
 <
 build.gradle,f/0/f07866736216be0ee2aba49e392191aeae700a35
-D
-dominio/build.gradle,d/7/d71e7ab1854167962f7335fc962f525692922e9e
+o
+?dominio/src/main/java/com/cobro/servicio/ServicioCobroTarifa.kt,4/0/409417f1351d89e548469b5263a56fc560576c0b
+
+]dominio/src/main/java/com/estacionamiento/excepcion/IngresoNoPermitidoRestriccionExcepcion.kt,8/f/8f27030b8032aece8d8c064450c0923f18d52492
+f
+6presentacion/src/main/java/com/example/MainActivity.kt,2/2/2288984acb169d8b223844ffd92f4dbecb9189bc
+t
+Ddominio/src/test/java/com/usuario/modelo/UsuarioVehiculoCarroTest.kt,6/4/64ca295b6777cd5c4de1ad91fc8f2c6aefc032d9
+n
+>dominio/src/test/java/com/cobro/modelo/CobroTarifaCarroTest.kt,1/7/1741bc2b9fcddc5bc7a0a3dbb9647677e274f910
+m
+=dominio/src/test/java/com/cobro/modelo/CobroTarifaMotoTest.kt,d/a/daa86c22abbbb60fa2b2a2ae5b19d8ec6223ff3b
+{
+Kdominio/src/test/java/com/estacionamiento/modelo/EstacionamientoMotoTest.kt,1/4/14dfa9265176ff155251e3296fcf73b4ff26c74e
+|
+Ldominio/src/test/java/com/estacionamiento/modelo/EstacionamientoCarroTest.kt,b/a/ba6680ac63a7cf36862eea77e901478f6a08dab1
+p
+@dominio/src/main/java/com/usuario/modelo/UsuarioVehiculoCarro.kt,c/3/c3e631eafa33ecf4abe3c6f7e9af79488b16abd9
+o
+?dominio/src/main/java/com/usuario/modelo/UsuarioVehiculoMoto.kt,7/2/728a0e03cdc8fed8721da5f713e2f9a3df23b361
+k
+;dominio/src/main/java/com/usuario/modelo/UsuarioVehiculo.kt,7/9/79d276cde6426db533bfe946b195462b4f9310f8
+{
+Kdominio/src/main/java/com/usuario/repositorio/RepositorioUsuarioVehiculo.kt,0/7/07248b05a2d601e0dd0782437db4cb1b75ee0215
+¥
+uinfraestructura/src/main/java/com/example/infraestructura/accesodatos/compartido/convertidordatos/ConvertidorDatos.kt,d/f/df7c8e3f31abdf9bf4576bc4b5087132552b918c

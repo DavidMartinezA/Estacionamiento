@@ -18,12 +18,10 @@ abstract class Estacionamiento(
         if (!validacionDeCreacionEstacionamiento()) throw IngresoNoPermitidoRestriccionExcepcion()
 
     }
-
-    //formato regex  para fecha y hora [0-2]{1}[0-9]{3}-[0-1]{1}[0-9]-[0-3]{1}[0-2]{1} [0-9]{2}:[0-5]{1}[0-9]{1}:[0-5]{1}[0-9]{1}
-    private fun validacionDeCreacionEstacionamiento(): Boolean = !horaFechaIngresoUsuario.toString().isNullOrEmpty()
-
+    private fun validacionDeCreacionEstacionamiento(): Boolean = horaFechaIngresoUsuario.toString().isNotEmpty()
 
     abstract val capacidadEstacionamiento: Int
+    open val tipoDeUsuario = usuarioVehiculo.tipoDeVehiculo
 
     fun restriccionDeIngreso(diaDeLaSemana: Int): Boolean {
 

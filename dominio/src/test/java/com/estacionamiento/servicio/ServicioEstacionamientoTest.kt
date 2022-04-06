@@ -107,7 +107,6 @@ class ServicioEstacionamientoTest {
     fun ingresoUsuarioEstacionamiento_letraInicialADiaRestringidoMiercoles_lanzarUnaExcepcion() {
 
         //Arrange
-
         val diaMiercoles = 3
         val usuarioCarro = UsuarioVehiculoCarro("ASU531")
         val estacionamientoCarro = EstacionamientoCarro(usuarioCarro, LocalDateTime.now())

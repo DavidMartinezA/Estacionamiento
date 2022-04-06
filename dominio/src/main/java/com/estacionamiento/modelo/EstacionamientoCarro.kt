@@ -7,5 +7,5 @@ class EstacionamientoCarro(usuarioVehiculo: UsuarioVehiculo, horaFechaIngreso: L
     Estacionamiento(usuarioVehiculo, horaFechaIngreso) {
 
     override val capacidadEstacionamiento = 20
-
+    override val tipoDeUsuario = usuarioVehiculo.tipoDeVehiculo
 }
