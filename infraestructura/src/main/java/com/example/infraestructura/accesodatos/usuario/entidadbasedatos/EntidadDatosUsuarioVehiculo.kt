@@ -5,9 +5,10 @@ import androidx.room.PrimaryKey
 import java.time.LocalDateTime
 
 @Entity
-class EntidadDatosUsuarioCarro(
-    @PrimaryKey var placaVehiculo: String,
+data class EntidadDatosUsuarioVehiculo(
+    @PrimaryKey(autoGenerate = true) var id: Int,
+    var placaVehiculo: String,
+    var tipoDeVehiculo: String,
+    var altoCilindraje: Boolean,
     var horaFechaIngresoUsuario: LocalDateTime,
 )
-
-

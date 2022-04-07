@@ -14,7 +14,7 @@ abstract class UsuarioVehiculo(val placaVehiculo: String) {
     }
 
     lateinit var horaFechaIngresoUsuario: LocalDateTime
-    abstract var tipoDeVehiculo: String
+    abstract val tipoDeVehiculo: String
     private fun validacionDeFormatoPlaca(): Boolean = placaVehiculo.matches(Regex(FORMATO_PLACA))
 
 }

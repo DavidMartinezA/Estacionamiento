@@ -23,8 +23,6 @@ R
 "infraestructura/proguard-rules.pro,a/3/a331c05c32e855a30276e65dfafec3dc4b883aed
 ‹
 [infraestructura/src/androidTest/java/com/example/infraestructura/ExampleInstrumentedTest.kt,2/c/2c742bcc2a35343a59df5ac1a08f4114a946eaad
-I
-presentacion/build.gradle,e/7/e7ca75306b9571eb541d042f9c559bee8d1218f8
 \
 ,infraestructura/src/main/AndroidManifest.xml,e/c/ecfe9cfe1525dba26b4f66e658ec445e7859167c
 J
@@ -40,8 +38,6 @@ e
 5dominio/src/main/java/com/cobro/modelo/CobroTarifa.kt,b/4/b4a369ff6341036916f1a68fe33c32780b71328b
 t
 Ddominio/src/main/java/com/usuario/excepcion/FormatoPlacaExcepcion.kt,c/c/cc66668514a3d333e0675fd7b5004bba0c25f9c7
-i
-9dominio/src/main/java/com/cobro/modelo/CobroTarifaMoto.kt,0/e/0ece559a4a32318cdb594529aca83cd071986636
 
 Odominio/src/main/java/com/estacionamiento/excepcion/UsuarioYaExisteExcepcion.kt,8/8/88008e0ade3d56a8f785b31c7bd66b11799d7acc
 
@@ -50,13 +46,5 @@ H
 sonar-project.properties,2/5/2538046035efb77ecc44e1fd2eec1e2641594d4c
 <
 build.gradle,f/0/f07866736216be0ee2aba49e392191aeae700a35
-o
-?dominio/src/main/java/com/cobro/servicio/ServicioCobroTarifa.kt,4/0/409417f1351d89e548469b5263a56fc560576c0b
 
 ]dominio/src/main/java/com/estacionamiento/excepcion/IngresoNoPermitidoRestriccionExcepcion.kt,8/f/8f27030b8032aece8d8c064450c0923f18d52492
-f
-6presentacion/src/main/java/com/example/MainActivity.kt,2/2/2288984acb169d8b223844ffd92f4dbecb9189bc
-{
-Kdominio/src/main/java/com/usuario/repositorio/RepositorioUsuarioVehiculo.kt,0/7/07248b05a2d601e0dd0782437db4cb1b75ee0215
-¥
-uinfraestructura/src/main/java/com/example/infraestructura/accesodatos/compartido/convertidordatos/ConvertidorDatos.kt,d/f/df7c8e3f31abdf9bf4576bc4b5087132552b918c

@@ -1,57 +1,55 @@
 package com.example.infraestructura.accesodatos.usuario.repositorio
 
-import com.example.infraestructura.accesodatos.compartido.basededatos.BaseDatosUsuarioVehiculo
-import com.example.infraestructura.accesodatos.usuario.anticorrupcion.TraductorUsuarioVehiculoCarro
-import com.example.infraestructura.accesodatos.usuario.anticorrupcion.TraductorUsuarioVehiculoMoto
+import com.example.infraestructura.accesodatos.usuario.anticorrupcion.TraductorUsuarioVehiculo
+import com.example.infraestructura.accesodatos.usuario.dao.UsuarioVehiculoDao
 import com.usuario.modelo.UsuarioVehiculo
 import com.usuario.modelo.UsuarioVehiculoCarro
 import com.usuario.modelo.UsuarioVehiculoMoto
 import com.usuario.repositorio.RepositorioUsuarioVehiculo
 
 class RepositorioUsuarioVehiculoImplRoom(
-    val baseDatosUsuarioVehiculo: BaseDatosUsuarioVehiculo,
+    val usuarioVehiculoDao: UsuarioVehiculoDao,
 ) : RepositorioUsuarioVehiculo {
 
-    private val traductorUsuarioVehiculoCarro = TraductorUsuarioVehiculoCarro()
-    private val traductorUsuarioVehiculoMoto = TraductorUsuarioVehiculoMoto()
+    private val traductorUsuarioVehiculo = TraductorUsuarioVehiculo()
 
     override suspend fun usuarioExiste(usuarioVehiculo: UsuarioVehiculo): Boolean {
-        var existe = false
-        when (usuarioVehiculo) {
-            is UsuarioVehiculoCarro -> {
-                val traduccionDelUsuario = traductorUsuarioVehiculoCarro.desdeDominioUnUsuario(usuarioVehiculo)
-                existe = baseDatosUsuarioVehiculo.usuarioVehiculoCarroDao().usuarioExiste(traduccionDelUsuario.placaVehiculo)
-            }
-            is UsuarioVehiculoMoto -> {
-                val traduccionDelUsuario = traductorUsuarioVehiculoMoto.desdeDominioUnUsuario(usuarioVehiculo)
-                existe = baseDatosUsuarioVehiculo.usuarioVehiculoMotoDao().usuarioExiste(traduccionDelUsuario.placaVehiculo)
-            }
-
-        }
-        return existe
-
+        return usuarioVehiculoDao.usuarioExiste(usuarioVehiculo.placaVehiculo)
     }
 
     override suspend fun guardarUsuario(usuarioVehiculo: UsuarioVehiculo) {
-        val traduccionDelUsuario = traductorUsuarioVehiculoCarro.desdeDominioUnUsuario(usuarioVehiculo)
+        val traduccionDelUsuario = (usuarioVehiculo as? UsuarioVehiculoCarro)?.let {
+            traductorUsuarioVehiculo.desdeDominioUnUsuario(it)
+        } ?: (usuarioVehiculo as? UsuarioVehiculoMoto)?.let {
+            traductorUsuarioVehiculo.desdeDominioUnUsuario(it)
+        }
 
-        baseDatosUsuarioVehiculo.usuarioVehiculoCarroDao().insertarUsuarioVehiculo(traduccionDelUsuario)
+        traduccionDelUsuario?.let {
+            usuarioVehiculoDao.insertarUsuarioVehiculo(it)
+        }
     }
 
     override suspend fun eliminarUsuario(usuarioVehiculo: UsuarioVehiculo) {
-        val traduccionDelUsuario = traductorUsuarioVehiculoCarro.desdeDominioUnUsuario(usuarioVehiculo)
+        val traduccionDelUsuario = (usuarioVehiculo as? UsuarioVehiculoCarro)?.let {
+            traductorUsuarioVehiculo.desdeDominioUnUsuario(usuarioVehiculo)
+        } ?: (usuarioVehiculo as? UsuarioVehiculoMoto)?.let {
+            traductorUsuarioVehiculo.desdeDominioUnUsuario(usuarioVehiculo)
+        }
 
-        baseDatosUsuarioVehiculo.usuarioVehiculoCarroDao().borrarUsuarioVehiculo(traduccionDelUsuario)
+        traduccionDelUsuario?.let {
+            usuarioVehiculoDao.borrarUsuarioVehiculo(it)
+        }
     }
 
     override suspend fun listaUsuarios(): List<UsuarioVehiculo> {
         val result = arrayListOf<UsuarioVehiculo>()
-        baseDatosUsuarioVehiculo.usuarioVehiculoCarroDao().listaUsuariosVehiculo().forEach { vehiculo ->
-            result.add(traductorUsuarioVehiculoCarro.desdeUnUsuarioCarroADominio(vehiculo))
+        usuarioVehiculoDao.listaUsuariosVehiculo().forEach { vehiculo ->
+            if (vehiculo.tipoDeVehiculo == "Carro") {
+                result.add(traductorUsuarioVehiculo.desdeUnUsuarioCarroADominio(vehiculo))
+            } else {
+                result.add(traductorUsuarioVehiculo.desdeUnUsuarioMotoADominio(vehiculo))
+            }
         }
         return result
-
     }
-
-
 }

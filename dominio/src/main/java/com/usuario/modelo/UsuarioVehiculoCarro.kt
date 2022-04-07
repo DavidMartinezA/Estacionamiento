@@ -2,5 +2,5 @@ package com.usuario.modelo
 
 class UsuarioVehiculoCarro(placaVehiculo: String) : UsuarioVehiculo(placaVehiculo) {
 
-    override var tipoDeVehiculo: String = "Carro"
+    override val tipoDeVehiculo: String = "Carro"
 }

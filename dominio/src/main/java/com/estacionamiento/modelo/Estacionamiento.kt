@@ -20,7 +20,8 @@ abstract class Estacionamiento(
 
     }
 
-    private fun validacionDeCreacionEstacionamiento(): Boolean = horaFechaIngresoUsuario.toString().matches(Regex(FORMATO_FECHA))
+    private fun validacionDeCreacionEstacionamiento(): Boolean =
+        usuarioVehiculo.horaFechaIngresoUsuario.toString().matches(Regex(FORMATO_FECHA))
 
     abstract val capacidadEstacionamiento: Int
     open val tipoDeUsuario = usuarioVehiculo.tipoDeVehiculo

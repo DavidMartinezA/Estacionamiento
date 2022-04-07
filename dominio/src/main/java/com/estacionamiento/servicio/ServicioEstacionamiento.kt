@@ -49,6 +49,10 @@ class ServicioEstacionamiento(
     }
 
     suspend fun eliminarUsuario() {
+
+        estacionamiento.usuarioVehiculo.horaFechaIngresoUsuario =
+            estacionamiento.horaFechaIngresoUsuario
+
         if (repositorioUsuarioVehiculo.usuarioExiste(estacionamiento.usuarioVehiculo)) {
             repositorioUsuarioVehiculo.eliminarUsuario(estacionamiento.usuarioVehiculo)
         } else {
