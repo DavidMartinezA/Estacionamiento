@@ -26,34 +26,34 @@ class RepositorioUsuarioVehiculoImplRoom(
 
         traduccionDelUsuario?.let {
             usuarioVehiculoDao.insertarUsuarioVehiculo(it)
-        }
+        } ?: throw Exception("no es de ningun tipo")
     }
 
     override suspend fun eliminarUsuario(usuarioVehiculo: UsuarioVehiculo) {
 
-        when (usuarioVehiculo) {
-            is UsuarioVehiculoMoto -> {
-                traductorUsuarioVehiculo.desdeDominioUnUsuario(usuarioVehiculo)
+        /* when (usuarioVehiculo) {
+             is UsuarioVehiculoMoto -> {
+                 traductorUsuarioVehiculo.desdeDominioUnUsuario(usuarioVehiculo)
 
-            }
-            is UsuarioVehiculoCarro -> {
-                traductorUsuarioVehiculo.desdeDominioUnUsuario(usuarioVehiculo)
+             }
+             is UsuarioVehiculoCarro -> {
+                 traductorUsuarioVehiculo.desdeDominioUnUsuario(usuarioVehiculo)
 
-            }
-            else -> {
-                throw Exception("no es de ningun tipo")
-            }
+             }
+             else -> {
+                 throw Exception("no es de ningun tipo")
+             }
+         }*/
+
+        val traduccionDelUsuario = (usuarioVehiculo as? UsuarioVehiculoCarro)?.let {
+            traductorUsuarioVehiculo.desdeDominioUnUsuario(usuarioVehiculo)
+        } ?: (usuarioVehiculo as? UsuarioVehiculoMoto)?.let {
+            traductorUsuarioVehiculo.desdeDominioUnUsuario(usuarioVehiculo)
         }
 
-        /* val traduccionDelUsuario = (usuarioVehiculo as? UsuarioVehiculoCarro)?.let {
-             traductorUsuarioVehiculo.desdeDominioUnUsuario(usuarioVehiculo)
-         } ?: (usuarioVehiculo as? UsuarioVehiculoMoto)?.let {
-             traductorUsuarioVehiculo.desdeDominioUnUsuario(usuarioVehiculo)
-         }
-
-         traduccionDelUsuario?.let {
-             usuarioVehiculoDao.borrarUsuarioVehiculo(it)
-         }?: throw Exception("no es de ningun tipo")*/
+        traduccionDelUsuario?.let {
+            usuarioVehiculoDao.borrarUsuarioVehiculo(it)
+        } ?: throw Exception("no es de ningun tipo")
     }
 
     override suspend fun listaUsuarios(): List<UsuarioVehiculo> {

@@ -80,9 +80,5 @@ I
 Kdominio/src/main/java/com/usuario/repositorio/RepositorioUsuarioVehiculo.kt,0/7/07248b05a2d601e0dd0782437db4cb1b75ee0215
 p
 @dominio/src/main/java/com/usuario/modelo/UsuarioVehiculoCarro.kt,c/3/c3e631eafa33ecf4abe3c6f7e9af79488b16abd9
-­
-}infraestructura/src/main/java/com/example/infraestructura/accesodatos/usuario/entidadbasedatos/EntidadDatosUsuarioVehiculo.kt,3/4/3475b7687e6d667e47ab56e02d7349dd8c97568d
 ¨
 xinfraestructura/src/main/java/com/example/infraestructura/accesodatos/compartido/basededatos/BaseDatosUsuarioVehiculo.kt,1/f/1fb0498844ef1f8a4d16cc4f11b8aa13f0e036f9
-—
-ginfraestructura/src/main/java/com/example/infraestructura/accesodatos/usuario/dao/UsuarioVehiculoDao.kt,2/b/2be43d0e79f6189d8abe9a772d55353e4945f63c
