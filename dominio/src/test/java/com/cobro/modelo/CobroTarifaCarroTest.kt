@@ -4,12 +4,11 @@ import com.estacionamiento.modelo.EstacionamientoCarro
 import com.usuario.modelo.UsuarioVehiculoCarro
 import org.junit.Assert
 import org.junit.Test
-import java.time.LocalDateTime
 
 class CobroTarifaCarroTest {
 
     private val usuario = UsuarioVehiculoCarro("hsu531")
-    private val estacionamiento = EstacionamientoCarro(usuario, LocalDateTime.now())
+    private val estacionamiento = EstacionamientoCarro(usuario)
     private val cobroTarifa = CobroTarifaCarro(estacionamiento)
 
     @Test

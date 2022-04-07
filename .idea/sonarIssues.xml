@@ -493,6 +493,11 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/infraestructura/src/androidTest/java/com/example/infraestructura/accesodatos/compartido/basededatos/UsuarioVehiculoCarroDaoTest.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/infraestructura/src/main/AndroidManifest.xml">
           <value>
             <set />
@@ -593,6 +598,11 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/infraestructura/src/main/java/com/example/infraestructura/accesodatos/usuario/dao/UsuarioVehiculoDaoMoto.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/infraestructura/src/main/java/com/example/infraestructura/accesodatos/usuario/dao/UsuarioVehiculoMotoDao.kt">
           <value>
             <set />
@@ -669,6 +679,11 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/infraestructura/src/test/java/com/example/infraestructura/accesodatos/compartido/basededatos/BaseDatosUsuarioVehiculoTest.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/infraestructura/src/test/java/com/example/infraestructura/accesodatos/compartido/basededatos/UsuarioVehiculoCarroDaoTest.kt">
           <value>
             <set />
           </value>

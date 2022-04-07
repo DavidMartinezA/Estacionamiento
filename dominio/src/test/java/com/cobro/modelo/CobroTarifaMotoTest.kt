@@ -5,8 +5,6 @@ import com.usuario.modelo.UsuarioVehiculoMoto
 import org.junit.Assert
 import org.junit.Test
 
-import java.time.LocalDateTime
-
 class CobroTarifaMotoTest {
 
     @Test
@@ -14,7 +12,7 @@ class CobroTarifaMotoTest {
 
         //Arrange
         val usuario = UsuarioVehiculoMoto("hsu53c", true)
-        val estacionamiento = EstacionamientoMoto(usuario, LocalDateTime.now())
+        val estacionamiento = EstacionamientoMoto(usuario)
         val cobroTarifa = CobroTarifaMoto(estacionamiento)
         val duracionServicio = 10
 
@@ -31,7 +29,7 @@ class CobroTarifaMotoTest {
 
         //Arrange
         val usuario = UsuarioVehiculoMoto("hsu53c", false)
-        val estacionamiento = EstacionamientoMoto(usuario, LocalDateTime.now())
+        val estacionamiento = EstacionamientoMoto(usuario)
         val cobroTarifa = CobroTarifaMoto(estacionamiento)
         val duracionServicio = 10
 
@@ -47,7 +45,7 @@ class CobroTarifaMotoTest {
 
         //Arrange
         val usuario = UsuarioVehiculoMoto("hsu53c", false)
-        val estacionamiento = EstacionamientoMoto(usuario, LocalDateTime.now())
+        val estacionamiento = EstacionamientoMoto(usuario)
         val cobroTarifa = CobroTarifaMoto(estacionamiento)
         val duracionServicio = 120
 
@@ -63,7 +61,7 @@ class CobroTarifaMotoTest {
 
         //Arrange
         val usuario = UsuarioVehiculoMoto("hsu53c", true)
-        val estacionamiento = EstacionamientoMoto(usuario, LocalDateTime.now())
+        val estacionamiento = EstacionamientoMoto(usuario)
         val cobroTarifa = CobroTarifaMoto(estacionamiento)
         val duracionServicio = 129
 
@@ -79,7 +77,7 @@ class CobroTarifaMotoTest {
 
         //Arrange
         val usuario = UsuarioVehiculoMoto("hsu53c", false)
-        val estacionamiento = EstacionamientoMoto(usuario, LocalDateTime.now())
+        val estacionamiento = EstacionamientoMoto(usuario)
         val cobroTarifa = CobroTarifaMoto(estacionamiento)
         val duracionServicio = 249
 
@@ -95,7 +93,7 @@ class CobroTarifaMotoTest {
 
         //Arrange
         val usuario = UsuarioVehiculoMoto("hsu53c", false)
-        val estacionamiento = EstacionamientoMoto(usuario, LocalDateTime.now())
+        val estacionamiento = EstacionamientoMoto(usuario)
         val cobroTarifa = CobroTarifaMoto(estacionamiento)
         val duracionServicio = 247
 
@@ -111,7 +109,7 @@ class CobroTarifaMotoTest {
 
         //Arrange
         val usuario = UsuarioVehiculoMoto("hsu53c", false)
-        val estacionamiento = EstacionamientoMoto(usuario, LocalDateTime.now())
+        val estacionamiento = EstacionamientoMoto(usuario)
         val cobroTarifa = CobroTarifaMoto(estacionamiento)
         val duracionServicio = 2475
 

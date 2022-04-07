@@ -34,8 +34,6 @@ j
 :
 
 .gitignore,a/5/a5cc2925ca8258af241be7e5b0381edf30266302
-e
-5dominio/src/main/java/com/cobro/modelo/CobroTarifa.kt,b/4/b4a369ff6341036916f1a68fe33c32780b71328b
 t
 Ddominio/src/main/java/com/usuario/excepcion/FormatoPlacaExcepcion.kt,c/c/cc66668514a3d333e0675fd7b5004bba0c25f9c7
 
@@ -50,35 +48,11 @@ H
 ]dominio/src/main/java/com/estacionamiento/excepcion/IngresoNoPermitidoRestriccionExcepcion.kt,8/f/8f27030b8032aece8d8c064450c0923f18d52492
 D
 dominio/build.gradle,d/7/d71e7ab1854167962f7335fc962f525692922e9e
-s
-Cdominio/src/test/java/com/usuario/modelo/UsuarioVehiculoMotoTest.kt,5/9/598ee2e0c956e0dda131bb10f1ddafe9467c3e93
-{
-Kdominio/src/test/java/com/estacionamiento/modelo/EstacionamientoMotoTest.kt,1/4/14dfa9265176ff155251e3296fcf73b4ff26c74e
-|
-Ldominio/src/test/java/com/estacionamiento/modelo/EstacionamientoCarroTest.kt,b/a/ba6680ac63a7cf36862eea77e901478f6a08dab1
-m
-=dominio/src/test/java/com/cobro/modelo/CobroTarifaMotoTest.kt,d/a/daa86c22abbbb60fa2b2a2ae5b19d8ec6223ff3b
-t
-Ddominio/src/test/java/com/usuario/modelo/UsuarioVehiculoCarroTest.kt,6/4/64ca295b6777cd5c4de1ad91fc8f2c6aefc032d9
-¥
-Éinfraestructura/src/androidTest/java/com/example/infraestructura/accesodatos/compartido/basededatos/BaseDatosUsuarioVehiculoTest.kt,2/6/26455872520bc5b885631fb01fc4c4e448ea73b7
 L
 infraestructura/build.gradle,9/6/96eb12a4ec4c48850eba1857cb67210b13e2ce42
 B
 dominio/.gitignore,5/3/53ea31ea00225a259e42bc3fcbaf6955a893b4df
-n
->dominio/src/test/java/com/cobro/modelo/CobroTarifaCarroTest.kt,1/7/1741bc2b9fcddc5bc7a0a3dbb9647677e274f910
-s
-Cdominio/src/test/java/com/cobro/servicio/ServicioCobroTarifaTest.kt,2/c/2c0954f9fbf06a4c985e2184acbca74e73107a84
-Å
-Qdominio/src/test/java/com/estacionamiento/servicio/ServicioEstacionamientoTest.kt,c/5/c53d71495e659115da3d69179532ed62b66dd0ca
 i
 9dominio/src/main/java/com/cobro/modelo/CobroTarifaMoto.kt,0/e/0ece559a4a32318cdb594529aca83cd071986636
-I
-presentacion/build.gradle,e/7/e7ca75306b9571eb541d042f9c559bee8d1218f8
-{
-Kdominio/src/main/java/com/usuario/repositorio/RepositorioUsuarioVehiculo.kt,0/7/07248b05a2d601e0dd0782437db4cb1b75ee0215
 p
 @dominio/src/main/java/com/usuario/modelo/UsuarioVehiculoCarro.kt,c/3/c3e631eafa33ecf4abe3c6f7e9af79488b16abd9
-®
-xinfraestructura/src/main/java/com/example/infraestructura/accesodatos/compartido/basededatos/BaseDatosUsuarioVehiculo.kt,1/f/1fb0498844ef1f8a4d16cc4f11b8aa13f0e036f9

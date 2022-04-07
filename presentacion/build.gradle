@@ -47,6 +47,7 @@ dependencies {
 
     // Dependencias de modulos
     implementation project(path: ':dominio')
+    implementation project(path: ':infraestructura')
 }
 
 // tarea para los reportes de analisis de codigo

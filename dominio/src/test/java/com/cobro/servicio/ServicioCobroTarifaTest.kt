@@ -20,7 +20,6 @@ import org.mockito.Mockito
 import org.mockito.MockitoAnnotations
 import org.mockito.junit.MockitoJUnitRunner
 import java.time.LocalDateTime
-import java.time.format.DateTimeFormatter
 
 @OptIn(ExperimentalCoroutinesApi::class)
 @RunWith(MockitoJUnitRunner::class)
@@ -29,10 +28,8 @@ class ServicioCobroTarifaTest {
     @Mock
     private lateinit var repositorioUsuarioVehiculo: RepositorioUsuarioVehiculo
 
-    private val patronHora = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")
     private var usuario = UsuarioVehiculoCarro("hsu531")
-    private val horaIngreso = "2022-01-01 00:00:01"
-    private val horaProporcionadaDeIngreso = LocalDateTime.parse(horaIngreso, patronHora)
+
 
     @Before
     fun before() {
@@ -43,14 +40,13 @@ class ServicioCobroTarifaTest {
     fun duracionServicioEstacionamiento_duracionDeCincoHorasYMedia_retornaDuracionServicioSeisHoras() {
 
         //Arrange
-        val horaSalida = "2022-01-01 05:30:00"
-        val horaProporcionadaDesalida = LocalDateTime.parse(horaSalida, patronHora)
-        val estacionamiento = EstacionamientoCarro(usuario, horaProporcionadaDeIngreso)
+        usuario.horaFechaIngresoUsuario = LocalDateTime.now().minusHours(5)
+        val estacionamiento = EstacionamientoCarro(usuario)
         val servicioEstacionamiento =
             ServicioEstacionamiento(estacionamiento, repositorioUsuarioVehiculo)
         val cobroTarifa = CobroTarifaCarro(estacionamiento)
         val servicioCobroTarifaCarro = ServicioCobroTarifa(servicioEstacionamiento,
-            cobroTarifa, horaProporcionadaDesalida)
+            cobroTarifa, LocalDateTime.now().plusMinutes(30))
         //Act
         val duracionServicio = servicioCobroTarifaCarro.duracionServicioEstacionamiento()
 
@@ -63,14 +59,13 @@ class ServicioCobroTarifaTest {
     fun duracionServicioEstacionamiento_duracionDeOchoHorasYMedia_retornaDuracionServicioNueveHoras() {
 
         //Arrange
-        val horaSalida = "2022-01-01 08:30:00"
-        val horaProporcionadaDesalida = LocalDateTime.parse(horaSalida, patronHora)
-        val estacionamiento = EstacionamientoCarro(usuario, horaProporcionadaDeIngreso)
+        usuario.horaFechaIngresoUsuario = LocalDateTime.now().minusHours(8)
+        val estacionamiento = EstacionamientoCarro(usuario)
         val servicioEstacionamiento =
             ServicioEstacionamiento(estacionamiento, repositorioUsuarioVehiculo)
         val cobroTarifa = CobroTarifaCarro(estacionamiento)
         val servicioCobroTarifaCarro = ServicioCobroTarifa(servicioEstacionamiento,
-            cobroTarifa, horaProporcionadaDesalida)
+            cobroTarifa, LocalDateTime.now().plusMinutes(30))
         //Act
         val duracionServicio = servicioCobroTarifaCarro.duracionServicioEstacionamiento()
 
@@ -83,9 +78,8 @@ class ServicioCobroTarifaTest {
     fun cobroDuracionServicio_elUsuarioNoExiste_lanzarUnaExcepcion() {
 
         //Arrange
-        val horaSalida = "2022-01-01 04:59:00"
-        val horaProporcionadaDesalida = LocalDateTime.parse(horaSalida, patronHora)
-        val estacionamiento = EstacionamientoCarro(usuario, horaProporcionadaDeIngreso)
+        usuario.horaFechaIngresoUsuario = LocalDateTime.now().minusHours(8)
+        val estacionamiento = EstacionamientoCarro(usuario)
         val servicioEstacionamiento =
             ServicioEstacionamiento(estacionamiento, repositorioUsuarioVehiculo)
         val cobroTarifa = CobroTarifaCarro(estacionamiento)
@@ -95,7 +89,7 @@ class ServicioCobroTarifaTest {
         Assert.assertThrows(UsuarioNoExisteExcepcion::class.java) {
             runTest {
                 Mockito.`when`(repositorioUsuarioVehiculo.usuarioExiste(usuario)).thenReturn(false)
-                ServicioCobroTarifa(servicioEstacionamiento, cobroTarifa, horaProporcionadaDesalida).cobroDuracionServicio()
+                ServicioCobroTarifa(servicioEstacionamiento, cobroTarifa, LocalDateTime.now()).cobroDuracionServicio()
             }
         }
 
@@ -105,10 +99,10 @@ class ServicioCobroTarifaTest {
     fun cobroDuracionServicio_elUsuarioNoExisteMoto_lanzarUnaExcepcion() {
 
         //Arrange
-        val horaSalida = "2022-01-01 05:59:00"
-        val horaProporcionadaDesalida = LocalDateTime.parse(horaSalida, patronHora)
+
         val usuario = UsuarioVehiculoMoto("hsu531", true)
-        val estacionamiento = EstacionamientoMoto(usuario, horaProporcionadaDeIngreso)
+        usuario.horaFechaIngresoUsuario = LocalDateTime.now().minusHours(5)
+        val estacionamiento = EstacionamientoMoto(usuario)
         val servicioEstacionamiento =
             ServicioEstacionamiento(estacionamiento, repositorioUsuarioVehiculo)
         val cobroTarifaMoto = CobroTarifaMoto(estacionamiento)
@@ -118,7 +112,7 @@ class ServicioCobroTarifaTest {
         Assert.assertThrows(UsuarioNoExisteExcepcion::class.java) {
             runTest {
                 Mockito.`when`(repositorioUsuarioVehiculo.usuarioExiste(usuario)).thenReturn(false)
-                ServicioCobroTarifa(servicioEstacionamiento, cobroTarifaMoto, horaProporcionadaDesalida).cobroDuracionServicio()
+                ServicioCobroTarifa(servicioEstacionamiento, cobroTarifaMoto, LocalDateTime.now()).cobroDuracionServicio()
             }
         }
 
@@ -128,15 +122,15 @@ class ServicioCobroTarifaTest {
     fun cobroDuracionServicio_usuarioMotoSeisHorasCilindrajeAlto_cobroDeTarifa() {
 
         //Arrange
-        val horaSalida = "2022-01-01 05:59:00"
-        val horaProporcionadaDesalida = LocalDateTime.parse(horaSalida, patronHora)
+
         val usuario = UsuarioVehiculoMoto("hsu531", true)
-        val estacionamiento = EstacionamientoMoto(usuario, horaProporcionadaDeIngreso)
+        usuario.horaFechaIngresoUsuario = LocalDateTime.now().minusHours(5)
+        val estacionamiento = EstacionamientoMoto(usuario)
         val servicioEstacionamiento =
             ServicioEstacionamiento(estacionamiento, repositorioUsuarioVehiculo)
         val cobroTarifaMoto = CobroTarifaMoto(estacionamiento)
         val servicioCobroTarifaMoto = ServicioCobroTarifa(servicioEstacionamiento, cobroTarifaMoto,
-            horaProporcionadaDesalida)
+            LocalDateTime.now().plusMinutes(30))
         var servicio = 0
 
         //Act

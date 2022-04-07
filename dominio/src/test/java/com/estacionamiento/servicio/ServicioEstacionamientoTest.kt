@@ -33,7 +33,7 @@ class ServicioEstacionamientoTest {
     private val horaIngreso = LocalDateTime.now()
     private val usuarioVehiculoCarro = UsuarioVehiculoCarro("HSU531")
     private val listaUsuarios: ArrayList<UsuarioVehiculo> = arrayListOf(usuarioVehiculoCarro)
-    private val estacionamientoCarro = EstacionamientoCarro(usuarioVehiculoCarro, horaIngreso)
+    private val estacionamientoCarro = EstacionamientoCarro(usuarioVehiculoCarro)
 
     @Before
     fun before() {
@@ -74,7 +74,7 @@ class ServicioEstacionamientoTest {
         //Arrange
         val usuarioVehiculoMoto = UsuarioVehiculoMoto("HSU531", true)
         val listaUsuarios: ArrayList<UsuarioVehiculo> = arrayListOf(usuarioVehiculoMoto)
-        val estacionamientoMoto = EstacionamientoMoto(usuarioVehiculoMoto, horaIngreso)
+        val estacionamientoMoto = EstacionamientoMoto(usuarioVehiculoMoto)
         var capacidad = false
         runTest {
             Mockito.`when`(repositorioUsuarioVehiculo.listaUsuarios()).thenReturn(listaUsuarios)
@@ -99,7 +99,8 @@ class ServicioEstacionamientoTest {
         Mockito.`when`(repositorioUsuarioVehiculo.guardarUsuario(usuarioVehiculoCarro)).thenReturn(Unit)
 
         //Act
-        ServicioEstacionamiento(estacionamientoCarro, repositorioUsuarioVehiculo).ingresoUsuarioEstacionamiento(diaLunes)
+        ServicioEstacionamiento(estacionamientoCarro, repositorioUsuarioVehiculo).ingresoUsuarioEstacionamiento(diaLunes,
+            LocalDateTime.now())
 
         //Assert
         verify(repositorioUsuarioVehiculo, times(1)).guardarUsuario(usuarioVehiculoCarro)
@@ -111,7 +112,7 @@ class ServicioEstacionamientoTest {
         //Arrange
         val diaMiercoles = 3
         val usuarioCarro = UsuarioVehiculoCarro("ASU531")
-        val estacionamientoCarro = EstacionamientoCarro(usuarioCarro, LocalDateTime.now())
+        val estacionamientoCarro = EstacionamientoCarro(usuarioCarro)
 
         runTest {
             Mockito.`when`(repositorioUsuarioVehiculo.usuarioExiste(usuarioCarro)).thenReturn(false)
@@ -120,7 +121,8 @@ class ServicioEstacionamientoTest {
 
         Assert.assertThrows(IngresoNoPermitidoRestriccionExcepcion::class.java) {
             runTest {
-                ServicioEstacionamiento(estacionamientoCarro, repositorioUsuarioVehiculo).ingresoUsuarioEstacionamiento(diaMiercoles)
+                ServicioEstacionamiento(estacionamientoCarro, repositorioUsuarioVehiculo).ingresoUsuarioEstacionamiento(diaMiercoles,
+                    LocalDateTime.now())
             }
         }
     }
@@ -139,7 +141,7 @@ class ServicioEstacionamientoTest {
         //Assert
         Assert.assertThrows(UsuarioYaExisteExcepcion::class.java) {
             runTest {
-                servicioEstacionamientoCarro.ingresoUsuarioEstacionamiento(diaMiercoles)
+                servicioEstacionamientoCarro.ingresoUsuarioEstacionamiento(diaMiercoles, LocalDateTime.now())
             }
         }
     }
