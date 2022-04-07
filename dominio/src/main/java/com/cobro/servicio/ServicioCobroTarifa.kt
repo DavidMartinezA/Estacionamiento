@@ -18,7 +18,7 @@ class ServicioCobroTarifa(
     private fun duracionServicioEstacionamiento(): Int {
 
         val calculoDuracionServicio =
-            Duration.between(servicioEstacionamiento.estacionamiento.horaFechaIngresoUsuario, // pedirlo al cobro tarifa
+            Duration.between(servicioEstacionamiento.estacionamiento.usuarioVehiculo.horaFechaIngresoUsuario, // pedirlo al cobro tarifa
                 horaFechaSalidaUsuarioUsuario).dividedBy(60).dividedBy(60)
 
         var horasServicioEstacionamiento = calculoDuracionServicio.seconds

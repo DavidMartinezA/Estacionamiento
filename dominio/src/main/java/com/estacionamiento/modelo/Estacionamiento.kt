@@ -1,12 +1,9 @@
 package com.estacionamiento.modelo
 
-import com.estacionamiento.excepcion.IngresoNoPermitidoRestriccionExcepcion
 import com.usuario.modelo.UsuarioVehiculo
-import java.time.LocalDateTime
 
 abstract class Estacionamiento(
     val usuarioVehiculo: UsuarioVehiculo,
-    var horaFechaIngresoUsuario: LocalDateTime,
 ) {
 
     companion object {
@@ -15,13 +12,13 @@ abstract class Estacionamiento(
         private val FORMATO_FECHA = "[0-2][0-9]{3}-[0-1][0-9]-[0-3][0-9] [0-2][0-9]:[0-5][0-9]:[0-5][0-9].*"
     }
 
-    init {
+ /*   init {
         if (validacionDeCreacionEstacionamiento()) throw IngresoNoPermitidoRestriccionExcepcion()
 
     }
 
     private fun validacionDeCreacionEstacionamiento(): Boolean =
-        usuarioVehiculo.horaFechaIngresoUsuario.toString().matches(Regex(FORMATO_FECHA))
+        usuarioVehiculo.horaFechaIngresoUsuario.toString().matches(Regex(FORMATO_FECHA))*/
 
     abstract val capacidadEstacionamiento: Int
     open val tipoDeUsuario = usuarioVehiculo.tipoDeVehiculo
