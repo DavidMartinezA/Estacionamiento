@@ -10,8 +10,6 @@ data class EntidadDatosUsuarioVehiculo(
     @PrimaryKey
     var placaVehiculo: String,
     var tipoDeVehiculo: String,
-    var altoCilindraje: Boolean,
+    var cilindrajeAlto: Boolean,
     var horaFechaIngresoUsuario: LocalDateTime,
-) {
-
-}
+)
