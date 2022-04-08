@@ -648,12 +648,27 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/infraestructura/src/main/java/com/example/infraestructura/accesodatos/usuario/repositorio/RepositorioUsuarioVehiculoCarroRoom.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/infraestructura/src/main/java/com/example/infraestructura/accesodatos/usuario/repositorio/RepositorioUsuarioVehiculoImplRoom.kt">
           <value>
             <set />
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/infraestructura/src/main/java/com/example/infraestructura/accesodatos/usuario/repositorio/RepositorioUsuarioVehiculoMotoImplRoom.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/infraestructura/src/main/java/com/example/infraestructura/accesodatos/usuario/repositorio/RepositorioUsuarioVehiculoMotoRoom.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/infraestructura/src/main/java/com/example/infraestructura/accesodatos/usuario/repositorio/RepositorioUsuarioVehiculoRoom.kt">
           <value>
             <set />
           </value>

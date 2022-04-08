@@ -6,7 +6,7 @@ import androidx.room.Room
 import com.estacionamiento.modelo.EstacionamientoCarro
 import com.estacionamiento.servicio.ServicioEstacionamiento
 import com.example.infraestructura.accesodatos.compartido.basededatos.BaseDatosUsuarioVehiculo
-import com.example.infraestructura.accesodatos.usuario.repositorio.RepositorioUsuarioVehiculoImplRoom
+import com.example.infraestructura.accesodatos.usuario.repositorio.RepositorioUsuarioVehiculoCarroRoom
 import com.usuario.modelo.UsuarioVehiculoCarro
 import dominio.estacionamiento.R
 import kotlinx.coroutines.runBlocking
@@ -25,7 +25,7 @@ class MainActivity : AppCompatActivity() {
 
         val usuario = UsuarioVehiculoCarro("hsu542")
         val estacionamiento = EstacionamientoCarro(usuario)
-        val repositorio = RepositorioUsuarioVehiculoImplRoom(db.usuarioVehiculoDao())
+        val repositorio = RepositorioUsuarioVehiculoCarroRoom(db.usuarioVehiculoDao())
         val prueba = ServicioEstacionamiento(estacionamiento, repositorio)
 
         runBlocking {
