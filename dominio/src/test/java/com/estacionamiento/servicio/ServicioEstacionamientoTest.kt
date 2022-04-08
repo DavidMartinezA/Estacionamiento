@@ -21,7 +21,6 @@ import org.mockito.Mockito.times
 import org.mockito.Mockito.verify
 import org.mockito.MockitoAnnotations
 import org.mockito.junit.MockitoJUnitRunner
-import java.time.LocalDateTime
 
 @OptIn(ExperimentalCoroutinesApi::class)
 @RunWith(MockitoJUnitRunner::class)
@@ -30,10 +29,9 @@ class ServicioEstacionamientoTest {
     @Mock
     private lateinit var repositorioUsuarioVehiculo: RepositorioUsuarioVehiculo
 
-    private val horaIngreso = LocalDateTime.now()
     private val usuarioVehiculoCarro = UsuarioVehiculoCarro("HSU531")
     private val listaUsuarios: ArrayList<UsuarioVehiculo> = arrayListOf(usuarioVehiculoCarro)
-    private val estacionamientoCarro = EstacionamientoCarro(usuarioVehiculoCarro, horaIngreso)
+    private val estacionamientoCarro = EstacionamientoCarro(usuarioVehiculoCarro)
 
     @Before
     fun before() {
@@ -74,7 +72,7 @@ class ServicioEstacionamientoTest {
         //Arrange
         val usuarioVehiculoMoto = UsuarioVehiculoMoto("HSU531", true)
         val listaUsuarios: ArrayList<UsuarioVehiculo> = arrayListOf(usuarioVehiculoMoto)
-        val estacionamientoMoto = EstacionamientoMoto(usuarioVehiculoMoto, horaIngreso)
+        val estacionamientoMoto = EstacionamientoMoto(usuarioVehiculoMoto)
         var capacidad = false
         runTest {
             Mockito.`when`(repositorioUsuarioVehiculo.listaUsuarios()).thenReturn(listaUsuarios)
@@ -111,7 +109,7 @@ class ServicioEstacionamientoTest {
         //Arrange
         val diaMiercoles = 3
         val usuarioCarro = UsuarioVehiculoCarro("ASU531")
-        val estacionamientoCarro = EstacionamientoCarro(usuarioCarro, LocalDateTime.now())
+        val estacionamientoCarro = EstacionamientoCarro(usuarioCarro)
 
         runTest {
             Mockito.`when`(repositorioUsuarioVehiculo.usuarioExiste(usuarioCarro)).thenReturn(false)

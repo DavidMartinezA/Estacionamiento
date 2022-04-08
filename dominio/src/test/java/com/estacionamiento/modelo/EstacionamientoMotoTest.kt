@@ -14,7 +14,7 @@ class EstacionamientoMotoTest {
 
         //Arrange
         val usuarioVehiculoMoto = UsuarioVehiculoMoto("ASU531", true)
-        val estacionamientoMoto = EstacionamientoMoto(usuarioVehiculoMoto, horaIngreso)
+        val estacionamientoMoto = EstacionamientoMoto(usuarioVehiculoMoto)
         val diaMartes = 2
 
         //Act
@@ -30,7 +30,7 @@ class EstacionamientoMotoTest {
 
         //Arrange
         val usuarioVehiculoMoto = UsuarioVehiculoMoto("ASU531", false)
-        val estacionamientoMoto = EstacionamientoMoto(usuarioVehiculoMoto, horaIngreso)
+        val estacionamientoMoto = EstacionamientoMoto(usuarioVehiculoMoto)
 
         //Act
         val restriccionIngreso = estacionamientoMoto.restriccionDeIngreso(1)

@@ -3,18 +3,15 @@ package com.estacionamiento.modelo
 import com.usuario.modelo.UsuarioVehiculoCarro
 import org.junit.Assert
 import org.junit.Test
-import java.time.LocalDateTime
 
 class EstacionamientoCarroTest {
-
-    private val horaIngreso = LocalDateTime.now()
 
     @Test
     fun validacionDeCreacionEstacionamiento_usuarioYHoraCorrectos_retornaElUsuario() {
 
         //Arrange
         val usuario = UsuarioVehiculoCarro("has531")
-        val validacion = EstacionamientoCarro(usuario, LocalDateTime.now())
+        val validacion = EstacionamientoCarro(usuario)
 
         //Act
         val validacionUsuario = validacion.usuarioVehiculo
@@ -24,27 +21,11 @@ class EstacionamientoCarroTest {
     }
 
     @Test
-    fun validacionDeCreacionEstacionamiento_usuarioYHoraCorrectos_retornaLaHora() {
-
-        //Arrange
-        val usuario = UsuarioVehiculoCarro("has531")
-        val hora = LocalDateTime.now()
-
-        val validacion = EstacionamientoCarro(usuario, hora)
-
-        //Act
-        val validacionhora = validacion.horaFechaIngresoUsuario
-
-        //Assert
-        Assert.assertEquals(validacionhora, hora)
-    }
-
-    @Test
     fun restriccionDeIngreso_placaLetraInicialADiaRestringidoMartes_presentaRestriccion() {
 
         //Arrange
         val usuarioVehiculoCarro = UsuarioVehiculoCarro("ASU531")
-        val estacionamientoCarro = EstacionamientoCarro(usuarioVehiculoCarro, horaIngreso)
+        val estacionamientoCarro = EstacionamientoCarro(usuarioVehiculoCarro)
         val diaMartes = 2
 
         //Act
@@ -59,7 +40,7 @@ class EstacionamientoCarroTest {
 
         //Arrange
         val usuarioVehiculoCarro = UsuarioVehiculoCarro("ASU531")
-        val estacionamientoCarro = EstacionamientoCarro(usuarioVehiculoCarro, horaIngreso)
+        val estacionamientoCarro = EstacionamientoCarro(usuarioVehiculoCarro)
         val diaViernes = 5
 
         //Act
@@ -74,7 +55,7 @@ class EstacionamientoCarroTest {
 
         //Arrange
         val usuarioVehiculoCarro = UsuarioVehiculoCarro("hSU531")
-        val estacionamientoCarro = EstacionamientoCarro(usuarioVehiculoCarro, horaIngreso)
+        val estacionamientoCarro = EstacionamientoCarro(usuarioVehiculoCarro)
         val diaMiercoles = 3
 
         //Act
@@ -90,7 +71,7 @@ class EstacionamientoCarroTest {
 
         //Arrange
         val usuarioVehiculoCarro = UsuarioVehiculoCarro("hSU531")
-        val estacionamientoCarro = EstacionamientoCarro(usuarioVehiculoCarro, horaIngreso)
+        val estacionamientoCarro = EstacionamientoCarro(usuarioVehiculoCarro)
         val diaDomingo = 7
 
         //Act
@@ -106,7 +87,7 @@ class EstacionamientoCarroTest {
 
         //Arrange
         val usuarioVehiculoCarro = UsuarioVehiculoCarro("ASU531")
-        val estacionamientoCarro = EstacionamientoCarro(usuarioVehiculoCarro, horaIngreso)
+        val estacionamientoCarro = EstacionamientoCarro(usuarioVehiculoCarro)
         val diaLunes = 1
 
         //Act
@@ -122,7 +103,7 @@ class EstacionamientoCarroTest {
 
         //Arrange
         val usuarioVehiculoCarro = UsuarioVehiculoCarro("ASU531")
-        val estacionamientoCarro = EstacionamientoCarro(usuarioVehiculoCarro, horaIngreso)
+        val estacionamientoCarro = EstacionamientoCarro(usuarioVehiculoCarro)
         val diaDomingo = 7
 
         //Act

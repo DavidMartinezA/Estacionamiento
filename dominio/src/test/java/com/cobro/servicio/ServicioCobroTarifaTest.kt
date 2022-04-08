@@ -31,8 +31,6 @@ class ServicioCobroTarifaTest {
 
     private val patronHora = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")
     private var usuario = UsuarioVehiculoCarro("hsu531")
-    private val horaIngreso = "2022-01-01 00:00:01"
-    private val horaProporcionadaDeIngreso = LocalDateTime.parse(horaIngreso, patronHora)
 
     @Before
     fun before() {
@@ -45,7 +43,7 @@ class ServicioCobroTarifaTest {
         //Arrange
         val horaSalida = "2022-01-01 05:30:00"
         val horaProporcionadaDesalida = LocalDateTime.parse(horaSalida, patronHora)
-        val estacionamiento = EstacionamientoCarro(usuario, horaProporcionadaDeIngreso)
+        val estacionamiento = EstacionamientoCarro(usuario)
         val servicioEstacionamiento =
             ServicioEstacionamiento(estacionamiento, repositorioUsuarioVehiculo)
         val cobroTarifa = CobroTarifaCarro(estacionamiento)
@@ -65,7 +63,7 @@ class ServicioCobroTarifaTest {
         //Arrange
         val horaSalida = "2022-01-01 08:30:00"
         val horaProporcionadaDesalida = LocalDateTime.parse(horaSalida, patronHora)
-        val estacionamiento = EstacionamientoCarro(usuario, horaProporcionadaDeIngreso)
+        val estacionamiento = EstacionamientoCarro(usuario)
         val servicioEstacionamiento =
             ServicioEstacionamiento(estacionamiento, repositorioUsuarioVehiculo)
         val cobroTarifa = CobroTarifaCarro(estacionamiento)
@@ -85,7 +83,7 @@ class ServicioCobroTarifaTest {
         //Arrange
         val horaSalida = "2022-01-01 04:59:00"
         val horaProporcionadaDesalida = LocalDateTime.parse(horaSalida, patronHora)
-        val estacionamiento = EstacionamientoCarro(usuario, horaProporcionadaDeIngreso)
+        val estacionamiento = EstacionamientoCarro(usuario)
         val servicioEstacionamiento =
             ServicioEstacionamiento(estacionamiento, repositorioUsuarioVehiculo)
         val cobroTarifa = CobroTarifaCarro(estacionamiento)
@@ -108,7 +106,7 @@ class ServicioCobroTarifaTest {
         val horaSalida = "2022-01-01 05:59:00"
         val horaProporcionadaDesalida = LocalDateTime.parse(horaSalida, patronHora)
         val usuario = UsuarioVehiculoMoto("hsu531", true)
-        val estacionamiento = EstacionamientoMoto(usuario, horaProporcionadaDeIngreso)
+        val estacionamiento = EstacionamientoMoto(usuario)
         val servicioEstacionamiento =
             ServicioEstacionamiento(estacionamiento, repositorioUsuarioVehiculo)
         val cobroTarifaMoto = CobroTarifaMoto(estacionamiento)
@@ -131,7 +129,7 @@ class ServicioCobroTarifaTest {
         val horaSalida = "2022-01-01 05:59:00"
         val horaProporcionadaDesalida = LocalDateTime.parse(horaSalida, patronHora)
         val usuario = UsuarioVehiculoMoto("hsu531", true)
-        val estacionamiento = EstacionamientoMoto(usuario, horaProporcionadaDeIngreso)
+        val estacionamiento = EstacionamientoMoto(usuario)
         val servicioEstacionamiento =
             ServicioEstacionamiento(estacionamiento, repositorioUsuarioVehiculo)
         val cobroTarifaMoto = CobroTarifaMoto(estacionamiento)
