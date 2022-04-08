@@ -7,7 +7,7 @@ import com.usuario.modelo.UsuarioVehiculoMoto
 class TraductorUsuarioVehiculo {
 
     fun desdeDominioUnUsuario(usuarioVehiculo: UsuarioVehiculoCarro): EntidadDatosUsuarioVehiculo {
-        return EntidadDatosUsuarioVehiculo(0,
+        return EntidadDatosUsuarioVehiculo(
             placaVehiculo = usuarioVehiculo.placaVehiculo,
             tipoDeVehiculo = usuarioVehiculo.tipoDeVehiculo,
             altoCilindraje = false,
@@ -15,7 +15,7 @@ class TraductorUsuarioVehiculo {
     }
 
     fun desdeDominioUnUsuario(usuarioVehiculo: UsuarioVehiculoMoto): EntidadDatosUsuarioVehiculo {
-        return EntidadDatosUsuarioVehiculo(0,
+        return EntidadDatosUsuarioVehiculo(
             placaVehiculo = usuarioVehiculo.placaVehiculo,
             tipoDeVehiculo = usuarioVehiculo.tipoDeVehiculo,
             altoCilindraje = usuarioVehiculo.cilindrajeAlto,

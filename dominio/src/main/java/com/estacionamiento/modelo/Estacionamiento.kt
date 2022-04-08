@@ -9,7 +9,7 @@ abstract class Estacionamiento(
     companion object {
         private const val RESTRICCION_INGRESO_PLACA = 'A'
         private val DIAS_PERMITIDOS = arrayListOf(7, 1)
-        private val FORMATO_FECHA = "[0-2][0-9]{3}-[0-1][0-9]-[0-3][0-9] [0-2][0-9]:[0-5][0-9]:[0-5][0-9].*"
+        //private val FORMATO_FECHA = "[0-2][0-9]{3}-[0-1][0-9]-[0-3][0-9] [0-2][0-9]:[0-5][0-9]:[0-5][0-9].*"
     }
 
  /*   init {

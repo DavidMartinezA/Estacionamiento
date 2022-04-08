@@ -6,15 +6,16 @@ import com.example.infraestructura.accesodatos.usuario.entidadbasedatos.EntidadD
 @Dao
 interface UsuarioVehiculoDao {
 
-    @Insert(onConflict = OnConflictStrategy.IGNORE)
-    suspend fun insertarUsuarioVehiculo(entidadDatosUsuario: EntidadDatosUsuarioVehiculo)
-
-    @Delete
-    suspend fun borrarUsuarioVehiculo(entidadDatosUsuario: EntidadDatosUsuarioVehiculo)
-
     @Query("SELECT * FROM EntidadDatosUsuarioVehiculo")
-    suspend fun listaUsuariosVehiculo(): List<EntidadDatosUsuarioVehiculo>
+    suspend fun listaUsuarios(): List<EntidadDatosUsuarioVehiculo>
 
     @Query("SELECT EXISTS (SELECT * FROM EntidadDatosUsuarioVehiculo WHERE placaVehiculo == :placaVehiculo)")
-    suspend fun usuarioExiste(placaVehiculo: String): Boolean
+    suspend fun comprobacionUsuarioExiste(placaVehiculo: String): Boolean
+
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
+    suspend fun insertar(entidadDatosUsuario: EntidadDatosUsuarioVehiculo)
+
+    @Delete
+    suspend fun borrar(entidadDatosUsuario: EntidadDatosUsuarioVehiculo)
+
 }

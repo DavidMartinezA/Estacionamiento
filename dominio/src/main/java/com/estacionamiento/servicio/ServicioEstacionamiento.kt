@@ -6,7 +6,6 @@ import com.estacionamiento.excepcion.UsuarioYaExisteExcepcion
 import com.estacionamiento.modelo.Estacionamiento
 import com.usuario.modelo.UsuarioVehiculo
 import com.usuario.repositorio.RepositorioUsuarioVehiculo
-import java.time.LocalDateTime
 
 class ServicioEstacionamiento(
     var estacionamiento: Estacionamiento,
@@ -27,9 +26,7 @@ class ServicioEstacionamiento(
         return existeEspacio
     }
 
-    suspend fun ingresoUsuarioEstacionamiento(diaDeLaSemana: Int, horaFechaIngresoUsuario: LocalDateTime) {
-
-        estacionamiento.usuarioVehiculo.horaFechaIngresoUsuario = horaFechaIngresoUsuario
+    suspend fun ingresoUsuarioEstacionamiento(diaDeLaSemana: Int) {
 
         val espacioDisponibleEnEstacionamiento: Boolean
         val usuarioNoExiste =

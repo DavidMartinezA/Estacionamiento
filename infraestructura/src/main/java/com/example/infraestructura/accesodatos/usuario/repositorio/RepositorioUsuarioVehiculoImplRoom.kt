@@ -2,6 +2,7 @@ package com.example.infraestructura.accesodatos.usuario.repositorio
 
 import com.example.infraestructura.accesodatos.usuario.anticorrupcion.TraductorUsuarioVehiculo
 import com.example.infraestructura.accesodatos.usuario.dao.UsuarioVehiculoDao
+import com.example.infraestructura.accesodatos.usuario.excepcion.TipoDeVehiculoExcepcion
 import com.usuario.modelo.UsuarioVehiculo
 import com.usuario.modelo.UsuarioVehiculoCarro
 import com.usuario.modelo.UsuarioVehiculoMoto
@@ -14,7 +15,7 @@ class RepositorioUsuarioVehiculoImplRoom(
     private val traductorUsuarioVehiculo = TraductorUsuarioVehiculo()
 
     override suspend fun usuarioExiste(usuarioVehiculo: UsuarioVehiculo): Boolean {
-        return usuarioVehiculoDao.usuarioExiste(usuarioVehiculo.placaVehiculo)
+        return usuarioVehiculoDao.comprobacionUsuarioExiste(usuarioVehiculo.placaVehiculo)
     }
 
     override suspend fun guardarUsuario(usuarioVehiculo: UsuarioVehiculo) {
@@ -25,26 +26,11 @@ class RepositorioUsuarioVehiculoImplRoom(
         }
 
         traduccionDelUsuario?.let {
-            usuarioVehiculoDao.insertarUsuarioVehiculo(it)
-        } ?: throw Exception("no es de ningun tipo")
+            usuarioVehiculoDao.insertar(it)
+        } ?: throw TipoDeVehiculoExcepcion()
     }
 
     override suspend fun eliminarUsuario(usuarioVehiculo: UsuarioVehiculo) {
-
-        /* when (usuarioVehiculo) {
-             is UsuarioVehiculoMoto -> {
-                 traductorUsuarioVehiculo.desdeDominioUnUsuario(usuarioVehiculo)
-
-             }
-             is UsuarioVehiculoCarro -> {
-                 traductorUsuarioVehiculo.desdeDominioUnUsuario(usuarioVehiculo)
-
-             }
-             else -> {
-                 throw Exception("no es de ningun tipo")
-             }
-         }*/
-
         val traduccionDelUsuario = (usuarioVehiculo as? UsuarioVehiculoCarro)?.let {
             traductorUsuarioVehiculo.desdeDominioUnUsuario(usuarioVehiculo)
         } ?: (usuarioVehiculo as? UsuarioVehiculoMoto)?.let {
@@ -52,13 +38,30 @@ class RepositorioUsuarioVehiculoImplRoom(
         }
 
         traduccionDelUsuario?.let {
-            usuarioVehiculoDao.borrarUsuarioVehiculo(it)
-        } ?: throw Exception("no es de ningun tipo")
+            usuarioVehiculoDao.borrar(it)
+        } ?: throw TipoDeVehiculoExcepcion()
+
+        /*
+         when (usuarioVehiculo) {
+          is UsuarioVehiculoMoto -> {
+              traductorUsuarioVehiculo.desdeDominioUnUsuario(usuarioVehiculo)
+
+          }
+          is UsuarioVehiculoCarro -> {
+              traductorUsuarioVehiculo.desdeDominioUnUsuario(usuarioVehiculo)
+
+          }
+          else -> {
+              throw Exception("no es de ningun tipo")
+          }
+      }
+      */
+
     }
 
     override suspend fun listaUsuarios(): List<UsuarioVehiculo> {
         val result = arrayListOf<UsuarioVehiculo>()
-        usuarioVehiculoDao.listaUsuariosVehiculo().forEach { vehiculo ->
+        usuarioVehiculoDao.listaUsuarios().forEach { vehiculo ->
             if (vehiculo.tipoDeVehiculo == "Carro") {
                 result.add(traductorUsuarioVehiculo.desdeUnUsuarioCarroADominio(vehiculo))
             } else {

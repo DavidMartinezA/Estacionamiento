@@ -6,9 +6,12 @@ import java.time.LocalDateTime
 
 @Entity
 data class EntidadDatosUsuarioVehiculo(
-    @PrimaryKey(autoGenerate = true) var id: Int,
+
+    @PrimaryKey
     var placaVehiculo: String,
     var tipoDeVehiculo: String,
     var altoCilindraje: Boolean,
     var horaFechaIngresoUsuario: LocalDateTime,
-)
+) {
+
+}

@@ -36,8 +36,6 @@ j
 .gitignore,a/5/a5cc2925ca8258af241be7e5b0381edf30266302
 e
 5dominio/src/main/java/com/cobro/modelo/CobroTarifa.kt,b/4/b4a369ff6341036916f1a68fe33c32780b71328b
-t
-Ddominio/src/main/java/com/usuario/excepcion/FormatoPlacaExcepcion.kt,c/c/cc66668514a3d333e0675fd7b5004bba0c25f9c7
 
 Odominio/src/main/java/com/estacionamiento/excepcion/UsuarioYaExisteExcepcion.kt,8/8/88008e0ade3d56a8f785b31c7bd66b11799d7acc
 
@@ -46,8 +44,6 @@ H
 sonar-project.properties,2/5/2538046035efb77ecc44e1fd2eec1e2641594d4c
 <
 build.gradle,f/0/f07866736216be0ee2aba49e392191aeae700a35
-
-]dominio/src/main/java/com/estacionamiento/excepcion/IngresoNoPermitidoRestriccionExcepcion.kt,8/f/8f27030b8032aece8d8c064450c0923f18d52492
 D
 dominio/build.gradle,d/7/d71e7ab1854167962f7335fc962f525692922e9e
 s
@@ -62,8 +58,6 @@ t
 Ddominio/src/test/java/com/usuario/modelo/UsuarioVehiculoCarroTest.kt,6/4/64ca295b6777cd5c4de1ad91fc8f2c6aefc032d9
 ´
 ƒinfraestructura/src/androidTest/java/com/example/infraestructura/accesodatos/compartido/basededatos/BaseDatosUsuarioVehiculoTest.kt,2/6/26455872520bc5b885631fb01fc4c4e448ea73b7
-L
-infraestructura/build.gradle,9/6/96eb12a4ec4c48850eba1857cb67210b13e2ce42
 B
 dominio/.gitignore,5/3/53ea31ea00225a259e42bc3fcbaf6955a893b4df
 n
@@ -74,11 +68,3 @@ Cdominio/src/test/java/com/cobro/servicio/ServicioCobroTarifaTest.kt,2/c/2c0954
 Qdominio/src/test/java/com/estacionamiento/servicio/ServicioEstacionamientoTest.kt,c/5/c53d71495e659115da3d69179532ed62b66dd0ca
 i
 9dominio/src/main/java/com/cobro/modelo/CobroTarifaMoto.kt,0/e/0ece559a4a32318cdb594529aca83cd071986636
-I
-presentacion/build.gradle,e/7/e7ca75306b9571eb541d042f9c559bee8d1218f8
-{
-Kdominio/src/main/java/com/usuario/repositorio/RepositorioUsuarioVehiculo.kt,0/7/07248b05a2d601e0dd0782437db4cb1b75ee0215
-p
-@dominio/src/main/java/com/usuario/modelo/UsuarioVehiculoCarro.kt,c/3/c3e631eafa33ecf4abe3c6f7e9af79488b16abd9
-¨
-xinfraestructura/src/main/java/com/example/infraestructura/accesodatos/compartido/basededatos/BaseDatosUsuarioVehiculo.kt,1/f/1fb0498844ef1f8a4d16cc4f11b8aa13f0e036f9

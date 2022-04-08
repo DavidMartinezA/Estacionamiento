@@ -22,7 +22,7 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
-        debug{
+        debug {
             testCoverageEnabled true
         }
     }
@@ -37,17 +37,29 @@ android {
 
 dependencies {
 
+    def roomVersion = "2.4.2"
+    def coroutinesVersion = "1.6.0"
+
     implementation 'androidx.test.ext:junit-ktx:1.1.3'
     testImplementation 'junit:junit:4.13.2'
+    implementation 'androidx.test:core-ktx:1.4.0'
+    androidTestImplementation 'androidx.test:runner:1.4.0'
+
+    //Corrutinas
+    androidTestImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:$coroutinesVersion"
 
     // Dependencias de modulos
     implementation project(path: ':dominio')
 
     // Room
-    api "androidx.room:room-ktx:2.4.2"
+    api "androidx.room:room-ktx:$roomVersion"
     api 'androidx.room:room-common:2.4.2'
-    kapt "androidx.room:room-compiler:2.4.2"
-    androidTestImplementation "androidx.room:room-testing:2.4.2"
+    kapt "androidx.room:room-compiler:$roomVersion"
+    implementation "androidx.room:room-runtime:$roomVersion"
+    implementation "androidx.room:room-ktx:$roomVersion"
+    androidTestImplementation "androidx.room:room-testing:$roomVersion"
 
+    // Mockito
     testImplementation 'org.mockito:mockito-core:3.3.3'
+
 }
