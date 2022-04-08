@@ -15,13 +15,6 @@ class TraductorUsuarioVehiculoMoto {
             horaFechaIngresoUsuario = usuarioVehiculo.horaFechaIngresoUsuario)
     }
 
-
-    fun desdeUnUsuarioADominio(usuarioVehiculo: EntidadDatosUsuarioVehiculo): UsuarioVehiculoMoto {
-        return UsuarioVehiculoMoto(usuarioVehiculo.placaVehiculo, usuarioVehiculo.cilindrajeAlto).also {
-            it.horaFechaIngresoUsuario = usuarioVehiculo.horaFechaIngresoUsuario
-        }
-    }
-
     fun listaDesdeBaseDatosADominio(listaEntidadBaseDatos: List<EntidadDatosUsuarioVehiculo>): List<UsuarioVehiculo> {
 
         val listaDominio = ArrayList<UsuarioVehiculo>()

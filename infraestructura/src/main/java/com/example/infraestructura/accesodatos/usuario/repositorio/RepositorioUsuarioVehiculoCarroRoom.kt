@@ -1,14 +1,23 @@
 package com.example.infraestructura.accesodatos.usuario.repositorio
 
+import android.content.Context
+import androidx.room.Room
+import androidx.test.core.app.ApplicationProvider
 import com.estacionamiento.excepcion.UsuarioNoExisteExcepcion
+import com.example.infraestructura.accesodatos.compartido.basededatos.BaseDatosUsuarioVehiculo
 import com.example.infraestructura.accesodatos.usuario.anticorrupcion.TraductorUsuarioVehiculoCarro
-import com.example.infraestructura.accesodatos.usuario.dao.UsuarioVehiculoDao
 import com.usuario.modelo.UsuarioVehiculo
 import com.usuario.repositorio.RepositorioUsuarioVehiculo
 
 class RepositorioUsuarioVehiculoCarroRoom(
-    val usuarioVehiculoDao: UsuarioVehiculoDao,// analizar recibir el dao por parametro
 ) : RepositorioUsuarioVehiculo {
+
+    val context = ApplicationProvider.getApplicationContext<Context>()
+    val entidadBaseDatos = Room.databaseBuilder(
+        context, BaseDatosUsuarioVehiculo::class.java,
+        "baseDatos")
+        .build()
+    val usuarioVehiculoDao = entidadBaseDatos.usuarioVehiculoDao()
 
     private val traductorUsuarioVehiculo = TraductorUsuarioVehiculoCarro()
 

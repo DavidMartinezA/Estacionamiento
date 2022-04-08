@@ -2,14 +2,7 @@ package com.example
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.room.Room
-import com.estacionamiento.modelo.EstacionamientoCarro
-import com.estacionamiento.servicio.ServicioEstacionamiento
-import com.example.infraestructura.accesodatos.compartido.basededatos.BaseDatosUsuarioVehiculo
-import com.example.infraestructura.accesodatos.usuario.repositorio.RepositorioUsuarioVehiculoCarroRoom
-import com.usuario.modelo.UsuarioVehiculoCarro
 import dominio.estacionamiento.R
-import kotlinx.coroutines.runBlocking
 
 
 class MainActivity : AppCompatActivity() {
@@ -17,15 +10,11 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val db = Room.databaseBuilder(
-            this, BaseDatosUsuarioVehiculo::class.java,
-            "baseDatos")
-            .build()
-
+/*
 
         val usuario = UsuarioVehiculoCarro("hsu542")
         val estacionamiento = EstacionamientoCarro(usuario)
-        val repositorio = RepositorioUsuarioVehiculoCarroRoom(db.usuarioVehiculoDao())
+        val repositorio = RepositorioUsuarioVehiculoCarroRoom()
         val prueba = ServicioEstacionamiento(estacionamiento, repositorio)
 
         runBlocking {
@@ -33,6 +22,7 @@ class MainActivity : AppCompatActivity() {
             //prueba.eliminarUsuario()
 
         }
+*/
 
 
     }
