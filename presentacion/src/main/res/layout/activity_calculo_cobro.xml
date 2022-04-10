@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#A190CAF9"
+    tools:context="com.example.CalculoCobro">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+            <ImageView
+                android:id="@+id/logo_nube_cobro"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:contentDescription="TODO"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/nube" />
+
+            <ImageView
+                android:id="@+id/titulo_estacionamiento_calculo_cobro"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                app:layout_constraintBottom_toTopOf="@+id/tarjeta_tarifa_calculo_cobro"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/logo_estacionamiento" />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/tarjeta_tarifa_calculo_cobro"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="10dp"
+                android:backgroundTint="#79D0E2F1"
+                app:cardCornerRadius="25dp"
+                app:layout_constraintBottom_toTopOf="@+id/boton_calcular_tarifa"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/titulo_estacionamiento_calculo_cobro">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <EditText
+                        android:id="@+id/texto_ingreso_placa_vehiculo_calculo_cobro"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="25dp"
+                        android:background="#9A00B8D4"
+                        android:ems="10"
+                        android:hint="Numero De Placa"
+                        android:padding="10dp"
+                        android:textAlignment="center"
+                        android:textSize="28sp"
+                        android:textStyle="bold"
+                        app:circularflow_defaultRadius="15dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/titulo_calculo_cobro" />
+
+                    <TextView
+                        android:id="@+id/titulo_calculo_cobro"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="25dp"
+                        android:background="#BF0091EA"
+                        android:paddingHorizontal="15dp"
+                        android:text="Calculo De Tarifa"
+                        android:textSize="30sp"
+                        android:textStyle="bold"
+                        app:layout_constraintBottom_toTopOf="@+id/texto_ingreso_placa_vehiculo_calculo_cobro"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.cardview.widget.CardView>
+
+            <Button
+                android:id="@+id/boton_calcular_tarifa"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="25dp"
+                android:backgroundTint="#0D47A1"
+                android:text="costo tarifa"
+                app:layout_constraintBottom_toTopOf="@id/imagen_cobro_tarifa"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tarjeta_tarifa_calculo_cobro" />
+
+            <ImageView
+                android:id="@+id/imagen_cobro_tarifa"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_margin="25dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/boton_calcular_tarifa"
+                app:srcCompat="@drawable/imagen_cobro" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

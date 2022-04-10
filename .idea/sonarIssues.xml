@@ -28,6 +28,11 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/../DDDWorkshop/domain/src/main/AndroidManifest.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/../DDDWorkshop/domain/src/main/java/com/example/domain/service/PersonService.java">
           <value>
             <set />
@@ -703,12 +708,72 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/presentacion/src/main/java/com/example/CalculoCobro.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/presentacion/src/main/java/com/example/CobroServicio.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/presentacion/src/main/java/com/example/IngresoCarros.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/presentacion/src/main/java/com/example/IngresoMotos.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/presentacion/src/main/java/com/example/MainActivity.kt">
           <value>
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/presentacion/src/main/java/com/example/PantallaPesentacion.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/presentacion/src/main/java/com/example/hj.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/presentacion/src/main/res/drawable/pantalla_inicial.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/presentacion/src/main/res/layout/activity_calculo_cobro.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/presentacion/src/main/res/layout/activity_cobro_servicio.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/presentacion/src/main/res/layout/activity_ingreso_carros.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/presentacion/src/main/res/layout/activity_ingreso_motos.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/presentacion/src/main/res/layout/activity_main.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/presentacion/src/main/res/layout/activity_pantalla_pesentacion.xml">
           <value>
             <set />
           </value>

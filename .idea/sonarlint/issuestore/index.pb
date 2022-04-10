@@ -1,8 +1,6 @@
 
 J
 dominio/proguard-rules.pro,1/a/1aaae16993f8b2bacc3687a051ae5929ad2b5fc1
-Y
-)presentacion/src/main/AndroidManifest.xml,0/1/01423137c9ba83b646a644dc875abe54f9098a9e
 7
 gradlew,5/b/5bbfa66edb4db3c7c33c5181f43510990d3307f9
 ;
@@ -17,18 +15,10 @@ L
 .idea/codeStyles/Project.xml,6/e/6ecd6000a7b6f4a2884412ff19f74193ed089648
 T
 $.idea/codeStyles/codeStyleConfig.xml,d/d/dd7b3350c29c49497756c7f32c69a3bed18b1cba
-?
-settings.gradle,0/5/05efc8b1657769a27696d478ded1e95f38737233
 R
 "infraestructura/proguard-rules.pro,a/3/a331c05c32e855a30276e65dfafec3dc4b883aed
-ã
-[infraestructura/src/androidTest/java/com/example/infraestructura/ExampleInstrumentedTest.kt,2/c/2c742bcc2a35343a59df5ac1a08f4114a946eaad
-\
-,infraestructura/src/main/AndroidManifest.xml,e/c/ecfe9cfe1525dba26b4f66e658ec445e7859167c
 J
 infraestructura/.gitignore,c/6/c66978cc1d80add11278e8f5139cba5d2a9ffdca
-T
-$dominio/src/main/AndroidManifest.xml,c/9/c93e86b92ecdb1b7e984b64fd28c450f7fc9e6f3
 j
 :dominio/src/main/java/com/cobro/modelo/CobroTarifaCarro.kt,2/0/20f32fee459c26fa199fd39a0a89bb1aff14e237
 :
@@ -68,12 +58,8 @@ o
 ?dominio/src/main/java/com/usuario/modelo/UsuarioVehiculoMoto.kt,7/2/728a0e03cdc8fed8721da5f713e2f9a3df23b361
 s
 Cdominio/src/main/java/com/estacionamiento/modelo/Estacionamiento.kt,c/b/cb0c8cde1e0749a0422c1d5c213479cf425d566a
-I
-presentacion/build.gradle,e/7/e7ca75306b9571eb541d042f9c559bee8d1218f8
 }
 Mdominio/src/main/java/com/estacionamiento/servicio/ServicioEstacionamiento.kt,9/d/9d0df9f7d7fd3839664035e025e26fef03a8c863
-D
-dominio/build.gradle,d/7/d71e7ab1854167962f7335fc962f525692922e9e
 L
 infraestructura/build.gradle,9/6/96eb12a4ec4c48850eba1857cb67210b13e2ce42
 {
@@ -88,3 +74,13 @@ o
 ?dominio/src/main/java/com/cobro/servicio/ServicioCobroTarifa.kt,4/0/409417f1351d89e548469b5263a56fc560576c0b
 s
 Cdominio/src/test/java/com/cobro/servicio/ServicioCobroTarifaTest.kt,2/c/2c0954f9fbf06a4c985e2184acbca74e73107a84
+Å
+Qdominio/src/test/java/com/estacionamiento/servicio/ServicioEstacionamientoTest.kt,c/5/c53d71495e659115da3d69179532ed62b66dd0ca
+ó
+ginfraestructura/src/main/java/com/example/infraestructura/accesodatos/usuario/dao/UsuarioVehiculoDao.kt,2/b/2be43d0e79f6189d8abe9a772d55353e4945f63c
+p
+@dominio/src/main/java/com/usuario/modelo/UsuarioVehiculoCarro.kt,c/3/c3e631eafa33ecf4abe3c6f7e9af79488b16abd9
+≠
+}infraestructura/src/main/java/com/example/infraestructura/accesodatos/usuario/entidadbasedatos/EntidadDatosUsuarioVehiculo.kt,3/4/3475b7687e6d667e47ab56e02d7349dd8c97568d
+k
+;dominio/src/main/java/com/usuario/modelo/UsuarioVehiculo.kt,7/9/79d276cde6426db533bfe946b195462b4f9310f8
