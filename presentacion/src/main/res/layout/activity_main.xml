@@ -47,7 +47,7 @@
                 android:id="@+id/tarjeta_tarifa_servicio"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_marginTop="@dimen/margen_chica"
+                android:layout_margin="@dimen/margen_chica"
                 android:backgroundTint="@color/fondo_titulos"
                 app:cardCornerRadius="@dimen/radio_borde_medio"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -59,10 +59,11 @@
                     android:layout_height="match_parent">
 
                     <com.google.android.material.textview.MaterialTextView
-                        android:id="@+id/titulo_calculo_cobro"
-                        android:layout_width="wrap_content"
+                        android:id="@+id/titulo_tarifa"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_margin="@dimen/margen_media"
+                        android:background="@color/sobre_tarjeta"
+                        android:paddingHorizontal="@dimen/radio_borde_medio"
                         android:text="@string/titulo_tarifa_servicio"
                         android:textSize="@dimen/texto_titulos_secundarios"
                         android:textStyle="bold"
