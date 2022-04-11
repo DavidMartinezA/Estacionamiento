@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#A190CAF9"
+    android:background="@color/fondo_principal"
     tools:context="com.example.estacionamiento.IngresoCarros">
 
     <ScrollView
@@ -17,10 +17,10 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content">
 
-            <ImageView
-                android:id="@+id/logo_nube_ingreso_moto"
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/logo_nube_ingreso_carro"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -29,98 +29,97 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/nube" />
 
-            <TextView
-                android:id="@+id/titulo_ingreso_moto"
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/titulo_ingreso_carro"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="35dp"
-                android:background="#9A00B8D4"
-                android:paddingHorizontal="25dp"
-                android:text="Ingreso De Automoviles  "
-                android:textSize="38sp"
+                android:layout_marginTop="@dimen/margen_grande"
+                android:background="@color/fondo_titulos"
+                android:paddingHorizontal="@dimen/padding_medio"
+                android:text="@string/texto_titulo_automoviles"
+                android:textSize="@dimen/texto_titulos_principales"
                 android:textStyle="bold"
-                app:circularflow_defaultRadius="15dp"
-                app:layout_constraintBottom_toTopOf="@+id/tarjeta_ingreso_moto"
+                app:layout_constraintBottom_toTopOf="@id/tarjeta_ingreso_carro"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <androidx.cardview.widget.CardView
-                android:id="@+id/tarjeta_ingreso_moto"
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/tarjeta_ingreso_carro"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="20dp"
-                android:backgroundTint="#00000000"
-                app:cardCornerRadius="15dp"
-                app:layout_constraintBottom_toTopOf="@+id/boton_calcular_tarifa"
+                android:layout_margin="@dimen/margen_media"
+                android:backgroundTint="@color/fondo_titulos"
+                app:cardCornerRadius="@dimen/radio_borde_medio"
+                app:layout_constraintBottom_toTopOf="@id/boton_registrar_moto"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/titulo_ingreso_moto">
+                app:layout_constraintTop_toBottomOf="@id/titulo_ingreso_carro">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
 
-                    <EditText
+                    <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/texto_ingreso_placa_vehiculo_carros"
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_margin="25dp"
-                        android:background="#9A00B8D4"
-                        android:ems="10"
-                        android:hint="Ingrese El Numero
-                                        De Placa"
-                        android:padding="10dp"
-                        android:textAlignment="center"
-                        android:textSize="28dp"
+                        android:layout_margin="@dimen/margen_chica"
+                        android:background="@color/sobre_tarjeta"
+                        android:gravity="center"
+                        android:hint="@string/texto_ingreso_placa_vehiculo"
+                        android:padding="@dimen/padding_chico"
+                        android:textSize="@dimen/texto_titulos_principales"
                         android:textStyle="bold"
-                        app:circularflow_defaultRadius="15dp"
-                        app:layout_constraintBottom_toTopOf="@+id/titulo_disponibilidad_motos"
+                        app:layout_constraintBottom_toTopOf="@id/titulo_disponibilidad_carros"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
-                    <TextView
-                        android:id="@+id/titulo_disponibilidad_motos"
-                        android:layout_width="wrap_content"
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/titulo_disponibilidad_carros"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_margin="25dp"
-                        android:background="#9200C853"
-                        android:padding="15dp"
-                        android:text="Existe Disponibilidad"
-                        android:textSize="22sp"
+                        android:layout_margin="@dimen/margen_media"
+                        android:background="@color/alerta_falso"
+                        android:gravity="center"
+                        android:padding="@dimen/padding_chico"
+                        android:text="@string/texto_estacionamiento_con_capacidad"
+                        android:textSize="@dimen/texto_titulos_terciarios"
                         android:textStyle="bold"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@id/texto_ingreso_placa_vehiculo_carros" />
-                </androidx.constraintlayout.widget.ConstraintLayout>
-            </androidx.cardview.widget.CardView>
 
-            <Button
-                android:id="@+id/boton_calcular_tarifa"
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/boton_registrar_moto"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="35dp"
-                android:backgroundTint="#0D47A1"
-                android:text="Registrar"
+                android:layout_marginTop="@dimen/margen_grande"
+                android:backgroundTint="@color/fondo_botones"
+                android:text="@string/texto_boton_ingreso"
                 app:layout_constraintBottom_toTopOf="@id/imagen_motos_parqueadero"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tarjeta_ingreso_moto" />
+                app:layout_constraintTop_toBottomOf="@id/tarjeta_ingreso_carro" />
 
-            <ImageView
+            <com.google.android.material.imageview.ShapeableImageView
                 android:id="@+id/imagen_motos_parqueadero"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/boton_calcular_tarifa"
+                app:layout_constraintTop_toBottomOf="@id/boton_registrar_moto"
                 app:srcCompat="@drawable/foto_parqueadero" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
-    </ScrollView>
 
+    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
