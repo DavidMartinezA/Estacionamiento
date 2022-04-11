@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Paddings -->
+    <dimen name="padding_chico">16dp</dimen>
+    <dimen name="padding_medio">16dp</dimen>
+
+    <!-- Tamaño de los Textos -->
+    <dimen name="texto_titulos_principales">32sp</dimen>
+    <dimen name="texto_titulos_secundarios">26sp</dimen>
+    <dimen name="texto_titulos_terciarios">22sp</dimen>
+    <dimen name="texto_parrafo_principal">24sp</dimen>
+    <dimen name="texto_parrafo_secundario">18sp</dimen>
+    <dimen name="texto_radio_botones">16sp</dimen>
+
+    <!-- Tamaño de los margenes -->
+    <dimen name="margen_chica">18dp</dimen>
+    <dimen name="margen_media">28dp</dimen>
+    <dimen name="margen_grande">38dp</dimen>
+
+    <!-- Tamaño de los bordes -->
+    <dimen name="radio_borde_medio">24dp</dimen>
+    <dimen name="radio_borde_chico">16dp</dimen>
+
+
+</resources>

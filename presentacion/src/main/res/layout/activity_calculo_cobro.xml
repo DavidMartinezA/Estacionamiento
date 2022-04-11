@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#A190CAF9"
-    tools:context="com.example.CalculoCobro">
+    tools:context="com.example.estacionamiento.CalculoCobro">
 
     <ScrollView
         android:layout_width="match_parent"

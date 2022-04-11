@@ -1,4 +1,4 @@
-package com.example
+package com.example.estacionamiento
 
 import android.content.Intent
 import android.os.Bundle

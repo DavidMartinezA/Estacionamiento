@@ -32,8 +32,6 @@ Odominio/src/main/java/com/estacionamiento/excepcion/UsuarioYaExisteExcepcion.kt
 Odominio/src/main/java/com/estacionamiento/excepcion/UsuarioNoExisteExcepcion.kt,2/9/29efc645d443163cab091b7299559b8667a60e5c
 H
 sonar-project.properties,2/5/2538046035efb77ecc44e1fd2eec1e2641594d4c
-<
-build.gradle,f/0/f07866736216be0ee2aba49e392191aeae700a35
 s
 Cdominio/src/test/java/com/usuario/modelo/UsuarioVehiculoMotoTest.kt,5/9/598ee2e0c956e0dda131bb10f1ddafe9467c3e93
 t
@@ -84,3 +82,7 @@ p
 }infraestructura/src/main/java/com/example/infraestructura/accesodatos/usuario/entidadbasedatos/EntidadDatosUsuarioVehiculo.kt,3/4/3475b7687e6d667e47ab56e02d7349dd8c97568d
 k
 ;dominio/src/main/java/com/usuario/modelo/UsuarioVehiculo.kt,7/9/79d276cde6426db533bfe946b195462b4f9310f8
+\
+,infraestructura/src/main/AndroidManifest.xml,e/c/ecfe9cfe1525dba26b4f66e658ec445e7859167c
+T
+$dominio/src/main/AndroidManifest.xml,c/9/c93e86b92ecdb1b7e984b64fd28c450f7fc9e6f3

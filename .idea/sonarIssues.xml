@@ -738,7 +738,57 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/presentacion/src/main/java/com/example/estacionamiento/CalculoCobro.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/presentacion/src/main/java/com/example/estacionamiento/CobroServicio.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/presentacion/src/main/java/com/example/estacionamiento/IngresoCarros.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/presentacion/src/main/java/com/example/estacionamiento/IngresoMotos.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/presentacion/src/main/java/com/example/estacionamiento/MainActivity.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/presentacion/src/main/java/com/example/estacionamiento/PantallaPesentacion.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/presentacion/src/main/java/com/example/estacionamiento/viewmodel/CalculoCobro.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/presentacion/src/main/java/com/example/estacionamiento/viewmodel/CobroServicio.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/presentacion/src/main/java/com/example/estacionamiento/viewmodel/MainActivity.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/presentacion/src/main/java/com/example/hj.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/presentacion/src/main/res/color/primary_variant.xml">
           <value>
             <set />
           </value>
@@ -774,6 +824,26 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/presentacion/src/main/res/layout/activity_pantalla_pesentacion.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/presentacion/src/main/res/values/colors.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/presentacion/src/main/res/values/dimens.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/presentacion/src/main/res/values/strings.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/presentacion/src/main/res/values/themes.xml">
           <value>
             <set />
           </value>

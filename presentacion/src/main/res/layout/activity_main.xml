@@ -4,19 +4,23 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#A190CAF9"
-    tools:context="com.example.MainActivity">
+    android:background="@color/fondo_principal"
+    android:theme="@style/Theme.Estacionamiento"
+    tools:context="com.example.estacionamiento.MainActivity">
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-
-            <ImageView
+            <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/logo_nube_cobro"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -25,97 +29,88 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/nube" />
 
-            <TextView
-                android:id="@+id/titulo_estacionamiento_calculo_cobro"
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/titulo_estacionamiento"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="#9A00B8D4"
-                android:paddingHorizontal="10dp"
-                android:text="Estacionamiento 24/7"
-                android:textSize="32sp"
+                android:layout_marginTop="@dimen/margen_chica"
+                android:background="@color/fondo_titulos"
+                android:paddingHorizontal="@dimen/padding_chico"
+                android:text="@string/titulo_estacionamiento"
+                android:textSize="@dimen/texto_titulos_principales"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <androidx.cardview.widget.CardView
-                android:id="@+id/tarjeta_tarifa_calculo_cobro"
+                android:id="@+id/tarjeta_tarifa_servicio"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_marginTop="66dp"
-                android:backgroundTint="#79D0E2F1"
-                app:cardCornerRadius="25dp"
-                app:layout_constraintBottom_toBottomOf="@id/logo_nube_cobro"
+                android:layout_marginTop="@dimen/margen_chica"
+                android:backgroundTint="@color/fondo_titulos"
+                app:cardCornerRadius="@dimen/radio_borde_medio"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/titulo_estacionamiento_calculo_cobro">
+                app:layout_constraintTop_toBottomOf="@id/titulo_estacionamiento">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
 
-
-                    <TextView
+                    <androidx.appcompat.widget.AppCompatTextView
                         android:id="@+id/titulo_calculo_cobro"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_margin="25dp"
-                        android:text="Tarifa del servicio"
-                        android:textSize="30sp"
+                        android:layout_margin="@dimen/margen_media"
+                        android:text="@string/titulo_tarifa_servicio"
+                        android:textSize="@dimen/texto_titulos_secundarios"
                         android:textStyle="bold"
-                        app:layout_constraintBottom_toTopOf="@+id/cobros_tarifa"
+                        app:layout_constraintBottom_toTopOf="@id/tarifas_definidas_cobro"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
-                    <TextView
-                        android:id="@+id/cobros_tarifa"
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tarifas_definidas_cobro"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-
-                        android:layout_marginTop="40dp"
-                        android:paddingHorizontal="25dp"
-                        android:text="
-                                        \nMotos  dia    =  $ 4,000
-                                        \n
-                                        \nMotos  hora  =  $   500
-                                        \n
-                                        \nCarros dia    =  $ 8,000
-                                        \n
-                                        \nCarros hora  = $ 1,000
-                                          "
-                        android:textSize="24sp"
+                        android:layout_margin="@dimen/margen_grande"
+                        android:paddingHorizontal="@dimen/padding_medio"
+                        android:text="@string/tarifas_definidas"
+                        android:textSize="@dimen/texto_parrafo_principal"
                         android:textStyle="bold"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
+
                 </androidx.constraintlayout.widget.ConstraintLayout>
+
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/tarjeta_seleccion_vehiculo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="20dp"
-                android:backgroundTint="#6190CAF9"
-                app:cardCornerRadius="15dp"
+                android:layout_margin="@dimen/margen_chica"
+                android:backgroundTint="@color/fondo_titulos"
+                app:cardCornerRadius="@dimen/radio_borde_chico"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tarjeta_tarifa_calculo_cobro">
+                app:layout_constraintTop_toBottomOf="@id/tarjeta_tarifa_servicio">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
 
-                    <TextView
+                    <androidx.appcompat.widget.AppCompatTextView
                         android:id="@+id/texo_seleciion_tipo_usuario"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_margin="15dp"
-                        android:layout_marginHorizontal="10dp"
-                        android:text="Seleccione el Tipo de Vehiculo"
-                        android:textSize="20sp"
+                        android:layout_margin="@dimen/margen_chica"
+                        android:text="@string/seleccion_tipo_vehiculo"
+                        android:textSize="@dimen/texto_titulos_terciarios"
                         android:textStyle="bold"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
@@ -125,59 +120,59 @@
                         android:id="@+id/radio_button_tipo_Vehiculo"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:padding="10dp"
+                        android:padding="@dimen/padding_medio"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@id/texo_seleciion_tipo_usuario">
 
-                        <RadioButton
+                        <androidx.appcompat.widget.AppCompatRadioButton
                             android:id="@+id/radio_button_carro"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:padding="10dp"
-                            android:text="CARRO"
-                            android:textSize="14sp"
+                            android:padding="@dimen/padding_chico"
+                            android:text="@string/vehiculo_carro"
+                            android:textSize="@dimen/texto_radio_botones"
                             android:textStyle="bold" />
 
-                        <RadioButton
+                        <androidx.appcompat.widget.AppCompatRadioButton
                             android:id="@+id/radio_button_moto"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:padding="10dp"
-                            android:text="MOTO"
-                            android:textSize="14sp"
+                            android:padding="@dimen/padding_chico"
+                            android:text="@string/vehiculo_moto"
+                            android:textSize="@dimen/texto_radio_botones"
                             android:textStyle="bold" />
 
                     </RadioGroup>
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
+
             </androidx.cardview.widget.CardView>
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/boton_ingreso"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="20dp"
-                android:backgroundTint="#0D47A1"
-                android:text="Ingreso"
+                android:layout_margin="@dimen/margen_chica"
+                android:backgroundTint="@color/fondo_botones"
+                android:text="@string/texto_boton_ingreso"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@id/boton_cobro_tarifa"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tarjeta_seleccion_vehiculo" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/boton_cobro_tarifa"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="20dp"
-                android:backgroundTint="#0D47A1"
-                android:text="Cobro"
-                app:layout_constraintBottom_toBottomOf="@+id/boton_ingreso"
+                android:layout_margin="@dimen/margen_chica"
+                android:backgroundTint="@color/fondo_botones"
+                android:text="@string/texto_boton_cobro"
+                app:layout_constraintBottom_toBottomOf="@id/boton_ingreso"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toEndOf="@+id/boton_ingreso"
-                app:layout_constraintTop_toTopOf="@+id/boton_ingreso" />
+                app:layout_constraintStart_toEndOf="@id/boton_ingreso"
+                app:layout_constraintTop_toTopOf="@id/boton_ingreso" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
