@@ -23,8 +23,9 @@
     <dimen name="radio_borde_medio">24dp</dimen>
     <dimen name="radio_borde_chico">16dp</dimen>
 
-    <!-- Tamaño de los bordes -->
+    <!-- Dimenciones layout_width & height -->
     <dimen name="dimencion_imagen_moto_height">240dp</dimen>
+    <dimen name="dimencion_imagen_carro_height">240dp</dimen>
 
 
 </resources>

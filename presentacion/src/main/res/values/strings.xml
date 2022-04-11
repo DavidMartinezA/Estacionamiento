@@ -3,7 +3,6 @@
     <!-- App -->
     <string name="app_name">Estacionamiento</string>
 
-
     <!-- Estacionamiento -->
     <string name="texto_ingreso_placa_vehiculo">Ingrese El Numero De Placa</string>
     <string name="texto_estacionamiento_sin_capacidad">No Existe Disponibilidad</string>
@@ -14,7 +13,14 @@
     <string name="tarifas_definidas">\nMotos dia = $ 4,000 \n \nMotos hora = $ 500 \n \nCarros dia = $ 8,000 \n \nCarros hora = $ 1,000</string>
     <string name="seleccion_tipo_vehiculo">Seleccione el Tipo de Vehiculo</string>
     <string name="texto_boton_ingreso">Ingreso</string>
+    <string name="texto_boton_registrar">Registrar</string>
+
+    <!-- Cobro -->
     <string name="texto_boton_cobro">Cobro</string>
+    <string name="texto_boton_pago">Pago</string>
+    <string name="texto_informacion_cobro">\n Duracion Servicio = X Horas \n \n Valor Del Servicio = $ xxxxx</string>
+    <string name="texto_boton_costo_tarifa">costo tarifa</string>
+    <string name="texto_tarifa_servicio">Tarifa del servicio</string>
 
     <!-- Vehiculo Carros -->
     <string name="texto_vehiculo_carro">CARRO</string>
@@ -24,8 +30,5 @@
     <string name="texto_vehiculo_moto">MOTO</string>
     <string name="texto_ingreso_motocicletas">Ingreso De Motocicletas</string>
     <string name="texto_cilindraje">Cilindraje Mayor A = 500CC</string>
-    <string name="texto_boton_registrar_moto">Registrar</string>
-    <string name="texto_boton_costo_tarifa">costo tarifa</string>
-
 
 </resources>
