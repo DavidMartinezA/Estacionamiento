@@ -2,40 +2,41 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/fondo_principal"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#A190CAF9"
+    android:theme="@style/Theme.Estacionamiento"
     tools:context="com.example.estacionamiento.MainActivity">
 
-    <ImageView
-        android:id="@+id/logo_nube_cobro"
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/logo_nube"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="65dp"
+        android:layout_marginTop="@dimen/margen_xxl"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/nube" />
 
-    <ImageView
+    <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/letrero_app"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="30dp"
+        android:layout_marginHorizontal="@dimen/margen_media"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/logo_estacionamiento" />
 
-    <ImageView
+    <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/imagen_inicial_parqueadero"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="56dp"
+        android:layout_marginBottom="@dimen/margen_xxl"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/logo_nube_cobro"
+        app:layout_constraintTop_toBottomOf="@id/logo_nube"
         app:srcCompat="@drawable/images" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#A190CAF9"
+    android:background="@color/fondo_principal"
     tools:context="com.example.estacionamiento.IngresoMotos">
 
 
@@ -20,7 +20,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <ImageView
+            <com.google.android.material.imageview.ShapeableImageView
                 android:id="@+id/logo_nube_ingreso_moto"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -29,102 +29,104 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/nube" />
 
-            <TextView
+            <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/titulo_ingreso_moto"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:background="#9A00B8D4"
-                android:paddingHorizontal="25dp"
-                android:text="Ingreso De Motocicletas  "
-                android:textSize="38sp"
+                android:layout_marginTop="@dimen/margen_chica"
+                android:background="@color/fondo_titulos"
+                android:paddingHorizontal="@dimen/padding_medio"
+                android:text="@string/texto_ingreso_motocicletas"
+                android:textSize="@dimen/texto_titulos_principales"
                 android:textStyle="bold"
-                app:circularflow_defaultRadius="15dp"
-
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/logo_nube_ingreso_moto" />
+                app:layout_constraintTop_toTopOf="@id/logo_nube_ingreso_moto" />
 
-            <androidx.cardview.widget.CardView
+            <com.google.android.material.card.MaterialCardView
                 android:id="@+id/tarjeta_ingreso_moto"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginHorizontal="15dp"
-                android:layout_marginTop="35dp"
-                android:backgroundTint="#00000000"
-                app:cardCornerRadius="15dp"
-                app:layout_constraintBottom_toTopOf="@+id/registrar_moto"
+                android:layout_margin="@dimen/margen_media"
+                android:backgroundTint="@color/fondo_titulos"
+                app:cardCornerRadius="@dimen/radio_borde_medio"
+                app:layout_constraintBottom_toTopOf="@id/registrar_moto"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/titulo_ingreso_moto">
+                app:layout_constraintTop_toBottomOf="@id/titulo_ingreso_moto">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
 
-                    <EditText
+                    <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/texto_ingreso_placa_vehiculo_motos"
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_margin="15dp"
-                        android:background="#9A00B8D4"
-                        android:hint="Ingrese El Numero
-                                             De Placa"
+                        android:layout_margin="@dimen/margen_chica"
+                        android:background="@color/sobre_tarjeta"
+                        android:hint="@string/texto_ingreso_placa_vehiculo"
+                        android:maxLength="7"
                         android:textAlignment="center"
-                        android:textSize="28dp"
+                        android:textSize="@dimen/texto_titulos_principales"
                         android:textStyle="bold"
-                        app:circularflow_defaultRadius="15dp"
-                        app:layout_constraintBottom_toTopOf="@+id/verificacion_cilindraje_alto"
+                        app:layout_constraintBottom_toTopOf="@id/verificacion_cilindraje_alto"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
-                    <CheckBox
+                    <com.google.android.material.checkbox.MaterialCheckBox
                         android:id="@+id/verificacion_cilindraje_alto"
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_margin="15dp"
-                        android:padding="10dp"
-                        android:text="Cilindraje Mayor A = 500CC"
-                        android:textSize="22sp"
-                        app:layout_constraintBottom_toTopOf="@+id/titulo_disponibilidad_motos"
+                        android:layout_margin="@dimen/margen_chica"
+                        android:padding="@dimen/padding_chico"
+                        android:text="@string/texto_cilindraje"
+                        android:textSize="@dimen/texto_radio_botones"
+                        android:textStyle="bold"
+                        app:layout_constraintBottom_toTopOf="@id/titulo_disponibilidad_motos"
+                        app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/texto_ingreso_placa_vehiculo_motos" />
+                        app:layout_constraintTop_toBottomOf="@id/texto_ingreso_placa_vehiculo_motos" />
 
-                    <TextView
+                    <com.google.android.material.textview.MaterialTextView
                         android:id="@+id/titulo_disponibilidad_motos"
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_margin="15dp"
-                        android:background="#9ED50000"
-                        android:padding="15dp"
-                        android:text="No Existe Disponibilidad"
-                        android:textSize="22sp"
+                        android:layout_margin="@dimen/margen_media"
+                        android:background="@color/alerta_verdadero"
+                        android:gravity="center"
+                        android:padding="@dimen/padding_chico"
+                        android:text="@string/texto_estacionamiento_sin_capacidad"
+                        android:textSize="@dimen/texto_titulos_terciarios"
                         android:textStyle="bold"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/verificacion_cilindraje_alto" />
-                </androidx.constraintlayout.widget.ConstraintLayout>
-            </androidx.cardview.widget.CardView>
+                        app:layout_constraintTop_toBottomOf="@id/verificacion_cilindraje_alto" />
 
-            <Button
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/registrar_moto"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:backgroundTint="#0D47A1"
-                android:text="Registrar"
-                app:layout_constraintBottom_toTopOf="@+id/imagen_motos_parqueadero"
+                android:backgroundTint="@color/fondo_botones"
+                android:text="@string/texto_boton_registrar_moto"
+                app:layout_constraintBottom_toTopOf="@id/imagen_motos_parqueadero"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent" />
 
-            <ImageView
+            <com.google.android.material.imageview.ShapeableImageView
                 android:id="@+id/imagen_motos_parqueadero"
-                android:layout_width="404dp"
-                android:layout_height="211dp"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimencion_imagen_moto_height"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/logo_nube_ingreso_moto"
                 app:srcCompat="@drawable/motos_parqueadas" />
 
 
