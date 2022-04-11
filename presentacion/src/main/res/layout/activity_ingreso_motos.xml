@@ -7,7 +7,6 @@
     android:background="@color/fondo_principal"
     tools:context="com.example.estacionamiento.IngresoMotos">
 
-
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -59,21 +58,33 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
 
-                    <com.google.android.material.textfield.TextInputEditText
+                    <com.google.android.material.textfield.TextInputLayout
                         android:id="@+id/texto_ingreso_placa_vehiculo_motos"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_margin="@dimen/margen_chica"
                         android:background="@color/sobre_tarjeta"
+                        android:contextClickable="true"
+                        android:gravity="center"
                         android:hint="@string/texto_ingreso_placa_vehiculo"
                         android:maxLength="7"
-                        android:textAlignment="center"
+                        android:padding="@dimen/padding_chico"
                         android:textSize="@dimen/texto_titulos_principales"
                         android:textStyle="bold"
+                        app:endIconDrawable="@drawable/ic_baseline_icono_moto"
+                        app:endIconMode="custom"
+                        app:errorEnabled="true"
                         app:layout_constraintBottom_toTopOf="@id/verificacion_cilindraje_alto"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/ingreso_placa_vehiculo_motos"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
 
                     <com.google.android.material.checkbox.MaterialCheckBox
                         android:id="@+id/verificacion_cilindraje_alto"
@@ -115,6 +126,7 @@
                 android:layout_height="wrap_content"
                 android:backgroundTint="@color/fondo_botones"
                 android:text="@string/texto_boton_registrar"
+                android:clickable="true"
                 app:layout_constraintBottom_toTopOf="@id/imagen_motos_parqueadero"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent" />
@@ -126,7 +138,7 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/logo_nube_ingreso_moto"
+                app:layout_constraintTop_toBottomOf="@id/logo_nube_ingreso_moto"
                 app:srcCompat="@drawable/motos_parqueadas" />
 
 

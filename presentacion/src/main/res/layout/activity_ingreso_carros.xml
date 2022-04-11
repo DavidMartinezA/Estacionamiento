@@ -60,14 +60,18 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
 
-                    <com.google.android.material.textfield.TextInputEditText
+                    <com.google.android.material.textfield.TextInputLayout
                         android:id="@+id/texto_ingreso_placa_vehiculo_carros"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_margin="@dimen/margen_chica"
                         android:maxLength="7"
                         android:background="@color/sobre_tarjeta"
+                        android:contextClickable="true"
                         android:gravity="center"
+                        app:endIconDrawable="@drawable/ic_baseline_icono_carro"
+                        app:endIconMode="custom"
+                        app:errorEnabled="true"
                         android:hint="@string/texto_ingreso_placa_vehiculo"
                         android:padding="@dimen/padding_chico"
                         android:textSize="@dimen/texto_titulos_principales"
@@ -75,7 +79,14 @@
                         app:layout_constraintBottom_toTopOf="@id/titulo_disponibilidad_carros"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/ingreso_placa_vehiculo_carros"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
 
                     <com.google.android.material.textview.MaterialTextView
                         android:id="@+id/titulo_disponibilidad_carros"

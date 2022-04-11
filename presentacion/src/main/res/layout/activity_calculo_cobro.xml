@@ -19,7 +19,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-
             <com.google.android.material.imageview.ShapeableImageView
                 android:id="@+id/logo_nube_calculo_cobro"
                 android:layout_width="match_parent"
@@ -71,7 +70,7 @@
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
-                    <com.google.android.material.textfield.TextInputEditText
+                    <com.google.android.material.textfield.TextInputLayout
                         android:id="@+id/texto_ingreso_placa_vehiculo_calculo_cobro"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -79,6 +78,11 @@
                         android:background="@color/sobre_tarjeta"
                         android:hint="@string/texto_ingreso_placa_vehiculo"
                         android:maxLength="7"
+                        android:contextClickable="true"
+                        android:gravity="center"
+                        app:endIconDrawable="@drawable/ic_baseline_monetizacion"
+                        app:endIconMode="custom"
+                        app:errorEnabled="true"
                         android:padding="@dimen/padding_chico"
                         android:textAlignment="center"
                         android:textSize="@dimen/texto_titulos_principales"
@@ -86,7 +90,14 @@
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@id/titulo_calculo_cobro" />
+                        app:layout_constraintTop_toBottomOf="@id/titulo_calculo_cobro">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/ingreso_placa_vehiculo_calculo_cobro"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
