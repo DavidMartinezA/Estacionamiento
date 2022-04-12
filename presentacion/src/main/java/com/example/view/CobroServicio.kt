@@ -1,6 +1,5 @@
 package com.example.view
 
-import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -8,14 +7,19 @@ import com.example.presentacion.R
 import com.example.presentacion.databinding.ActivityCobroServicioBinding
 import com.example.presentador.UsuarioVehiculoCarropresentador
 import com.example.presentador.UsuarioVehiculoMotopresentador
-import com.example.view.MainActivity.Companion.CARRO
-import com.example.view.MainActivity.Companion.MOTO
-import com.example.view.MainActivity.Companion.MOTO_CC
+import com.example.view.MainActivity.Companion.ERROR_USUARIO_REGISTRADO
+import com.example.view.MainActivity.Companion.INGRESE_PLACA_VEHICULO
 import com.example.view.MainActivity.Companion.PLACA_VEHICULO
+import com.example.view.MainActivity.Companion.TIPO_CARRO
+import com.example.view.MainActivity.Companion.TIPO_MOTO
+import com.example.view.MainActivity.Companion.TIPO_MOTO_CC
 import com.example.view.MainActivity.Companion.TIPO_VEHICULO
-
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 class CobroServicio : AppCompatActivity() {
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -24,53 +28,55 @@ class CobroServicio : AppCompatActivity() {
         val view = binding.root
         setContentView(view)
 
+        val placaVehiculo = intent.getStringExtra(PLACA_VEHICULO)
+        val tipoVehiculo = intent.getStringExtra(TIPO_VEHICULO)
+
         val carroPresentador = UsuarioVehiculoCarropresentador(this)
         val motoPresentador = UsuarioVehiculoMotopresentador(this)
+        var costoServicio = 0
 
-        val bundle = intent.extras
-        val placaVehiculo = bundle?.getString(PLACA_VEHICULO)
-        val tipoVehiculo = bundle?.getString(TIPO_VEHICULO)
-        val costoServicio: Int
-
-        when (tipoVehiculo) {
-            CARRO -> {
-                costoServicio = carroPresentador.getCobroServicio(PLACA_VEHICULO)
-                binding.cobrosServicio.text = "Vehiculo : $placaVehiculo \n cancela = $costoServicio "
-            }
-            MOTO -> {
-                costoServicio = motoPresentador.getCobroServicio(PLACA_VEHICULO, false)
-                binding.cobrosServicio.text = "Vehiculo : $placaVehiculo \n cancela = $costoServicio "
-            }
-            MOTO_CC -> {
-                costoServicio = motoPresentador.getCobroServicio(PLACA_VEHICULO, true)
-                binding.cobrosServicio.text = "Vehiculo : $placaVehiculo \n cancela = $costoServicio "
-            }
-            else -> {
-                Toast.makeText(baseContext, MainActivity.ERROR_USUARIO_REGISTRADO, Toast.LENGTH_SHORT).show()
-            }
-        }
-
-        binding.botonTarifa.setOnClickListener {
+        if (!placaVehiculo.isNullOrEmpty() && !tipoVehiculo.isNullOrEmpty()) {
             when (tipoVehiculo) {
-                "Carro" -> {
-                    carroPresentador.setEliminarUsuario(PLACA_VEHICULO)
-                }
-                "Moto" -> {
-                    motoPresentador.setEliminarUsuario(PLACA_VEHICULO, false)
+                TIPO_CARRO -> {
 
+                    CoroutineScope(Dispatchers.IO).launch {
+                        costoServicio = carroPresentador.getCobroServicio(PLACA_VEHICULO)
+                    }
                 }
-                "Moto cc" -> {
-                    motoPresentador.setEliminarUsuario(PLACA_VEHICULO, true)
+                TIPO_MOTO -> {
 
+                    CoroutineScope(Dispatchers.IO).launch {
+                        costoServicio = motoPresentador.getCobroServicio(PLACA_VEHICULO, false)
+                    }
+                }
+                TIPO_MOTO_CC -> {
+
+                    CoroutineScope(Dispatchers.IO).launch {
+                        costoServicio = motoPresentador.getCobroServicio(PLACA_VEHICULO, true)
+                    }
                 }
                 else -> {
-                    Toast.makeText(baseContext, MainActivity.ERROR_USUARIO_REGISTRADO, Toast.LENGTH_SHORT).show()
+                    Toast.makeText(baseContext, ERROR_USUARIO_REGISTRADO, Toast.LENGTH_SHORT).show()
                 }
             }
 
-            val intento5 = Intent(this, MainActivity::class.java)
-            Toast.makeText(this, "pago realizado satisfactoriamente", Toast.LENGTH_SHORT).show()
-            startActivity(intento5)
+        } else {
+            Toast.makeText(baseContext, INGRESE_PLACA_VEHICULO, Toast.LENGTH_SHORT).show()
         }
+
+
+        binding.botonTarifa.setOnClickListener {
+
+            CoroutineScope(Dispatchers.Main).launch {
+                carroPresentador.setEliminarUsuario(PLACA_VEHICULO)
+            }
+            Toast.makeText(this, "pago realizado satisfactoriamente", Toast.LENGTH_SHORT).show()
+        }
+
+
+
+        binding.cobrosServicio.text = "Vehiculo :" + placaVehiculo + "\n cancela = " + costoServicio
+
     }
+
 }

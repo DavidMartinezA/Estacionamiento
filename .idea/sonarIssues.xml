@@ -233,6 +233,56 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/dominio/src/main/java/com/example/cobro/modelo/CobroTarifa.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/dominio/src/main/java/com/example/cobro/modelo/CobroTarifaCarro.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/dominio/src/main/java/com/example/cobro/modelo/CobroTarifaMoto.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/dominio/src/main/java/com/example/cobro/servicio/ServicioCobroTarifa.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/dominio/src/main/java/com/example/estacionamiento/modelo/Estacionamiento.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/dominio/src/main/java/com/example/estacionamiento/modelo/EstacionamientoCarro.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/dominio/src/main/java/com/example/estacionamiento/modelo/EstacionamientoMoto.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/dominio/src/main/java/com/example/estacionamiento/servicio/ServicioEstacionamiento.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/dominio/src/main/java/com/example/usuario/modelo/UsuarioVehiculo.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/dominio/src/main/java/com/example/usuario/repositorio/RepositorioUsuarioVehiculo.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/dominio/src/main/java/com/excepciones/UsuarioYaExiste.kt">
           <value>
             <set />
@@ -428,6 +478,41 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/dominio/src/test/java/com/example/cobro/modelo/CobroTarifaCarroTest.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/dominio/src/test/java/com/example/cobro/modelo/CobroTarifaMotoTest.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/dominio/src/test/java/com/example/cobro/servicio/ServicioCobroTarifaTest.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/dominio/src/test/java/com/example/estacionamiento/modelo/EstacionamientoCarroTest.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/dominio/src/test/java/com/example/estacionamiento/modelo/EstacionamientoMotoTest.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/dominio/src/test/java/com/example/estacionamiento/servicio/ServicioEstacionamientoTest.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/dominio/src/test/java/com/example/usuario/modelo/UsuarioVehiculoCarroTest.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/dominio/src/test/java/com/usuario/UsuarioCarroTest.kt">
           <value>
             <set />
@@ -493,12 +578,37 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/infraestructura/src/androidTest/java/com/example/example/infraestructura/accesodatos/compartido/basededatos/BaseDatosUsuarioVehiculoTest.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/infraestructura/src/androidTest/java/com/example/infraestructura/accesodatos/compartido/basededatos/BaseDatosUsuarioVehiculoTest.kt">
           <value>
             <set />
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/infraestructura/src/main/AndroidManifest.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/infraestructura/src/main/java/com/example/example/infraestructura/accesodatos/compartido/basededatos/BaseDatosUsuarioVehiculo.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/infraestructura/src/main/java/com/example/example/infraestructura/accesodatos/usuario/anticorrupcion/TraductorUsuarioVehiculoCarro.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/infraestructura/src/main/java/com/example/example/infraestructura/accesodatos/usuario/anticorrupcion/TraductorUsuarioVehiculoMoto.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/infraestructura/src/main/java/com/example/example/infraestructura/accesodatos/usuario/dao/UsuarioVehiculoDao.kt">
           <value>
             <set />
           </value>

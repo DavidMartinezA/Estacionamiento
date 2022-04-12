@@ -5,10 +5,16 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import com.example.estacionamiento.excepcion.IngresoNoPermitidoRestriccionExcepcion
+import com.example.estacionamiento.excepcion.UsuarioYaExisteExcepcion
 import com.example.presentacion.R
 import com.example.presentacion.databinding.ActivityMainBinding
 import com.example.presentador.UsuarioVehiculoCarropresentador
 import com.example.presentador.UsuarioVehiculoMotopresentador
+import com.example.usuario.excepcion.FormatoPlacaExcepcion
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 class MainActivity : AppCompatActivity() {
 
@@ -18,12 +24,14 @@ class MainActivity : AppCompatActivity() {
         const val ERROR_USUARIO_REGISTRADO = "Seleccione el Tipo De Vehiculo"
         const val INGRESE_PLACA_VEHICULO = "Ingrese La Placa Del Vehiculo"
         const val PLACA_VEHICULO = "Placa Del Vehiculo"
-        const val ALTO_CILINDRAJE = "Alto Cilindraje"
-        const val TIPO_VEHICULO = "Tipo Vehiculo"
-        const val CARRO = "Carro"
-        const val MOTO = "Moto"
-        const val MOTO_CC = "Moto cc"
-
+        const val COSTO_SERVICIO = "Costo Servicio"
+        const val EXCEPCION_PLACA = "Placa De Vehiculo No Valida"
+        const val EXCECION_INGRESO = "No Esta Autorizado Ingresar"
+        const val TIPO_VEHICULO = "Tipo De Vehiculo"
+        const val TIPO_CARRO = "Carro"
+        const val TIPO_MOTO = "Moto"
+        const val TIPO_MOTO_CC = "Moto cc"
+        const val EXCECION_USARIO_EXISTE = "El Usuario Ya Se Encuentra Registrado"
 
     }
 
@@ -46,21 +54,64 @@ class MainActivity : AppCompatActivity() {
             if (textoPlaca.isNotEmpty()) {
                 when (true) {
                     binding.radioButtonCarro.isChecked -> {
-                        carroPresentador.setIngresarUsuario(textoPlaca)
-                        dialogoIngreso.show()
-                        binding.ingresoPlacaVehiculoCalculoCobro.setText("")
+
+                        CoroutineScope(Dispatchers.Main).launch {
+                            try {
+                                carroPresentador.setIngresarUsuario(textoPlaca)
+                            } catch (e: FormatoPlacaExcepcion) {
+                                dialogoIngreso.setMessage(EXCEPCION_PLACA)
+                                    .show()
+                            } catch (e: IngresoNoPermitidoRestriccionExcepcion) {
+                                dialogoIngreso.setMessage(EXCECION_INGRESO)
+                                    .show()
+                            } catch (e: UsuarioYaExisteExcepcion) {
+                                dialogoIngreso.setMessage(EXCECION_USARIO_EXISTE)
+                                    .show()
+                            }
+
+                            dialogoIngreso.show()
+                            binding.ingresoPlacaVehiculoCalculoCobro.setText("")
+                        }
                     }
                     binding.radioButtonMoto.isChecked -> {
-                        motoPresentador.setIngresarUsuario(textoPlaca, false)
-                        dialogoIngreso.show()
-                        binding.ingresoPlacaVehiculoCalculoCobro.setText("")
+                        CoroutineScope(Dispatchers.Main).launch {
 
+                            try {
+                                motoPresentador.setIngresarUsuario(textoPlaca, false)
+                            } catch (e: FormatoPlacaExcepcion) {
+                                dialogoIngreso.setMessage(EXCEPCION_PLACA)
+                                    .show()
+                            } catch (e: IngresoNoPermitidoRestriccionExcepcion) {
+                                dialogoIngreso.setMessage(EXCECION_INGRESO)
+                                    .show()
+                            } catch (e: UsuarioYaExisteExcepcion) {
+                                dialogoIngreso.setMessage(EXCECION_USARIO_EXISTE)
+                                    .show()
+                            }
+
+                            dialogoIngreso.show()
+                            binding.ingresoPlacaVehiculoCalculoCobro.setText("")
+                        }
                     }
                     binding.radioButtonMotoCilindraje.isChecked -> {
-                        motoPresentador.setIngresarUsuario(textoPlaca, true)
-                        dialogoIngreso.show()
-                        binding.ingresoPlacaVehiculoCalculoCobro.setText("")
+                        CoroutineScope(Dispatchers.Main).launch {
 
+                            try {
+                                motoPresentador.setIngresarUsuario(textoPlaca, true)
+                            } catch (e: FormatoPlacaExcepcion) {
+                                dialogoIngreso.setMessage(EXCEPCION_PLACA)
+                                    .show()
+                            } catch (e: IngresoNoPermitidoRestriccionExcepcion) {
+                                dialogoIngreso.setMessage(EXCECION_INGRESO)
+                                    .show()
+                            } catch (e: UsuarioYaExisteExcepcion) {
+                                dialogoIngreso.setMessage(EXCECION_USARIO_EXISTE)
+                                    .show()
+                            }
+
+                            dialogoIngreso.show()
+                            binding.ingresoPlacaVehiculoCalculoCobro.setText("")
+                        }
                     }
                     else -> {
                         Toast.makeText(this, ERROR_USUARIO_REGISTRADO, Toast.LENGTH_LONG).show()
@@ -69,45 +120,38 @@ class MainActivity : AppCompatActivity() {
             } else {
                 Toast.makeText(this, INGRESE_PLACA_VEHICULO, Toast.LENGTH_LONG).show()
             }
+
         }
 
         binding.botonCobroTarifa.setOnClickListener {
 
             val textoPlaca = binding.ingresoPlacaVehiculoCalculoCobro.text.toString()
+            val intento = Intent(this, CobroServicio::class.java)
+            intento.putExtra(PLACA_VEHICULO, textoPlaca)
 
             if (textoPlaca.isNotEmpty()) {
                 when (true) {
                     binding.radioButtonCarro.isChecked -> {
-                        val intento = Intent(this, CobroServicio::class.java)
-                        intento.putExtra(PLACA_VEHICULO, textoPlaca)
-                        intento.putExtra(TIPO_VEHICULO, CARRO)
+                        intento.putExtra(TIPO_VEHICULO, TIPO_CARRO)
                         startActivity(intento)
                     }
                     binding.radioButtonMoto.isChecked -> {
 
-                        val intento = Intent(this, CobroServicio::class.java)
-                        intento.putExtra(ALTO_CILINDRAJE, false)
-                        intento.putExtra(PLACA_VEHICULO, textoPlaca)
-                        intento.putExtra(TIPO_VEHICULO, MOTO)
-
+                        intento.putExtra(TIPO_VEHICULO, TIPO_MOTO)
                         startActivity(intento)
                     }
                     binding.radioButtonMotoCilindraje.isChecked -> {
 
-                        val intento = Intent(this, CobroServicio::class.java)
-                        intento.putExtra(ALTO_CILINDRAJE, true)
-                        intento.putExtra(PLACA_VEHICULO, textoPlaca)
-                        intento.putExtra(TIPO_VEHICULO, MOTO_CC)
-
+                        intento.putExtra(TIPO_VEHICULO, TIPO_MOTO_CC)
                         startActivity(intento)
                     }
                     else -> {
-                        Toast.makeText(baseContext, ERROR_USUARIO_REGISTRADO, Toast.LENGTH_SHORT).show()
+                        Toast.makeText(this, ERROR_USUARIO_REGISTRADO, Toast.LENGTH_SHORT).show()
                     }
                 }
 
             } else {
-                Toast.makeText(baseContext, INGRESE_PLACA_VEHICULO, Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, INGRESE_PLACA_VEHICULO, Toast.LENGTH_SHORT).show()
             }
 
         }

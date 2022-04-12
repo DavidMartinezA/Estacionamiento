@@ -1,22 +1,20 @@
 package com.example.presentador
 
 import android.content.Context
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
+
 import com.example.cobro.modelo.CobroTarifaMoto
 import com.example.cobro.servicio.ServicioCobroTarifa
 import com.example.estacionamiento.modelo.EstacionamientoMoto
 import com.example.estacionamiento.servicio.ServicioEstacionamiento
 import com.example.example.infraestructura.accesodatos.usuario.repositorio.RepositorioUsuarioVehiculoMotoRoom
 import com.example.usuario.modelo.UsuarioVehiculoMoto
-import kotlinx.coroutines.launch
 import java.time.LocalDateTime
 
-class UsuarioVehiculoMotopresentador(contexto: Context) : ViewModel() {
+class UsuarioVehiculoMotopresentador(contexto: Context) {
 
     private var repositorioRoomMoto = RepositorioUsuarioVehiculoMotoRoom(contexto)
 
-    fun setIngresarUsuario(usuarioIngresado: String, altoCilindraje: Boolean) = viewModelScope.launch {
+    suspend fun setIngresarUsuario(usuarioIngresado: String, altoCilindraje: Boolean) {
 
         val usuarioVehiculoMoto = UsuarioVehiculoMoto(usuarioIngresado, altoCilindraje)
         val servicioEstacionamiento =
@@ -26,22 +24,18 @@ class UsuarioVehiculoMotopresentador(contexto: Context) : ViewModel() {
 
     }
 
-    fun getCobroServicio(usuarioIngresado: String, altoCilindraje: Boolean): Int {
+    suspend fun getCobroServicio(usuarioIngresado: String, altoCilindraje: Boolean): Int {// todo existe un problema aqui
 
         val usuarioVehiculoMoto = UsuarioVehiculoMoto(usuarioIngresado, altoCilindraje)
         val estacionamiento = EstacionamientoMoto(usuarioVehiculoMoto)
         val cobroServicio = CobroTarifaMoto(estacionamiento)
-        var tarifa = 0
         val servicioTarifa =
             ServicioCobroTarifa(ServicioEstacionamiento(estacionamiento, repositorioRoomMoto), cobroServicio, LocalDateTime.now())
 
-        viewModelScope.launch {
-            tarifa = servicioTarifa.cobroDuracionServicio()
-        }
-        return tarifa
+        return servicioTarifa.cobroDuracionServicio()
     }
 
-    fun setEliminarUsuario(usuarioIngresado: String, altoCilindraje: Boolean) = viewModelScope.launch {
+    suspend fun setEliminarUsuario(usuarioIngresado: String, altoCilindraje: Boolean) {
 
         val usuarioVehiculoMoto = UsuarioVehiculoMoto(usuarioIngresado, altoCilindraje)
         val servicioEstacionamiento =
