@@ -2,13 +2,13 @@
     <!-- Base application theme. -->
     <style name="Theme.Estacionamiento" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">#6190CAF9</item>
-        <item name="colorPrimaryVariant">#A190CAF9</item>
-        <item name="colorOnPrimary">#000204</item>
+        <item name="colorPrimary">@color/fondo_botones</item>
+        <item name="colorPrimaryVariant">@color/fondo_principal</item>
+        <item name="colorOnPrimary">@color/negro</item>
         <!-- Secondary brand color. -->
-        <item name="colorSecondary">#A190CAF9</item>
-        <item name="colorSecondaryVariant">#9A00B8D4</item>
-        <item name="colorOnSecondary">#6190CAF9</item>
+        <item name="colorSecondary">@color/negro</item>
+        <item name="colorSecondaryVariant">@color/fondo_botones</item>
+        <item name="colorOnSecondary">#61D7DADD</item>
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->

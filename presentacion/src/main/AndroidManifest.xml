@@ -10,20 +10,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Estacionamiento">
         <activity
-            android:name="com.example.estacionamiento.CalculoCobro"
+            android:name="com.example.view.CobroServicio"
             android:exported="false" />
         <activity
-            android:name="com.example.estacionamiento.CobroServicio"
+            android:name="com.example.view.MainActivity"
             android:exported="false" />
         <activity
-            android:name="com.example.estacionamiento.IngresoMotos"
-            android:exported="false" />
-        <activity
-            android:name="com.example.estacionamiento.IngresoCarros"
-            android:exported="false" />
-        <activity android:name="com.example.estacionamiento.MainActivity" />
-        <activity
-            android:name="com.example.estacionamiento.PantallaPesentacion"
+            android:name="com.example.view.PantallaPesentacion"
             android:exported="true"
             android:theme="@style/Theme.AppCompat.NoActionBar">
             <intent-filter>

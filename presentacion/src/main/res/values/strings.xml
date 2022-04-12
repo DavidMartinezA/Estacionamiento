@@ -24,11 +24,13 @@
 
     <!-- Vehiculo Carros -->
     <string name="texto_vehiculo_carro">CARRO</string>
+    <string name="texto_vehiculo_moto_cilindraje">MOTO (Alto Cilindraje 500cc)</string>
     <string name="texto_titulo_automoviles">Ingreso De Automoviles</string>
 
     <!-- Vehiculo Motos -->
     <string name="texto_vehiculo_moto">MOTO</string>
     <string name="texto_ingreso_motocicletas">Ingreso De Motocicletas</string>
     <string name="texto_cilindraje">Cilindraje Mayor A = 500CC</string>
+    <string name="informacion_usuario">Informacion Del Usuario</string>
 
 </resources>

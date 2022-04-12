@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/fondo_principal"
-    android:theme="@style/Theme.Estacionamiento"
-    tools:context="com.example.estacionamiento.MainActivity">
+    android:theme="@style/Theme.Estacionamiento">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -22,32 +20,28 @@
 
             <com.google.android.material.imageview.ShapeableImageView
                 android:id="@+id/logo_nube_cobro"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/nube" />
 
-            <com.google.android.material.textview.MaterialTextView
+            <com.google.android.material.imageview.ShapeableImageView
                 android:id="@+id/titulo_estacionamiento"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/margen_chica"
-                android:background="@color/fondo_titulos"
-                android:paddingHorizontal="@dimen/padding_chico"
-                android:text="@string/titulo_estacionamiento"
-                android:textSize="@dimen/texto_titulos_principales"
-                android:textStyle="bold"
+                android:layout_margin="@dimen/margen_chica"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/logo_estacionamiento" />
 
             <com.google.android.material.card.MaterialCardView
-                android:id="@+id/tarjeta_tarifa_servicio"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_margin="@dimen/margen_chica"
+                android:id="@+id/tarjeta_informacion_usuario_vehiculo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/margen_chica"
                 android:backgroundTint="@color/fondo_titulos"
                 app:cardCornerRadius="@dimen/radio_borde_medio"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -59,32 +53,50 @@
                     android:layout_height="match_parent">
 
                     <com.google.android.material.textview.MaterialTextView
-                        android:id="@+id/titulo_tarifa"
+                        android:id="@+id/titulo_informacio_usuario_vehiculo"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:background="@color/sobre_tarjeta"
-                        android:paddingHorizontal="@dimen/radio_borde_medio"
-                        android:text="@string/titulo_tarifa_servicio"
+                        android:gravity="center"
+                        android:paddingHorizontal="@dimen/padding_chico"
+                        android:text="@string/informacion_usuario"
                         android:textSize="@dimen/texto_titulos_secundarios"
                         android:textStyle="bold"
-                        app:layout_constraintBottom_toTopOf="@id/tarifas_definidas_cobro"
+                        app:layout_constraintBottom_toTopOf="@id/texto_ingreso_placa_vehiculo_calculo_cobro"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
-                    <com.google.android.material.textview.MaterialTextView
-                        android:id="@+id/tarifas_definidas_cobro"
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/texto_ingreso_placa_vehiculo_calculo_cobro"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_margin="@dimen/margen_grande"
-                        android:paddingHorizontal="@dimen/padding_medio"
-                        android:text="@string/tarifas_definidas"
-                        android:textSize="@dimen/texto_parrafo_principal"
+                        android:layout_margin="@dimen/margen_chica"
+                        android:animateLayoutChanges="true"
+                        android:background="@color/sobre_tarjeta"
+                        android:contextClickable="true"
+                        android:elevation="@dimen/padding_chico"
+                        android:gravity="center"
+                        android:hint="@string/texto_ingreso_placa_vehiculo"
+                        android:padding="@dimen/padding_chico"
+                        android:textAlignment="center"
+                        android:textSize="@dimen/texto_titulos_principales"
+                        app:counterMaxLength="7"
+                        app:endIconMode="clear_text"
+                        app:errorEnabled="true"
+                        app:layout_constraintTop_toBottomOf="@id/titulo_informacio_usuario_vehiculo"
                         android:textStyle="bold"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
+                        app:startIconDrawable="@drawable/ic_baseline_icono_carro">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/ingreso_placa_vehiculo_calculo_cobro"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -96,10 +108,10 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/margen_chica"
                 android:backgroundTint="@color/fondo_titulos"
-                app:cardCornerRadius="@dimen/radio_borde_chico"
+                app:cardCornerRadius="@dimen/radio_borde_medio"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tarjeta_tarifa_servicio">
+                app:layout_constraintTop_toBottomOf="@id/tarjeta_informacion_usuario_vehiculo">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
@@ -109,6 +121,7 @@
                         android:id="@+id/texo_seleciion_tipo_usuario"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:padding="@dimen/padding_chico"
                         android:layout_margin="@dimen/margen_chica"
                         android:text="@string/seleccion_tipo_vehiculo"
                         android:textSize="@dimen/texto_titulos_terciarios"
@@ -131,6 +144,7 @@
                             android:id="@+id/radio_button_carro"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="@dimen/margen_chica"
                             android:padding="@dimen/padding_chico"
                             android:text="@string/texto_vehiculo_carro"
                             android:textSize="@dimen/texto_radio_botones"
@@ -140,8 +154,19 @@
                             android:id="@+id/radio_button_moto"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="@dimen/margen_chica"
                             android:padding="@dimen/padding_chico"
                             android:text="@string/texto_vehiculo_moto"
+                            android:textSize="@dimen/texto_radio_botones"
+                            android:textStyle="bold" />
+
+                        <com.google.android.material.radiobutton.MaterialRadioButton
+                            android:id="@+id/radio_button_moto_cilindraje"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="@dimen/margen_chica"
+                            android:padding="@dimen/padding_chico"
+                            android:text="@string/texto_vehiculo_moto_cilindraje"
                             android:textSize="@dimen/texto_radio_botones"
                             android:textStyle="bold" />
 
@@ -155,7 +180,7 @@
                 android:id="@+id/boton_ingreso"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="@dimen/margen_chica"
+                android:layout_margin="@dimen/margen_media"
                 android:backgroundTint="@color/fondo_botones"
                 android:text="@string/texto_boton_ingreso"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -167,7 +192,7 @@
                 android:id="@+id/boton_cobro_tarifa"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="@dimen/margen_chica"
+                android:layout_margin="@dimen/margen_media"
                 android:backgroundTint="@color/fondo_botones"
                 android:text="@string/texto_boton_cobro"
                 app:layout_constraintBottom_toBottomOf="@id/boton_ingreso"

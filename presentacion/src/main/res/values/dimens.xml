@@ -1,31 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <!-- Paddings -->
+    <!-- Dimenciones de los Paddings -->
     <dimen name="padding_chico">16dp</dimen>
-    <dimen name="padding_medio">16dp</dimen>
 
-    <!-- Tamaño de los Textos -->
+    <!-- Dimenciones de los Textos -->
     <dimen name="texto_titulos_principales">32sp</dimen>
     <dimen name="texto_titulos_secundarios">24sp</dimen>
     <dimen name="texto_titulos_terciarios">20sp</dimen>
-    <dimen name="texto_parrafo_principal">24sp</dimen>
-    <dimen name="texto_parrafo_secundario">20sp</dimen>
     <dimen name="texto_radio_botones">16sp</dimen>
 
-    <!-- Tamaño de los margenes -->
+    <!-- Dimenciones de los margenes -->
     <dimen name="margen_chica">20dp</dimen>
     <dimen name="margen_media">28dp</dimen>
-    <dimen name="margen_grande">40dp</dimen>
     <dimen name="margen_xxl">60dp</dimen>
 
-    <!-- Tamaño de los bordes -->
+    <!-- Dimenciones de los bordes -->
     <dimen name="radio_borde_medio">24dp</dimen>
-    <dimen name="radio_borde_chico">16dp</dimen>
 
     <!-- Dimenciones layout_width & height -->
-    <dimen name="dimencion_imagen_moto_height">240dp</dimen>
-    <dimen name="dimencion_imagen_carro_height">240dp</dimen>
-
+    <dimen name="dimencion_imagen_height">240dp</dimen>
 
 </resources>

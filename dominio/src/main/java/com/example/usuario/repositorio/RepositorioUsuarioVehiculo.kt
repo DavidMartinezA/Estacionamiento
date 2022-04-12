@@ -1,0 +1,15 @@
+package com.example.usuario.repositorio
+
+import com.example.usuario.modelo.UsuarioVehiculo
+
+interface RepositorioUsuarioVehiculo {
+
+    suspend fun usuarioExiste(usuarioVehiculo: UsuarioVehiculo): Boolean
+
+    suspend fun guardarUsuario(usuarioVehiculo: UsuarioVehiculo)
+
+    suspend fun eliminarUsuario(usuarioVehiculo: UsuarioVehiculo)
+
+    suspend fun listaUsuarios(): List<UsuarioVehiculo>
+
+}
