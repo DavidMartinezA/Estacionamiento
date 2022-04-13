@@ -6,7 +6,6 @@ import com.example.cobro.modelo.CobroTarifaMoto
 import com.example.cobro.servicio.ServicioCobroTarifa
 import com.example.estacionamiento.modelo.EstacionamientoMoto
 import com.example.estacionamiento.servicio.ServicioEstacionamiento
-import com.example.example.infraestructura.accesodatos.usuario.repositorio.RepositorioUsuarioVehiculoMotoRoom
 import com.example.usuario.modelo.UsuarioVehiculoMoto
 import java.time.LocalDateTime
 
@@ -28,9 +27,9 @@ class UsuarioVehiculoMotopresentador(contexto: Context) {
 
         val usuarioVehiculoMoto = UsuarioVehiculoMoto(usuarioIngresado, altoCilindraje)
         val estacionamiento = EstacionamientoMoto(usuarioVehiculoMoto)
-        val cobroServicio = CobroTarifaMoto(estacionamiento)
+        val cobroServicio = CobroTarifaMoto()
         val servicioTarifa =
-            ServicioCobroTarifa(ServicioEstacionamiento(estacionamiento, repositorioRoomMoto), cobroServicio, LocalDateTime.now())
+            ServicioCobroTarifa(ServicioEstacionamiento(estacionamiento, repositorioRoomMoto), cobroServicio)
 
         return servicioTarifa.cobroDuracionServicio()
     }

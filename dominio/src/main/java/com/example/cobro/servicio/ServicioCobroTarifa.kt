@@ -1,5 +1,6 @@
 package com.example.cobro.servicio
 
+import com.example.cobro.modelo.CobroTarifa
 import com.example.estacionamiento.excepcion.UsuarioNoExisteExcepcion
 import com.example.estacionamiento.servicio.ServicioEstacionamiento
 import java.time.Duration
@@ -7,8 +8,7 @@ import java.time.LocalDateTime
 
 class ServicioCobroTarifa(
     private val servicioEstacionamiento: ServicioEstacionamiento,
-    private val cobroTarifa: com.example.cobro.modelo.CobroTarifa,
-    private val horaFechaSalidaUsuarioUsuario: LocalDateTime,
+    private val cobroTarifa: CobroTarifa,
 ) {
 
     private var tarifaCobroServicioEstacionamiento = 0
@@ -17,8 +17,8 @@ class ServicioCobroTarifa(
     fun duracionServicioEstacionamiento(): Int {
 
         val calculoDuracionServicio =
-            Duration.between(servicioEstacionamiento.estacionamiento.usuarioVehiculo.horaFechaIngresoUsuario, // pedirlo al cobro tarifa
-                horaFechaSalidaUsuarioUsuario).dividedBy(60).dividedBy(60)
+            Duration.between(servicioEstacionamiento.estacionamiento.usuarioVehiculo.horaFechaIngresoUsuario,
+                LocalDateTime.now()).dividedBy(60).dividedBy(60)
 
         var horasServicioEstacionamiento = calculoDuracionServicio.seconds
         if (calculoDuracionServicio.nano >= 0) {
@@ -34,7 +34,7 @@ class ServicioCobroTarifa(
 
         if (usuarioExiste) {
             tarifaCobroServicioEstacionamiento =
-                cobroTarifa.cobroTarifa(duracionServicioEstacionamiento())
+                cobroTarifa.cobroTarifa(servicioEstacionamiento.estacionamiento.usuarioVehiculo, duracionServicioEstacionamiento())
         } else {
             throw UsuarioNoExisteExcepcion()
         }

@@ -278,6 +278,11 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/dominio/src/main/java/com/example/usuario/modelo/UsuarioVehiculoCarro.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/dominio/src/main/java/com/example/usuario/repositorio/RepositorioUsuarioVehiculo.kt">
           <value>
             <set />
@@ -359,6 +364,16 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/dominio/src/main/java/dominio/usuario/servicio/ServicioUsuario.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/dominio/src/main/java/example/example/usuario/modelo/UsuarioVehiculo.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/dominio/src/main/java/example/example/usuario/modelo/UsuarioVehiculoCarro.kt">
           <value>
             <set />
           </value>
@@ -558,6 +573,11 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/infraestructura/build/tmp/kapt3/stubs/debug/com/example/example/infraestructura/accesodatos/usuario/dao/UsuarioVehiculoDao.java">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/infraestructura/build/tmp/kapt3/stubs/debug/com/example/infraestructura/accesodatos/dao/UsuarioVehiculoDao.java">
           <value>
             <set />
@@ -593,7 +613,22 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/infraestructura/src/main/java/com/example/example/infraestructura/accesodatos/compartido/basededatos/BaseDatos.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/infraestructura/src/main/java/com/example/example/infraestructura/accesodatos/compartido/basededatos/BaseDatosUsuarioVehiculo.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/infraestructura/src/main/java/com/example/example/infraestructura/accesodatos/compartido/convertidordatos/ConvertidorDatos.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/infraestructura/src/main/java/com/example/example/infraestructura/accesodatos/usuario/anticorrupcion/TraductorUsuarioVehiculo.kt">
           <value>
             <set />
           </value>
@@ -619,6 +654,11 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/infraestructura/src/main/java/com/example/example/infraestructura/accesodatos/usuario/repositorio/RepositorioUsuarioVehiculoMotoRoom.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/infraestructura/src/main/java/com/example/example/infraestructura/accesodatos/usuario/repositorio/RepositorioUsuarioVehiculoRoom.kt">
           <value>
             <set />
           </value>
@@ -1043,6 +1083,16 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/presentacion/src/main/java/com/example/vista/CobroServicio.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/presentacion/src/main/java/com/example/vista/MainActivity.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/presentacion/src/main/java/com/presentador/UsuarioVehiculoCarropresentador.kt">
           <value>
             <set />
@@ -1089,6 +1139,26 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/presentacion/src/main/java/com/viewmodel/view/PantallaPesentacion.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/presentacion/src/main/java/example/example/presentador/UsuarioVehiculoCarropresentador.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/presentacion/src/main/java/example/example/presentador/UsuarioVehiculoMotopresentador.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/presentacion/src/main/java/example/example/view/CobroServicio.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/presentacion/src/main/java/example/example/view/MainActivity.kt">
           <value>
             <set />
           </value>

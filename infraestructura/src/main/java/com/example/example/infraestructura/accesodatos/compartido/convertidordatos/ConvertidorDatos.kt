@@ -9,7 +9,7 @@ class ConvertidorDatos {
     fun deTextoAFecha(value: String): LocalDateTime {
         if (value.isNotEmpty()) {
             return LocalDateTime.parse(value)
-        } else throw Exception("Fecha de ingreso no valida")
+        } else throw Exception("Fecha no Valida")
     }
 
     @TypeConverter

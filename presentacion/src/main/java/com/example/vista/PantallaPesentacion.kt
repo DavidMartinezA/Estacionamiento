@@ -1,4 +1,4 @@
-package com.example.view
+package com.example.vista
 
 import android.content.Intent
 import android.os.Bundle

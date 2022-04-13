@@ -4,7 +4,7 @@ import android.content.Context
 import androidx.room.Room
 import androidx.test.core.app.ApplicationProvider
 import androidx.test.ext.junit.runners.AndroidJUnit4
-import com.example.example.infraestructura.accesodatos.usuario.anticorrupcion.TraductorUsuarioVehiculoCarro
+import com.example.example.infraestructura.accesodatos.usuario.anticorrupcion.TraductorUsuarioVehiculo
 import com.example.example.infraestructura.accesodatos.usuario.dao.UsuarioVehiculoDao
 import com.example.example.infraestructura.accesodatos.usuario.entidadbasedatos.EntidadDatosUsuarioVehiculo
 import com.example.usuario.modelo.UsuarioVehiculoCarro
@@ -45,11 +45,11 @@ class BaseDatosUsuarioVehiculoTest {
         //Arrange
         usuarioVehiculoDao = baseDatosEntidades.usuarioVehiculoDao()
         val usuarioCarro = UsuarioVehiculoCarro("hsu534")
-        val traductor = TraductorUsuarioVehiculoCarro().desdeDominioABaseDatos(usuarioCarro)
+        val entidadBaseDatosUsuarioVehiculo = TraductorUsuarioVehiculo().desdeDominioABaseDatos(usuarioCarro)
 
         //Act
         runTest {
-            usuarioVehiculoDao.insertar(traductor)
+            usuarioVehiculoDao.insertar(entidadBaseDatosUsuarioVehiculo)
             val respuesta = usuarioVehiculoDao.listaUsuarios()
 
             //Assert
@@ -83,7 +83,7 @@ class BaseDatosUsuarioVehiculoTest {
         //Arrange
         usuarioVehiculoDao = baseDatosEntidades.usuarioVehiculoDao()
         val usuarioCarro = UsuarioVehiculoCarro("hsu534")
-        val traductor = TraductorUsuarioVehiculoCarro().desdeDominioABaseDatos(usuarioCarro)
+        val traductor = TraductorUsuarioVehiculo().desdeDominioABaseDatos(usuarioCarro)
 
         //Act
         runTest {
@@ -104,7 +104,7 @@ class BaseDatosUsuarioVehiculoTest {
         //Arrange
         usuarioVehiculoDao = baseDatosEntidades.usuarioVehiculoDao()
         val usuarioCarro = UsuarioVehiculoCarro("hsu534")
-        val traductor = TraductorUsuarioVehiculoCarro().desdeDominioABaseDatos(usuarioCarro)
+        val traductor = TraductorUsuarioVehiculo().desdeDominioABaseDatos(usuarioCarro)
 
         //Act
         runTest {
@@ -125,7 +125,7 @@ class BaseDatosUsuarioVehiculoTest {
         //Arrange
         usuarioVehiculoDao = baseDatosEntidades.usuarioVehiculoDao()
         val usuarioCarro = UsuarioVehiculoCarro("hsu531")
-        val traductor = TraductorUsuarioVehiculoCarro().desdeDominioABaseDatos(usuarioCarro)
+        val traductor = TraductorUsuarioVehiculo().desdeDominioABaseDatos(usuarioCarro)
 
         //Act
         runTest {
@@ -145,7 +145,7 @@ class BaseDatosUsuarioVehiculoTest {
         //Arrange
         usuarioVehiculoDao = baseDatosEntidades.usuarioVehiculoDao()
         val usuarioMoto = UsuarioVehiculoMoto("hsu532", true)
-        val traductor = TraductorUsuarioVehiculoCarro().desdeDominioABaseDatos(usuarioMoto)
+        val traductor = TraductorUsuarioVehiculo().desdeDominioABaseDatos(usuarioMoto)
 
         //Act
         runTest {
@@ -165,7 +165,7 @@ class BaseDatosUsuarioVehiculoTest {
         //Arrange
         usuarioVehiculoDao = baseDatosEntidades.usuarioVehiculoDao()
         val usuarioMoto = UsuarioVehiculoMoto("hsu533", true)
-        val traductor = TraductorUsuarioVehiculoCarro().desdeDominioABaseDatos(usuarioMoto)
+        val traductor = TraductorUsuarioVehiculo().desdeDominioABaseDatos(usuarioMoto)
 
         //Act
         runTest {
@@ -186,7 +186,7 @@ class BaseDatosUsuarioVehiculoTest {
         //Arrange
         usuarioVehiculoDao = baseDatosEntidades.usuarioVehiculoDao()
         val usuarioCarro = UsuarioVehiculoMoto("hsu533")
-        val traductor = TraductorUsuarioVehiculoCarro().desdeDominioABaseDatos(usuarioCarro)
+        val traductor = TraductorUsuarioVehiculo().desdeDominioABaseDatos(usuarioCarro)
 
         //Act
         runTest {

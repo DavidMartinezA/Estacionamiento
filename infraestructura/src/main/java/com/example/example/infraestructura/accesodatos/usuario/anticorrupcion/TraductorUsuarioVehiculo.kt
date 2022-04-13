@@ -2,10 +2,9 @@ package com.example.example.infraestructura.accesodatos.usuario.anticorrupcion
 
 import com.example.example.infraestructura.accesodatos.usuario.entidadbasedatos.EntidadDatosUsuarioVehiculo
 import com.example.usuario.modelo.UsuarioVehiculo
-import com.example.usuario.modelo.UsuarioVehiculoMoto
+import com.example.usuario.modelo.UsuarioVehiculoCarro
 
-class TraductorUsuarioVehiculoMoto {
-
+class TraductorUsuarioVehiculo {
 
     fun desdeDominioABaseDatos(usuarioVehiculo: UsuarioVehiculo): EntidadDatosUsuarioVehiculo {
         return EntidadDatosUsuarioVehiculo(
@@ -19,11 +18,12 @@ class TraductorUsuarioVehiculoMoto {
 
         val listaDominio = ArrayList<UsuarioVehiculo>()
         listaEntidadBaseDatos.map {
-            val usuarioDominio = UsuarioVehiculoMoto(it.placaVehiculo)
+            val usuarioDominio = UsuarioVehiculoCarro(it.placaVehiculo)
             usuarioDominio.horaFechaIngresoUsuario = it.horaFechaIngresoUsuario
-            usuarioDominio.cilindrajeAlto = it.cilindrajeAlto
+            usuarioDominio.cilndrajeAlto = it.cilindrajeAlto
             listaDominio.add(usuarioDominio)
         }
         return listaDominio
     }
+
 }

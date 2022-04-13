@@ -1,10 +1,10 @@
 package com.example.cobro.modelo
 
-
-import com.example.estacionamiento.modelo.Estacionamiento
+import com.example.usuario.modelo.UsuarioVehiculo
 import com.example.usuario.modelo.UsuarioVehiculoMoto
 
-class CobroTarifaMoto(estacionamiento: Estacionamiento) : com.example.cobro.modelo.CobroTarifa(estacionamiento) {
+
+class CobroTarifaMoto : CobroTarifa() {
 
     override val valorHora = 500
     override val valorDia = 4000
@@ -13,10 +13,10 @@ class CobroTarifaMoto(estacionamiento: Estacionamiento) : com.example.cobro.mode
         private const val COBRO_ADICIONAL_ALTO_CILINDRAJE = 2000
     }
 
-    override fun cobroTarifa(duracionServicioEstacionamiento: Int): Int {
+    override fun cobroTarifa(usuarioVehiculo: UsuarioVehiculo, duracionServicioEstacionamiento: Int): Int {
 
-        var tarifaParqueoTotal = super.cobroTarifa(duracionServicioEstacionamiento)
-        val usuarioIngresa = estacionamiento.usuarioVehiculo as UsuarioVehiculoMoto
+        var tarifaParqueoTotal = super.cobroTarifa(usuarioVehiculo, duracionServicioEstacionamiento)
+        val usuarioIngresa = usuarioVehiculo as UsuarioVehiculoMoto
 
         if (tarifaParqueoTotal != 0 && usuarioIngresa.cilindrajeAlto) {
             tarifaParqueoTotal += COBRO_ADICIONAL_ALTO_CILINDRAJE

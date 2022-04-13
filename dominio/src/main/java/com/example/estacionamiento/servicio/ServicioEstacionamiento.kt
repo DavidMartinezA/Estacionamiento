@@ -7,7 +7,6 @@ import com.example.estacionamiento.modelo.Estacionamiento
 import com.example.usuario.modelo.UsuarioVehiculo
 import com.example.usuario.repositorio.RepositorioUsuarioVehiculo
 
-
 class ServicioEstacionamiento(
     var estacionamiento: Estacionamiento,
     val repositorioUsuarioVehiculo: RepositorioUsuarioVehiculo,

@@ -1,8 +1,7 @@
-package com.example.view
+package com.example.vista
 
 import android.content.Intent
 import android.os.Bundle
-import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.example.estacionamiento.excepcion.IngresoNoPermitidoRestriccionExcepcion
@@ -24,7 +23,6 @@ class MainActivity : AppCompatActivity() {
         const val ERROR_USUARIO_REGISTRADO = "Seleccione el Tipo De Vehiculo"
         const val INGRESE_PLACA_VEHICULO = "Ingrese La Placa Del Vehiculo"
         const val PLACA_VEHICULO = "Placa Del Vehiculo"
-        const val COSTO_SERVICIO = "Costo Servicio"
         const val EXCEPCION_PLACA = "Placa De Vehiculo No Valida"
         const val EXCECION_INGRESO = "No Esta Autorizado Ingresar"
         const val TIPO_VEHICULO = "Tipo De Vehiculo"
@@ -44,13 +42,12 @@ class MainActivity : AppCompatActivity() {
 
         val carroPresentador = UsuarioVehiculoCarropresentador(this)
         val motoPresentador = UsuarioVehiculoMotopresentador(this)
+        val dialogoIngreso = AlertDialog.Builder(this)
+            .setTitle("Ingreso Automovil")
+            .setMessage(USUARIO_REGISTRADO)
 
         binding.botonIngreso.setOnClickListener {
             val textoPlaca = binding.ingresoPlacaVehiculoCalculoCobro.text.toString()
-            val dialogoIngreso = AlertDialog.Builder(this)
-                .setTitle("Ingreso Automovil")
-                .setMessage(USUARIO_REGISTRADO)
-
             if (textoPlaca.isNotEmpty()) {
                 when (true) {
                     binding.radioButtonCarro.isChecked -> {
@@ -94,37 +91,41 @@ class MainActivity : AppCompatActivity() {
                         }
                     }
                     binding.radioButtonMotoCilindraje.isChecked -> {
-                        CoroutineScope(Dispatchers.Main).launch {
 
-                            try {
+
+                        try {
+                            CoroutineScope(Dispatchers.Main).launch {
                                 motoPresentador.setIngresarUsuario(textoPlaca, true)
-                            } catch (e: FormatoPlacaExcepcion) {
-                                dialogoIngreso.setMessage(EXCEPCION_PLACA)
-                                    .show()
-                            } catch (e: IngresoNoPermitidoRestriccionExcepcion) {
-                                dialogoIngreso.setMessage(EXCECION_INGRESO)
-                                    .show()
-                            } catch (e: UsuarioYaExisteExcepcion) {
-                                dialogoIngreso.setMessage(EXCECION_USARIO_EXISTE)
-                                    .show()
                             }
+                        } catch (e: FormatoPlacaExcepcion) {
+                            dialogoIngreso.setMessage(EXCEPCION_PLACA)
+                                .show()
 
-                            dialogoIngreso.show()
-                            binding.ingresoPlacaVehiculoCalculoCobro.setText("")
+                        } catch (e: IngresoNoPermitidoRestriccionExcepcion) {
+                            dialogoIngreso.setMessage(EXCECION_INGRESO)
+                                .show()
+                        } catch (e: UsuarioYaExisteExcepcion) {
+                            dialogoIngreso.setMessage(EXCECION_USARIO_EXISTE)
+                                .show()
                         }
+
+                        dialogoIngreso.show()
+                        binding.ingresoPlacaVehiculoCalculoCobro.setText("")
+
                     }
                     else -> {
-                        Toast.makeText(this, ERROR_USUARIO_REGISTRADO, Toast.LENGTH_LONG).show()
+                        dialogoIngreso.setMessage(ERROR_USUARIO_REGISTRADO)
+                            .show()
                     }
                 }
             } else {
-                Toast.makeText(this, INGRESE_PLACA_VEHICULO, Toast.LENGTH_LONG).show()
+                dialogoIngreso.setMessage(INGRESE_PLACA_VEHICULO)
+                    .show()
             }
 
         }
 
         binding.botonCobroTarifa.setOnClickListener {
-
             val textoPlaca = binding.ingresoPlacaVehiculoCalculoCobro.text.toString()
             val intento = Intent(this, CobroServicio::class.java)
             intento.putExtra(PLACA_VEHICULO, textoPlaca)
@@ -132,6 +133,7 @@ class MainActivity : AppCompatActivity() {
             if (textoPlaca.isNotEmpty()) {
                 when (true) {
                     binding.radioButtonCarro.isChecked -> {
+
                         intento.putExtra(TIPO_VEHICULO, TIPO_CARRO)
                         startActivity(intento)
                     }
@@ -146,12 +148,13 @@ class MainActivity : AppCompatActivity() {
                         startActivity(intento)
                     }
                     else -> {
-                        Toast.makeText(this, ERROR_USUARIO_REGISTRADO, Toast.LENGTH_SHORT).show()
+                        dialogoIngreso.setMessage(ERROR_USUARIO_REGISTRADO)
+                            .show()
                     }
                 }
-
             } else {
-                Toast.makeText(this, INGRESE_PLACA_VEHICULO, Toast.LENGTH_SHORT).show()
+                dialogoIngreso.setMessage(INGRESE_PLACA_VEHICULO)
+                    .show()
             }
 
         }
