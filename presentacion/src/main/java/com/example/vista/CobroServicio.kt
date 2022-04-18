@@ -10,7 +10,6 @@ import com.example.presentacion.R
 import com.example.presentacion.databinding.ActivityCobroServicioBinding
 import com.example.usuario.excepcion.FormatoPlacaExcepcion
 import com.example.viewmodel.UsuarioVehiculoViewModelCobro
-import com.example.vista.MainActivity.Companion.INGRESE_PLACA_VEHICULO
 import com.example.vista.MainActivity.Companion.PLACA_VEHICULO
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -28,13 +27,21 @@ class CobroServicio : AppCompatActivity() {
         val placaVehiculo: String? = intent.getStringExtra(PLACA_VEHICULO)
 
         viewModel.cobroVehiculo.observe(this) { costoServicio ->
-            binding.cobrosServicio.text = "cancela = " + costoServicio
+            val textoCobroTarifa = getString(R.string.Texto_Tarifa_Cobrada) + costoServicio
+            binding.cobrosServicio.text = textoCobroTarifa
         }
 
         if (!placaVehiculo.isNullOrEmpty()) {
-            viewModel.cobroServicio(placaVehiculo) //TODO: Agregar un try/Catch
+            try {
+                viewModel.cobroServicio(placaVehiculo)
+            } catch (e: UsuarioNoExisteExcepcion) {
+                AlertDialog.Builder(this)
+                    .setTitle(getString(R.string.Titulo_Usuario_No_Existe))
+                    .setMessage(getString(R.string.Mensaje_Usuario_No_Existe_Excepcion))
+                    .show()
+            }
         } else {
-            Toast.makeText(this, INGRESE_PLACA_VEHICULO, Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, getString(R.string.Texto_Ingrese_Placa_Vehiculo), Toast.LENGTH_SHORT).show()
         }
 
         binding.botonTarifa.setOnClickListener {

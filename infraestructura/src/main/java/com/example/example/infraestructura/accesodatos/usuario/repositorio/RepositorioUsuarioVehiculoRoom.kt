@@ -18,7 +18,11 @@ class RepositorioUsuarioVehiculoRoom @Inject constructor(baseDatosUsuarioVehicul
     }
 
     override suspend fun usuarioPorPlaca(placa: String): UsuarioVehiculo {
-        return traductorUsuarioVehiculo.desdeBaseDatosADominio(usuarioVehiculoDao.buscarUsuario(placa))
+        if (usuarioVehiculoDao.comprobacionUsuarioExiste(placa)) {
+            return traductorUsuarioVehiculo.desdeBaseDatosADominio(usuarioVehiculoDao.buscarUsuario(placa))
+        } else {
+            throw UsuarioNoExisteExcepcion()
+        }
     }
 
     override suspend fun usuarioExiste(placa: String): Boolean {

@@ -7,6 +7,7 @@ import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.example.estacionamiento.excepcion.IngresoNoPermitidoRestriccionExcepcion
 import com.example.estacionamiento.excepcion.UsuarioYaExisteExcepcion
+import com.example.presentacion.R
 import com.example.presentacion.databinding.ActivityMainBinding
 import com.example.usuario.excepcion.FormatoPlacaExcepcion
 import com.example.viewmodel.UsuarioVehiculoViewModelPrincipal
@@ -16,19 +17,13 @@ import dagger.hilt.android.AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
     companion object {
-        const val USUARIO_REGISTRADO = "Usuario Registrado"
-        const val ERROR_USUARIO_REGISTRADO = "Seleccione el Tipo De Vehiculo"
-        const val INGRESE_PLACA_VEHICULO = "Ingrese La Placa Del Vehiculo"
         const val PLACA_VEHICULO = "Placa Del Vehiculo"
-        const val EXCEPCION_PLACA = "Placa De Vehiculo No Valida"
-        const val EXCECION_INGRESO = "No Esta Autorizado Ingresar"
-        const val EXCECION_USARIO_EXISTE = "El Usuario Ya Se Encuentra Registrado"
     }
 
     private val viewModel: UsuarioVehiculoViewModelPrincipal by viewModels()
 
 
-    lateinit var binding: ActivityMainBinding
+    private lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -40,8 +35,8 @@ class MainActivity : AppCompatActivity() {
         binding.botonIngreso.setOnClickListener {
 
             val dialogoIngreso = AlertDialog.Builder(this)
-                .setTitle("Ingreso Automovil")
-                .setMessage(USUARIO_REGISTRADO)
+                .setTitle(getString(R.string.Titulo_Ingreso_Vehiculo))
+                .setMessage(getString(R.string.Texto_Usuario_Registrado))
 
             val textoPlaca = binding.ingresoPlacaVehiculoCalculoCobro.text.toString()
             if (textoPlaca.isNotEmpty()) {
@@ -50,11 +45,11 @@ class MainActivity : AppCompatActivity() {
                         try {
                             viewModel.ingresarUsuarioCarro(textoPlaca)
                         } catch (e: FormatoPlacaExcepcion) {
-                            dialogoIngreso.setMessage(EXCEPCION_PLACA)
+                            dialogoIngreso.setMessage(getString(R.string.Texto_Placa_Invalida))
                         } catch (e: IngresoNoPermitidoRestriccionExcepcion) {
-                            dialogoIngreso.setMessage(EXCECION_INGRESO)
+                            dialogoIngreso.setMessage(getString(R.string.Texto_No_Autorizado_Ingresar))
                         } catch (e: UsuarioYaExisteExcepcion) {
-                            dialogoIngreso.setMessage(EXCECION_USARIO_EXISTE)
+                            dialogoIngreso.setMessage(getString(R.string.Texto_Usuario_Ya_Registrado))
                         }
                         dialogoIngreso.show()
                     }
@@ -63,11 +58,11 @@ class MainActivity : AppCompatActivity() {
                         try {
                             viewModel.ingresarUsuarioMoto(textoPlaca, false)
                         } catch (e: FormatoPlacaExcepcion) {
-                            dialogoIngreso.setMessage(EXCEPCION_PLACA)
+                            dialogoIngreso.setMessage(getString(R.string.Texto_Placa_Invalida))
                         } catch (e: IngresoNoPermitidoRestriccionExcepcion) {
-                            dialogoIngreso.setMessage(EXCECION_INGRESO)
+                            dialogoIngreso.setMessage(getString(R.string.Texto_No_Autorizado_Ingresar))
                         } catch (e: UsuarioYaExisteExcepcion) {
-                            dialogoIngreso.setMessage(EXCECION_USARIO_EXISTE)
+                            dialogoIngreso.setMessage(getString(R.string.Texto_Usuario_Ya_Registrado))
                         }
                     }
 
@@ -75,21 +70,21 @@ class MainActivity : AppCompatActivity() {
                         try {
                             viewModel.ingresarUsuarioMoto(textoPlaca, true)
                         } catch (e: FormatoPlacaExcepcion) {
-                            dialogoIngreso.setMessage(EXCEPCION_PLACA)
+                            dialogoIngreso.setMessage(getString(R.string.Texto_Placa_Invalida))
                         } catch (e: IngresoNoPermitidoRestriccionExcepcion) {
-                            dialogoIngreso.setMessage(EXCECION_INGRESO)
+                            dialogoIngreso.setMessage(getString(R.string.Texto_No_Autorizado_Ingresar))
                         } catch (e: UsuarioYaExisteExcepcion) {
-                            dialogoIngreso.setMessage(EXCECION_USARIO_EXISTE)
+                            dialogoIngreso.setMessage(getString(R.string.Texto_Usuario_Ya_Registrado))
                         }
                     }
                     else -> {
-                        dialogoIngreso.setMessage(ERROR_USUARIO_REGISTRADO)
+                        dialogoIngreso.setMessage(getString(R.string.Texto_Seleccione_Vehiculo))
                     }
                 }
 
                 binding.ingresoPlacaVehiculoCalculoCobro.setText("")
             } else {
-                dialogoIngreso.setMessage(INGRESE_PLACA_VEHICULO)
+                dialogoIngreso.setMessage(getString(R.string.Texto_Ingrese_Placa_Vehiculo))
             }
 
             dialogoIngreso.show()
@@ -105,8 +100,8 @@ class MainActivity : AppCompatActivity() {
                 startActivity(intento)
             } else {
                 AlertDialog.Builder(this)
-                    .setTitle("Cobro Automovil")
-                    .setMessage(INGRESE_PLACA_VEHICULO)
+                    .setTitle(getString(R.string.Texto_Titulo_Cobro_Vehiculo))
+                    .setMessage(getString(R.string.Texto_Ingrese_Placa_Vehiculo))
                     .show()
             }
         }

@@ -14,7 +14,7 @@ import javax.inject.Inject
 @HiltViewModel
 class UsuarioVehiculoViewModelCobro @Inject constructor(private val servicioCobroTarifa: ServicioCobroTarifa) : ViewModel() {
 
-    private val mutableCobro: MutableLiveData<Int> = MutableLiveData(0)
+    private val mutableCobro: MutableLiveData<Int> = MutableLiveData(0) // todo migrar a Flow
     val cobroVehiculo: LiveData<Int> = mutableCobro
 
     fun cobroServicio(placaUsuario: String) = viewModelScope.launch {
@@ -24,7 +24,6 @@ class UsuarioVehiculoViewModelCobro @Inject constructor(private val servicioCobr
             mutableCobro.value = servicioCobroTarifa.cobroDuracionServicio(placaUsuario, CobroTarifaMoto())
         }
     }
-
 
     fun eliminarUsuario(placaUsuario: String) {
         viewModelScope.launch {

@@ -32,5 +32,16 @@
     <string name="texto_ingreso_motocicletas">Ingreso De Motocicletas</string>
     <string name="texto_cilindraje">Cilindraje Mayor A = 500CC</string>
     <string name="informacion_usuario">Informacion Del Usuario</string>
+    <string name="Mensaje_Usuario_No_Existe_Excepcion">El Usuario No Existe</string>
+    <string name="Texto_Tarifa_Cobrada">\"El Costo Del Servicio Es De = \"</string>
+    <string name="Titulo_Usuario_No_Existe">Usuario No Existe</string>
+    <string name="Texto_Usuario_Registrado">Usuario Registrado</string>
+    <string name="Titulo_Ingreso_Vehiculo">Ingreso Vehiculo</string>
+    <string name="Texto_Seleccione_Vehiculo">Seleccione el Tipo De Vehiculo</string>
+    <string name="Texto_Ingrese_Placa_Vehiculo">Ingrese La Placa Del Vehiculo</string>
+    <string name="Texto_Titulo_Cobro_Vehiculo">Cobro Automovil</string>
+    <string name="Texto_Usuario_Ya_Registrado">El Usuario Ya Se Encuentra Registrado</string>
+    <string name="Texto_No_Autorizado_Ingresar">No Esta Autorizado Ingresar</string>
+    <string name="Texto_Placa_Invalida">Placa De Vehiculo No Valida</string>
 
 </resources>

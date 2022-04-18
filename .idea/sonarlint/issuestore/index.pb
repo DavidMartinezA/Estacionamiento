@@ -17,9 +17,6 @@ R
 "infraestructura/proguard-rules.pro,a/3/a331c05c32e855a30276e65dfafec3dc4b883aed
 J
 infraestructura/.gitignore,c/6/c66978cc1d80add11278e8f5139cba5d2a9ffdca
-:
-
-.gitignore,a/5/a5cc2925ca8258af241be7e5b0381edf30266302
 B
 dominio/.gitignore,5/3/53ea31ea00225a259e42bc3fcbaf6955a893b4df
 T
@@ -56,7 +53,5 @@ edominio/src/main/java/com/example/estacionamiento/excepcion/IngresoNoPermitidoR
 Pdominio/src/main/java/com/example/estacionamiento/modelo/EstacionamientoCarro.kt,8/b/8bcc35b86a25393781dbe129a3c953660a248c6f
 
 Odominio/src/main/java/com/example/estacionamiento/modelo/EstacionamientoMoto.kt,f/d/fdc1979972a00be4483f4c2899994c0955b72abf
-¶
-…infraestructura/src/main/java/com/example/example/infraestructura/accesodatos/usuario/entidadbasedatos/EntidadDatosUsuarioVehiculo.kt,e/7/e7eff0fe3fd4a7665e19eb25973392d4fabcbee4
 s
 Cpresentacion/src/main/java/com/example/vista/PantallaPesentacion.kt,c/0/c087238db6624848ec1738ccb87190bd0eadcfad
