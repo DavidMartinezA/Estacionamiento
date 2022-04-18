@@ -24,11 +24,9 @@ class ServicioCobroTarifa @Inject constructor(private val repositorioUsuarioVehi
         return horasServicioEstacionamiento.toInt()
     }
 
-    suspend fun cobroDuracionServicio(placa: String, cobroTarifa: CobroTarifa): Int {
-        if (repositorioUsuarioVehiculo.usuarioExiste(placa)) {
-
-            val vehiculo = repositorioUsuarioVehiculo.usuarioPorPlaca(placa)
-
+    suspend fun cobroDuracionServicio(placaUsuario: String, cobroTarifa: CobroTarifa): Int {
+        if (repositorioUsuarioVehiculo.usuarioExiste(placaUsuario)) {
+            val vehiculo = repositorioUsuarioVehiculo.usuarioPorPlaca(placaUsuario)
             return cobroTarifa.cobroTarifa(vehiculo, duracionServicioEstacionamiento(vehiculo.horaFechaIngresoUsuario))
         } else {
             throw UsuarioNoExisteExcepcion()
@@ -40,6 +38,10 @@ class ServicioCobroTarifa @Inject constructor(private val repositorioUsuarioVehi
     }
 
     suspend fun obtenerVehiculoPorPlaca(placaUsuario: String): UsuarioVehiculo {
-        return repositorioUsuarioVehiculo.usuarioPorPlaca(placaUsuario)
+        if (repositorioUsuarioVehiculo.usuarioExiste(placaUsuario)) {
+            return repositorioUsuarioVehiculo.usuarioPorPlaca(placaUsuario)
+        } else {
+            throw UsuarioNoExisteExcepcion()
+        }
     }
 }

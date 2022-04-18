@@ -84,7 +84,7 @@ class MainActivity : AppCompatActivity() {
 
                 binding.ingresoPlacaVehiculoCalculoCobro.setText("")
             } else {
-                dialogoIngreso.setMessage(getString(R.string.Texto_Ingrese_Placa_Vehiculo))
+                dialogoIngreso.setMessage(getString(R.string.texto_ingrese_paca_vehiculo))
             }
 
             dialogoIngreso.show()
@@ -95,13 +95,15 @@ class MainActivity : AppCompatActivity() {
             val textoPlaca = binding.ingresoPlacaVehiculoCalculoCobro.text.toString()
 
             if (textoPlaca.isNotEmpty()) {
-                val intento = Intent(this, CobroServicio::class.java)
+
+
+                val intento = Intent(this, CobroEstacionamiento::class.java)
                 intento.putExtra(PLACA_VEHICULO, textoPlaca)
                 startActivity(intento)
             } else {
                 AlertDialog.Builder(this)
                     .setTitle(getString(R.string.Texto_Titulo_Cobro_Vehiculo))
-                    .setMessage(getString(R.string.Texto_Ingrese_Placa_Vehiculo))
+                    .setMessage(getString(R.string.texto_ingrese_paca_vehiculo))
                     .show()
             }
         }

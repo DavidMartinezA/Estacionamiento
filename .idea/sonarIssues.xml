@@ -288,6 +288,11 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/dominio/src/main/java/com/example/usuario/modelo/UsuarioVehiculoMoto.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/dominio/src/main/java/com/example/usuario/repositorio/RepositorioUsuarioVehiculo.kt">
           <value>
             <set />
@@ -649,6 +654,11 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/infraestructura/src/main/java/com/example/example/infraestructura/accesodatos/usuario/dao/UsuarioVehiculoDao.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/infraestructura/src/main/java/com/example/example/infraestructura/accesodatos/usuario/entidadbasedatos/EntidadDatosUsuarioVehiculo.kt">
           <value>
             <set />
           </value>
@@ -1123,12 +1133,22 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/presentacion/src/main/java/com/example/vista/CobroEstacionamiento.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/presentacion/src/main/java/com/example/vista/CobroServicio.kt">
           <value>
             <set />
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/presentacion/src/main/java/com/example/vista/MainActivity.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/presentacion/src/main/java/com/example/vista/PantallaPesentacion.kt">
           <value>
             <set />
           </value>

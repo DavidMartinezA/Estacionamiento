@@ -5,6 +5,7 @@ import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.lifecycleScope
 import com.example.estacionamiento.excepcion.UsuarioNoExisteExcepcion
 import com.example.presentacion.R
 import com.example.presentacion.databinding.ActivityCobroServicioBinding
@@ -12,9 +13,10 @@ import com.example.usuario.excepcion.FormatoPlacaExcepcion
 import com.example.viewmodel.UsuarioVehiculoViewModelCobro
 import com.example.vista.MainActivity.Companion.PLACA_VEHICULO
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.flow.FlowCollector
 
 @AndroidEntryPoint
-class CobroServicio : AppCompatActivity() {
+class CobroEstacionamiento : AppCompatActivity() {
 
     private val viewModel: UsuarioVehiculoViewModelCobro by viewModels()
 
@@ -26,43 +28,48 @@ class CobroServicio : AppCompatActivity() {
 
         val placaVehiculo: String? = intent.getStringExtra(PLACA_VEHICULO)
 
-        viewModel.cobroVehiculo.observe(this) { costoServicio ->
-            val textoCobroTarifa = getString(R.string.Texto_Tarifa_Cobrada) + costoServicio
-            binding.cobrosServicio.text = textoCobroTarifa
+        // homologo del observer en liveData
+        lifecycleScope.launchWhenStarted {
+            viewModel.cobroVehiculo.collect(FlowCollector { costoServicio ->
+                val textoCobroTarifa = getString(R.string.texto_tarifa_cobrada) + costoServicio
+                binding.cobrosServicio.text = textoCobroTarifa
+            })
         }
 
         if (!placaVehiculo.isNullOrEmpty()) {
+
+            val dialogoUsuarioNoExiste = AlertDialog.Builder(this)
+                .setTitle(getString(R.string.titulo_usuario_no_existe))
+                .setMessage(getString(R.string.Mensaje_Usuario_No_Existe_Excepcion))
+
             try {
                 viewModel.cobroServicio(placaVehiculo)
             } catch (e: UsuarioNoExisteExcepcion) {
-                AlertDialog.Builder(this)
-                    .setTitle(getString(R.string.Titulo_Usuario_No_Existe))
-                    .setMessage(getString(R.string.Mensaje_Usuario_No_Existe_Excepcion))
-                    .show()
+                dialogoUsuarioNoExiste.show()
             }
         } else {
-            Toast.makeText(this, getString(R.string.Texto_Ingrese_Placa_Vehiculo), Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, getString(R.string.texto_ingrese_paca_vehiculo), Toast.LENGTH_SHORT).show()
         }
 
         binding.botonTarifa.setOnClickListener {
 
             val dialogoSalida = AlertDialog.Builder(this)
-                .setTitle("Salida Usuario")
+                .setTitle(getString(R.string.titulo_salida_usuario))
 
             if (!placaVehiculo.isNullOrEmpty()) {
                 try {
                     viewModel.eliminarUsuario(placaVehiculo)
-                    finish()
                 } catch (e: FormatoPlacaExcepcion) {
                     dialogoSalida.show()
                 } catch (e: UsuarioNoExisteExcepcion) {
-                    dialogoSalida.setMessage("Usuario No Registrado").show()
+                    dialogoSalida.setMessage(getString(R.string.usuario_no_registrado)).show()
                 }
             } else {
-                dialogoSalida.setMessage("llego la placa vacia").show()
+                dialogoSalida.setMessage(getString(R.string.texto_ingreso_placa_vehiculo)).show()
+                finish()
             }
 
-
         }
+
     }
 }
