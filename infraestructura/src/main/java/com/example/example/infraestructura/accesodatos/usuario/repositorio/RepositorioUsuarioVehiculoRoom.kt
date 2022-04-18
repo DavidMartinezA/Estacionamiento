@@ -1,23 +1,28 @@
 package com.example.example.infraestructura.accesodatos.usuario.repositorio
 
-import android.content.Context
 import com.example.estacionamiento.excepcion.UsuarioNoExisteExcepcion
-import com.example.example.infraestructura.accesodatos.compartido.basededatos.BaseDatos
+import com.example.example.infraestructura.accesodatos.compartido.basededatos.BaseDatosUsuarioVehiculo
 import com.example.example.infraestructura.accesodatos.usuario.anticorrupcion.TraductorUsuarioVehiculo
 import com.example.usuario.modelo.UsuarioVehiculo
 import com.example.usuario.repositorio.RepositorioUsuarioVehiculo
+import javax.inject.Inject
 
-class RepositorioUsuarioVehiculoRoom(contexto: Context) : RepositorioUsuarioVehiculo {
+class RepositorioUsuarioVehiculoRoom @Inject constructor(baseDatosUsuarioVehiculo: BaseDatosUsuarioVehiculo) :
+    RepositorioUsuarioVehiculo {
 
-    private val usuarioVehiculoDao = BaseDatos(contexto).obtenerInstancia().usuarioVehiculoDao()
+    private val usuarioVehiculoDao = baseDatosUsuarioVehiculo.usuarioVehiculoDao()
     private val traductorUsuarioVehiculo = TraductorUsuarioVehiculo()
 
     override suspend fun listaUsuarios(): List<UsuarioVehiculo> {
         return traductorUsuarioVehiculo.listaDesdeBaseDatosADominio(usuarioVehiculoDao.listaUsuarios())
     }
 
-    override suspend fun usuarioExiste(usuarioVehiculo: UsuarioVehiculo): Boolean {
-        return usuarioVehiculoDao.comprobacionUsuarioExiste(usuarioVehiculo.placaVehiculo)
+    override suspend fun usuarioPorPlaca(placa: String): UsuarioVehiculo {
+        return traductorUsuarioVehiculo.desdeBaseDatosADominio(usuarioVehiculoDao.buscarUsuario(placa))
+    }
+
+    override suspend fun usuarioExiste(placa: String): Boolean {
+        return usuarioVehiculoDao.comprobacionUsuarioExiste(placa)
     }
 
     override suspend fun guardarUsuario(usuarioVehiculo: UsuarioVehiculo) {
@@ -25,9 +30,9 @@ class RepositorioUsuarioVehiculoRoom(contexto: Context) : RepositorioUsuarioVehi
         usuarioVehiculoDao.insertar(entidad)
     }
 
-    override suspend fun eliminarUsuario(usuarioVehiculo: UsuarioVehiculo) {
-        if (usuarioVehiculoDao.comprobacionUsuarioExiste(usuarioVehiculo.placaVehiculo)) {
-            val usuarioBorrar = usuarioVehiculoDao.buscarUsuario(usuarioVehiculo.placaVehiculo)
+    override suspend fun eliminarUsuario(placa: String) {
+        if (usuarioVehiculoDao.comprobacionUsuarioExiste(placa)) {
+            val usuarioBorrar = usuarioVehiculoDao.buscarUsuario(placa)
             usuarioVehiculoDao.borrar(usuarioBorrar)
         } else {
             throw UsuarioNoExisteExcepcion()

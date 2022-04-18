@@ -2,43 +2,44 @@ package com.example.cobro.servicio
 
 import com.example.cobro.modelo.CobroTarifa
 import com.example.estacionamiento.excepcion.UsuarioNoExisteExcepcion
-import com.example.estacionamiento.servicio.ServicioEstacionamiento
+import com.example.usuario.modelo.UsuarioVehiculo
+import com.example.usuario.repositorio.RepositorioUsuarioVehiculo
 import java.time.Duration
 import java.time.LocalDateTime
+import javax.inject.Inject
 
-class ServicioCobroTarifa(
-    private val servicioEstacionamiento: ServicioEstacionamiento,
-    private val cobroTarifa: CobroTarifa,
-) {
+class ServicioCobroTarifa @Inject constructor(private val repositorioUsuarioVehiculo: RepositorioUsuarioVehiculo) {
 
-    private var tarifaCobroServicioEstacionamiento = 0
-
-
-    fun duracionServicioEstacionamiento(): Int {
-
-        val calculoDuracionServicio =
-            Duration.between(servicioEstacionamiento.estacionamiento.usuarioVehiculo.horaFechaIngresoUsuario,
-                LocalDateTime.now()).dividedBy(60).dividedBy(60)
+    private fun duracionServicioEstacionamiento(horaFechaIngresoUsuario: LocalDateTime): Int {
+        val calculoDuracionServicio = Duration.between(
+            horaFechaIngresoUsuario,
+            LocalDateTime.now()
+        ).dividedBy(60).dividedBy(60)
 
         var horasServicioEstacionamiento = calculoDuracionServicio.seconds
+
         if (calculoDuracionServicio.nano >= 0) {
             horasServicioEstacionamiento++
         }
         return horasServicioEstacionamiento.toInt()
     }
 
-    suspend fun cobroDuracionServicio(): Int {
+    suspend fun cobroDuracionServicio(placa: String, cobroTarifa: CobroTarifa): Int {
+        if (repositorioUsuarioVehiculo.usuarioExiste(placa)) {
 
-        val usuarioExiste =
-            servicioEstacionamiento.repositorioUsuarioVehiculo.usuarioExiste(servicioEstacionamiento.estacionamiento.usuarioVehiculo)
+            val vehiculo = repositorioUsuarioVehiculo.usuarioPorPlaca(placa)
 
-        if (usuarioExiste) {
-            tarifaCobroServicioEstacionamiento =
-                cobroTarifa.cobroTarifa(servicioEstacionamiento.estacionamiento.usuarioVehiculo, duracionServicioEstacionamiento())
+            return cobroTarifa.cobroTarifa(vehiculo, duracionServicioEstacionamiento(vehiculo.horaFechaIngresoUsuario))
         } else {
             throw UsuarioNoExisteExcepcion()
         }
-        return tarifaCobroServicioEstacionamiento
     }
 
+    suspend fun eliminarUsuario(placaUsuario: String) {
+        repositorioUsuarioVehiculo.eliminarUsuario(placaUsuario)
+    }
+
+    suspend fun obtenerVehiculoPorPlaca(placaUsuario: String): UsuarioVehiculo {
+        return repositorioUsuarioVehiculo.usuarioPorPlaca(placaUsuario)
+    }
 }

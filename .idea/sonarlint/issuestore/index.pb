@@ -20,8 +20,6 @@ J
 :
 
 .gitignore,a/5/a5cc2925ca8258af241be7e5b0381edf30266302
-H
-sonar-project.properties,2/5/2538046035efb77ecc44e1fd2eec1e2641594d4c
 B
 dominio/.gitignore,5/3/53ea31ea00225a259e42bc3fcbaf6955a893b4df
 T
@@ -34,8 +32,6 @@ Wdominio/src/main/java/com/example/estacionamiento/excepcion/UsuarioNoExisteExce
 Wdominio/src/main/java/com/example/estacionamiento/excepcion/UsuarioYaExisteExcepcion.kt,a/6/a6bab171906e03932a1c596517d2f642198b6446
 |
 Ldominio/src/test/java/com/example/usuario/modelo/UsuarioVehiculoCarroTest.kt,d/d/ddbf4fa1501494150d63931af62ab81620db4717
-w
-Gdominio/src/main/java/com/example/usuario/modelo/UsuarioVehiculoMoto.kt,4/b/4bdc7b2bedf733ca62f1421ff24960d8360689e8
 ;
 Jenkinsfile,0/c/0c2c5c506cef0ed2d3ad2b7e45e97980b66f5520
 {
@@ -44,3 +40,23 @@ Kdominio/src/test/java/com/example/usuario/modelo/UsuarioVehiculoMotoTest.kt,f/
 ,infraestructura/src/main/AndroidManifest.xml,e/c/ecfe9cfe1525dba26b4f66e658ec445e7859167c
 v
 Fdominio/src/test/java/com/example/cobro/modelo/CobroTarifaCarroTest.kt,7/f/7f696bf05ada29e6c5244e22f7e744316033486b
+{
+Kdominio/src/test/java/com/example/cobro/servicio/ServicioCobroTarifaTest.kt,8/7/877731e967e407607c7e69b7db73f0ce121a0f67
+„
+Tdominio/src/test/java/com/example/estacionamiento/modelo/EstacionamientoCarroTest.kt,9/2/9290ecd62ce9d8e707979caf4456cea09f3c63e4
+ƒ
+Sdominio/src/test/java/com/example/estacionamiento/modelo/EstacionamientoMotoTest.kt,6/9/695d933cb49d736c6deef0b48b53aef4cd726463
+‰
+Ydominio/src/test/java/com/example/estacionamiento/servicio/ServicioEstacionamientoTest.kt,c/6/c687b75f7fc14f35a74a10801fde28239553261a
+u
+Edominio/src/test/java/com/example/cobro/modelo/CobroTarifaMotoTest.kt,f/6/f638ffd6ee1c7e1720c2aebafc685eacc1e23574
+•
+edominio/src/main/java/com/example/estacionamiento/excepcion/IngresoNoPermitidoRestriccionExcepcion.kt,2/8/2882344c4d309986459fa0f8b324813a34c022c6
+€
+Pdominio/src/main/java/com/example/estacionamiento/modelo/EstacionamientoCarro.kt,8/b/8bcc35b86a25393781dbe129a3c953660a248c6f
+
+Odominio/src/main/java/com/example/estacionamiento/modelo/EstacionamientoMoto.kt,f/d/fdc1979972a00be4483f4c2899994c0955b72abf
+¶
+…infraestructura/src/main/java/com/example/example/infraestructura/accesodatos/usuario/entidadbasedatos/EntidadDatosUsuarioVehiculo.kt,e/7/e7eff0fe3fd4a7665e19eb25973392d4fabcbee4
+s
+Cpresentacion/src/main/java/com/example/vista/PantallaPesentacion.kt,c/0/c087238db6624848ec1738ccb87190bd0eadcfad

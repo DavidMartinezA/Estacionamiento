@@ -4,10 +4,10 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="presentacion/src/main/res/layout/activity_calculo_cobro.xml" value="0.27546296296296297" />
-        <entry key="presentacion/src/main/res/layout/activity_cobro_servicio.xml" value="0.1253731343283582" />
+        <entry key="presentacion/src/main/res/layout/activity_cobro_servicio.xml" value="0.375" />
         <entry key="presentacion/src/main/res/layout/activity_ingreso_carros.xml" value="0.3098958333333333" />
         <entry key="presentacion/src/main/res/layout/activity_ingreso_motos.xml" value="0.3098958333333333" />
-        <entry key="presentacion/src/main/res/layout/activity_main.xml" value="0.17073170731707318" />
+        <entry key="presentacion/src/main/res/layout/activity_main.xml" value="0.375" />
         <entry key="presentacion/src/main/res/layout/activity_pantalla_pesentacion.xml" value="0.22" />
       </map>
     </option>
