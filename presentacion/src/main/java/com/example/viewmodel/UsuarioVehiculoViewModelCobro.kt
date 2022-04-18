@@ -20,26 +20,17 @@ class UsuarioVehiculoViewModelCobro @Inject constructor(private val servicioCobr
 
     fun cobroServicio(placaUsuario: String) { // todo mejorar la funcion
         viewModelScope.launch {
-            val usuario = try {
-                servicioCobroTarifa.obtenerVehiculoPorPlaca(placaUsuario).tipoDeVehiculo
-            } catch (e: UsuarioNoExisteExcepcion) {
-                ""
-            }
-            when (usuario) {
-                "Carro" -> {
+            try {
+                if (servicioCobroTarifa.obtenerVehiculoPorPlaca(placaUsuario).tipoDeVehiculo == "Carro") {
                     mutableCobro.value = servicioCobroTarifa.cobroDuracionServicio(placaUsuario, CobroTarifaCarro())
-                }
-                "Moto" -> {
+                } else {
                     mutableCobro.value = servicioCobroTarifa.cobroDuracionServicio(placaUsuario, CobroTarifaMoto())
                 }
-                else -> {
-                    throw UsuarioNoExisteExcepcion()
-                }
+            } catch (e: UsuarioNoExisteExcepcion) {
+                mutableCobro.value = 0
             }
-
         }
     }
-
 
     fun eliminarUsuario(placaUsuario: String) {
         viewModelScope.launch {

@@ -71,18 +71,10 @@ H
 ãinfraestructura/src/androidTest/java/com/example/example/infraestructura/accesodatos/compartido/basededatos/BaseDatosUsuarioVehiculoTest.kt,4/8/48fe9d71bb1f40d3d1570f05af25aa42bf50a0f9
 à
 Xpresentacion/src/main/java/com/example/inyecciondependecias/EstacionamientoAplicacion.kt,1/1/110fcb7dc12760158082e5e5b1e0dc2115a60064
-Å
-Qpresentacion/src/main/java/com/example/inyecciondependecias/ModuloDependencias.kt,3/7/37dbf62afa63ddd26b80835e8279623a9537b539
-<
-build.gradle,f/0/f07866736216be0ee2aba49e392191aeae700a35
 s
 Cdominio/src/main/java/com/example/usuario/modelo/UsuarioVehiculo.kt,7/9/791b59fc5fb33cf16c3b8ffed487efe2a1f52413
 x
 Hdominio/src/main/java/com/example/usuario/modelo/UsuarioVehiculoCarro.kt,1/9/19fe410b6c055bbdbc1910348497a1aeaebf6190
-ü
-oinfraestructura/src/main/java/com/example/example/infraestructura/accesodatos/usuario/dao/UsuarioVehiculoDao.kt,3/e/3e1add96bed3a38644578f7a0fa5a0f37f6517f3
 :
 
 .gitignore,a/5/a5cc2925ca8258af241be7e5b0381edf30266302
-D
-dominio/build.gradle,d/7/d71e7ab1854167962f7335fc962f525692922e9e

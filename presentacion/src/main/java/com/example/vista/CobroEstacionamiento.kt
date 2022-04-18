@@ -1,7 +1,6 @@
 package com.example.vista
 
 import android.os.Bundle
-import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
@@ -13,7 +12,6 @@ import com.example.usuario.excepcion.FormatoPlacaExcepcion
 import com.example.viewmodel.UsuarioVehiculoViewModelCobro
 import com.example.vista.MainActivity.Companion.PLACA_VEHICULO
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.flow.FlowCollector
 
 @AndroidEntryPoint
 class CobroEstacionamiento : AppCompatActivity() {
@@ -30,25 +28,19 @@ class CobroEstacionamiento : AppCompatActivity() {
 
         // homologo del observer en liveData
         lifecycleScope.launchWhenStarted {
-            viewModel.cobroVehiculo.collect(FlowCollector { costoServicio ->
-                val textoCobroTarifa = getString(R.string.texto_tarifa_cobrada) + costoServicio
-                binding.cobrosServicio.text = textoCobroTarifa
-            })
+            viewModel.cobroVehiculo.collect { costoServicio ->
+                if (costoServicio == 0) {
+                    binding.cobrosServicio.text = getString(R.string.usuario_no_registrado)
+
+                } else {
+                    val textoCobroTarifa = getString(R.string.texto_tarifa_cobrada) + costoServicio
+                    binding.cobrosServicio.text = textoCobroTarifa
+                }
+            }
         }
 
-        if (!placaVehiculo.isNullOrEmpty()) {
-
-            val dialogoUsuarioNoExiste = AlertDialog.Builder(this)
-                .setTitle(getString(R.string.titulo_usuario_no_existe))
-                .setMessage(getString(R.string.Mensaje_Usuario_No_Existe_Excepcion))
-
-            try {
-                viewModel.cobroServicio(placaVehiculo)
-            } catch (e: UsuarioNoExisteExcepcion) {
-                dialogoUsuarioNoExiste.show()
-            }
-        } else {
-            Toast.makeText(this, getString(R.string.texto_ingrese_paca_vehiculo), Toast.LENGTH_SHORT).show()
+        if (placaVehiculo != null) {
+            viewModel.cobroServicio(placaVehiculo)
         }
 
         binding.botonTarifa.setOnClickListener {
