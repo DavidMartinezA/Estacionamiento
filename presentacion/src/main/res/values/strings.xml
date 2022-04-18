@@ -1,36 +1,46 @@
 <resources>
 
-    <!-- App -->
-    <string name="app_name">Estacionamiento</string>
-
     <!-- Estacionamiento -->
+    <string name="app_name">Estacionamiento</string>
     <string name="texto_ingreso_placa_vehiculo">Ingrese El Numero De Placa</string>
     <string name="texto_estacionamiento_sin_capacidad">No Existe Disponibilidad</string>
     <string name="texto_estacionamiento_con_capacidad">Existe Disponibilidad</string>
     <string name="texto_titulo_calculo_de_tarifa">Calculo De Tarifa</string>
     <string name="titulo_estacionamiento">Estacionamiento 24/7</string>
-    <string name="titulo_tarifa_servicio">Tarifa del Servicio</string>
-    <string name="tarifas_definidas">\nMotos dia = $ 4,000 \n \nMotos hora = $ 500 \n \nCarros dia = $ 8,000 \n \nCarros hora = $ 1,000</string>
     <string name="seleccion_tipo_vehiculo">Seleccione el Tipo de Vehiculo</string>
     <string name="texto_boton_ingreso">Ingreso</string>
     <string name="texto_boton_registrar">Registrar</string>
+    <string name="Texto_Usuario_Ya_Registrado">El Usuario Ya Se Encuentra Registrado</string>
+    <string name="Texto_No_Autorizado_Ingresar">No Esta Autorizado Ingresar</string>
+    <string name="Texto_Placa_Invalida">Placa De Vehiculo No Valida</string>
+    <string name="informacion_usuario">Informacion Del Usuario</string>
+    <string name="Mensaje_Usuario_No_Existe_Excepcion">El Usuario No Existe</string>
+    <string name="titulo_usuario_no_existe">Usuario No Existe</string>
+    <string name="Texto_Usuario_Registrado">Usuario Registrado</string>
+    <string name="Titulo_Ingreso_Vehiculo">Ingreso Vehiculo</string>
+    <string name="Texto_Seleccione_Vehiculo">Seleccione el Tipo De Vehiculo</string>
+    <string name="texto_ingrese_paca_vehiculo">Ingrese La Placa Del Vehiculo</string>
+    <string name="usuario_no_registrado">Usuario No Registrado</string>
+    <string name="titulo_salida_usuario">Salida Usuario</string>
 
     <!-- Cobro -->
+    <string name="titulo_tarifa_servicio">Tarifa del Servicio</string>
+    <string name="tarifas_definidas">\nMotos dia = $ 4,000 \n \nMotos hora = $ 500 \n \nCarros dia = $ 8,000 \n \nCarros hora = $ 1,000</string>
     <string name="texto_boton_cobro">Cobro</string>
     <string name="texto_boton_pago">Pago</string>
     <string name="texto_informacion_cobro">\n Duracion Servicio = X Horas \n \n Valor Del Servicio = $ xxxxx</string>
     <string name="texto_boton_costo_tarifa">costo tarifa</string>
     <string name="texto_tarifa_servicio">Tarifa del servicio</string>
+    <string name="texto_tarifa_cobrada">El Costo Del Servicio Es De = </string>
+    <string name="Texto_Titulo_Cobro_Vehiculo">Cobro Automovil</string>
 
-    <!-- Vehiculo Carros -->
+    <!-- Vehiculos -->
     <string name="texto_vehiculo_carro">CARRO</string>
     <string name="texto_vehiculo_moto_cilindraje">MOTO (Alto Cilindraje 500cc)</string>
     <string name="texto_titulo_automoviles">Ingreso De Automoviles</string>
-
-    <!-- Vehiculo Motos -->
     <string name="texto_vehiculo_moto">MOTO</string>
     <string name="texto_ingreso_motocicletas">Ingreso De Motocicletas</string>
     <string name="texto_cilindraje">Cilindraje Mayor A = 500CC</string>
-    <string name="informacion_usuario">Informacion Del Usuario</string>
+
 
 </resources>

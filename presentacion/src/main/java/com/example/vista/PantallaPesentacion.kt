@@ -1,4 +1,4 @@
-package com.example.view
+package com.example.vista
 
 import android.content.Intent
 import android.os.Bundle
@@ -21,6 +21,6 @@ class PantallaPesentacion : AppCompatActivity() {
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
             finish()
-        }, 2000) // 3000 is the delayed time in milliseconds.
+        }, 1000) // 3000 is the delayed time in milliseconds.
     }
 }
