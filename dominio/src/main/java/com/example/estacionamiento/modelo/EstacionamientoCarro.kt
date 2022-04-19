@@ -6,4 +6,5 @@ class EstacionamientoCarro(usuarioVehiculo: UsuarioVehiculo) : Estacionamiento(u
 
     override val capacidadEstacionamiento = 20
     override val tipoDeUsuario = usuarioVehiculo.tipoDeVehiculo
+
 }

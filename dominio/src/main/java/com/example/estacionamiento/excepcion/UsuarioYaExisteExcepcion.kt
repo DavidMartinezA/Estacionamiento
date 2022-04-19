@@ -1,3 +1,5 @@
 package com.example.estacionamiento.excepcion
 
-class UsuarioYaExisteExcepcion : Exception("UsuarioVehiculo Ya Existe")
+import com.example.compartido.excepciones.EstacionamientoExcepcion
+
+class UsuarioYaExisteExcepcion : EstacionamientoExcepcion("UsuarioVehiculo Ya Existe")

@@ -10,12 +10,9 @@ import javax.inject.Inject
 
 class ServicioCobroTarifa @Inject constructor(private val repositorioUsuarioVehiculo: RepositorioUsuarioVehiculo) {
 
-    private fun duracionServicioEstacionamiento(horaFechaIngresoUsuario: LocalDateTime): Int {
-        val calculoDuracionServicio = Duration.between(
-            horaFechaIngresoUsuario,
-            LocalDateTime.now()
-        ).dividedBy(60).dividedBy(60)
-
+    private fun duracionServicioEstacionamiento(usuarioVehiculo: UsuarioVehiculo): Int {
+        val horaSalida = LocalDateTime.now()
+        val calculoDuracionServicio = Duration.between(usuarioVehiculo.horaFechaIngresoUsuario, horaSalida).dividedBy(60).dividedBy(60)
         var horasServicioEstacionamiento = calculoDuracionServicio.seconds
 
         if (calculoDuracionServicio.nano >= 0) {
@@ -27,7 +24,7 @@ class ServicioCobroTarifa @Inject constructor(private val repositorioUsuarioVehi
     suspend fun cobroDuracionServicio(placaUsuario: String, cobroTarifa: CobroTarifa): Int {
         if (repositorioUsuarioVehiculo.usuarioExiste(placaUsuario)) {
             val vehiculo = repositorioUsuarioVehiculo.usuarioPorPlaca(placaUsuario)
-            return cobroTarifa.cobroTarifa(vehiculo, duracionServicioEstacionamiento(vehiculo.horaFechaIngresoUsuario))
+            return cobroTarifa.cobroTarifa(vehiculo, duracionServicioEstacionamiento(vehiculo))
         } else {
             throw UsuarioNoExisteExcepcion()
         }

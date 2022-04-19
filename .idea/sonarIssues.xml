@@ -258,6 +258,26 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/dominio/src/main/java/com/example/estacionamiento/excepcion/EstacionamientoExcepcion.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/dominio/src/main/java/com/example/estacionamiento/excepcion/IngresoNoPermitidoRestriccionExcepcion.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/dominio/src/main/java/com/example/estacionamiento/excepcion/UsuarioNoExisteExcepcion.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/dominio/src/main/java/com/example/estacionamiento/excepcion/UsuarioYaExisteExcepcion.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/dominio/src/main/java/com/example/estacionamiento/modelo/Estacionamiento.kt">
           <value>
             <set />
@@ -274,6 +294,11 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/dominio/src/main/java/com/example/estacionamiento/servicio/ServicioEstacionamiento.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/dominio/src/main/java/com/example/usuario/excepcion/FormatoPlacaExcepcion.kt">
           <value>
             <set />
           </value>
@@ -888,6 +913,11 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/presentacion/build/tmp/kapt3/stubs/debug/com/example/vista/CobroEstacionamiento.java">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/presentacion/src/main/AndroidManifest.xml">
           <value>
             <set />
@@ -1053,6 +1083,21 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/presentacion/src/main/java/com/example/viewmodel/IngresoUsuariosViewModel.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/presentacion/src/main/java/com/example/viewmodel/ServiciosEstacionamientoViewModel.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/presentacion/src/main/java/com/example/viewmodel/ServiosEstacionamientoViewModel.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/presentacion/src/main/java/com/example/viewmodel/UsuarioVehiculoCarroViewModel.kt">
           <value>
             <set />
@@ -1149,6 +1194,11 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/presentacion/src/main/java/com/example/vista/PantallaPesentacion.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/presentacion/src/main/java/com/example/vista/ServiciosEstacionamiento.kt">
           <value>
             <set />
           </value>
@@ -1289,6 +1339,11 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/presentacion/src/main/res/layout/activity_calculo_cobro.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/presentacion/src/main/res/layout/activity_cobro_estacionamiento.xml">
           <value>
             <set />
           </value>

@@ -25,7 +25,6 @@ class ServicioEstacionamiento @Inject constructor(val repositorioUsuarioVehiculo
     }
 
     suspend fun ingresoUsuarioEstacionamiento(estacionamiento: Estacionamiento, diaDeLaSemana: Int) {
-
         val espacioDisponibleEnEstacionamiento: Boolean
         val usuarioNoExiste =
             !repositorioUsuarioVehiculo.usuarioExiste(estacionamiento.usuarioVehiculo.placaVehiculo)

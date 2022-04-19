@@ -1,3 +1,5 @@
 package com.example.estacionamiento.excepcion
 
-class UsuarioNoExisteExcepcion : Exception("UsuarioVehiculo No Existe")
+import com.example.compartido.excepciones.EstacionamientoExcepcion
+
+class UsuarioNoExisteExcepcion : EstacionamientoExcepcion("UsuarioVehiculo No Existe")
