@@ -1,3 +1,5 @@
 package com.example.estacionamiento.excepcion
 
-class IngresoNoPermitidoRestriccionExcepcion : Exception("No Esta Autorizado A Ingresar")
+import com.example.compartido.excepciones.EstacionamientoExcepcion
+
+class IngresoNoPermitidoRestriccionExcepcion : EstacionamientoExcepcion("No Esta Autorizado A Ingresar")

@@ -26,16 +26,15 @@ class ServiciosEstacionamiento : AppCompatActivity() {
         setContentView(binding.root)
 
         placaVehiculo = intent.getStringExtra(PLACA_VEHICULO).toString()
+        generarInformacionCobro()
+        generarDialogoExcepciones()
+        botonTarifa()
+        viewModel.cobroServicio(placaVehiculo)
+    }
+
+    private fun generarDialogoExcepciones() {
         val dialogoExcepciones = AlertDialog.Builder(this)
         dialogoExcepciones.setTitle(getString(R.string.usuario_no_registrado))
-
-        lifecycleScope.launchWhenStarted {
-            viewModel.cobroVehiculo.collect { costoServicio ->
-                val textoCobroTarifa = placaVehiculo + getString(R.string.texto_tarifa_cobrada) + costoServicio
-                binding.cobrosServicio.text = textoCobroTarifa
-            }
-        }
-
         lifecycleScope.launch {
             viewModel.excepcionCobro.collect { excepcion ->
                 if (excepcion.isNotEmpty()) {
@@ -45,15 +44,20 @@ class ServiciosEstacionamiento : AppCompatActivity() {
                 }
             }
         }
-
-        viewModel.cobroServicio(placaVehiculo)
-        botonTarifa()
-
     }
 
-    fun botonTarifa() {
+    private fun generarInformacionCobro() {
+        lifecycleScope.launchWhenStarted {
+            viewModel.cobroVehiculo.collect { costoServicio ->
+                val textoCobroTarifa = placaVehiculo + getString(R.string.texto_tarifa_cobrada) + costoServicio
+                binding.cobrosServicio.text = textoCobroTarifa
+            }
+        }
+    }
+
+    private fun botonTarifa() {
         binding.botonTarifa.setOnClickListener {
-            viewModel.eliminarUsuario(placaVehiculo)
+            viewModel.salidaUsuarioEstacionamiento(placaVehiculo)
             finish()
         }
 

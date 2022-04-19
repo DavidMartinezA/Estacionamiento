@@ -258,6 +258,26 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/dominio/src/main/java/com/example/estacionamiento/excepcion/EstacionamientoExcepcion.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/dominio/src/main/java/com/example/estacionamiento/excepcion/IngresoNoPermitidoRestriccionExcepcion.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/dominio/src/main/java/com/example/estacionamiento/excepcion/UsuarioNoExisteExcepcion.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/dominio/src/main/java/com/example/estacionamiento/excepcion/UsuarioYaExisteExcepcion.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/dominio/src/main/java/com/example/estacionamiento/modelo/Estacionamiento.kt">
           <value>
             <set />
@@ -274,6 +294,11 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/dominio/src/main/java/com/example/estacionamiento/servicio/ServicioEstacionamiento.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/dominio/src/main/java/com/example/usuario/excepcion/FormatoPlacaExcepcion.kt">
           <value>
             <set />
           </value>

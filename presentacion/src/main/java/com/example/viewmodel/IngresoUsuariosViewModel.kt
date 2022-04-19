@@ -2,12 +2,10 @@ package com.example.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.estacionamiento.excepcion.IngresoNoPermitidoRestriccionExcepcion
-import com.example.estacionamiento.excepcion.UsuarioYaExisteExcepcion
+import com.example.compartido.excepciones.EstacionamientoExcepcion
 import com.example.estacionamiento.modelo.EstacionamientoCarro
 import com.example.estacionamiento.modelo.EstacionamientoMoto
 import com.example.estacionamiento.servicio.ServicioEstacionamiento
-import com.example.usuario.excepcion.FormatoPlacaExcepcion
 import com.example.usuario.modelo.UsuarioVehiculoCarro
 import com.example.usuario.modelo.UsuarioVehiculoMoto
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -19,21 +17,17 @@ import javax.inject.Inject
 
 @HiltViewModel
 class IngresoUsuariosViewModel @Inject constructor(private val servicioEstacionamiento: ServicioEstacionamiento) : ViewModel() {
-    private val mutableExcepcion: MutableStateFlow<String> = MutableStateFlow("")
-    var ingresoVehiculo: StateFlow<String> = mutableExcepcion
+    private val excepcionMutable: MutableStateFlow<String> = MutableStateFlow("")
+    var ingresoVehiculo: StateFlow<String> = excepcionMutable
 
     fun ingresarUsuarioCarro(usuarioIngresado: String) = viewModelScope.launch {
         try {
             servicioEstacionamiento.ingresoUsuarioEstacionamiento(
                 EstacionamientoCarro(UsuarioVehiculoCarro(usuarioIngresado)), LocalDateTime.now().dayOfWeek.value)
-            mutableExcepcion.value = "Usuario Registrado"
+            excepcionMutable.value = "Usuario Registrado"
 
-        } catch (e: FormatoPlacaExcepcion) {
-            mutableExcepcion.value = "Placa Usuario No Permitida"
-        } catch (e: IngresoNoPermitidoRestriccionExcepcion) {
-            mutableExcepcion.value = "Ingreso No Permitido"
-        } catch (e: UsuarioYaExisteExcepcion) {
-            mutableExcepcion.value = "Usuario Ya Se Encuentra Registrado"
+        } catch (excepcion: EstacionamientoExcepcion) {
+            excepcion.message?.let { excepcionMutable.value = excepcion.message!! }
         }
     }
 
@@ -42,13 +36,9 @@ class IngresoUsuariosViewModel @Inject constructor(private val servicioEstaciona
             servicioEstacionamiento.ingresoUsuarioEstacionamiento(
                 EstacionamientoMoto(UsuarioVehiculoMoto(usuarioIngresado, altoCilindraje)),
                 LocalDateTime.now().dayOfWeek.value)
-            mutableExcepcion.value = "Usuario Registrado"
-        } catch (e: FormatoPlacaExcepcion) {
-            mutableExcepcion.value = "Placa Usuario No Permitida"
-        } catch (e: IngresoNoPermitidoRestriccionExcepcion) {
-            mutableExcepcion.value = "Ingreso No Permitido"
-        } catch (e: UsuarioYaExisteExcepcion) {
-            mutableExcepcion.value = "Usuario Ya Se Encuentra Registrado"
+            excepcionMutable.value = "Usuario Registrado"
+        } catch (excepcion: EstacionamientoExcepcion) {
+            excepcion.message?.let { excepcionMutable.value = excepcion.message!! }
         }
     }
 }

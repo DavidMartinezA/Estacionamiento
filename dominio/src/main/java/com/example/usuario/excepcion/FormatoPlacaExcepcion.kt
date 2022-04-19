@@ -1,3 +1,5 @@
 package com.example.usuario.excepcion
 
-class FormatoPlacaExcepcion: Exception("Formato De Placa No Valido")
+import com.example.compartido.excepciones.EstacionamientoExcepcion
+
+class FormatoPlacaExcepcion : EstacionamientoExcepcion("Formato De Placa No Valido")

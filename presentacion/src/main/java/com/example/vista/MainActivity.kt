@@ -25,9 +25,15 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        generarDialogoExcepciones()
+        ingresarUsuario()
+        cobrarTarifa()
+    }
+
+    private fun generarDialogoExcepciones() {
         val dialogoExcepciones = AlertDialog.Builder(this)
         dialogoExcepciones.setTitle(getString(R.string.app_name))
-
         lifecycleScope.launchWhenStarted {
             viewModel.ingresoVehiculo.collect { excepcion ->
                 if (excepcion.isNotEmpty()) {
@@ -37,39 +43,36 @@ class MainActivity : AppCompatActivity() {
                 }
             }
         }
+    }
 
+    private fun ingresarUsuario() {
         binding.botonIngreso.setOnClickListener {
-            botonIngresarUsuario()
+            val textoPlaca = binding.ingresoPlacaVehiculoCalculoCobro.text.toString()
+            when {
+                binding.radioButtonCarro.isChecked -> {
+                    viewModel.ingresarUsuarioCarro(textoPlaca)
+                }
+                binding.radioButtonMoto.isChecked -> {
+                    viewModel.ingresarUsuarioMoto(textoPlaca, altoCilindraje = false)
+                }
+                binding.radioButtonMotoCilindraje.isChecked -> {
+                    viewModel.ingresarUsuarioMoto(textoPlaca, altoCilindraje = true)
+                }
+                else -> {
+                    viewModel.ingresarUsuarioCarro(textoPlaca)
+                }
+            }
         }
+    }
+
+    private fun cobrarTarifa() {
         binding.botonCobroTarifa.setOnClickListener {
-            botonCobrarTarifa()
-        }
-    }
-
-    private fun botonIngresarUsuario() {
-        val textoPlaca = binding.ingresoPlacaVehiculoCalculoCobro.text.toString()
-        when {
-            binding.radioButtonCarro.isChecked -> {
-                viewModel.ingresarUsuarioCarro(textoPlaca)
+            val textoPlaca = binding.ingresoPlacaVehiculoCalculoCobro.text.toString()
+            if (textoPlaca.isNotEmpty()) {
+                val intento = Intent(this, ServiciosEstacionamiento::class.java)
+                intento.putExtra(PLACA_VEHICULO, textoPlaca)
+                startActivity(intento)
             }
-            binding.radioButtonMoto.isChecked -> {
-                viewModel.ingresarUsuarioMoto(textoPlaca, altoCilindraje = false)
-            }
-            binding.radioButtonMotoCilindraje.isChecked -> {
-                viewModel.ingresarUsuarioMoto(textoPlaca, altoCilindraje = true)
-            }
-            else -> {
-                viewModel.ingresarUsuarioCarro(textoPlaca)
-            }
-        }
-    }
-
-    private fun botonCobrarTarifa() {
-        val textoPlaca = binding.ingresoPlacaVehiculoCalculoCobro.text.toString()
-        if (textoPlaca.isNotEmpty()) {
-            val intento = Intent(this, ServiciosEstacionamiento::class.java)
-            intento.putExtra(PLACA_VEHICULO, textoPlaca)
-            startActivity(intento)
         }
     }
 }

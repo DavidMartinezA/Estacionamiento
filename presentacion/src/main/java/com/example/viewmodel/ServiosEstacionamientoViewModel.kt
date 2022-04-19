@@ -5,8 +5,7 @@ import androidx.lifecycle.viewModelScope
 import com.example.cobro.modelo.CobroTarifaCarro
 import com.example.cobro.modelo.CobroTarifaMoto
 import com.example.cobro.servicio.ServicioCobroTarifa
-import com.example.estacionamiento.excepcion.UsuarioNoExisteExcepcion
-import com.example.usuario.excepcion.FormatoPlacaExcepcion
+import com.example.compartido.excepciones.EstacionamientoExcepcion
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -28,19 +27,16 @@ class ServiosEstacionamientoViewModel @Inject constructor(private val servicioCo
             } else {
                 mutableCobro.value = servicioCobroTarifa.cobroDuracionServicio(placaUsuario, CobroTarifaMoto())
             }
-        } catch (e: UsuarioNoExisteExcepcion) {
-            mutableExcepcion.value = "Usuario No Existe"
+        } catch (excepcion: EstacionamientoExcepcion) {
+            excepcion.message?.let { mutableExcepcion.value = excepcion.message!! }
         }
     }
 
-    fun eliminarUsuario(placaUsuario: String) = viewModelScope.launch {
+    fun salidaUsuarioEstacionamiento(placaUsuario: String) = viewModelScope.launch {
         try {
             servicioCobroTarifa.eliminarUsuario(placaUsuario)
-        } catch (e: FormatoPlacaExcepcion) {
-            mutableExcepcion.value = "Placa Vehiculo No Permitida"
-        } catch (e: UsuarioNoExisteExcepcion) {
-            mutableExcepcion.value = "Usuario No Existe"
+        } catch (excepcion: EstacionamientoExcepcion) {
+            excepcion.message?.let { mutableExcepcion.value = excepcion.message!! }
         }
-
     }
 }
