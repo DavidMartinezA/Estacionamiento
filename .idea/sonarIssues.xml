@@ -1298,6 +1298,11 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/presentacion/src/main/res/layout/activity_cobro_estacionamiento.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/presentacion/src/main/res/layout/activity_cobro_servicio.xml">
           <value>
             <set />

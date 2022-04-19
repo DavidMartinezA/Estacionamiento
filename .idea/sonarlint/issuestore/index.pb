@@ -71,8 +71,6 @@ H
 ‹infraestructura/src/androidTest/java/com/example/example/infraestructura/accesodatos/compartido/basededatos/BaseDatosUsuarioVehiculoTest.kt,4/8/48fe9d71bb1f40d3d1570f05af25aa42bf50a0f9
 ˆ
 Xpresentacion/src/main/java/com/example/inyecciondependecias/EstacionamientoAplicacion.kt,1/1/110fcb7dc12760158082e5e5b1e0dc2115a60064
-s
-Cdominio/src/main/java/com/example/usuario/modelo/UsuarioVehiculo.kt,7/9/791b59fc5fb33cf16c3b8ffed487efe2a1f52413
 x
 Hdominio/src/main/java/com/example/usuario/modelo/UsuarioVehiculoCarro.kt,1/9/19fe410b6c055bbdbc1910348497a1aeaebf6190
 :
