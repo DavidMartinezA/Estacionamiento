@@ -26,18 +26,21 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         val dialogoExcepciones = AlertDialog.Builder(this)
-        dialogoExcepciones.setTitle("Ingreso")
+        dialogoExcepciones.setTitle("Estacionamiento")
 
         lifecycleScope.launchWhenStarted {
             viewModel.ingresoVehiculo.collect { excepcion ->
-                dialogoExcepciones.setMessage(excepcion)
-                    .show()
+                if (excepcion.isNotEmpty()) {
+                    dialogoExcepciones.setMessage(excepcion)
+                        .show()
+                }
             }
         }
 
         binding.botonIngreso.setOnClickListener {
             botonIngresarUsuario()
             dialogoExcepciones.setMessage("Usuario Registrado")
+                .show()
 
         }
         binding.botonCobroTarifa.setOnClickListener {

@@ -11,6 +11,7 @@ import com.example.presentacion.databinding.ActivityCobroEstacionamientoBinding
 import com.example.viewmodel.UsuarioVehiculoViewModelCobro
 import com.example.vista.MainActivity.Companion.PLACA_VEHICULO
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
 class CobroEstacionamiento : AppCompatActivity() {
@@ -37,10 +38,13 @@ class CobroEstacionamiento : AppCompatActivity() {
             }
         }
 
-        lifecycleScope.launchWhenStarted {
+        lifecycleScope.launch {
             viewModel.excepcionCobro.collect { excepcion ->
-                dialogoExcepciones.setMessage(excepcion)
-                    .show()
+                if (excepcion.isNotEmpty()) {
+                    dialogoExcepciones.setMessage(excepcion)
+                        .show()
+                }
+
             }
         }
 
