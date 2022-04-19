@@ -39,11 +39,11 @@ class UsuarioVehiculoViewModelPrincipal @Inject constructor(private val servicio
     }
 
     fun ingresarUsuarioMoto(usuarioIngresado: String, altoCilindraje: Boolean) {
-
         try {
             viewModelScope.launch {
                 servicioEstacionamiento.ingresoUsuarioEstacionamiento(
-                    EstacionamientoMoto(UsuarioVehiculoMoto(usuarioIngresado, altoCilindraje)), LocalDateTime.now().dayOfWeek.value)
+                    EstacionamientoMoto(UsuarioVehiculoMoto(usuarioIngresado, altoCilindraje)),
+                    LocalDateTime.now().dayOfWeek.value)
             }
         } catch (e: FormatoPlacaExcepcion) {
             mutableExcepcion.value = "Placa Usuario No Permitida"

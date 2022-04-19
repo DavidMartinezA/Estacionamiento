@@ -58,6 +58,7 @@ class MainActivity : AppCompatActivity() {
                 viewModel.ingresarUsuarioMoto(textoPlaca, false)
             }
             binding.radioButtonMotoCilindraje.isChecked -> {
+
                 viewModel.ingresarUsuarioMoto(textoPlaca, true)
             }
             else -> {

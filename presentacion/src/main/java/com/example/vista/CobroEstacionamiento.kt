@@ -19,7 +19,6 @@ class CobroEstacionamiento : AppCompatActivity() {
     private val viewModel: UsuarioVehiculoViewModelCobro by viewModels()
     private lateinit var binding: ActivityCobroEstacionamientoBinding
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_cobro_estacionamiento)
@@ -44,7 +43,6 @@ class CobroEstacionamiento : AppCompatActivity() {
                     dialogoExcepciones.setMessage(excepcion)
                         .show()
                 }
-
             }
         }
 
