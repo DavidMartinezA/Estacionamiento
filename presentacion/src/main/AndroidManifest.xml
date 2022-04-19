@@ -11,7 +11,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Estacionamiento">
         <activity
-            android:name="com.example.vista.CobroEstacionamiento"
+            android:name="com.example.vista.ServiciosEstacionamiento"
             android:exported="false" />
         <activity
             android:name="com.example.vista.MainActivity"

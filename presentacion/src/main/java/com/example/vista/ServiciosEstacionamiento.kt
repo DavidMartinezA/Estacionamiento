@@ -1,6 +1,5 @@
 package com.example.vista
 
-import android.content.Intent
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AlertDialog
@@ -8,16 +7,17 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import com.example.presentacion.R
 import com.example.presentacion.databinding.ActivityCobroEstacionamientoBinding
-import com.example.viewmodel.UsuarioVehiculoViewModelCobro
+import com.example.viewmodel.ServiosEstacionamientoViewModel
 import com.example.vista.MainActivity.Companion.PLACA_VEHICULO
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
-class CobroEstacionamiento : AppCompatActivity() {
+class ServiciosEstacionamiento : AppCompatActivity() {
 
-    private val viewModel: UsuarioVehiculoViewModelCobro by viewModels()
+    private val viewModel: ServiosEstacionamientoViewModel by viewModels()
     private lateinit var binding: ActivityCobroEstacionamientoBinding
+    private lateinit var placaVehiculo: String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -25,14 +25,13 @@ class CobroEstacionamiento : AppCompatActivity() {
         binding = ActivityCobroEstacionamientoBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val placaVehiculo: String = intent.getStringExtra(PLACA_VEHICULO).toString()
+        placaVehiculo = intent.getStringExtra(PLACA_VEHICULO).toString()
         val dialogoExcepciones = AlertDialog.Builder(this)
         dialogoExcepciones.setTitle("Restriccion")
-        val intento = Intent(this, MainActivity::class.java)
 
         lifecycleScope.launchWhenStarted {
             viewModel.cobroVehiculo.collect { costoServicio ->
-                val textoCobroTarifa = getString(R.string.texto_tarifa_cobrada) + costoServicio
+                val textoCobroTarifa = placaVehiculo + getString(R.string.texto_tarifa_cobrada) + costoServicio
                 binding.cobrosServicio.text = textoCobroTarifa
             }
         }
@@ -41,20 +40,22 @@ class CobroEstacionamiento : AppCompatActivity() {
             viewModel.excepcionCobro.collect { excepcion ->
                 if (excepcion.isNotEmpty()) {
                     dialogoExcepciones.setMessage(excepcion)
+                        .setPositiveButton("Aceptar") { dialog, which -> finish() }
                         .show()
                 }
             }
         }
 
         viewModel.cobroServicio(placaVehiculo)
+        botonTarifa()
 
-        binding.botonTarifa.setOnClickListener {
-            botonTarifa(placaVehiculo)
-            startActivity(intento)
-        }
     }
 
-    fun botonTarifa(placaVehiculo: String) {
-        viewModel.eliminarUsuario(placaVehiculo)
+    fun botonTarifa() {
+        binding.botonTarifa.setOnClickListener {
+            viewModel.eliminarUsuario(placaVehiculo)
+            finish()
+        }
+
     }
 }

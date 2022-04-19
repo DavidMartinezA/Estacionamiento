@@ -1058,6 +1058,16 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/presentacion/src/main/java/com/example/viewmodel/IngresoUsuariosViewModel.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/presentacion/src/main/java/com/example/viewmodel/ServiosEstacionamientoViewModel.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/presentacion/src/main/java/com/example/viewmodel/UsuarioVehiculoCarroViewModel.kt">
           <value>
             <set />
@@ -1154,6 +1164,11 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/presentacion/src/main/java/com/example/vista/PantallaPesentacion.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/presentacion/src/main/java/com/example/vista/ServiciosEstacionamiento.kt">
           <value>
             <set />
           </value>

@@ -18,17 +18,17 @@ import java.time.LocalDateTime
 import javax.inject.Inject
 
 @HiltViewModel
-class UsuarioVehiculoViewModelPrincipal @Inject constructor(private val servicioEstacionamiento: ServicioEstacionamiento) :
-    ViewModel() {
+class IngresoUsuariosViewModel @Inject constructor(private val servicioEstacionamiento: ServicioEstacionamiento) : ViewModel() {
     private val mutableExcepcion: MutableStateFlow<String> = MutableStateFlow("")
     var ingresoVehiculo: StateFlow<String> = mutableExcepcion
 
-    fun ingresarUsuarioCarro(usuarioIngresado: String) {
+    fun ingresarUsuarioCarro(usuarioIngresado: String) = viewModelScope.launch {
         try {
-            viewModelScope.launch {
-                servicioEstacionamiento.ingresoUsuarioEstacionamiento(
-                    EstacionamientoCarro(UsuarioVehiculoCarro(usuarioIngresado)), LocalDateTime.now().dayOfWeek.value)
-            }
+
+            servicioEstacionamiento.ingresoUsuarioEstacionamiento(
+                EstacionamientoCarro(UsuarioVehiculoCarro(usuarioIngresado)), LocalDateTime.now().dayOfWeek.value)
+            mutableExcepcion.value = "Usuario Registrado"
+
         } catch (e: FormatoPlacaExcepcion) {
             mutableExcepcion.value = "Placa Usuario No Permitida"
         } catch (e: IngresoNoPermitidoRestriccionExcepcion) {
@@ -38,13 +38,12 @@ class UsuarioVehiculoViewModelPrincipal @Inject constructor(private val servicio
         }
     }
 
-    fun ingresarUsuarioMoto(usuarioIngresado: String, altoCilindraje: Boolean) {
+    fun ingresarUsuarioMoto(usuarioIngresado: String, altoCilindraje: Boolean) = viewModelScope.launch {
         try {
-            viewModelScope.launch {
-                servicioEstacionamiento.ingresoUsuarioEstacionamiento(
-                    EstacionamientoMoto(UsuarioVehiculoMoto(usuarioIngresado, altoCilindraje)),
-                    LocalDateTime.now().dayOfWeek.value)
-            }
+            servicioEstacionamiento.ingresoUsuarioEstacionamiento(
+                EstacionamientoMoto(UsuarioVehiculoMoto(usuarioIngresado, altoCilindraje)),
+                LocalDateTime.now().dayOfWeek.value)
+            mutableExcepcion.value = "Usuario Registrado"
         } catch (e: FormatoPlacaExcepcion) {
             mutableExcepcion.value = "Placa Usuario No Permitida"
         } catch (e: IngresoNoPermitidoRestriccionExcepcion) {

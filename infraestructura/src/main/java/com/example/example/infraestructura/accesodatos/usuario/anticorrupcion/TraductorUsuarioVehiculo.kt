@@ -17,13 +17,17 @@ class TraductorUsuarioVehiculo {
 
     fun desdeBaseDatosADominio(entidadDatosUsuarioVehiculo: EntidadDatosUsuarioVehiculo): UsuarioVehiculo {
         return when (entidadDatosUsuarioVehiculo.tipoDeVehiculo) {
-            "Moto" -> UsuarioVehiculoMoto(entidadDatosUsuarioVehiculo.placaVehiculo, entidadDatosUsuarioVehiculo.cilindrajeAlto).also {
-                entidadDatosUsuarioVehiculo.tipoDeVehiculo = it.tipoDeVehiculo
-                entidadDatosUsuarioVehiculo.horaFechaIngresoUsuario = it.horaFechaIngresoUsuario
+            "Carro" -> {
+                UsuarioVehiculoCarro(entidadDatosUsuarioVehiculo.placaVehiculo).also {
+                    entidadDatosUsuarioVehiculo.tipoDeVehiculo = it.tipoDeVehiculo
+                    entidadDatosUsuarioVehiculo.horaFechaIngresoUsuario = it.horaFechaIngresoUsuario
+                }
             }
-            else -> UsuarioVehiculoCarro(entidadDatosUsuarioVehiculo.placaVehiculo).also {
-                entidadDatosUsuarioVehiculo.tipoDeVehiculo = it.tipoDeVehiculo
-                entidadDatosUsuarioVehiculo.horaFechaIngresoUsuario = it.horaFechaIngresoUsuario
+            else -> {
+                UsuarioVehiculoMoto(entidadDatosUsuarioVehiculo.placaVehiculo, entidadDatosUsuarioVehiculo.cilindrajeAlto).also {
+                    entidadDatosUsuarioVehiculo.tipoDeVehiculo = it.tipoDeVehiculo
+                    entidadDatosUsuarioVehiculo.horaFechaIngresoUsuario = it.horaFechaIngresoUsuario
+                }
             }
         }
     }
@@ -33,8 +37,9 @@ class TraductorUsuarioVehiculo {
         val listaDominio = ArrayList<UsuarioVehiculo>()
         listaEntidadBaseDatos.map {
             val usuarioDominio = UsuarioVehiculoCarro(it.placaVehiculo)
-            usuarioDominio.horaFechaIngresoUsuario = it.horaFechaIngresoUsuario
+            usuarioDominio.tipoDeVehiculo = it.tipoDeVehiculo
             usuarioDominio.cilndrajeAlto = it.cilindrajeAlto
+            usuarioDominio.horaFechaIngresoUsuario = it.horaFechaIngresoUsuario
             listaDominio.add(usuarioDominio)
         }
         return listaDominio

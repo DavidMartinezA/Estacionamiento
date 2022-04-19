@@ -11,10 +11,8 @@ import javax.inject.Inject
 class ServicioCobroTarifa @Inject constructor(private val repositorioUsuarioVehiculo: RepositorioUsuarioVehiculo) {
 
     private fun duracionServicioEstacionamiento(horaFechaIngresoUsuario: LocalDateTime): Int {
-        val calculoDuracionServicio = Duration.between(
-            horaFechaIngresoUsuario,
-            LocalDateTime.now()
-        ).dividedBy(60).dividedBy(60)
+        val horaSalida = LocalDateTime.now()
+        val calculoDuracionServicio = Duration.between(horaFechaIngresoUsuario, horaSalida).dividedBy(60).dividedBy(60)
 
         var horasServicioEstacionamiento = calculoDuracionServicio.seconds
 
