@@ -6,6 +6,7 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
+import com.example.presentacion.R
 import com.example.presentacion.databinding.ActivityMainBinding
 import com.example.viewmodel.IngresoUsuariosViewModel
 import dagger.hilt.android.AndroidEntryPoint
@@ -25,13 +26,13 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         val dialogoExcepciones = AlertDialog.Builder(this)
-        dialogoExcepciones.setTitle("Estacionamiento")
+        dialogoExcepciones.setTitle(getString(R.string.app_name))
 
         lifecycleScope.launchWhenStarted {
             viewModel.ingresoVehiculo.collect { excepcion ->
                 if (excepcion.isNotEmpty()) {
                     dialogoExcepciones.setMessage(excepcion)
-                        .setPositiveButton("Aceptar", null)
+                        .setPositiveButton(getString(R.string.boton_aceptar), null)
                         .show()
                 }
             }
@@ -52,10 +53,10 @@ class MainActivity : AppCompatActivity() {
                 viewModel.ingresarUsuarioCarro(textoPlaca)
             }
             binding.radioButtonMoto.isChecked -> {
-                viewModel.ingresarUsuarioMoto(textoPlaca, false)
+                viewModel.ingresarUsuarioMoto(textoPlaca, altoCilindraje = false)
             }
             binding.radioButtonMotoCilindraje.isChecked -> {
-                viewModel.ingresarUsuarioMoto(textoPlaca, true)
+                viewModel.ingresarUsuarioMoto(textoPlaca, altoCilindraje = true)
             }
             else -> {
                 viewModel.ingresarUsuarioCarro(textoPlaca)

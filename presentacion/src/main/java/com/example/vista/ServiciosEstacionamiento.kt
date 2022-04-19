@@ -27,7 +27,7 @@ class ServiciosEstacionamiento : AppCompatActivity() {
 
         placaVehiculo = intent.getStringExtra(PLACA_VEHICULO).toString()
         val dialogoExcepciones = AlertDialog.Builder(this)
-        dialogoExcepciones.setTitle("Restriccion")
+        dialogoExcepciones.setTitle(getString(R.string.usuario_no_registrado))
 
         lifecycleScope.launchWhenStarted {
             viewModel.cobroVehiculo.collect { costoServicio ->
@@ -40,7 +40,7 @@ class ServiciosEstacionamiento : AppCompatActivity() {
             viewModel.excepcionCobro.collect { excepcion ->
                 if (excepcion.isNotEmpty()) {
                     dialogoExcepciones.setMessage(excepcion)
-                        .setPositiveButton("Aceptar") { dialog, which -> finish() }
+                        .setPositiveButton(getString(R.string.boton_aceptar)) { dialog, which -> finish() }
                         .show()
                 }
             }

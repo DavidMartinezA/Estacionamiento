@@ -42,6 +42,7 @@
     <string name="texto_ingreso_motocicletas">Ingreso De Motocicletas</string>
     <string name="texto_cilindraje">Cilindraje Mayor A = 500CC</string>
     <string name="prueba">prueba</string>
+    <string name="boton_aceptar">Aceptar</string>
 
 
 </resources>

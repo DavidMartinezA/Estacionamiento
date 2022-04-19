@@ -25,7 +25,8 @@ class ServicioCobroTarifa @Inject constructor(private val repositorioUsuarioVehi
     suspend fun cobroDuracionServicio(placaUsuario: String, cobroTarifa: CobroTarifa): Int {
         if (repositorioUsuarioVehiculo.usuarioExiste(placaUsuario)) {
             val vehiculo = repositorioUsuarioVehiculo.usuarioPorPlaca(placaUsuario)
-            return cobroTarifa.cobroTarifa(vehiculo, duracionServicioEstacionamiento(vehiculo.horaFechaIngresoUsuario))
+            val horaIngreso = vehiculo.horaFechaIngresoUsuario
+            return cobroTarifa.cobroTarifa(vehiculo, duracionServicioEstacionamiento(horaIngreso))
         } else {
             throw UsuarioNoExisteExcepcion()
         }

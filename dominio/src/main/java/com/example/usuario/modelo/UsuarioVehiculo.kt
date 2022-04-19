@@ -13,7 +13,7 @@ abstract class UsuarioVehiculo(val placaVehiculo: String) {
         if (!validacionDeFormatoPlaca()) throw FormatoPlacaExcepcion()
     }
 
-    abstract val horaFechaIngresoUsuario: LocalDateTime
+    open lateinit var horaFechaIngresoUsuario: LocalDateTime
     open var cilndrajeAlto: Boolean = false
     abstract val tipoDeVehiculo: String
     private fun validacionDeFormatoPlaca(): Boolean = placaVehiculo.matches(Regex(FORMATO_PLACA))

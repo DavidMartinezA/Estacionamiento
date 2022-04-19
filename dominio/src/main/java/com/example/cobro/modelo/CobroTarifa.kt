@@ -3,7 +3,7 @@ package com.example.cobro.modelo
 import com.example.usuario.modelo.UsuarioVehiculo
 
 
-abstract class CobroTarifa() {
+abstract class CobroTarifa {
 
     companion object {
 

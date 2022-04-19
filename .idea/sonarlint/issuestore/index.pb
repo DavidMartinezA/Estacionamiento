@@ -47,8 +47,6 @@ u
 Edominio/src/test/java/com/example/cobro/modelo/CobroTarifaMotoTest.kt,f/6/f638ffd6ee1c7e1720c2aebafc685eacc1e23574
 •
 edominio/src/main/java/com/example/estacionamiento/excepcion/IngresoNoPermitidoRestriccionExcepcion.kt,2/8/2882344c4d309986459fa0f8b324813a34c022c6
-€
-Pdominio/src/main/java/com/example/estacionamiento/modelo/EstacionamientoCarro.kt,8/b/8bcc35b86a25393781dbe129a3c953660a248c6f
 ­
 }infraestructura/src/main/java/com/example/example/infraestructura/accesodatos/compartido/convertidordatos/ConvertidorDatos.kt,4/9/496590b3e7bbc8cd9b460c80652421458d22e201
 |

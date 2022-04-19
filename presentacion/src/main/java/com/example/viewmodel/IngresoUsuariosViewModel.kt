@@ -24,7 +24,6 @@ class IngresoUsuariosViewModel @Inject constructor(private val servicioEstaciona
 
     fun ingresarUsuarioCarro(usuarioIngresado: String) = viewModelScope.launch {
         try {
-
             servicioEstacionamiento.ingresoUsuarioEstacionamiento(
                 EstacionamientoCarro(UsuarioVehiculoCarro(usuarioIngresado)), LocalDateTime.now().dayOfWeek.value)
             mutableExcepcion.value = "Usuario Registrado"
