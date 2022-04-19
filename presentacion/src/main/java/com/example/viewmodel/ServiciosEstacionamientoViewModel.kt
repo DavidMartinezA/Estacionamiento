@@ -13,7 +13,7 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class ServiosEstacionamientoViewModel @Inject constructor(private val servicioCobroTarifa: ServicioCobroTarifa) : ViewModel() {
+class ServiciosEstacionamientoViewModel @Inject constructor(private val servicioCobroTarifa: ServicioCobroTarifa) : ViewModel() {
 
     private val mutableCobro: MutableStateFlow<Int> = MutableStateFlow(0)
     private val mutableExcepcion: MutableStateFlow<String> = MutableStateFlow("")

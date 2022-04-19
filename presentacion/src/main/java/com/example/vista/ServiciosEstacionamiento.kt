@@ -6,8 +6,8 @@ import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import com.example.presentacion.R
-import com.example.presentacion.databinding.ActivityCobroEstacionamientoBinding
-import com.example.viewmodel.ServiosEstacionamientoViewModel
+import com.example.presentacion.databinding.ActivityServiciosEstacionamientoBinding
+import com.example.viewmodel.ServiciosEstacionamientoViewModel
 import com.example.vista.MainActivity.Companion.PLACA_VEHICULO
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
@@ -15,14 +15,14 @@ import kotlinx.coroutines.launch
 @AndroidEntryPoint
 class ServiciosEstacionamiento : AppCompatActivity() {
 
-    private val viewModel: ServiosEstacionamientoViewModel by viewModels()
-    private lateinit var binding: ActivityCobroEstacionamientoBinding
+    private val viewModel: ServiciosEstacionamientoViewModel by viewModels()
+    private lateinit var binding: ActivityServiciosEstacionamientoBinding
     private lateinit var placaVehiculo: String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_cobro_estacionamiento)
-        binding = ActivityCobroEstacionamientoBinding.inflate(layoutInflater)
+        setContentView(R.layout.activity_servicios_estacionamiento)
+        binding = ActivityServiciosEstacionamientoBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         placaVehiculo = intent.getStringExtra(PLACA_VEHICULO).toString()
