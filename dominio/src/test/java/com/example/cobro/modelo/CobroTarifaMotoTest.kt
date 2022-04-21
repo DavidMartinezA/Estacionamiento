@@ -1,7 +1,5 @@
 package com.example.cobro.modelo
 
-
-import com.example.estacionamiento.modelo.EstacionamientoMoto
 import com.example.usuario.modelo.UsuarioVehiculoMoto
 import org.junit.Assert
 import org.junit.Test
@@ -13,12 +11,11 @@ class CobroTarifaMotoTest {
 
         //Arrange
         val usuario = UsuarioVehiculoMoto("hsu53c", true)
-        val estacionamiento = EstacionamientoMoto(usuario)
-        val cobroTarifa = CobroTarifaMoto(estacionamiento)
+        val cobroTarifa = CobroTarifaMoto()
         val duracionServicio = 10
 
         //Act
-        val tarifa = cobroTarifa.cobroTarifa(duracionServicio)
+        val tarifa = cobroTarifa.cobroTarifa(usuario, duracionServicio)
 
         //Assert
         Assert.assertEquals(tarifa, 6000)
@@ -30,12 +27,11 @@ class CobroTarifaMotoTest {
 
         //Arrange
         val usuario = UsuarioVehiculoMoto("hsu53c", false)
-        val estacionamiento = EstacionamientoMoto(usuario)
-        val cobroTarifa = CobroTarifaMoto(estacionamiento)
+        val cobroTarifa = CobroTarifaMoto()
         val duracionServicio = 10
 
         //Act
-        val tarifa = cobroTarifa.cobroTarifa(duracionServicio)
+        val tarifa = cobroTarifa.cobroTarifa(usuario, duracionServicio)
 
         //Assert
         Assert.assertEquals(tarifa, 4000)
@@ -46,12 +42,11 @@ class CobroTarifaMotoTest {
 
         //Arrange
         val usuario = UsuarioVehiculoMoto("hsu53c", false)
-        val estacionamiento = EstacionamientoMoto(usuario)
-        val cobroTarifa = CobroTarifaMoto(estacionamiento)
+        val cobroTarifa = CobroTarifaMoto()
         val duracionServicio = 120
 
         //Act
-        val tarifa = cobroTarifa.cobroTarifa(duracionServicio)
+        val tarifa = cobroTarifa.cobroTarifa(usuario, duracionServicio)
 
         //Assert
         Assert.assertEquals(tarifa, 20000)
@@ -62,12 +57,11 @@ class CobroTarifaMotoTest {
 
         //Arrange
         val usuario = UsuarioVehiculoMoto("hsu53c", true)
-        val estacionamiento = EstacionamientoMoto(usuario)
-        val cobroTarifa = CobroTarifaMoto(estacionamiento)
+        val cobroTarifa = CobroTarifaMoto()
         val duracionServicio = 129
 
         //Act
-        val tarifa = cobroTarifa.cobroTarifa(duracionServicio)
+        val tarifa = cobroTarifa.cobroTarifa(usuario, duracionServicio)
 
         //Assert
         Assert.assertEquals(tarifa, 26000)
@@ -78,12 +72,11 @@ class CobroTarifaMotoTest {
 
         //Arrange
         val usuario = UsuarioVehiculoMoto("hsu53c", false)
-        val estacionamiento = EstacionamientoMoto(usuario)
-        val cobroTarifa = CobroTarifaMoto(estacionamiento)
+        val cobroTarifa = CobroTarifaMoto()
         val duracionServicio = 249
 
         //Act
-        val tarifa = cobroTarifa.cobroTarifa(duracionServicio)
+        val tarifa = cobroTarifa.cobroTarifa(usuario, duracionServicio)
 
         //Assert
         Assert.assertEquals(tarifa, 44000)
@@ -94,12 +87,11 @@ class CobroTarifaMotoTest {
 
         //Arrange
         val usuario = UsuarioVehiculoMoto("hsu53c", false)
-        val estacionamiento = EstacionamientoMoto(usuario)
-        val cobroTarifa = CobroTarifaMoto(estacionamiento)
+        val cobroTarifa = CobroTarifaMoto()
         val duracionServicio = 247
 
         //Act
-        val tarifa = cobroTarifa.cobroTarifa(duracionServicio)
+        val tarifa = cobroTarifa.cobroTarifa(usuario, duracionServicio)
 
         //Assert
         Assert.assertEquals(tarifa, 43500)
@@ -110,12 +102,11 @@ class CobroTarifaMotoTest {
 
         //Arrange
         val usuario = UsuarioVehiculoMoto("hsu53c", false)
-        val estacionamiento = EstacionamientoMoto(usuario)
-        val cobroTarifa = CobroTarifaMoto(estacionamiento)
+        val cobroTarifa = CobroTarifaMoto()
         val duracionServicio = 2475
 
         //Act
-        val tarifa = cobroTarifa.cobroTarifa(duracionServicio)
+        val tarifa = cobroTarifa.cobroTarifa(usuario, duracionServicio)
 
         //Assert
         Assert.assertEquals(tarifa, 0)

@@ -563,6 +563,11 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/dominio/src/test/java/com/example/usuario/modelo/UsuarioVehiculoMotoTest.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/dominio/src/test/java/com/usuario/UsuarioCarroTest.kt">
           <value>
             <set />
@@ -584,6 +589,11 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/dominio/src/test/java/dominio/cobro/CobroTarifaMotoTest.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/gradle.properties">
           <value>
             <set />
           </value>
@@ -914,6 +924,76 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/presentacion/build/tmp/kapt3/stubs/debug/com/example/vista/CobroEstacionamiento.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/presentacion/src/androidTest/java/com/example/vista/EstacionamientoTest.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/presentacion/src/androidTest/java/com/example/vista/IngresoCarroTest.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/presentacion/src/androidTest/java/com/example/vista/IngresoUsuarioCarroTest.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/presentacion/src/androidTest/java/com/example/vista/IngresoUsuarioMoto.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/presentacion/src/androidTest/java/com/example/vista/IngresoUsuarioMotoTest.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/presentacion/src/androidTest/java/com/example/vista/MainActivityTest.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/presentacion/src/androidTest/java/com/example/vista/PantallaPesentacionTest.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/presentacion/src/androidTest/java/com/example/vista/PruebaTest.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/presentacion/src/androidTest/java/com/example/vista/ServicioEstacionamientoCobroCarroTest.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/presentacion/src/androidTest/java/com/example/vista/ServicioEstacionamientoCobroMotoCcTest.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/presentacion/src/androidTest/java/com/example/vista/ServicioEstacionamientoCobroMotoTest.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/presentacion/src/androidTest/java/com/example/vista/ServicioEstacionamientoMotoTest.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/presentacion/src/androidTest/java/com/example/vista/ServicioEstacionamientoTest.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/presentacion/src/androidTest/java/com/example/vista/ingresoUsuarioCarroTest.kt">
           <value>
             <set />
           </value>

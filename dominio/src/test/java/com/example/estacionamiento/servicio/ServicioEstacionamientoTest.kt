@@ -46,7 +46,7 @@ class ServicioEstacionamientoTest {
 
         //Act
         val consultaDeListaUsuarios =
-            ServicioEstacionamiento(estacionamientoCarro, repositorioUsuarioVehiculo).consultarListaUsuarios()
+            ServicioEstacionamiento(repositorioUsuarioVehiculo).consultarListaUsuarios()
 
         //Assert
         Assert.assertEquals(listaUsuarios, consultaDeListaUsuarios)
@@ -60,7 +60,7 @@ class ServicioEstacionamientoTest {
 
         //Act
         val capacidad =
-            ServicioEstacionamiento(estacionamientoCarro, repositorioUsuarioVehiculo).consultaDisponibilidadEstacionamiento()
+            ServicioEstacionamiento(repositorioUsuarioVehiculo).consultaDisponibilidadEstacionamiento(estacionamientoCarro)
 
         //Assert
         Assert.assertTrue(capacidad)
@@ -81,7 +81,7 @@ class ServicioEstacionamientoTest {
         //Act
         runTest {
             capacidad =
-                ServicioEstacionamiento(estacionamientoMoto, repositorioUsuarioVehiculo).consultaDisponibilidadEstacionamiento()
+                ServicioEstacionamiento(repositorioUsuarioVehiculo).consultaDisponibilidadEstacionamiento(estacionamientoMoto)
         }
         //Assert
         Assert.assertTrue(capacidad)
@@ -92,12 +92,12 @@ class ServicioEstacionamientoTest {
 
         //Arrange
         val diaLunes = 1
-        Mockito.`when`(repositorioUsuarioVehiculo.usuarioExiste(usuarioVehiculoCarro)).thenReturn(false)
+        Mockito.`when`(repositorioUsuarioVehiculo.usuarioExiste(usuarioVehiculoCarro.placaVehiculo)).thenReturn(false)
         Mockito.`when`(repositorioUsuarioVehiculo.listaUsuarios()).thenReturn(listaUsuarios)
         Mockito.`when`(repositorioUsuarioVehiculo.guardarUsuario(usuarioVehiculoCarro)).thenReturn(Unit)
 
         //Act
-        ServicioEstacionamiento(estacionamientoCarro, repositorioUsuarioVehiculo).ingresoUsuarioEstacionamiento(diaLunes)
+        ServicioEstacionamiento(repositorioUsuarioVehiculo).ingresoUsuarioEstacionamiento(estacionamientoCarro, diaLunes)
 
         //Assert
         verify(repositorioUsuarioVehiculo, times(1)).guardarUsuario(usuarioVehiculoCarro)
@@ -112,13 +112,13 @@ class ServicioEstacionamientoTest {
         val estacionamientoCarro = EstacionamientoCarro(usuarioCarro)
 
         runTest {
-            Mockito.`when`(repositorioUsuarioVehiculo.usuarioExiste(usuarioCarro)).thenReturn(false)
+            Mockito.`when`(repositorioUsuarioVehiculo.usuarioExiste(usuarioCarro.placaVehiculo)).thenReturn(false)
             Mockito.`when`(repositorioUsuarioVehiculo.listaUsuarios()).thenReturn(listaUsuarios)
         }
 
         Assert.assertThrows(IngresoNoPermitidoRestriccionExcepcion::class.java) {
             runTest {
-                ServicioEstacionamiento(estacionamientoCarro, repositorioUsuarioVehiculo).ingresoUsuarioEstacionamiento(diaMiercoles)
+                ServicioEstacionamiento(repositorioUsuarioVehiculo).ingresoUsuarioEstacionamiento(estacionamientoCarro, diaMiercoles)
             }
         }
     }
@@ -128,16 +128,16 @@ class ServicioEstacionamientoTest {
 
         //Arrange
         val diaMiercoles = 3
-        val servicioEstacionamientoCarro = ServicioEstacionamiento(estacionamientoCarro, repositorioUsuarioVehiculo)
+        val servicioEstacionamientoCarro = ServicioEstacionamiento(repositorioUsuarioVehiculo)
         runTest {
-            Mockito.`when`(repositorioUsuarioVehiculo.usuarioExiste(usuarioVehiculoCarro)).thenReturn(true)
+            Mockito.`when`(repositorioUsuarioVehiculo.usuarioExiste(usuarioVehiculoCarro.placaVehiculo)).thenReturn(true)
         }
 
         //Act
         //Assert
         Assert.assertThrows(UsuarioYaExisteExcepcion::class.java) {
             runTest {
-                servicioEstacionamientoCarro.ingresoUsuarioEstacionamiento(diaMiercoles)
+                servicioEstacionamientoCarro.ingresoUsuarioEstacionamiento(estacionamientoCarro, diaMiercoles)
             }
         }
     }
@@ -146,16 +146,16 @@ class ServicioEstacionamientoTest {
     fun eliminarUsuario_elUsuarioNoExiste_lanzarUnaExcepcion() {
 
         //Arrange
-        val servicioEstacionamientoCarro = ServicioEstacionamiento(estacionamientoCarro, repositorioUsuarioVehiculo)
+        val servicioEstacionamientoCarro = ServicioEstacionamiento(repositorioUsuarioVehiculo)
         runTest {
-            Mockito.`when`(repositorioUsuarioVehiculo.usuarioExiste(usuarioVehiculoCarro)).thenReturn(false)
+            Mockito.`when`(repositorioUsuarioVehiculo.usuarioExiste(usuarioVehiculoCarro.placaVehiculo)).thenReturn(false)
         }
         //Act
         //Assert
         Assert.assertThrows(UsuarioNoExisteExcepcion::class.java) {
             runTest {
 
-                servicioEstacionamientoCarro.eliminarUsuario()
+                servicioEstacionamientoCarro.eliminarUsuario(usuarioVehiculoCarro.placaVehiculo)
             }
         }
     }
@@ -165,15 +165,15 @@ class ServicioEstacionamientoTest {
     fun eliminarUsuario_elUsuarioExiste_eliminaElUsuario() {
 
         //Arrange
-        val servicioEstacionamientoCarro = ServicioEstacionamiento(estacionamientoCarro, repositorioUsuarioVehiculo)
+        val servicioEstacionamientoCarro = ServicioEstacionamiento(repositorioUsuarioVehiculo)
         runTest {
-            Mockito.`when`(repositorioUsuarioVehiculo.usuarioExiste(usuarioVehiculoCarro)).thenReturn(true)
+            Mockito.`when`(repositorioUsuarioVehiculo.usuarioExiste(usuarioVehiculoCarro.placaVehiculo)).thenReturn(true)
         }
 
         //Act
         //Assert
         runTest {
-            servicioEstacionamientoCarro.eliminarUsuario()
+            servicioEstacionamientoCarro.eliminarUsuario(usuarioVehiculoCarro.placaVehiculo)
         }
     }
 
