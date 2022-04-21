@@ -7,5 +7,5 @@ class UsuarioVehiculoMoto(placaVehiculo: String, var cilindrajeAlto: Boolean) :
 
     override val tipoDeVehiculo: String = "Moto"
     override var horaFechaIngresoUsuario: LocalDateTime = LocalDateTime.now()
-
+    override var cilndrajeAlto = cilindrajeAlto
 }

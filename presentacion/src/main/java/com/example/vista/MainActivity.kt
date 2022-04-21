@@ -53,10 +53,10 @@ class MainActivity : AppCompatActivity() {
                     viewModel.ingresarUsuarioCarro(textoPlaca)
                 }
                 binding.radioButtonMoto.isChecked -> {
-                    viewModel.ingresarUsuarioMoto(textoPlaca, altoCilindraje = false)
+                    viewModel.ingresarUsuarioMoto(textoPlaca, false)
                 }
                 binding.radioButtonMotoCilindraje.isChecked -> {
-                    viewModel.ingresarUsuarioMoto(textoPlaca, altoCilindraje = true)
+                    viewModel.ingresarUsuarioMoto(textoPlaca, true)
                 }
                 else -> {
                     viewModel.ingresarUsuarioCarro(textoPlaca)
