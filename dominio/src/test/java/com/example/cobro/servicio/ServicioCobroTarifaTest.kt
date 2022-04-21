@@ -32,33 +32,33 @@ class ServicioCobroTarifaTest {
     }
 
     @Test
-    fun duracionServicioEstacionamiento_duracionDeCincoHorasYMedia_retornaDuracionServicioSeisHoras() {
+    fun duracionServicioEstacionamiento_duracionDeSeisHoras_retornaDuracionServicioSeisHoras() {
 
         //Arrange
         val usuario = UsuarioVehiculoCarro("hsu531")
-        usuario.horaFechaIngresoUsuario = LocalDateTime.now().minusHours(6)
+        usuario.horaFechaIngresoUsuario = LocalDateTime.now().minusHours(5)
         ServicioEstacionamiento(repositorioUsuarioVehiculo)
         val servicioCobroTarifaCarro = ServicioCobroTarifa(repositorioUsuarioVehiculo)
         //Act
         val duracionServicio = servicioCobroTarifaCarro.duracionServicioEstacionamiento(usuario)
 
         //Assert
-        Assert.assertEquals(duracionServicio, 7)
+        Assert.assertEquals(duracionServicio, 6)
 
     }
 
     @Test
-    fun duracionServicioEstacionamiento_duracionDeOchoHorasYMedia_retornaDuracionServicioNueveHoras() {
+    fun duracionServicioEstacionamiento_duracionDeOchoHoras_retornaDuracionServicioNueveHoras() {
 
         //Arrange
         val usuario = UsuarioVehiculoCarro("hsu531")
-        usuario.horaFechaIngresoUsuario = LocalDateTime.now().minusHours(9)
+        usuario.horaFechaIngresoUsuario = LocalDateTime.now().minusHours(8)
         val servicioCobroTarifaCarro = ServicioCobroTarifa(repositorioUsuarioVehiculo)
         //Act
         val duracionServicio = servicioCobroTarifaCarro.duracionServicioEstacionamiento(usuario)
 
         //Assert
-        Assert.assertEquals(duracionServicio, 10)
+        Assert.assertEquals(duracionServicio, 9)
 
     }
 

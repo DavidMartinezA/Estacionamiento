@@ -185,7 +185,7 @@ class BaseDatosUsuarioVehiculoTest {
 
         //Arrange
         usuarioVehiculoDao = baseDatosEntidades.usuarioVehiculoDao()
-        val usuarioCarro = UsuarioVehiculoMoto("hsu533")
+        val usuarioCarro = UsuarioVehiculoMoto("hsu533", false)
         val traductor = TraductorUsuarioVehiculo().desdeDominioABaseDatos(usuarioCarro)
 
         //Act

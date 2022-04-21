@@ -35,8 +35,6 @@ O
 €infraestructura/src/main/java/com/example/example/infraestructura/accesodatos/compartido/basededatos/BaseDatosUsuarioVehiculo.kt,3/e/3ed934130cacc661cc29263d2e4a29a2aee9bcac
 H
 sonar-project.properties,2/5/2538046035efb77ecc44e1fd2eec1e2641594d4c
-¼
-‹infraestructura/src/androidTest/java/com/example/example/infraestructura/accesodatos/compartido/basededatos/BaseDatosUsuarioVehiculoTest.kt,4/8/48fe9d71bb1f40d3d1570f05af25aa42bf50a0f9
 :
 
 .gitignore,a/5/a5cc2925ca8258af241be7e5b0381edf30266302
@@ -44,10 +42,6 @@ H
 Odominio/src/main/java/com/example/estacionamiento/modelo/EstacionamientoMoto.kt,f/d/fdc1979972a00be4483f4c2899994c0955b72abf
 D
 dominio/build.gradle,d/7/d71e7ab1854167962f7335fc962f525692922e9e
-r
-Bdominio/src/main/java/com/example/cobro/modelo/CobroTarifaCarro.kt,f/5/f54df61a6f1689a8416ff6081a9cda3c28294348
-q
-Adominio/src/main/java/com/example/cobro/modelo/CobroTarifaMoto.kt,8/3/83c2f66a4d15529a3a6d4a4e8f8f93b9420be923
 ˆ
 Xpresentacion/src/main/java/com/example/inyecciondependecias/EstacionamientoAplicacion.kt,1/1/110fcb7dc12760158082e5e5b1e0dc2115a60064
 Ÿ
