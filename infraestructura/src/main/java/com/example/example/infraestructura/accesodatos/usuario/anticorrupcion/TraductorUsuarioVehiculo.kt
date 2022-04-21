@@ -19,14 +19,14 @@ class TraductorUsuarioVehiculo {
         return when (entidadDatosUsuarioVehiculo.tipoDeVehiculo) {
             "Carro" -> {
                 UsuarioVehiculoCarro(entidadDatosUsuarioVehiculo.placaVehiculo).also {
-                    entidadDatosUsuarioVehiculo.tipoDeVehiculo = it.tipoDeVehiculo
-                    entidadDatosUsuarioVehiculo.horaFechaIngresoUsuario = it.horaFechaIngresoUsuario
+                    it.tipoDeVehiculo = entidadDatosUsuarioVehiculo.tipoDeVehiculo
+                    it.horaFechaIngresoUsuario = entidadDatosUsuarioVehiculo.horaFechaIngresoUsuario
                 }
             }
             else -> {
                 UsuarioVehiculoMoto(entidadDatosUsuarioVehiculo.placaVehiculo, entidadDatosUsuarioVehiculo.cilindrajeAlto).also {
-                    entidadDatosUsuarioVehiculo.tipoDeVehiculo = it.tipoDeVehiculo
-                    entidadDatosUsuarioVehiculo.horaFechaIngresoUsuario = it.horaFechaIngresoUsuario
+                    it.tipoDeVehiculo = entidadDatosUsuarioVehiculo.tipoDeVehiculo
+                    it.horaFechaIngresoUsuario = entidadDatosUsuarioVehiculo.horaFechaIngresoUsuario
                 }
             }
         }

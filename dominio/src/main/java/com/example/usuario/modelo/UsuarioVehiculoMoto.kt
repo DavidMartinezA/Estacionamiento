@@ -5,7 +5,7 @@ import java.time.LocalDateTime
 class UsuarioVehiculoMoto(placaVehiculo: String, var cilindrajeAlto: Boolean) :
     UsuarioVehiculo(placaVehiculo) {
 
-    override val tipoDeVehiculo: String = "Moto"
-    override var horaFechaIngresoUsuario: LocalDateTime = LocalDateTime.now()
+    override var tipoDeVehiculo: String = "Moto"
     override var cilndrajeAlto = cilindrajeAlto
+    override var horaFechaIngresoUsuario = LocalDateTime.now()
 }

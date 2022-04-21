@@ -2,9 +2,8 @@ package com.example.estacionamiento.modelo
 
 import com.example.usuario.modelo.UsuarioVehiculo
 
-abstract class Estacionamiento(
-    val usuarioVehiculo: UsuarioVehiculo,
-) {
+
+abstract class Estacionamiento(var usuarioVehiculo: UsuarioVehiculo) {
 
     companion object {
         private const val RESTRICCION_INGRESO_PLACA = 'A'

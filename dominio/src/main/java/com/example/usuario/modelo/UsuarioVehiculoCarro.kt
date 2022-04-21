@@ -6,5 +6,5 @@ class UsuarioVehiculoCarro(placaVehiculo: String) : UsuarioVehiculo(placaVehicul
 
     override var cilndrajeAlto: Boolean = false
     override var tipoDeVehiculo: String = "Carro"
-    override var horaFechaIngresoUsuario: LocalDateTime = LocalDateTime.now()
+    override var horaFechaIngresoUsuario = LocalDateTime.now()
 }

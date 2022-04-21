@@ -3,6 +3,7 @@ package com.example.usuario.modelo
 import com.example.usuario.excepcion.FormatoPlacaExcepcion
 import java.time.LocalDateTime
 
+
 abstract class UsuarioVehiculo(val placaVehiculo: String) {
 
     companion object {
@@ -13,9 +14,10 @@ abstract class UsuarioVehiculo(val placaVehiculo: String) {
         if (!validacionDeFormatoPlaca()) throw FormatoPlacaExcepcion()
     }
 
-    open lateinit var horaFechaIngresoUsuario: LocalDateTime
     open var cilndrajeAlto: Boolean = false
     abstract val tipoDeVehiculo: String
+    abstract var horaFechaIngresoUsuario: LocalDateTime
     private fun validacionDeFormatoPlaca(): Boolean = placaVehiculo.matches(Regex(FORMATO_PLACA))
+
 
 }
