@@ -100,7 +100,6 @@ class ServicioCobroTarifaTest {
 
     }
 
-    //todo refactorizar test
     @Test
     fun cobroDuracionServicio_usuarioMotoUnaHorasCilindrajeAlto_cobroDeTarifa() {
 
