@@ -100,4 +100,59 @@ class ServicioCobroTarifaTest {
 
     }
 
+    @Test
+    fun cobroDuracionServicio_usuarioMotoUnaHorasCilindrajeAlto_cobroDeTarifa() {
+
+        //Arrange
+        val usuario = UsuarioVehiculoMoto("hsu531", true)
+        usuario.horaFechaIngresoUsuario.minusHours(1)
+        val cobroTarifaMoto = CobroTarifaMoto()
+        val servicioCobroTarifaMoto = ServicioCobroTarifa(repositorioUsuarioVehiculo)
+
+        //Act
+        //Assert
+        runTest {
+            Mockito.`when`(repositorioUsuarioVehiculo.usuarioExiste(usuario.placaVehiculo)).thenReturn(true)
+            Mockito.`when`(repositorioUsuarioVehiculo.usuarioPorPlaca(usuario.placaVehiculo)).thenReturn(usuario)
+
+            val servicio = servicioCobroTarifaMoto.cobroDuracionServicio(usuario.placaVehiculo, cobroTarifaMoto)
+            Assert.assertEquals(servicio, 2500)
+        }
+    }
+
+    @Test
+    fun eliminarUsuario_usuarioExiste_usuarioEliminado() {
+
+        //Arrange
+        val usuario = UsuarioVehiculoMoto("hsu531", true)
+        val servicioCobroTarifa = ServicioCobroTarifa(repositorioUsuarioVehiculo)
+
+        //Act
+        //Assert
+        runTest {
+            val servicio = servicioCobroTarifa.eliminarUsuario(usuario.placaVehiculo)
+
+            Assert.assertNotNull(servicio)
+        }
+    }
+
+    @Test
+    fun obtenerVehiculoPorPlaca_usuarioExiste_usuarioRegistradoPreviamente() {
+
+        //Arrange
+        val usuario = UsuarioVehiculoMoto("hsu531", true)
+        val servicioCobroTarifa = ServicioCobroTarifa(repositorioUsuarioVehiculo)
+
+        //Act
+        //Assert
+        runTest {
+            Mockito.`when`(repositorioUsuarioVehiculo.usuarioPorPlaca(usuario.placaVehiculo)).thenReturn(usuario)
+            Mockito.`when`(repositorioUsuarioVehiculo.usuarioExiste(usuario.placaVehiculo)).thenReturn(true)
+            val servicio = servicioCobroTarifa.obtenerVehiculoPorPlaca(usuario.placaVehiculo)
+
+            Assert.assertEquals(servicio, usuario)
+        }
+    }
+
+
 }
