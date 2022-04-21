@@ -100,26 +100,4 @@ class ServicioCobroTarifaTest {
 
     }
 
-    //todo refactorizar test
-    /*@Test
-    fun cobroDuracionServicio_usuarioMotoSeisHorasCilindrajeAlto_cobroDeTarifa() {
-
-        //Arrange
-        val usuario = UsuarioVehiculoMoto("hsu531", true)
-        usuario.horaFechaIngresoUsuario = LocalDateTime.now().minusHours(6)
-        val cobroTarifaMoto = CobroTarifaMoto()
-        val servicioCobroTarifaMoto = ServicioCobroTarifa(repositorioUsuarioVehiculo)
-
-
-        //Act
-        runTest {
-            Mockito.`when`(repositorioUsuarioVehiculo.usuarioExiste(usuario.placaVehiculo)).thenReturn(true)
-            val  servicio = servicioCobroTarifaMoto.cobroDuracionServicio(usuario.placaVehiculo,cobroTarifaMoto)
-            Assert.assertEquals(servicio, 3000)
-        }
-
-        //Assert
-
-    }*/
-
 }
