@@ -32,33 +32,33 @@ class ServicioCobroTarifaTest {
     }
 
     @Test
-    fun duracionServicioEstacionamiento_duracionDeCincoHorasYMedia_retornaDuracionServicioSeisHoras() {
+    fun duracionServicioEstacionamiento_duracionDeSeisHoras_retornaDuracionServicioSeisHoras() {
 
         //Arrange
         val usuario = UsuarioVehiculoCarro("hsu531")
-        usuario.horaFechaIngresoUsuario = LocalDateTime.now().minusHours(6)
+        usuario.horaFechaIngresoUsuario = LocalDateTime.now().minusHours(5)
         ServicioEstacionamiento(repositorioUsuarioVehiculo)
         val servicioCobroTarifaCarro = ServicioCobroTarifa(repositorioUsuarioVehiculo)
         //Act
         val duracionServicio = servicioCobroTarifaCarro.duracionServicioEstacionamiento(usuario)
 
         //Assert
-        Assert.assertEquals(duracionServicio, 7)
+        Assert.assertEquals(duracionServicio, 6)
 
     }
 
     @Test
-    fun duracionServicioEstacionamiento_duracionDeOchoHorasYMedia_retornaDuracionServicioNueveHoras() {
+    fun duracionServicioEstacionamiento_duracionDeOchoHoras_retornaDuracionServicioNueveHoras() {
 
         //Arrange
         val usuario = UsuarioVehiculoCarro("hsu531")
-        usuario.horaFechaIngresoUsuario = LocalDateTime.now().minusHours(9)
+        usuario.horaFechaIngresoUsuario = LocalDateTime.now().minusHours(8)
         val servicioCobroTarifaCarro = ServicioCobroTarifa(repositorioUsuarioVehiculo)
         //Act
         val duracionServicio = servicioCobroTarifaCarro.duracionServicioEstacionamiento(usuario)
 
         //Assert
-        Assert.assertEquals(duracionServicio, 10)
+        Assert.assertEquals(duracionServicio, 9)
 
     }
 
@@ -101,25 +101,57 @@ class ServicioCobroTarifaTest {
     }
 
     //todo refactorizar test
-    /*@Test
-    fun cobroDuracionServicio_usuarioMotoSeisHorasCilindrajeAlto_cobroDeTarifa() {
+    @Test
+    fun cobroDuracionServicio_usuarioMotoUnaHorasCilindrajeAlto_cobroDeTarifa() {
 
         //Arrange
         val usuario = UsuarioVehiculoMoto("hsu531", true)
-        usuario.horaFechaIngresoUsuario = LocalDateTime.now().minusHours(6)
+        usuario.horaFechaIngresoUsuario.minusHours(1)
         val cobroTarifaMoto = CobroTarifaMoto()
         val servicioCobroTarifaMoto = ServicioCobroTarifa(repositorioUsuarioVehiculo)
 
-
         //Act
+        //Assert
         runTest {
             Mockito.`when`(repositorioUsuarioVehiculo.usuarioExiste(usuario.placaVehiculo)).thenReturn(true)
-            val  servicio = servicioCobroTarifaMoto.cobroDuracionServicio(usuario.placaVehiculo,cobroTarifaMoto)
-            Assert.assertEquals(servicio, 3000)
+            Mockito.`when`(repositorioUsuarioVehiculo.usuarioPorPlaca(usuario.placaVehiculo)).thenReturn(usuario)
+
+            val servicio = servicioCobroTarifaMoto.cobroDuracionServicio(usuario.placaVehiculo, cobroTarifaMoto)
+            Assert.assertEquals(servicio, 2500)
         }
+    }
 
+    @Test
+    fun eliminarUsuario_usuarioExiste_usuarioEliminado() {
+
+        //Arrange
+        val usuario = UsuarioVehiculoMoto("hsu531", true)
+        val servicioCobroTarifa = ServicioCobroTarifa(repositorioUsuarioVehiculo)
+
+        //Act
         //Assert
+        runTest {
+            val servicio = servicioCobroTarifa.eliminarUsuario(usuario.placaVehiculo)
 
-    }*/
+            Assert.assertNotNull(servicio)
+        }
+    }
 
+    @Test
+    fun obtenerVehiculoPorPlaca_usuarioExiste_usuarioRegistradoPreviamente() {
+
+        //Arrange
+        val usuario = UsuarioVehiculoMoto("hsu531", true)
+        val servicioCobroTarifa = ServicioCobroTarifa(repositorioUsuarioVehiculo)
+
+        //Act
+        //Assert
+        runTest {
+            Mockito.`when`(repositorioUsuarioVehiculo.usuarioPorPlaca(usuario.placaVehiculo)).thenReturn(usuario)
+            Mockito.`when`(repositorioUsuarioVehiculo.usuarioExiste(usuario.placaVehiculo)).thenReturn(true)
+            val servicio = servicioCobroTarifa.obtenerVehiculoPorPlaca(usuario.placaVehiculo)
+
+            Assert.assertEquals(servicio, usuario)
+        }
+    }
 }
