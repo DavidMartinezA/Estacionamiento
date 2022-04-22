@@ -99,14 +99,14 @@ task jacocoTestReport(type: JacocoReport, dependsOn: [':presentacion:testDebugUn
     )
 
     def mainSources = layout.files(
-            "$modulePresentacion.projectDir/src/main/java",
-            "$moduleDominio.projectDir/src/main/java",
-            "$moduleInfraestructura.projectDir/src/main/java",
+            "$modulePresentacion.projectDir/src/main/java/com.example",
+            "$moduleDominio.projectDir/src/main/java/com.example",
+            "$moduleInfraestructura.projectDir/src/main/java/com.example.accesodatos",
     )
 
     def executionFilesFromConnectedAndroidTest = fileTree(
             dir: "$modulePresentacion.buildDir", includes:
-            ["tmp/kotlin-classe/debugAndroidTest"]
+            ["tmp/kotlin-classe/debugAndroidTest/com/example/vista"]
     )
 
     def executionFileForUnitTestInModule =
