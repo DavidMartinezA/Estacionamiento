@@ -99,9 +99,9 @@ task jacocoTestReport(type: JacocoReport, dependsOn: [':presentacion:testDebugUn
     )
 
     def mainSources = layout.files(
-            "$modulePresentacion.projectDir/src/main/java/com/example",
-            "$moduleDominio.projectDir/src/main/java/com/example",
-            "$moduleInfraestructura.projectDir/src/main/java/com/example/accesodatos",
+            "$modulePresentacion.projectDir/src/main/java",
+            "$moduleDominio.projectDir/src/main/java",
+            "$moduleInfraestructura.projectDir/src/main/java/",
     )
 
     def executionFilesFromConnectedAndroidTest = fileTree(
