@@ -93,20 +93,20 @@ task jacocoTestReport(type: JacocoReport, dependsOn: [':presentacion:testDebugUn
     def moduleInfraestructura = project(':infraestructura')
 
     def directoriesToCoverage = layout.files(
-            "$modulePresentacion.buildDir/tmp/kotlin-classes/debug",
-            "$moduleDominio.buildDir/tmp/kotlin-classes/debug",
-            "$moduleInfraestructura.buildDir/tmp/kotlin-classes/debug",
+            "$modulePresentacion.buildDir/tmp/kotlin-classes/debug/com/example",
+            "$moduleDominio.buildDir/tmp/kotlin-classes/debug/com/example",
+            "$moduleInfraestructura.buildDir/tmp/kotlin-classes/debug/com/example",
     )
 
     def mainSources = layout.files(
-            "$modulePresentacion.projectDir/src/main/java",
-            "$moduleDominio.projectDir/src/main/java",
-            "$moduleInfraestructura.projectDir/src/main/java/",
+            "$modulePresentacion.projectDir/src/main/java/com/example",
+            "$moduleDominio.projectDir/src/main/java/com/example",
+            "$moduleInfraestructura.projectDir/src/main/java/com/example",
     )
 
     def executionFilesFromConnectedAndroidTest = fileTree(
-            dir: "$modulePresentacion.buildDir", includes:
-            ["tmp/kotlin-classe/debugAndroidTest/com/example/vista"]
+            dir: "buildDir", includes:
+            ["tmp/kotlin-classe/debugAndroidTest/com/example"]
     )
 
     def executionFileForUnitTestInModule =
