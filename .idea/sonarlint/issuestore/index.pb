@@ -17,14 +17,10 @@ J
 infraestructura/.gitignore,c/6/c66978cc1d80add11278e8f5139cba5d2a9ffdca
 B
 dominio/.gitignore,5/3/53ea31ea00225a259e42bc3fcbaf6955a893b4df
-T
-$dominio/src/main/AndroidManifest.xml,c/9/c93e86b92ecdb1b7e984b64fd28c450f7fc9e6f3
 G
 presentacion/.gitignore,e/0/e0fd2b8c1411b9d76d472e466b58f61574c3549b
 ;
 Jenkinsfile,0/c/0c2c5c506cef0ed2d3ad2b7e45e97980b66f5520
-\
-,infraestructura/src/main/AndroidManifest.xml,e/c/ecfe9cfe1525dba26b4f66e658ec445e7859167c
 O
 presentacion/proguard-rules.pro,b/7/b765c14a2dc582437cd2d723b4187e7a6d1212b3
 H
@@ -36,8 +32,6 @@ D
 dominio/build.gradle,d/7/d71e7ab1854167962f7335fc962f525692922e9e
 ˆ
 Xpresentacion/src/main/java/com/example/inyecciondependecias/EstacionamientoAplicacion.kt,1/1/110fcb7dc12760158082e5e5b1e0dc2115a60064
-Y
-)presentacion/src/main/AndroidManifest.xml,0/1/01423137c9ba83b646a644dc875abe54f9098a9e
 m
 =dominio/src/main/java/com/example/cobro/modelo/CobroTarifa.kt,7/a/7ad224bd9b82f14ad7f60af2d57952c9d05ac83e
 ƒ
