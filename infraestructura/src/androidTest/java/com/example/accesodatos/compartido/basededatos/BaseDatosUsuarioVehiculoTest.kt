@@ -1,12 +1,12 @@
-package com.example.example.infraestructura.accesodatos.compartido.basededatos
+package com.example.accesodatos.compartido.basededatos
 
 import android.content.Context
 import androidx.room.Room
 import androidx.test.core.app.ApplicationProvider
 import androidx.test.ext.junit.runners.AndroidJUnit4
-import com.example.example.infraestructura.accesodatos.usuario.anticorrupcion.TraductorUsuarioVehiculo
-import com.example.example.infraestructura.accesodatos.usuario.dao.UsuarioVehiculoDao
-import com.example.example.infraestructura.accesodatos.usuario.entidadbasedatos.EntidadDatosUsuarioVehiculo
+import com.example.accesodatos.usuario.anticorrupcion.TraductorUsuarioVehiculo
+import com.example.accesodatos.usuario.dao.UsuarioVehiculoDao
+import com.example.accesodatos.usuario.entidadbasedatos.EntidadDatosUsuarioVehiculo
 import com.example.usuario.modelo.UsuarioVehiculoCarro
 import com.example.usuario.modelo.UsuarioVehiculoMoto
 import kotlinx.coroutines.ExperimentalCoroutinesApi

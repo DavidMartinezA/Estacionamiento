@@ -1,4 +1,4 @@
-package com.example.example.infraestructura.accesodatos.usuario.entidadbasedatos
+package com.example.accesodatos.usuario.entidadbasedatos
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey

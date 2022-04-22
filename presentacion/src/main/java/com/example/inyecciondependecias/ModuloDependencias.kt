@@ -2,8 +2,8 @@ package com.example.inyecciondependecias
 
 import android.content.Context
 import androidx.room.Room
-import com.example.example.infraestructura.accesodatos.compartido.basededatos.BaseDatosUsuarioVehiculo
-import com.example.example.infraestructura.accesodatos.usuario.repositorio.RepositorioUsuarioVehiculoRoom
+import com.example.accesodatos.compartido.basededatos.BaseDatosUsuarioVehiculo
+import com.example.accesodatos.usuario.repositorio.RepositorioUsuarioVehiculoRoom
 import com.example.usuario.repositorio.RepositorioUsuarioVehiculo
 import dagger.Module
 import dagger.Provides

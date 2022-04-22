@@ -1,7 +1,7 @@
-package com.example.example.infraestructura.accesodatos.usuario.dao
+package com.example.accesodatos.usuario.dao
 
 import androidx.room.*
-import com.example.example.infraestructura.accesodatos.usuario.entidadbasedatos.EntidadDatosUsuarioVehiculo
+import com.example.accesodatos.usuario.entidadbasedatos.EntidadDatosUsuarioVehiculo
 
 @Dao
 interface UsuarioVehiculoDao {

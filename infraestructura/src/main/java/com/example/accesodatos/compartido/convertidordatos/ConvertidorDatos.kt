@@ -1,4 +1,4 @@
-package com.example.example.infraestructura.accesodatos.compartido.convertidordatos
+package com.example.accesodatos.compartido.convertidordatos
 
 import androidx.room.TypeConverter
 import java.time.LocalDateTime

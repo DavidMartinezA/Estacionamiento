@@ -1,6 +1,6 @@
-package com.example.example.infraestructura.accesodatos.usuario.anticorrupcion
+package com.example.accesodatos.usuario.anticorrupcion
 
-import com.example.example.infraestructura.accesodatos.usuario.entidadbasedatos.EntidadDatosUsuarioVehiculo
+import com.example.accesodatos.usuario.entidadbasedatos.EntidadDatosUsuarioVehiculo
 import com.example.usuario.modelo.UsuarioVehiculo
 import com.example.usuario.modelo.UsuarioVehiculoCarro
 import com.example.usuario.modelo.UsuarioVehiculoMoto

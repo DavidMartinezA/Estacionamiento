@@ -1,8 +1,8 @@
-package com.example.example.infraestructura.accesodatos.usuario.repositorio
+package com.example.accesodatos.usuario.repositorio
 
+import com.example.accesodatos.compartido.basededatos.BaseDatosUsuarioVehiculo
+import com.example.accesodatos.usuario.anticorrupcion.TraductorUsuarioVehiculo
 import com.example.estacionamiento.excepcion.UsuarioNoExisteExcepcion
-import com.example.example.infraestructura.accesodatos.compartido.basededatos.BaseDatosUsuarioVehiculo
-import com.example.example.infraestructura.accesodatos.usuario.anticorrupcion.TraductorUsuarioVehiculo
 import com.example.usuario.modelo.UsuarioVehiculo
 import com.example.usuario.repositorio.RepositorioUsuarioVehiculo
 import javax.inject.Inject
