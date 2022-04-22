@@ -658,6 +658,11 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/infraestructura/src/main/java/com/example/accesodatos/compartido/basededatos/BaseDatosUsuarioVehiculo.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/infraestructura/src/main/java/com/example/example/infraestructura/accesodatos/compartido/basededatos/BaseDatos.kt">
           <value>
             <set />
