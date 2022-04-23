@@ -18,6 +18,11 @@ android {
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
+        testInstrumentationRunnerArguments clearPackageData: 'true'
+
+    }
+    testOptions {
+        execution 'ANDROIDX_TEST_ORCHESTRATOR'
     }
     buildTypes {
         release {
@@ -53,6 +58,7 @@ dependencies {
     implementation "androidx.activity:activity-ktx:1.4.0"
 
     //test
+    androidTestUtil 'androidx.test:orchestrator:1.4.1'
     implementation 'androidx.test:core-ktx:1.4.0'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
@@ -87,34 +93,34 @@ dependencies {
 task jacocoTestReport(type: JacocoReport, dependsOn: [':presentacion:testDebugUnitTest',':dominio:testDebugUnitTest',
                                                       ':infraestructura:testDebugUnitTest']) {
 
-    def modulePresentacion = project(':presentacion')
     def moduleDominio = project(':dominio')
+    def modulePresentacion = project(':presentacion')
     def moduleInfraestructura = project(':infraestructura')
 
     def directoriesToCoverage = layout.files(
-            "$modulePresentacion.buildDir/tmp/kotlin-classes/debug/com/example",
             "$moduleDominio.buildDir/tmp/kotlin-classes/debug/com/example",
-            "$moduleInfraestructura.buildDir/tmp/kotlin-classes/debug/com/example",
+            "$moduleInfraestructura.buildDir/tmp/kotlin-classes/debug",
+            "$modulePresentacion.buildDir/tmp/kotlin-classes/debug"
     )
 
     def mainSources = layout.files(
-            "$modulePresentacion.projectDir/src/main/java/com/example",
             "$moduleDominio.projectDir/src/main/java/com/example",
             "$moduleInfraestructura.projectDir/src/main/java/com/example",
+            "$modulePresentacion.buildDir/src/main/java/com"
+
     )
 
     def executionFilesFromConnectedAndroidTest = fileTree(
             dir: "buildDir", includes:
-            ["tmp/kotlin-classe/debugAndroidTest/com/example"]
+            ["outputs/code_coverage/debugAndroidTest/connected"]
     )
 
     def executionFileForUnitTestInModule =
-            "$buildDir/outputs/unit_test_code_coverage/debugUnitTest/testDebugUnitTest.exec"
+            "$buildDir/outputs/code_coverage/debugUnitTest/testDebugUnitTest.exec"
 
     def executionFileForUnitTestInOtherModule =
-            "$modulePresentacion.buildDir/outputs/unit_test_code_coverage/debugUnitTest/testDebugUnitTest.exec"
-            "$moduleDominio.buildDir/outputs/unit_test_code_coverage/debugUnitTest/testDebugUnitTest.exec"
-            "$moduleInfraestructura.buildDir/outputs/unit_test_code_coverage/debugUnitTest/testDebugUnitTest.exec"
+            "$moduleDominio.buildDir/outputs/code_coverage/debugUnitTest/testDebugUnitTest.exec"
+            "$moduleInfraestructura.buildDir/outputs/code_coverage/debugUnitTest/coverage.ec"
 
     def executionFiles = layout.files(
             executionFilesFromConnectedAndroidTest,

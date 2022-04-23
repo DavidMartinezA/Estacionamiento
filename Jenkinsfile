@@ -40,6 +40,15 @@ pipeline {
         }
       }
     }
+
+    stage('UI Testing') {
+      steps{
+        echo '------------>Puebas Funcionales <------------'
+        sh './gradlew clean'
+        sh './gradlew connectedAndroidTest'
+        //deberia tener un emulador
+      }
+    }
 }
 
   post {

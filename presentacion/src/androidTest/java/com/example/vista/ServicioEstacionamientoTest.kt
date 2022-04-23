@@ -6,7 +6,7 @@ import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.matcher.ViewMatchers.*
 import androidx.test.ext.junit.rules.ActivityScenarioRule
 import androidx.test.filters.LargeTest
-import androidx.test.runner.AndroidJUnit4
+import androidx.test.internal.runner.junit4.AndroidJUnit4ClassRunner
 import com.example.presentacion.R
 import org.hamcrest.Matchers.allOf
 import org.junit.Rule
@@ -14,7 +14,7 @@ import org.junit.Test
 import org.junit.runner.RunWith
 
 @LargeTest
-@RunWith(AndroidJUnit4::class)
+@RunWith(AndroidJUnit4ClassRunner::class)
 class ServicioEstacionamientoTest {
 
     @Rule
@@ -76,7 +76,7 @@ class ServicioEstacionamientoTest {
 
         onView(allOf(withId(R.id.ingreso_placa_vehiculo_calculo_cobro),
             isDisplayed()))
-            .perform(replaceText("sss222"), closeSoftKeyboard())
+            .perform(replaceText("sYs222"), closeSoftKeyboard())
 
         onView(allOf(withId(R.id.radio_button_moto_cilindraje), withText("MOTO (Alto Cilindraje 500cc)")))
             .perform(scrollTo(), click())
@@ -94,9 +94,9 @@ class ServicioEstacionamientoTest {
             .perform(scrollTo(), click())
 
         onView(
-            allOf(withId(R.id.cobros_servicio), withText("sss222El Costo Del Servicio Es De=500"),
+            allOf(withId(R.id.cobros_servicio), withText("sYs222El Costo Del Servicio Es De=2500"),
                 withParent(withParent(withId(R.id.tarjeta_tarifa_cobro))), isDisplayed()))
-            .check(matches(withText("sss222El Costo Del Servicio Es De=500")))
+            .check(matches(withText("sYs222El Costo Del Servicio Es De=2500")))
     }
 
     @Test
