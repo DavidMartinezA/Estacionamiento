@@ -36,7 +36,8 @@ pipeline {
       steps{
         echo '------------>Puebas Funcionales <------------'
         sh './gradlew clean'
-        sh './gradlew connectedAndroidTest'
+        sh './gradlew connectedCheck'
+        sh './gradlew cAt'
     //deberia tener un emulador
     }
     }

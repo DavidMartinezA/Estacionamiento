@@ -83,7 +83,7 @@ class MainActivityTest {
     @Test
     fun ingresoUsuarioVehiculoTest_placaRestriccionMartesASabado_mensajeNoEstaAutorizadoIngresar() {
         pageObject
-            .ingresarPlacaVehiculo("ccc990")
+            .ingresarPlacaVehiculo("Acc990")
             .seleccionarRadioButtonCarro()
             .oprimirBotonIngreso()
         if (LocalDateTime.now().dayOfWeek.value == 1 || LocalDateTime.now().dayOfWeek.value == 7) {
@@ -92,6 +92,7 @@ class MainActivityTest {
             pageObject.verifiacarDialogoMensaje("No Esta Autorizado A Ingresar")
         }
     }
+
 
     @Test
     fun ingresoUsuarioVehiculoTest_placaTextoNull_mensajeFormatoPlacaNoValido() {
