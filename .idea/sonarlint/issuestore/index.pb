@@ -36,8 +36,6 @@ Ldominio/src/test/java/com/example/usuario/modelo/UsuarioVehiculoCarroTest.kt,d
 Tdominio/src/test/java/com/example/estacionamiento/modelo/EstacionamientoCarroTest.kt,9/2/9290ecd62ce9d8e707979caf4456cea09f3c63e4
 ƒ
 Sdominio/src/test/java/com/example/estacionamiento/modelo/EstacionamientoMotoTest.kt,6/9/695d933cb49d736c6deef0b48b53aef4cd726463
-?
-settings.gradle,0/5/05efc8b1657769a27696d478ded1e95f38737233
 |
 Ldominio/src/main/java/com/example/usuario/excepcion/FormatoPlacaExcepcion.kt,1/b/1bd252d30474a3748b674aab1be9c4f37f1d6ac4
 u
@@ -86,10 +84,6 @@ q
 Adominio/src/main/java/com/example/cobro/modelo/CobroTarifaMoto.kt,8/3/83c2f66a4d15529a3a6d4a4e8f8f93b9420be923
 …
 Udominio/src/main/java/com/example/estacionamiento/servicio/ServicioEstacionamiento.kt,d/6/d6901078b40ee489d7987b6d81498d2710fcf5b3
-D
-dominio/build.gradle,d/7/d71e7ab1854167962f7335fc962f525692922e9e
-L
-infraestructura/build.gradle,9/6/96eb12a4ec4c48850eba1857cb67210b13e2ce42
 X
 (gradle/wrapper/gradle-wrapper.properties,f/b/fbe448ebfc3eb2d4e308f6b8b043666f5b57235e
 A

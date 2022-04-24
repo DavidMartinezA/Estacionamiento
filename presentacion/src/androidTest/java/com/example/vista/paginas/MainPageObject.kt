@@ -1,5 +1,4 @@
 package com.example.vista.paginas
-
 import androidx.test.espresso.Espresso
 import androidx.test.espresso.action.ViewActions
 import androidx.test.espresso.assertion.ViewAssertions
@@ -32,14 +31,12 @@ open class MainPageObject {
             .perform(ViewActions.scrollTo(), ViewActions.click())
         return this
     }
-
     fun seleccionarRadioButtonMoto(): MainPageObject {
         Espresso.onView(Matchers.allOf(ViewMatchers.withId(R.id.radio_button_moto),
             ViewMatchers.withText("MOTO")))
             .perform(ViewActions.scrollTo(), ViewActions.click())
         return this
     }
-
     fun seleccionarRadioButtonMotoCc(): MainPageObject {
         Espresso.onView(Matchers.allOf(ViewMatchers.withId(R.id.radio_button_moto_cilindraje),
             ViewMatchers.withText("MOTO (Alto Cilindraje 500cc)")))
