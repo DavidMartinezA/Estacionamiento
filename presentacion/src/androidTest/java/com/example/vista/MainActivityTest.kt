@@ -1,17 +1,13 @@
 package com.example.vista
 
-import androidx.test.espresso.Espresso.onView
-import androidx.test.espresso.action.ViewActions.*
-import androidx.test.espresso.assertion.ViewAssertions.matches
-import androidx.test.espresso.matcher.ViewMatchers.*
 import androidx.test.ext.junit.rules.ActivityScenarioRule
 import androidx.test.filters.LargeTest
 import androidx.test.internal.runner.junit4.AndroidJUnit4ClassRunner
-import com.example.presentacion.R
-import org.hamcrest.Matchers.allOf
+import com.example.vista.paginas.MainPageObject
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
+import java.time.LocalDateTime
 
 @LargeTest
 @RunWith(AndroidJUnit4ClassRunner::class)
@@ -20,136 +16,99 @@ class MainActivityTest {
     @Rule
     @JvmField
     var mActivityTestRule = ActivityScenarioRule(MainActivity::class.java)
+    private val pageObject = MainPageObject()
 
     @Test
     fun ingresoCarroTest_placaValidaUsuarioNoExiste_usuarioGuardado() {
-
-        onView(allOf(withId(R.id.ingreso_placa_vehiculo_calculo_cobro)))
-            .perform(typeText("ccc987"), closeSoftKeyboard())
-
-        onView(allOf(withId(R.id.radio_button_carro), withText("CARRO")))
-            .perform(scrollTo(), click())
-
-        onView(allOf(withId(R.id.boton_ingreso), withText("Ingreso")))
-            .perform(scrollTo(), click())
-
-        onView(allOf(withId(android.R.id.message), withText("Usuario Registrado")))
-            .check(matches(withText("Usuario Registrado")))
+        pageObject
+            .ingresarPlacaVehiculo("ccc987")
+            .seleccionarRadioButtonCarro()
+            .oprimirBotonIngreso()
+            .verifiacarDialogoMensaje("Usuario Registrado")
     }
 
     @Test
     fun ingresoMotoTest_placaValidaUsuarioNoExiste_usuarioGuardado() {
+        pageObject
+            .ingresarPlacaVehiculo("ccc988")
+            .seleccionarRadioButtonMoto()
+            .oprimirBotonIngreso()
+            .verifiacarDialogoMensaje("Usuario Registrado")
+    }
 
-        onView(allOf(withId(R.id.ingreso_placa_vehiculo_calculo_cobro)))
-            .perform(typeText("ccc988"), closeSoftKeyboard())
-
-        onView(allOf(withId(R.id.radio_button_moto), withText("MOTO")))
-            .perform(scrollTo(), click())
-
-        onView(allOf(withId(R.id.boton_ingreso), withText("Ingreso")))
-            .perform(scrollTo(), click())
-
-        onView(allOf(withId(android.R.id.message), withText("Usuario Registrado")))
-            .check(matches(withText("Usuario Registrado")))
+    @Test
+    fun ingresoMotoAltoCilindrajeTest_placaValidaUsuarioNoExiste_usuarioGuardado() {
+        pageObject
+            .ingresarPlacaVehiculo("ccc989")
+            .seleccionarRadioButtonMotoCc()
+            .oprimirBotonIngreso()
+            .verifiacarDialogoMensaje("Usuario Registrado")
     }
 
     @Test
     fun ingresoCarroTest_placaTextoVacio_mensajeFormatoPlacaNoValido() {
-
-        onView(allOf(withId(R.id.ingreso_placa_vehiculo_calculo_cobro)))
-            .perform(typeText(""), closeSoftKeyboard())
-
-        onView(allOf(withId(R.id.radio_button_carro), withText("CARRO")))
-            .perform(scrollTo(), click())
-
-        onView(allOf(withId(R.id.boton_ingreso), withText("Ingreso")))
-            .perform(scrollTo(), click())
-
-        onView(allOf(withId(android.R.id.message), withText("Formato De Placa No Valido")))
-            .check(matches(withText("Formato De Placa No Valido")))
+        pageObject
+            .ingresarPlacaVehiculo("")
+            .seleccionarRadioButtonCarro()
+            .oprimirBotonIngreso()
+            .verifiacarDialogoMensaje("Formato De Placa No Valido")
     }
 
     @Test
     fun ingresoMotoTest_placaTextoVacio_mensajeFormatoPlacaNoValido() {
-
-        onView(allOf(withId(R.id.ingreso_placa_vehiculo_calculo_cobro)))
-            .perform(typeText(""), closeSoftKeyboard())
-
-        onView(allOf(withId(R.id.radio_button_moto), withText("MOTO")))
-            .perform(scrollTo(), click())
-
-        onView(allOf(withId(R.id.boton_ingreso), withText("Ingreso")))
-            .perform(scrollTo(), click())
-
-        onView(allOf(withId(android.R.id.message), withText("Formato De Placa No Valido")))
-            .check(matches(withText("Formato De Placa No Valido")))
+        pageObject
+            .ingresarPlacaVehiculo("")
+            .seleccionarRadioButtonMoto()
+            .oprimirBotonIngreso()
+            .verifiacarDialogoMensaje("Formato De Placa No Valido")
     }
 
     @Test
-    fun ingresoUsuarioVehiculoTest_tipoVehiculoNoSelecionado_mensajeUsuarioRegistrado() {
+    fun ingresoMotoAltoCilindrajeTest_placaTextoVacio_mensajeFormatoPlacaNoValido() {
+        pageObject
+            .ingresarPlacaVehiculo("")
+            .seleccionarRadioButtonMotoCc()
+            .oprimirBotonIngreso()
+            .verifiacarDialogoMensaje("Formato De Placa No Valido")
+    }
 
-        onView(allOf(withId(R.id.ingreso_placa_vehiculo_calculo_cobro)))
-            .perform(typeText("kjh456"), closeSoftKeyboard())
-
-        onView(allOf(withId(R.id.boton_ingreso), withText("Ingreso")))
-            .perform(scrollTo(), click())
-
-        onView(allOf(withId(android.R.id.message), withText("Usuario Registrado")))
-            .check(matches(withText("Usuario Registrado")))
+    @Test
+    fun ingresoUsuarioVehiculoTest_tipoVehiculoNoSelecionado_mensajeUsuarioRegistradoComoCarro() {
+        pageObject
+            .ingresarPlacaVehiculo("ccc990")
+            .oprimirBotonIngreso()
+            .verifiacarDialogoMensaje("Usuario Registrado")
     }
 
     @Test
     fun ingresoUsuarioVehiculoTest_placaRestriccionMartesASabado_mensajeNoEstaAutorizadoIngresar() {
-
-        onView(allOf(withId(R.id.ingreso_placa_vehiculo_calculo_cobro)))
-            .perform(typeText("ajh456"), closeSoftKeyboard())
-
-        onView(allOf(withId(R.id.boton_ingreso), withText("Ingreso")))
-            .perform(scrollTo(), click())
-
-        onView(allOf(withId(android.R.id.message), withText("No Esta Autorizado A Ingresar")))
-            .check(matches(withText("No Esta Autorizado A Ingresar")))
+        pageObject
+            .ingresarPlacaVehiculo("ccc990")
+            .seleccionarRadioButtonCarro()
+            .oprimirBotonIngreso()
+        if (LocalDateTime.now().dayOfWeek.value == 1 || LocalDateTime.now().dayOfWeek.value == 7) {
+            pageObject.verifiacarDialogoMensaje("Usuario Registrado")
+        } else {
+            pageObject.verifiacarDialogoMensaje("No Esta Autorizado A Ingresar")
+        }
     }
 
     @Test
     fun ingresoUsuarioVehiculoTest_placaTextoNull_mensajeFormatoPlacaNoValido() {
-
-        onView(allOf(withId(R.id.boton_ingreso), withText("Ingreso")))
-            .perform(scrollTo(), click())
-
-        onView(allOf(withId(android.R.id.message), withText("Formato De Placa No Valido")))
-            .check(matches(withText("Formato De Placa No Valido")))
+        pageObject
+            .oprimirBotonIngreso()
+            .verifiacarDialogoMensaje("Formato De Placa No Valido")
     }
 
     @Test
     fun ingresoUsuarioVehiculoTest_usuarioYaRegistrado_mensajeUsuarioYaSeEncuentraRegistrado() {
-        onView(
-            allOf(withId(R.id.ingreso_placa_vehiculo_calculo_cobro),
-                isDisplayed()))
-            .perform(replaceText("uuu777"), closeSoftKeyboard())
-
-        onView(
-            allOf(withId(R.id.radio_button_carro), withText("CARRO"),
-                isDisplayed()))
-            .perform(scrollTo(), click())
-
-        onView(
-            allOf(withId(R.id.boton_ingreso), withText("Ingreso")))
-            .perform(scrollTo(), click())
-
-        onView(
-            allOf(withId(android.R.id.button1), withText("Aceptar")))
-            .perform(scrollTo(), click())
-
-        onView(
-            allOf(withId(R.id.boton_ingreso), withText("Ingreso")))
-            .perform(scrollTo(), click())
-
-        onView(
-            allOf(withId(android.R.id.message), withText("UsuarioVehiculo Ya Existe"),
-                withParent(withParent(withId(androidx.appcompat.R.id.scrollView))),
-                isDisplayed()))
-            .check(matches(withText("UsuarioVehiculo Ya Existe")))
+        pageObject
+            .ingresarPlacaVehiculo("uuu777")
+            .seleccionarRadioButtonCarro()
+            .oprimirBotonIngreso()
+            .presionarAceptarDialogoMensaje()
+            .oprimirBotonIngreso()
+            .verifiacarDialogoMensaje("UsuarioVehiculo Ya Existe")
     }
 
 }

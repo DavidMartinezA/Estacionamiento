@@ -38,6 +38,11 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/../DDDWorkshop/infrastructure/dataAccess/src/main/java/com/example/dataaccess/repository/paginas/BasePageObject.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/.gitignore">
           <value>
             <set />
@@ -938,6 +943,16 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/presentacion/src/androidTest/java/com/example/paginas/BasePageObject.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/presentacion/src/androidTest/java/com/example/paginas/MainPageObject.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/presentacion/src/androidTest/java/com/example/vista/EstacionamientoTest.kt">
           <value>
             <set />
@@ -964,6 +979,16 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/presentacion/src/androidTest/java/com/example/vista/MainActivityTest.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/presentacion/src/androidTest/java/com/example/vista/MainPageObject.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/presentacion/src/androidTest/java/com/example/vista/PageObjectMain.kt">
           <value>
             <set />
           </value>
@@ -1004,6 +1029,21 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/presentacion/src/androidTest/java/com/example/vista/ingresoUsuarioCarroTest.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/presentacion/src/androidTest/java/com/example/vista/paginas/BasePageObject.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/presentacion/src/androidTest/java/com/example/vista/paginas/MainPageObject.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/presentacion/src/androidTest/java/com/example/vista/paginas/ServiciosEstacionamientoPageObject.kt">
           <value>
             <set />
           </value>
@@ -1279,6 +1319,11 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/presentacion/src/main/java/com/example/vista/MainActivity.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/presentacion/src/main/java/com/example/vista/PageObjectMain.kt">
           <value>
             <set />
           </value>
