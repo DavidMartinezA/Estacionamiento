@@ -28,26 +28,19 @@ pipeline {
         echo "------------>Unit Tests<------------"
         sh './gradlew clean'
         sh './gradlew test'
-      }
-    }
-
-    stage('UI Testing') {
-      steps{
-        echo '------------>Puebas Funcionales <------------'
-        sh './gradlew clean'
-        sh './gradlew connectedAndroidTest'
         sh './gradlew jacocoTestReport'
       }
     }
 
     stage('Static Code Analysis') {
-    steps{
-    echo '------------>Análisis estático de código <------------'
-    withSonarQubeEnv('Sonar') {
-    sh "${tool name: 'SonarScanner-Mac', type:'hudson.plugins.sonar.SonarRunnerInstallation'}/bin/sonar-scanner"
+      steps{
+        echo '------------>Análisis estático de código <------------'
+        withSonarQubeEnv('Sonar') {
+        sh "${tool name: 'SonarScanner-Mac', type:'hudson.plugins.sonar.SonarRunnerInstallation'}/bin/sonar-scanner"
+        }
+      }
     }
-    }
-    }
+
 }
 
   post {
