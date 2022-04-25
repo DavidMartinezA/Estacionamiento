@@ -96,5 +96,3 @@ H
 build.gradle,f/0/f07866736216be0ee2aba49e392191aeae700a35
 v
 Fdominio/src/test/java/com/example/cobro/modelo/CobroTarifaCarroTest.kt,7/f/7f696bf05ada29e6c5244e22f7e744316033486b
-£
-sinfraestructura/src/androidTest/java/com/example/accesodatos/compartido/basededatos/BaseDatosUsuarioVehiculoTest.kt,6/4/64bf5838ff57b1db54b5a987d868bbb2ade81a39
