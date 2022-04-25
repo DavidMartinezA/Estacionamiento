@@ -1,5 +1,3 @@
-import com.android.build.api.dsl.ManagedVirtualDevice
-
 plugins {
     id 'com.android.application'
     id 'kotlin-android'
@@ -19,17 +17,6 @@ android {
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-
-    }
-    testOptions {
-        devices {
-            pixel2 (ManagedVirtualDevice) {
-                device = "Pixel 2"
-                apiLevel = 30
-                systemImageSource = "google"
-                abi = "x86"
-            }
-        }
     }
     buildTypes {
         release {
@@ -100,39 +87,40 @@ dependencies {
 
 // tarea para los reportes de analisis de codigo
 
-task jacocoTestReport(type: JacocoReport, dependsOn: ['createDebugCoverageReport',':dominio:testDebugUnitTest',
-                                                      ':presentacion:testDebugUnitTest',':infraestructura:testDebugUnitTest']) {
+task jacocoTestReport(type: JacocoReport, dependsOn: ['connectedAndroidTest',':dominio:testDebugUnitTest',
+                                                      ':infraestructura:connectedAndroidTest']) {
 
     def moduleDominio = project(':dominio')
     def moduleInfraestructura = project(':infraestructura')
 
     def directoriesToCoverage = layout.files(
             "$moduleDominio.buildDir/tmp/kotlin-classes/debug/com/example",
-            "$moduleInfraestructura.buildDir/tmp/kotlin-classes/debug",
+            "$moduleInfraestructura.buildDir/tmp/kotlin-classes/debug/com/example",
+            "$buildDir/tmp/kotlin-classes/debug/com/example",
     )
 
     def mainSources = layout.files(
             "$moduleDominio.projectDir/src/main/java/com/example",
             "$moduleInfraestructura.projectDir/src/main/java/com/example",
+            "$projectDir/src/main/java/com/example",
     )
 
     def executionFilesFromConnectedAndroidTest = fileTree(
             dir: "$buildDir", includes:
-            ["outputs/code_coverage/debugAndroidTest/connected/coverage.ec"],
+            ["outputs/code_coverage/debugAndroidTest/coverage.ec"],
 
     )
 
-    def executionFileForUnitTestInModule =
-            "$buildDir/outputs/code_coverage/debugUnitTest/testDebugUnitTest.exec"
-
     def executionFileForUnitTestInOtherModule =
-            "$moduleDominio.buildDir/outputs/code_coverage/debugUnitTest/testDebugUnitTest.exec"
-            "$moduleInfraestructura.buildDir/outputs/code_coverage/debugUnitTest/coverage.ec"
+            "$moduleDominio.buildDir/outputs/Unit_Test_code_coverage/debugUnitTest/testDebugUnitTest.exec"
+
+    def executionFileFromConnectedAndroidTestInOtherModule =
+        "$moduleInfraestructura.buildDir/outputs/code_coverage/debugUnitTest/coverage.ec"
 
     def executionFiles = layout.files(
             executionFilesFromConnectedAndroidTest,
-            executionFileForUnitTestInModule,
-            executionFileForUnitTestInOtherModule
+            executionFileForUnitTestInOtherModule,
+            executionFileFromConnectedAndroidTestInOtherModule
     )
 
     sourceDirectories.setFrom(files([mainSources]))

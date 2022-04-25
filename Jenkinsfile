@@ -28,7 +28,6 @@ pipeline {
         echo "------------>Unit Tests<------------"
         sh './gradlew clean'
         sh './gradlew test'
-        sh './gradlew jacocoTestReport'
       }
     }
 
@@ -36,10 +35,9 @@ pipeline {
       steps{
         echo '------------>Puebas Funcionales <------------'
         sh './gradlew clean'
-        sh './gradlew connectedCheck'
-        sh './gradlew cAt'
-    //deberia tener un emulador
-    }
+        sh './gradlew connectedAndroidTest'
+        sh './gradlew jacocoTestReport'
+      }
     }
 
     stage('Static Code Analysis') {

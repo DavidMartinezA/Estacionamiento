@@ -6,7 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.presentacion.R
 import kotlinx.coroutines.*
 
-class PantallaPesentacion : AppCompatActivity() {
+class ActividadPantallaPesentacion : AppCompatActivity() {
 
     private val activityScope = CoroutineScope(Dispatchers.Main)
 
@@ -20,7 +20,7 @@ class PantallaPesentacion : AppCompatActivity() {
     private fun obtenerDuracionPantalla() {
         activityScope.launch {
             delay(1000)
-            val intent = Intent(this@PantallaPesentacion, MainActivity::class.java)
+            val intent = Intent(this@ActividadPantallaPesentacion, ActividadPrincipal::class.java)
             startActivity(intent)
             finish()
         }

@@ -968,6 +968,11 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/presentacion/src/androidTest/java/com/example/vista/ActividadPrincipalTest.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/presentacion/src/androidTest/java/com/example/vista/EstacionamientoTest.kt">
           <value>
             <set />

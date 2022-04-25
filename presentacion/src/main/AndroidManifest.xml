@@ -11,13 +11,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Estacionamiento">
         <activity
-            android:name="com.example.vista.ServiciosEstacionamiento"
+            android:name="com.example.vista.ActividadServicioEstacionamiento"
             android:exported="false" />
         <activity
-            android:name="com.example.vista.MainActivity"
+            android:name="com.example.vista.ActividadPrincipal"
             android:exported="false" />
         <activity
-            android:name="com.example.vista.PantallaPesentacion"
+            android:name="com.example.vista.ActividadPantallaPesentacion"
             android:exported="true"
             android:theme="@style/Theme.AppCompat.NoActionBar">
             <intent-filter>

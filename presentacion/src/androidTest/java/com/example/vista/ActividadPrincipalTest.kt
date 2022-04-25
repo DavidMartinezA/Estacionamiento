@@ -13,12 +13,12 @@ import java.time.LocalDateTime
 
 @LargeTest
 @RunWith(AndroidJUnit4ClassRunner::class)
-class MainActivityTest {
+class ActividadPrincipalTest {
 
     @Rule
     @JvmField
-    var mActivityTestRule = ActivityScenarioRule(MainActivity::class.java)
-    private val pageObject = MainPageObject()
+    var mActivityTestRule = ActivityScenarioRule(ActividadPrincipal::class.java)
+    private val mainActivityPageObject = MainPageObject()
 
     @Before
     fun borrarBaseDatos() {
@@ -29,16 +29,16 @@ class MainActivityTest {
     fun ingresoCarroTest_placaValidaUsuarioNoExiste_usuarioGuardado() {
 
         //Given
-        pageObject
+        mainActivityPageObject
             .ingresarPlacaVehiculo("ccc987")
             .seleccionarRadioButtonCarro()
 
         //When
-        pageObject
+        mainActivityPageObject
             .oprimirBotonIngreso()
 
         //Then
-        pageObject
+        mainActivityPageObject
             .verifiacarDialogoMensaje("Usuario Registrado")
     }
 
@@ -46,16 +46,16 @@ class MainActivityTest {
     fun ingresoMotoTest_placaValidaUsuarioNoExiste_usuarioGuardado() {
 
         //Given
-        pageObject
+        mainActivityPageObject
             .ingresarPlacaVehiculo("ccc988")
             .seleccionarRadioButtonMoto()
 
         //When
-        pageObject
+        mainActivityPageObject
             .oprimirBotonIngreso()
 
         //Then
-        pageObject
+        mainActivityPageObject
             .verifiacarDialogoMensaje("Usuario Registrado")
     }
 
@@ -63,16 +63,16 @@ class MainActivityTest {
     fun ingresoMotoAltoCilindrajeTest_placaValidaUsuarioNoExiste_usuarioGuardado() {
 
         //Given
-        pageObject
+        mainActivityPageObject
             .ingresarPlacaVehiculo("ccc989")
             .seleccionarRadioButtonMotoCc()
 
         //When
-        pageObject
+        mainActivityPageObject
             .oprimirBotonIngreso()
 
         //Then
-        pageObject
+        mainActivityPageObject
             .verifiacarDialogoMensaje("Usuario Registrado")
     }
 
@@ -80,16 +80,16 @@ class MainActivityTest {
     fun ingresoCarroTest_placaTextoVacio_mensajeFormatoPlacaNoValido() {
 
         //Given
-        pageObject
+        mainActivityPageObject
             .ingresarPlacaVehiculo("")
             .seleccionarRadioButtonCarro()
 
         //When
-        pageObject
+        mainActivityPageObject
             .oprimirBotonIngreso()
 
         //Then
-        pageObject
+        mainActivityPageObject
             .verifiacarDialogoMensaje("Formato De Placa No Valido")
     }
 
@@ -97,16 +97,16 @@ class MainActivityTest {
     fun ingresoMotoTest_placaTextoVacio_mensajeFormatoPlacaNoValido() {
 
         //Given
-        pageObject
+        mainActivityPageObject
             .ingresarPlacaVehiculo("")
             .seleccionarRadioButtonMoto()
 
         //When
-        pageObject
+        mainActivityPageObject
             .oprimirBotonIngreso()
 
         //Then
-        pageObject
+        mainActivityPageObject
             .verifiacarDialogoMensaje("Formato De Placa No Valido")
     }
 
@@ -114,16 +114,16 @@ class MainActivityTest {
     fun ingresoMotoAltoCilindrajeTest_placaTextoVacio_mensajeFormatoPlacaNoValido() {
 
         //Given
-        pageObject
+        mainActivityPageObject
             .ingresarPlacaVehiculo("")
             .seleccionarRadioButtonMotoCc()
 
         //When
-        pageObject
+        mainActivityPageObject
             .oprimirBotonIngreso()
 
         //Then
-        pageObject
+        mainActivityPageObject
             .verifiacarDialogoMensaje("Formato De Placa No Valido")
     }
 
@@ -131,15 +131,15 @@ class MainActivityTest {
     fun ingresoUsuarioVehiculoTest_tipoVehiculoNoSelecionado_mensajeUsuarioRegistradoComoCarro() {
 
         //Given
-        pageObject
+        mainActivityPageObject
             .ingresarPlacaVehiculo("ccc990")
 
         //When
-        pageObject
+        mainActivityPageObject
             .oprimirBotonIngreso()
 
         //Then
-        pageObject
+        mainActivityPageObject
             .verifiacarDialogoMensaje("Usuario Registrado")
     }
 
@@ -147,20 +147,20 @@ class MainActivityTest {
     fun ingresoUsuarioVehiculoTest_placaRestriccionMartesASabado_mensajeNoEstaAutorizadoIngresar() {
 
         //Given
-        pageObject
+        mainActivityPageObject
             .ingresarPlacaVehiculo("Acc990")
             .seleccionarRadioButtonCarro()
 
         //When
-        pageObject
+        mainActivityPageObject
             .oprimirBotonIngreso()
 
         //Then
         if (LocalDateTime.now().dayOfWeek.value == 1 || LocalDateTime.now().dayOfWeek.value == 7) {
-            pageObject
+            mainActivityPageObject
                 .verifiacarDialogoMensaje("Usuario Registrado")
         } else {
-            pageObject
+            mainActivityPageObject
                 .verifiacarDialogoMensaje("No Esta Autorizado A Ingresar")
         }
     }
@@ -171,11 +171,11 @@ class MainActivityTest {
 
         //Given
         //When
-        pageObject
+        mainActivityPageObject
             .oprimirBotonIngreso()
 
         //Then
-        pageObject
+        mainActivityPageObject
             .verifiacarDialogoMensaje("Formato De Placa No Valido")
     }
 
@@ -183,18 +183,18 @@ class MainActivityTest {
     fun ingresoUsuarioVehiculoTest_usuarioYaRegistrado_mensajeUsuarioYaSeEncuentraRegistrado() {
 
         //Given
-        pageObject
+        mainActivityPageObject
             .ingresarPlacaVehiculo("uuu777")
             .seleccionarRadioButtonCarro()
             .oprimirBotonIngreso()
             .presionarAceptarDialogoMensaje()
 
         //When
-        pageObject
+        mainActivityPageObject
             .oprimirBotonIngreso()
 
         //Then
-        pageObject
+        mainActivityPageObject
             .verifiacarDialogoMensaje("UsuarioVehiculo Ya Existe")
     }
 

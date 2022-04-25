@@ -14,7 +14,7 @@ class ServicioEstacionamientoTest {
 
     @Rule
     @JvmField
-    var mActivityTestRule = ActivityScenarioRule(MainActivity::class.java)
+    var mActivityTestRule = ActivityScenarioRule(ActividadPrincipal::class.java)
     private val pageObject = ServiciosEstacionamientoPageObject()
 
     @Test

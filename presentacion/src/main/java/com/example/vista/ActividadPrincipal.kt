@@ -12,7 +12,7 @@ import com.example.viewmodel.IngresoUsuariosViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class MainActivity : AppCompatActivity() {
+class ActividadPrincipal : AppCompatActivity() {
 
     companion object {
         const val PLACA_VEHICULO = "Placa Del Vehiculo"
@@ -69,7 +69,7 @@ class MainActivity : AppCompatActivity() {
         binding.botonCobroTarifa.setOnClickListener {
             val textoPlaca = binding.ingresoPlacaVehiculoCalculoCobro.text.toString()
             if (textoPlaca.isNotEmpty()) {
-                val intento = Intent(this, ServiciosEstacionamiento::class.java)
+                val intento = Intent(this, ActividadServicioEstacionamiento::class.java)
                 intento.putExtra(PLACA_VEHICULO, textoPlaca)
                 startActivity(intento)
             }

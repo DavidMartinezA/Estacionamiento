@@ -8,12 +8,12 @@ import androidx.lifecycle.lifecycleScope
 import com.example.presentacion.R
 import com.example.presentacion.databinding.ActivityServiciosEstacionamientoBinding
 import com.example.viewmodel.ServiciosEstacionamientoViewModel
-import com.example.vista.MainActivity.Companion.PLACA_VEHICULO
+import com.example.vista.ActividadPrincipal.Companion.PLACA_VEHICULO
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
-class ServiciosEstacionamiento : AppCompatActivity() {
+class ActividadServicioEstacionamiento : AppCompatActivity() {
 
     private val viewModel: ServiciosEstacionamientoViewModel by viewModels()
     private lateinit var binding: ActivityServiciosEstacionamientoBinding
