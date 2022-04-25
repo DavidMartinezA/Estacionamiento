@@ -17,7 +17,6 @@ android {
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-       // testInstrumentationRunnerArguments clearPackageData: 'true'
 
     }
     buildTypes {
@@ -30,10 +29,7 @@ android {
             testCoverageEnabled true
         }
     }
-    testOptions {
-        //execution 'ANDROIDX_TEST_ORCHESTRATOR'
 
-    }
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
@@ -59,7 +55,6 @@ dependencies {
     implementation "androidx.activity:activity-ktx:1.4.0"
 
     //test
-    //androidTestUtil 'androidx.test:orchestrator:1.4.1'
     implementation 'androidx.test:core-ktx:1.4.0'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'

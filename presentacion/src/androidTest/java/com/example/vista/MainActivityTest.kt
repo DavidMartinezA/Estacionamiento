@@ -3,7 +3,9 @@ package com.example.vista
 import androidx.test.ext.junit.rules.ActivityScenarioRule
 import androidx.test.filters.LargeTest
 import androidx.test.internal.runner.junit4.AndroidJUnit4ClassRunner
+import androidx.test.platform.app.InstrumentationRegistry
 import com.example.vista.paginas.MainPageObject
+import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -17,6 +19,11 @@ class MainActivityTest {
     @JvmField
     var mActivityTestRule = ActivityScenarioRule(MainActivity::class.java)
     private val pageObject = MainPageObject()
+
+    @Before
+    fun borrarBaseDatos() {
+        InstrumentationRegistry.getInstrumentation().targetContext.deleteDatabase("baseDatos")
+    }
 
     @Test
     fun ingresoCarroTest_placaValidaUsuarioNoExiste_usuarioGuardado() {
