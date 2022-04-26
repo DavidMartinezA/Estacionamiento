@@ -5,7 +5,8 @@ import androidx.test.filters.LargeTest
 import androidx.test.internal.runner.junit4.AndroidJUnit4ClassRunner
 import androidx.test.platform.app.InstrumentationRegistry
 import com.example.ingresousuarios.vista.ActividadIngresoUsuarios
-import com.example.serviciosestacionamiento.vista.pagina.ServiciosEstacionamientoPageObject
+import com.example.presentacion.R
+import com.example.serviciosestacionamiento.vista.pagina.ServiciosEstacionamientoUsuarioPageObject
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
@@ -13,22 +14,22 @@ import org.junit.runner.RunWith
 
 @LargeTest
 @RunWith(AndroidJUnit4ClassRunner::class)
-class ServicioEstacionamientoTest {
+class ActividadServicioEstacionamientoTest {
 
     @Rule
     @JvmField
     var mActivityTestRule = ActivityScenarioRule(ActividadIngresoUsuarios::class.java)
-    private val servicioEstacionamientoPageObject = ServiciosEstacionamientoPageObject()
+    private val servicioEstacionamientoPageObject = ServiciosEstacionamientoUsuarioPageObject()
 
     @Before
     fun borrarBaseDatos() {
-        InstrumentationRegistry.getInstrumentation().targetContext.deleteDatabase("baseDatos")
+        InstrumentationRegistry.getInstrumentation().targetContext.deleteDatabase(R.string.nombre_base_datos.toString())
     }
 
     @Test
     fun generarInformacionCobroTest_usuarioVehiculoCarroExiste_informacionServicioCobro() {
-        mActivityTestRule.scenario
         //Given
+        mActivityTestRule.scenario
         servicioEstacionamientoPageObject
             .ingresarPlacaVehiculo("ggg555")
             .seleccionarRadioButtonCarro()
@@ -40,14 +41,14 @@ class ServicioEstacionamientoTest {
             .presionarBotonCobro()
 
         //Then
-        servicioEstacionamientoPageObject.verificarTextoCobro("ggg555El Costo Del Servicio Es De=1000")
+        servicioEstacionamientoPageObject.verificarTextoCobro("El Costo Del Servicio Es De =1000")
         mActivityTestRule.scenario.close()
     }
 
     @Test
     fun generarInformacionCobroTest_usuarioVehiculoMotoExiste_informacionServicioCobro() {
-        mActivityTestRule.scenario
         //Given
+        mActivityTestRule.scenario
         servicioEstacionamientoPageObject
             .ingresarPlacaVehiculo("yyy666")
             .seleccionarRadioButtonMoto()
@@ -59,14 +60,14 @@ class ServicioEstacionamientoTest {
             .presionarBotonCobro()
 
         //Then
-        servicioEstacionamientoPageObject.verificarTextoCobro("yyy666El Costo Del Servicio Es De=500")
+        servicioEstacionamientoPageObject.verificarTextoCobro("El Costo Del Servicio Es De =500")
         mActivityTestRule.scenario.close()
     }
 
     @Test
     fun generarInformacionCobroTest_usuarioVehiculoMotoAltoCilindrajeExiste_informacionServicioCobro() {
-        mActivityTestRule.scenario
         //Given
+        mActivityTestRule.scenario
         servicioEstacionamientoPageObject
             .ingresarPlacaVehiculo("sYs222")
             .seleccionarRadioButtonMotoCc()
@@ -78,14 +79,14 @@ class ServicioEstacionamientoTest {
             .presionarBotonCobro()
 
         //Then
-        servicioEstacionamientoPageObject.verificarTextoCobro("sYs222El Costo Del Servicio Es De=2500")
+        servicioEstacionamientoPageObject.verificarTextoCobro("El Costo Del Servicio Es De =2500")
         mActivityTestRule.scenario.close()
     }
 
     @Test
     fun generarInformacionCobroTest_usuarioVehiculoNoExiste_mensajeUsuarioNoSeEncuentraRegistrado() {
-        mActivityTestRule.scenario
         //Given
+        mActivityTestRule.scenario
         servicioEstacionamientoPageObject
             .ingresarPlacaVehiculo("fff555")
             .seleccionarRadioButtonCarro()

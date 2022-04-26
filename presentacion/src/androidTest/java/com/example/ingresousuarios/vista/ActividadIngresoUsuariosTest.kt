@@ -4,7 +4,7 @@ import androidx.test.ext.junit.rules.ActivityScenarioRule
 import androidx.test.filters.LargeTest
 import androidx.test.internal.runner.junit4.AndroidJUnit4ClassRunner
 import androidx.test.platform.app.InstrumentationRegistry.getInstrumentation
-import com.example.ingresousuarios.vista.pagina.ActividadIngresoPageObject
+import com.example.ingresousuarios.vista.pagina.ActividadIngresoUsuarioPageObject
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
@@ -20,7 +20,7 @@ class ActividadIngresoUsuariosTest {
     @JvmField
 
     var mActivityTestRule = ActivityScenarioRule(ActividadIngresoUsuarios::class.java)
-    private val mainActivityPageObject = ActividadIngresoPageObject()
+    private val actividadIngresoUsuarioPageObject = ActividadIngresoUsuarioPageObject()
 
     @Before
     fun borrarBaseDatos() {
@@ -33,18 +33,18 @@ class ActividadIngresoUsuariosTest {
 
     @Test
     fun ingresoCarroTest_placaValidaUsuarioNoExiste_usuarioGuardado() {
-        mActivityTestRule.scenario
         //Given
-        mainActivityPageObject
+        mActivityTestRule.scenario
+        actividadIngresoUsuarioPageObject
             .ingresarPlacaVehiculo("ccc987")
             .seleccionarRadioButtonCarro()
 
         //When
-        mainActivityPageObject
+        actividadIngresoUsuarioPageObject
             .oprimirBotonIngreso()
 
         //Then
-        mainActivityPageObject
+        actividadIngresoUsuarioPageObject
             .verifiacarDialogoMensaje("Usuario Registrado")
 
         mActivityTestRule.scenario.close()
@@ -52,18 +52,18 @@ class ActividadIngresoUsuariosTest {
 
     @Test
     fun ingresoMotoTest_placaValidaUsuarioNoExiste_usuarioGuardado() {
-        mActivityTestRule.scenario
         //Given
-        mainActivityPageObject
+        mActivityTestRule.scenario
+        actividadIngresoUsuarioPageObject
             .ingresarPlacaVehiculo("ccc988")
             .seleccionarRadioButtonMoto()
 
         //When
-        mainActivityPageObject
+        actividadIngresoUsuarioPageObject
             .oprimirBotonIngreso()
 
         //Then
-        mainActivityPageObject
+        actividadIngresoUsuarioPageObject
             .verifiacarDialogoMensaje("Usuario Registrado")
 
         mActivityTestRule.scenario.close()
@@ -71,18 +71,18 @@ class ActividadIngresoUsuariosTest {
 
     @Test
     fun ingresoMotoAltoCilindrajeTest_placaValidaUsuarioNoExiste_usuarioGuardado() {
-        mActivityTestRule.scenario
         //Given
-        mainActivityPageObject
+        mActivityTestRule.scenario
+        actividadIngresoUsuarioPageObject
             .ingresarPlacaVehiculo("ccc989")
             .seleccionarRadioButtonMotoCc()
 
         //When
-        mainActivityPageObject
+        actividadIngresoUsuarioPageObject
             .oprimirBotonIngreso()
 
         //Then
-        mainActivityPageObject
+        actividadIngresoUsuarioPageObject
             .verifiacarDialogoMensaje("Usuario Registrado")
 
         mActivityTestRule.scenario.close()
@@ -91,18 +91,18 @@ class ActividadIngresoUsuariosTest {
 
     @Test
     fun ingresoCarroTest_placaTextoVacio_mensajeFormatoPlacaNoValido() {
-        mActivityTestRule.scenario
         //Given
-        mainActivityPageObject
+        mActivityTestRule.scenario
+        actividadIngresoUsuarioPageObject
             .ingresarPlacaVehiculo("")
             .seleccionarRadioButtonCarro()
 
         //When
-        mainActivityPageObject
+        actividadIngresoUsuarioPageObject
             .oprimirBotonIngreso()
 
         //Then
-        mainActivityPageObject
+        actividadIngresoUsuarioPageObject
             .verifiacarDialogoMensaje("Formato De Placa No Valido")
 
         mActivityTestRule.scenario.close()
@@ -111,18 +111,18 @@ class ActividadIngresoUsuariosTest {
 
     @Test
     fun ingresoMotoTest_placaTextoVacio_mensajeFormatoPlacaNoValido() {
-        mActivityTestRule.scenario
         //Given
-        mainActivityPageObject
+        mActivityTestRule.scenario
+        actividadIngresoUsuarioPageObject
             .ingresarPlacaVehiculo("")
             .seleccionarRadioButtonMoto()
 
         //When
-        mainActivityPageObject
+        actividadIngresoUsuarioPageObject
             .oprimirBotonIngreso()
 
         //Then
-        mainActivityPageObject
+        actividadIngresoUsuarioPageObject
             .verifiacarDialogoMensaje("Formato De Placa No Valido")
 
         mActivityTestRule.scenario.close()
@@ -131,18 +131,18 @@ class ActividadIngresoUsuariosTest {
 
     @Test
     fun ingresoMotoAltoCilindrajeTest_placaTextoVacio_mensajeFormatoPlacaNoValido() {
-        mActivityTestRule.scenario
         //Given
-        mainActivityPageObject
+        mActivityTestRule.scenario
+        actividadIngresoUsuarioPageObject
             .ingresarPlacaVehiculo("")
             .seleccionarRadioButtonMotoCc()
 
         //When
-        mainActivityPageObject
+        actividadIngresoUsuarioPageObject
             .oprimirBotonIngreso()
 
         //Then
-        mainActivityPageObject
+        actividadIngresoUsuarioPageObject
             .verifiacarDialogoMensaje("Formato De Placa No Valido")
 
         mActivityTestRule.scenario.close()
@@ -151,17 +151,17 @@ class ActividadIngresoUsuariosTest {
 
     @Test
     fun ingresoUsuarioVehiculoTest_tipoVehiculoNoSelecionado_mensajeUsuarioRegistradoComoCarro() {
-        mActivityTestRule.scenario
         //Given
-        mainActivityPageObject
+        mActivityTestRule.scenario
+        actividadIngresoUsuarioPageObject
             .ingresarPlacaVehiculo("ccc990")
 
         //When
-        mainActivityPageObject
+        actividadIngresoUsuarioPageObject
             .oprimirBotonIngreso()
 
         //Then
-        mainActivityPageObject
+        actividadIngresoUsuarioPageObject
             .verifiacarDialogoMensaje("Usuario Registrado")
 
         mActivityTestRule.scenario.close()
@@ -170,22 +170,22 @@ class ActividadIngresoUsuariosTest {
 
     @Test
     fun ingresoUsuarioVehiculoTest_placaRestriccionMartesASabado_mensajeNoEstaAutorizadoIngresar() {
-        mActivityTestRule.scenario
         //Given
-        mainActivityPageObject
+        mActivityTestRule.scenario
+        actividadIngresoUsuarioPageObject
             .ingresarPlacaVehiculo("Acc990")
             .seleccionarRadioButtonCarro()
 
         //When
-        mainActivityPageObject
+        actividadIngresoUsuarioPageObject
             .oprimirBotonIngreso()
 
         //Then
         if (LocalDateTime.now().dayOfWeek.value == 1 || LocalDateTime.now().dayOfWeek.value == 7) {
-            mainActivityPageObject
+            actividadIngresoUsuarioPageObject
                 .verifiacarDialogoMensaje("Usuario Registrado")
         } else {
-            mainActivityPageObject
+            actividadIngresoUsuarioPageObject
                 .verifiacarDialogoMensaje("No Esta Autorizado A Ingresar")
         }
 
@@ -196,14 +196,14 @@ class ActividadIngresoUsuariosTest {
 
     @Test
     fun ingresoUsuarioVehiculoTest_placaTextoNull_mensajeFormatoPlacaNoValido() {
-        mActivityTestRule.scenario
         //Given
         //When
-        mainActivityPageObject
+        mActivityTestRule.scenario
+        actividadIngresoUsuarioPageObject
             .oprimirBotonIngreso()
 
         //Then
-        mainActivityPageObject
+        actividadIngresoUsuarioPageObject
             .verifiacarDialogoMensaje("Formato De Placa No Valido")
 
         mActivityTestRule.scenario.close()
@@ -212,20 +212,20 @@ class ActividadIngresoUsuariosTest {
 
     @Test
     fun ingresoUsuarioVehiculoTest_usuarioYaRegistrado_mensajeUsuarioYaSeEncuentraRegistrado() {
-        mActivityTestRule.scenario
         //Given
-        mainActivityPageObject
+        mActivityTestRule.scenario
+        actividadIngresoUsuarioPageObject
             .ingresarPlacaVehiculo("uuu777")
             .seleccionarRadioButtonCarro()
             .oprimirBotonIngreso()
             .presionarAceptarDialogoMensaje()
 
         //When
-        mainActivityPageObject
+        actividadIngresoUsuarioPageObject
             .oprimirBotonIngreso()
 
         //Then
-        mainActivityPageObject
+        actividadIngresoUsuarioPageObject
             .verifiacarDialogoMensaje("UsuarioVehiculo Ya Existe")
 
         mActivityTestRule.scenario.close()

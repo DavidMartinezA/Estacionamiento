@@ -998,6 +998,11 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/presentacion/src/androidTest/java/com/example/ingresousuarios/vista/pagina/ActividadIngresoUsuarioPageObject.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/presentacion/src/androidTest/java/com/example/paginas/BasePageObject.kt">
           <value>
             <set />
@@ -1009,6 +1014,11 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/presentacion/src/androidTest/java/com/example/serviciosestacionamiento/vista/ActividadIngresoTest.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/presentacion/src/androidTest/java/com/example/serviciosestacionamiento/vista/ActividadServicioEstacionamientoTest.kt">
           <value>
             <set />
           </value>
@@ -1249,6 +1259,11 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/presentacion/src/main/java/com/example/ingreso/vista/ActividadIngreso.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/presentacion/src/main/java/com/example/ingresousuarios/vista/ActividadIngresoUsuarios.kt">
           <value>
             <set />
           </value>

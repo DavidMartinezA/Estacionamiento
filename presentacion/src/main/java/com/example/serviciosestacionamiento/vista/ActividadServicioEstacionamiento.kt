@@ -49,7 +49,7 @@ class ActividadServicioEstacionamiento : AppCompatActivity() {
     private fun generarInformacionCobro() {
         lifecycleScope.launchWhenStarted {
             viewModel.cobroVehiculo.collect { costoServicio ->
-                val textoCobroTarifa = placaVehiculo + getString(R.string.texto_tarifa_cobrada) + costoServicio
+                val textoCobroTarifa = getString(R.string.texto_tarifa_cobrada) + costoServicio
                 binding.cobrosServicio.text = textoCobroTarifa
             }
         }

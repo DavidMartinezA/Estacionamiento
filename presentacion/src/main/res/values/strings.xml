@@ -2,6 +2,7 @@
 
     <!-- Estacionamiento -->
     <string name="app_name">Estacionamiento</string>
+    <string name="nombre_base_datos">Base De Datos Estacionamiento</string>
     <string name="texto_ingreso_placa_vehiculo">Ingrese El Numero De Placa</string>
     <string name="texto_estacionamiento_sin_capacidad">No Existe Disponibilidad</string>
     <string name="texto_estacionamiento_con_capacidad">Existe Disponibilidad</string>
@@ -31,7 +32,7 @@
     <string name="texto_informacion_cobro">\n Duracion Servicio = X Horas \n \n Valor Del Servicio = $ xxxxx</string>
     <string name="texto_boton_costo_tarifa">costo tarifa</string>
     <string name="texto_tarifa_servicio">Tarifa del servicio</string>
-    <string name="texto_tarifa_cobrada">El Costo Del Servicio Es De=   </string>
+    <string name="texto_tarifa_cobrada">El Costo Del Servicio Es De =   </string>
     <string name="Texto_Titulo_Cobro_Vehiculo">Cobro Automovil</string>
 
     <!-- Vehiculos -->

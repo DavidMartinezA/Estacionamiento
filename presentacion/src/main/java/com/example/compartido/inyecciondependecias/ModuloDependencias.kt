@@ -4,6 +4,7 @@ import android.content.Context
 import androidx.room.Room
 import com.example.accesodatos.compartido.basededatos.BaseDatosUsuarioVehiculo
 import com.example.accesodatos.usuario.repositorio.RepositorioUsuarioVehiculoRoom
+import com.example.presentacion.R
 import com.example.usuario.repositorio.RepositorioUsuarioVehiculo
 import dagger.Binds
 import dagger.Module
@@ -24,7 +25,7 @@ abstract class ModuloDependencias {
         fun proveerBaseDatos(@ApplicationContext contexto: Context): BaseDatosUsuarioVehiculo {//anotacion para pasar el contexto de la aplicacion
             return Room.databaseBuilder(
                 contexto, BaseDatosUsuarioVehiculo::class.java,
-                "baseDatos")
+                R.string.nombre_base_datos.toString())
                 .build()
         }
 
