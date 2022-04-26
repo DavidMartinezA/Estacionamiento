@@ -16,6 +16,7 @@ import org.junit.runner.RunWith
 @RunWith(AndroidJUnit4ClassRunner::class)
 class ActividadServicioEstacionamientoTest {
 
+
     @Rule
     @JvmField
     var mActivityTestRule = ActivityScenarioRule(ActividadIngresoUsuarios::class.java)

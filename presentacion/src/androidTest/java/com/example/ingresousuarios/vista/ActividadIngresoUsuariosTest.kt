@@ -27,10 +27,6 @@ class ActividadIngresoUsuariosTest {
         getInstrumentation().targetContext.deleteDatabase("baseDatos")
     }
 
-    fun encenderPantalla() {
-
-    }
-
     @Test
     fun ingresoCarroTest_placaValidaUsuarioNoExiste_usuarioGuardado() {
         //Given
