@@ -108,7 +108,6 @@ task jacocoTestReport(type: JacocoReport, dependsOn: ['connectedAndroidTest',':d
     def executionFilesFromConnectedAndroidTest = fileTree(
             dir: "$buildDir", includes:
             ["outputs/code_coverage/debugAndroidTest/coverage.ec"],
-
     )
 
     def executionFileForUnitTestInOtherModule =

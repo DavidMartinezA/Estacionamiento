@@ -1,4 +1,4 @@
-package com.example.inyecciondependecias
+package com.example.compartido.inyecciondependecias
 
 import android.content.Context
 import androidx.room.Room

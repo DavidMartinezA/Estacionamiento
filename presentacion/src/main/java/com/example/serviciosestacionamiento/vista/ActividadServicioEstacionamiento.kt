@@ -1,14 +1,14 @@
-package com.example.vista
+package com.example.serviciosestacionamiento.vista
 
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
+import com.example.ingresousuarios.vista.ActividadIngresoUsuarios.Companion.PLACA_VEHICULO
 import com.example.presentacion.R
-import com.example.presentacion.databinding.ActivityServiciosEstacionamientoBinding
-import com.example.viewmodel.ServiciosEstacionamientoViewModel
-import com.example.vista.ActividadPrincipal.Companion.PLACA_VEHICULO
+import com.example.presentacion.databinding.ActividadServiciosEstacionamientoBinding
+import com.example.serviciosestacionamiento.viewmodel.ServiciosEstacionamientoViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
@@ -16,13 +16,13 @@ import kotlinx.coroutines.launch
 class ActividadServicioEstacionamiento : AppCompatActivity() {
 
     private val viewModel: ServiciosEstacionamientoViewModel by viewModels()
-    private lateinit var binding: ActivityServiciosEstacionamientoBinding
+    private lateinit var binding: ActividadServiciosEstacionamientoBinding
     private lateinit var placaVehiculo: String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_servicios_estacionamiento)
-        binding = ActivityServiciosEstacionamientoBinding.inflate(layoutInflater)
+        setContentView(R.layout.actividad_servicios_estacionamiento)
+        binding = ActividadServiciosEstacionamientoBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         placaVehiculo = intent.getStringExtra(PLACA_VEHICULO).toString()

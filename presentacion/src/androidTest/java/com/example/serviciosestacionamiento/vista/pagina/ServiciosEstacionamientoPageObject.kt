@@ -1,14 +1,15 @@
-package com.example.vista.paginas
+package com.example.serviciosestacionamiento.vista.pagina
 
 import androidx.test.espresso.Espresso
 import androidx.test.espresso.action.ViewActions
 import androidx.test.espresso.assertion.ViewAssertions
 import androidx.test.espresso.matcher.ViewMatchers
+import com.example.ingresousuarios.vista.pagina.ActividadIngresoPageObject
 import com.example.presentacion.R
 import org.hamcrest.Matchers
 
 
-open class ServiciosEstacionamientoPageObject : MainPageObject() {
+open class ServiciosEstacionamientoPageObject : ActividadIngresoPageObject() {
 
     fun presionarBotonCobro(): ServiciosEstacionamientoPageObject {
         Espresso.onView(Matchers.allOf(ViewMatchers.withId(R.id.boton_cobro_tarifa)))

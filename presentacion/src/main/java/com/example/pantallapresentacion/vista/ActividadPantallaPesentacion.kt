@@ -1,8 +1,9 @@
-package com.example.vista
+package com.example.pantallapresentacion.vista
 
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.example.ingresousuarios.vista.ActividadIngresoUsuarios
 import com.example.presentacion.R
 import kotlinx.coroutines.*
 
@@ -12,7 +13,7 @@ class ActividadPantallaPesentacion : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_pantalla_pesentacion)
+        setContentView(R.layout.actividad_pantalla_pesentacion)
 
         obtenerDuracionPantalla()
     }
@@ -20,7 +21,7 @@ class ActividadPantallaPesentacion : AppCompatActivity() {
     private fun obtenerDuracionPantalla() {
         activityScope.launch {
             delay(1000)
-            val intent = Intent(this@ActividadPantallaPesentacion, ActividadPrincipal::class.java)
+            val intent = Intent(this@ActividadPantallaPesentacion, ActividadIngresoUsuarios::class.java)
             startActivity(intent)
             finish()
         }

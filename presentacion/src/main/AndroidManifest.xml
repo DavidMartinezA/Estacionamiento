@@ -3,7 +3,7 @@
     package="com.example.presentacion">
 
     <application
-        android:name="com.example.inyecciondependecias.EstacionamientoAplicacion"
+        android:name="com.example.compartido.inyecciondependecias.EstacionamientoAplicacion"
         android:allowBackup="true"
         android:icon="@drawable/icono_principal"
         android:label="@string/app_name"
@@ -11,13 +11,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Estacionamiento">
         <activity
-            android:name="com.example.vista.ActividadServicioEstacionamiento"
+            android:name="com.example.serviciosestacionamiento.vista.ActividadServicioEstacionamiento"
             android:exported="false" />
         <activity
-            android:name="com.example.vista.ActividadPrincipal"
+            android:name="com.example.ingresousuarios.vista.ActividadIngresoUsuarios"
             android:exported="false" />
         <activity
-            android:name="com.example.vista.ActividadPantallaPesentacion"
+            android:name="com.example.pantallapresentacion.vista.ActividadPantallaPesentacion"
             android:exported="true"
             android:theme="@style/Theme.AppCompat.NoActionBar">
             <intent-filter>

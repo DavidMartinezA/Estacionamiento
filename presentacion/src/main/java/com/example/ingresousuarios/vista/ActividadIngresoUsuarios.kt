@@ -1,4 +1,4 @@
-package com.example.vista
+package com.example.ingresousuarios.vista
 
 import android.content.Intent
 import android.os.Bundle
@@ -6,24 +6,25 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
+import com.example.ingresousuarios.viewmodel.IngresoUsuariosViewModel
 import com.example.presentacion.R
-import com.example.presentacion.databinding.ActivityMainBinding
-import com.example.viewmodel.IngresoUsuariosViewModel
+import com.example.presentacion.databinding.ActividadIngresoUsuarioBinding
+import com.example.serviciosestacionamiento.vista.ActividadServicioEstacionamiento
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class ActividadPrincipal : AppCompatActivity() {
+class ActividadIngresoUsuarios : AppCompatActivity() {
 
     companion object {
         const val PLACA_VEHICULO = "Placa Del Vehiculo"
     }
 
     private val viewModel: IngresoUsuariosViewModel by viewModels()
-    private lateinit var binding: ActivityMainBinding
+    private lateinit var binding: ActividadIngresoUsuarioBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityMainBinding.inflate(layoutInflater)
+        binding = ActividadIngresoUsuarioBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         generarDialogoExcepciones()

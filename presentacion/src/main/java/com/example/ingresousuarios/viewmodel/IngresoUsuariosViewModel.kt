@@ -1,4 +1,4 @@
-package com.example.viewmodel
+package com.example.ingresousuarios.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope

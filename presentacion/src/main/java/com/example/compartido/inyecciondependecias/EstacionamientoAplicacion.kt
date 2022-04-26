@@ -1,4 +1,4 @@
-package com.example.inyecciondependecias
+package com.example.compartido.inyecciondependecias
 
 import android.app.Application
 import dagger.hilt.android.HiltAndroidApp

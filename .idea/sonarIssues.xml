@@ -958,12 +958,72 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/presentacion/src/androidTest/java/com/example/ingreso/vista/ActividadIngresoTest.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/presentacion/src/androidTest/java/com/example/ingreso/vista/ActividadIngresoTest.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/presentacion/src/androidTest/java/com/example/ingreso/vista/ActividadIngresoTest1.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/presentacion/src/androidTest/java/com/example/ingreso/vista/ActividadIngresoUsuariosTest.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/presentacion/src/androidTest/java/com/example/ingreso/vista/pagina/ActividadIngresoPageObject.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/presentacion/src/androidTest/java/com/example/ingreso/vista/pagina/ServiciosEstacionamientoPageObject.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/presentacion/src/androidTest/java/com/example/ingresousuarios/vista/ActividadIngresoUsuariosTest.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/presentacion/src/androidTest/java/com/example/ingresousuarios/vista/pagina/ActividadIngresoPageObject.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/presentacion/src/androidTest/java/com/example/paginas/BasePageObject.kt">
           <value>
             <set />
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/presentacion/src/androidTest/java/com/example/paginas/MainPageObject.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/presentacion/src/androidTest/java/com/example/serviciosestacionamiento/vista/ActividadIngresoTest.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/presentacion/src/androidTest/java/com/example/serviciosestacionamiento/vista/ServicioEstacionamientoTest.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/presentacion/src/androidTest/java/com/example/serviciosestacionamiento/vista/pagina/ServiciosEstacionamientoPageObject.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/presentacion/src/androidTest/java/com/example/vista/ActividadIngresoTest.kt">
           <value>
             <set />
           </value>
@@ -1103,6 +1163,11 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/presentacion/src/main/java/com/example/compartido/inyecciondependecias/ModuloDependencias.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/presentacion/src/main/java/com/example/estacionamiento/CalculoCobro.kt">
           <value>
             <set />
@@ -1173,12 +1238,32 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/presentacion/src/main/java/com/example/ingreso/ActividadIngreso.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/presentacion/src/main/java/com/example/ingreso/viewmodel/IngresoUsuariosViewModel.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/presentacion/src/main/java/com/example/ingreso/vista/ActividadIngreso.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/presentacion/src/main/java/com/example/inyecciondependecias/EstacionamientoAplicacion.kt">
           <value>
             <set />
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/presentacion/src/main/java/com/example/inyecciondependecias/ModuloDependencias.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/presentacion/src/main/java/com/example/pantallapresentacion/vista/ActividadPantallaPesentacion.kt">
           <value>
             <set />
           </value>
@@ -1214,6 +1299,11 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/presentacion/src/main/java/com/example/presentador/viewmodel/UsuarioVehiculoMotoViewModel.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/presentacion/src/main/java/com/example/serviciosestacionamiento/vista/ActividadServicioEstacionamiento.kt">
           <value>
             <set />
           </value>

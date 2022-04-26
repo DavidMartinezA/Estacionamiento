@@ -1,9 +1,12 @@
-package com.example.vista
+package com.example.serviciosestacionamiento.vista
 
 import androidx.test.ext.junit.rules.ActivityScenarioRule
 import androidx.test.filters.LargeTest
 import androidx.test.internal.runner.junit4.AndroidJUnit4ClassRunner
-import com.example.vista.paginas.ServiciosEstacionamientoPageObject
+import androidx.test.platform.app.InstrumentationRegistry
+import com.example.ingresousuarios.vista.ActividadIngresoUsuarios
+import com.example.serviciosestacionamiento.vista.pagina.ServiciosEstacionamientoPageObject
+import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -14,78 +17,87 @@ class ServicioEstacionamientoTest {
 
     @Rule
     @JvmField
-    var mActivityTestRule = ActivityScenarioRule(ActividadPrincipal::class.java)
-    private val pageObject = ServiciosEstacionamientoPageObject()
+    var mActivityTestRule = ActivityScenarioRule(ActividadIngresoUsuarios::class.java)
+    private val servicioEstacionamientoPageObject = ServiciosEstacionamientoPageObject()
+
+    @Before
+    fun borrarBaseDatos() {
+        InstrumentationRegistry.getInstrumentation().targetContext.deleteDatabase("baseDatos")
+    }
 
     @Test
     fun generarInformacionCobroTest_usuarioVehiculoCarroExiste_informacionServicioCobro() {
-
+        mActivityTestRule.scenario
         //Given
-        pageObject
+        servicioEstacionamientoPageObject
             .ingresarPlacaVehiculo("ggg555")
             .seleccionarRadioButtonCarro()
             .oprimirBotonIngreso()
             .presionarAceptarDialogoMensaje()
 
         //When
-        pageObject
+        servicioEstacionamientoPageObject
             .presionarBotonCobro()
 
         //Then
-        pageObject.verificarTextoCobro("ggg555El Costo Del Servicio Es De=1000")
+        servicioEstacionamientoPageObject.verificarTextoCobro("ggg555El Costo Del Servicio Es De=1000")
+        mActivityTestRule.scenario.close()
     }
 
     @Test
     fun generarInformacionCobroTest_usuarioVehiculoMotoExiste_informacionServicioCobro() {
-
+        mActivityTestRule.scenario
         //Given
-        pageObject
+        servicioEstacionamientoPageObject
             .ingresarPlacaVehiculo("yyy666")
             .seleccionarRadioButtonMoto()
             .oprimirBotonIngreso()
             .presionarAceptarDialogoMensaje()
 
         //When
-        pageObject
+        servicioEstacionamientoPageObject
             .presionarBotonCobro()
 
         //Then
-        pageObject.verificarTextoCobro("yyy666El Costo Del Servicio Es De=500")
+        servicioEstacionamientoPageObject.verificarTextoCobro("yyy666El Costo Del Servicio Es De=500")
+        mActivityTestRule.scenario.close()
     }
 
     @Test
     fun generarInformacionCobroTest_usuarioVehiculoMotoAltoCilindrajeExiste_informacionServicioCobro() {
-
+        mActivityTestRule.scenario
         //Given
-        pageObject
+        servicioEstacionamientoPageObject
             .ingresarPlacaVehiculo("sYs222")
             .seleccionarRadioButtonMotoCc()
             .oprimirBotonIngreso()
             .presionarAceptarDialogoMensaje()
 
         //When
-        pageObject
+        servicioEstacionamientoPageObject
             .presionarBotonCobro()
 
         //Then
-        pageObject.verificarTextoCobro("sYs222El Costo Del Servicio Es De=2500")
+        servicioEstacionamientoPageObject.verificarTextoCobro("sYs222El Costo Del Servicio Es De=2500")
+        mActivityTestRule.scenario.close()
     }
 
     @Test
     fun generarInformacionCobroTest_usuarioVehiculoNoExiste_mensajeUsuarioNoSeEncuentraRegistrado() {
-
+        mActivityTestRule.scenario
         //Given
-        pageObject
+        servicioEstacionamientoPageObject
             .ingresarPlacaVehiculo("fff555")
             .seleccionarRadioButtonCarro()
 
         //When
-        pageObject
+        servicioEstacionamientoPageObject
             .presionarBotonCobro()
 
         //Then
-        pageObject
+        servicioEstacionamientoPageObject
             .verifiacarDialogoMensaje("UsuarioVehiculo No Existe")
+        mActivityTestRule.scenario.close()
     }
 
 }

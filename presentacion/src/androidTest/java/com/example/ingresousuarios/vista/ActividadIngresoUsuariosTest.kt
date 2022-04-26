@@ -1,33 +1,39 @@
-package com.example.vista
+package com.example.ingresousuarios.vista
 
 import androidx.test.ext.junit.rules.ActivityScenarioRule
 import androidx.test.filters.LargeTest
 import androidx.test.internal.runner.junit4.AndroidJUnit4ClassRunner
-import androidx.test.platform.app.InstrumentationRegistry
-import com.example.vista.paginas.MainPageObject
+import androidx.test.platform.app.InstrumentationRegistry.getInstrumentation
+import com.example.ingresousuarios.vista.pagina.ActividadIngresoPageObject
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
 import java.time.LocalDateTime
 
+
 @LargeTest
 @RunWith(AndroidJUnit4ClassRunner::class)
-class ActividadPrincipalTest {
+class ActividadIngresoUsuariosTest {
 
     @Rule
     @JvmField
-    var mActivityTestRule = ActivityScenarioRule(ActividadPrincipal::class.java)
-    private val mainActivityPageObject = MainPageObject()
+
+    var mActivityTestRule = ActivityScenarioRule(ActividadIngresoUsuarios::class.java)
+    private val mainActivityPageObject = ActividadIngresoPageObject()
 
     @Before
     fun borrarBaseDatos() {
-        InstrumentationRegistry.getInstrumentation().targetContext.deleteDatabase("baseDatos")
+        getInstrumentation().targetContext.deleteDatabase("baseDatos")
+    }
+
+    fun encenderPantalla() {
+
     }
 
     @Test
     fun ingresoCarroTest_placaValidaUsuarioNoExiste_usuarioGuardado() {
-
+        mActivityTestRule.scenario
         //Given
         mainActivityPageObject
             .ingresarPlacaVehiculo("ccc987")
@@ -40,11 +46,13 @@ class ActividadPrincipalTest {
         //Then
         mainActivityPageObject
             .verifiacarDialogoMensaje("Usuario Registrado")
+
+        mActivityTestRule.scenario.close()
     }
 
     @Test
     fun ingresoMotoTest_placaValidaUsuarioNoExiste_usuarioGuardado() {
-
+        mActivityTestRule.scenario
         //Given
         mainActivityPageObject
             .ingresarPlacaVehiculo("ccc988")
@@ -57,11 +65,13 @@ class ActividadPrincipalTest {
         //Then
         mainActivityPageObject
             .verifiacarDialogoMensaje("Usuario Registrado")
+
+        mActivityTestRule.scenario.close()
     }
 
     @Test
     fun ingresoMotoAltoCilindrajeTest_placaValidaUsuarioNoExiste_usuarioGuardado() {
-
+        mActivityTestRule.scenario
         //Given
         mainActivityPageObject
             .ingresarPlacaVehiculo("ccc989")
@@ -74,11 +84,14 @@ class ActividadPrincipalTest {
         //Then
         mainActivityPageObject
             .verifiacarDialogoMensaje("Usuario Registrado")
+
+        mActivityTestRule.scenario.close()
+
     }
 
     @Test
     fun ingresoCarroTest_placaTextoVacio_mensajeFormatoPlacaNoValido() {
-
+        mActivityTestRule.scenario
         //Given
         mainActivityPageObject
             .ingresarPlacaVehiculo("")
@@ -91,11 +104,14 @@ class ActividadPrincipalTest {
         //Then
         mainActivityPageObject
             .verifiacarDialogoMensaje("Formato De Placa No Valido")
+
+        mActivityTestRule.scenario.close()
+
     }
 
     @Test
     fun ingresoMotoTest_placaTextoVacio_mensajeFormatoPlacaNoValido() {
-
+        mActivityTestRule.scenario
         //Given
         mainActivityPageObject
             .ingresarPlacaVehiculo("")
@@ -108,11 +124,14 @@ class ActividadPrincipalTest {
         //Then
         mainActivityPageObject
             .verifiacarDialogoMensaje("Formato De Placa No Valido")
+
+        mActivityTestRule.scenario.close()
+
     }
 
     @Test
     fun ingresoMotoAltoCilindrajeTest_placaTextoVacio_mensajeFormatoPlacaNoValido() {
-
+        mActivityTestRule.scenario
         //Given
         mainActivityPageObject
             .ingresarPlacaVehiculo("")
@@ -125,11 +144,14 @@ class ActividadPrincipalTest {
         //Then
         mainActivityPageObject
             .verifiacarDialogoMensaje("Formato De Placa No Valido")
+
+        mActivityTestRule.scenario.close()
+
     }
 
     @Test
     fun ingresoUsuarioVehiculoTest_tipoVehiculoNoSelecionado_mensajeUsuarioRegistradoComoCarro() {
-
+        mActivityTestRule.scenario
         //Given
         mainActivityPageObject
             .ingresarPlacaVehiculo("ccc990")
@@ -141,11 +163,14 @@ class ActividadPrincipalTest {
         //Then
         mainActivityPageObject
             .verifiacarDialogoMensaje("Usuario Registrado")
+
+        mActivityTestRule.scenario.close()
+
     }
 
     @Test
     fun ingresoUsuarioVehiculoTest_placaRestriccionMartesASabado_mensajeNoEstaAutorizadoIngresar() {
-
+        mActivityTestRule.scenario
         //Given
         mainActivityPageObject
             .ingresarPlacaVehiculo("Acc990")
@@ -163,12 +188,15 @@ class ActividadPrincipalTest {
             mainActivityPageObject
                 .verifiacarDialogoMensaje("No Esta Autorizado A Ingresar")
         }
+
+        mActivityTestRule.scenario.close()
+
     }
 
 
     @Test
     fun ingresoUsuarioVehiculoTest_placaTextoNull_mensajeFormatoPlacaNoValido() {
-
+        mActivityTestRule.scenario
         //Given
         //When
         mainActivityPageObject
@@ -177,11 +205,14 @@ class ActividadPrincipalTest {
         //Then
         mainActivityPageObject
             .verifiacarDialogoMensaje("Formato De Placa No Valido")
+
+        mActivityTestRule.scenario.close()
+
     }
 
     @Test
     fun ingresoUsuarioVehiculoTest_usuarioYaRegistrado_mensajeUsuarioYaSeEncuentraRegistrado() {
-
+        mActivityTestRule.scenario
         //Given
         mainActivityPageObject
             .ingresarPlacaVehiculo("uuu777")
@@ -196,6 +227,9 @@ class ActividadPrincipalTest {
         //Then
         mainActivityPageObject
             .verifiacarDialogoMensaje("UsuarioVehiculo Ya Existe")
+
+        mActivityTestRule.scenario.close()
+
     }
 
 }
