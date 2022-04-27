@@ -28,6 +28,7 @@ pipeline {
         echo "------------>Unit Tests<------------"
         sh './gradlew clean'
         sh './gradlew test'
+        sh './gradlew jacocoTestReport'
       }
     }
 
@@ -36,7 +37,6 @@ pipeline {
         echo "------------>Ui Tests<------------"
         sh './gradlew clean'
         sh './gradlew cAT'
-        sh './gradlew jacocoTestReport'
       }
     }
 
