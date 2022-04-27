@@ -5,6 +5,7 @@ import androidx.test.filters.LargeTest
 import androidx.test.internal.runner.junit4.AndroidJUnit4ClassRunner
 import androidx.test.platform.app.InstrumentationRegistry.getInstrumentation
 import com.example.ingresousuarios.vista.pagina.ActividadIngresoUsuarioPageObject
+import com.example.presentacion.R
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
@@ -24,7 +25,7 @@ class ActividadIngresoUsuariosTest {
 
     @Before
     fun borrarBaseDatos() {
-        getInstrumentation().targetContext.deleteDatabase("baseDatos")
+        getInstrumentation().targetContext.deleteDatabase(R.string.nombre_base_datos.toString())
     }
 
     @Test
