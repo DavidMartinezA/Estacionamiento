@@ -27,16 +27,7 @@ pipeline {
       steps{
         echo "------------>Unit Tests<------------"
         sh './gradlew clean'
-        sh './gradlew test'
         sh './gradlew jacocoTestReport'
-      }
-    }
-
-    stage('Ui Tests') {
-      steps{
-        echo "------------>Ui Tests<------------"
-        sh './gradlew clean'
-        sh './gradlew cAT'
       }
     }
 

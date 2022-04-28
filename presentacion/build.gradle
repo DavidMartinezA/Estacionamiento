@@ -86,8 +86,7 @@ dependencies {
 }
 
 // tarea para los reportes de analisis de codigo
-
-task jacocoTestReport(type: JacocoReport, dependsOn: ['connectedAndroidTest', ':dominio:testDebugUnitTest',
+task jacocoTestReport(type: JacocoReport, dependsOn: [':presentacion:connectedAndroidTest', ':dominio:testDebugUnitTest',
                                                       ':infraestructura:connectedAndroidTest']) {
 
     def moduleDominio = project(':dominio')
@@ -107,7 +106,7 @@ task jacocoTestReport(type: JacocoReport, dependsOn: ['connectedAndroidTest', ':
 
     def executionFilesFromConnectedAndroidTest = fileTree(
             dir: "$buildDir", includes:
-            ["outputs/code_coverage/debugAndroidTest/coverage.ec"],
+            ["outputs/code_coverage/debugAndroidTest/connected/**/coverage.ec"],
     )
     def executionFileForUnitTestInModule =
             "$moduleDominio.buildDir/outputs/Unit_Test_code_coverage/debugUnitTest/testDebugUnitTest.exec"
