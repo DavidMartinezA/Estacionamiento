@@ -79,15 +79,15 @@ dependencies {
     implementation project(path: ':infraestructura')
 
     //Inyeccion dependencias
-    implementation"com.google.dagger:hilt-android:2.41"
-    kapt  "com.google.dagger:hilt-android-compiler:2.41"
+    implementation "com.google.dagger:hilt-android:2.41"
+    kapt "com.google.dagger:hilt-android-compiler:2.41"
     implementation "org.jetbrains.kotlin:kotlin-reflect:1.6.20"
 
 }
 
 // tarea para los reportes de analisis de codigo
 
-task jacocoTestReport(type: JacocoReport, dependsOn: ['connectedAndroidTest',':dominio:testDebugUnitTest',
+task jacocoTestReport(type: JacocoReport, dependsOn: ['connectedAndroidTest', ':dominio:testDebugUnitTest',
                                                       ':infraestructura:connectedAndroidTest']) {
 
     def moduleDominio = project(':dominio')
@@ -109,16 +109,15 @@ task jacocoTestReport(type: JacocoReport, dependsOn: ['connectedAndroidTest',':d
             dir: "$buildDir", includes:
             ["outputs/code_coverage/debugAndroidTest/coverage.ec"],
     )
-
-    def executionFileForUnitTestInOtherModule =
+    def executionFileForUnitTestInModule =
             "$moduleDominio.buildDir/outputs/Unit_Test_code_coverage/debugUnitTest/testDebugUnitTest.exec"
 
     def executionFileFromConnectedAndroidTestInOtherModule =
-        "$moduleInfraestructura.buildDir/outputs/code_coverage/debugUnitTest/coverage.ec"
+            "$moduleInfraestructura.buildDir/outputs/code_coverage/debugUnitTest/coverage.ec"
 
     def executionFiles = layout.files(
             executionFilesFromConnectedAndroidTest,
-            executionFileForUnitTestInOtherModule,
+            executionFileForUnitTestInModule,
             executionFileFromConnectedAndroidTestInOtherModule
     )
 
