@@ -112,7 +112,7 @@ task jacocoTestReport(type: JacocoReport, dependsOn: [':presentacion:connectedAn
             "$moduleDominio.buildDir/outputs/Unit_Test_code_coverage/debugUnitTest/testDebugUnitTest.exec"
 
     def executionFileFromConnectedAndroidTestInOtherModule =
-            "$moduleInfraestructura.buildDir/outputs/code_coverage/debugUnitTest/coverage.ec"
+            "$moduleInfraestructura.buildDir/outputs/code_coverage/debugUnitTest/connected/**/coverage.ec"
 
     def executionFiles = layout.files(
             executionFilesFromConnectedAndroidTest,
