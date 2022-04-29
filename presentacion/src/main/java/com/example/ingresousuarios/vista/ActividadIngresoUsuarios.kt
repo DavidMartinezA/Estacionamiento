@@ -74,6 +74,12 @@ class ActividadIngresoUsuarios : AppCompatActivity() {
             val intento = Intent(this, ActividadServicioEstacionamiento::class.java)
             intento.putExtra(PLACA_VEHICULO, textoPlaca)
             startActivity(intento)
+
         }
+    }
+
+    override fun onStop() {
+        super.onStop()
+        binding.ingresoPlacaVehiculoCalculoCobro.setText("")
     }
 }

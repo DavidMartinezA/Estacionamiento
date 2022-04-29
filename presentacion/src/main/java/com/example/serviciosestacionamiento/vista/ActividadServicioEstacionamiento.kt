@@ -46,7 +46,6 @@ class ActividadServicioEstacionamiento : AppCompatActivity() {
         }
     }
 
-
     private fun generarInformacionCobro() {
         lifecycleScope.launchWhenStarted {
             viewModel.cobroVehiculo.collect { costoServicio ->
@@ -61,6 +60,6 @@ class ActividadServicioEstacionamiento : AppCompatActivity() {
             viewModel.salidaUsuarioEstacionamiento(placaVehiculo)
             finish()
         }
-
     }
+
 }

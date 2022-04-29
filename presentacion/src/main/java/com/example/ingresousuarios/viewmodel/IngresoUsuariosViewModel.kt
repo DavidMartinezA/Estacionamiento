@@ -25,7 +25,6 @@ class IngresoUsuariosViewModel @Inject constructor(private val servicioEstaciona
             servicioEstacionamiento.ingresoUsuarioEstacionamiento(
                 EstacionamientoCarro(UsuarioVehiculoCarro(usuarioIngresado)), LocalDateTime.now().dayOfWeek.value)
             excepcionMutable.value = "Usuario Registrado"
-
         } catch (excepcion: EstacionamientoExcepcion) {
             excepcion.message?.let { excepcionMutable.value = excepcion.message!! }
         }

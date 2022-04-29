@@ -38,5 +38,6 @@ class ServiciosEstacionamientoViewModel @Inject constructor(private val servicio
         } catch (excepcion: EstacionamientoExcepcion) {
             excepcion.message?.let { mutableExcepcion.value = excepcion.message!! }
         }
+
     }
 }
