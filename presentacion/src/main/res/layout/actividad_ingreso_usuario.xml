@@ -91,6 +91,7 @@
 
                         <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/ingreso_placa_vehiculo_calculo_cobro"
+                            android:digits="@string/limitacion_alfanumerica"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content" />
 

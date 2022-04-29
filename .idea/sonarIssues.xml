@@ -1263,6 +1263,11 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/presentacion/src/main/java/com/example/ingresousuarios/viewmodel/IngresoUsuariosViewModel.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/presentacion/src/main/java/com/example/ingresousuarios/vista/ActividadIngresoUsuarios.kt">
           <value>
             <set />
@@ -1594,6 +1599,11 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/presentacion/src/main/res/drawable/pantalla_inicial.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/presentacion/src/main/res/layout/actividad_ingreso_usuario.xml">
           <value>
             <set />
           </value>

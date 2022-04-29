@@ -17,7 +17,6 @@ abstract class UsuarioVehiculo(val placaVehiculo: String) {
     open var cilndrajeAlto: Boolean = false
     abstract val tipoDeVehiculo: String
     abstract var horaFechaIngresoUsuario: LocalDateTime
-    private fun validacionDeFormatoPlaca(): Boolean = placaVehiculo.matches(Regex(FORMATO_PLACA))
-
+    private fun validacionDeFormatoPlaca(): Boolean = placaVehiculo.matches(Regex(FORMATO_PLACA)) && placaVehiculo.length >= 6
 
 }

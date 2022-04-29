@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="presentacion/src/main/res/layout/actividad_ingreso_usuario.xml" value="0.27546296296296297" />
         <entry key="presentacion/src/main/res/layout/activity_calculo_cobro.xml" value="0.27546296296296297" />
         <entry key="presentacion/src/main/res/layout/activity_cobro_estacionamiento.xml" value="0.14675925925925926" />
         <entry key="presentacion/src/main/res/layout/activity_cobro_servicio.xml" value="0.375" />

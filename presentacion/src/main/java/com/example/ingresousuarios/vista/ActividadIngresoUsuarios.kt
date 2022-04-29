@@ -48,7 +48,7 @@ class ActividadIngresoUsuarios : AppCompatActivity() {
 
     private fun ingresarUsuario() {
         binding.botonIngreso.setOnClickListener {
-            val textoPlaca = binding.ingresoPlacaVehiculoCalculoCobro.text.toString()
+            var textoPlaca = binding.ingresoPlacaVehiculoCalculoCobro.text.toString()
             when {
                 binding.radioButtonCarro.isChecked -> {
                     viewModel.ingresarUsuarioCarro(textoPlaca)
@@ -63,6 +63,7 @@ class ActividadIngresoUsuarios : AppCompatActivity() {
                     viewModel.ingresarUsuarioCarro(textoPlaca)
                 }
             }
+            this.recreate()
         }
     }
 
@@ -72,7 +73,10 @@ class ActividadIngresoUsuarios : AppCompatActivity() {
             if (textoPlaca.isNotEmpty()) {
                 val intento = Intent(this, ActividadServicioEstacionamiento::class.java)
                 intento.putExtra(PLACA_VEHICULO, textoPlaca)
+                binding.ingresoPlacaVehiculoCalculoCobro.setText("")
                 startActivity(intento)
+            } else {
+                this.recreate()
             }
         }
     }
