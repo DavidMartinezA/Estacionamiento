@@ -36,6 +36,7 @@ class ActividadServicioEstacionamientoTest {
             .seleccionarRadioButtonCarro()
             .oprimirBotonIngreso()
             .presionarAceptarDialogoMensaje()
+            .ingresarPlacaVehiculo("ggg555")
 
         //When
         servicioEstacionamientoPageObject
@@ -55,6 +56,7 @@ class ActividadServicioEstacionamientoTest {
             .seleccionarRadioButtonMoto()
             .oprimirBotonIngreso()
             .presionarAceptarDialogoMensaje()
+            .ingresarPlacaVehiculo("yyy666")
 
         //When
         servicioEstacionamientoPageObject
@@ -74,6 +76,7 @@ class ActividadServicioEstacionamientoTest {
             .seleccionarRadioButtonMotoCc()
             .oprimirBotonIngreso()
             .presionarAceptarDialogoMensaje()
+            .ingresarPlacaVehiculo("sYs222")
 
         //When
         servicioEstacionamientoPageObject

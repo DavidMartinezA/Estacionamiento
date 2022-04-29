@@ -216,6 +216,7 @@ class ActividadIngresoUsuariosTest {
             .seleccionarRadioButtonCarro()
             .oprimirBotonIngreso()
             .presionarAceptarDialogoMensaje()
+            .ingresarPlacaVehiculo("uuu777")
 
         //When
         actividadIngresoUsuarioPageObject

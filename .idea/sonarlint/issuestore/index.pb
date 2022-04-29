@@ -38,12 +38,6 @@ Edominio/src/test/java/com/example/cobro/modelo/CobroTarifaMotoTest.kt,f/6/f638
 Ydominio/src/test/java/com/example/estacionamiento/servicio/ServicioEstacionamientoTest.kt,c/6/c687b75f7fc14f35a74a10801fde28239553261a
 {
 Kdominio/src/test/java/com/example/cobro/servicio/ServicioCobroTarifaTest.kt,8/7/877731e967e407607c7e69b7db73f0ce121a0f67
-{
-Kdominio/src/test/java/com/example/usuario/modelo/UsuarioVehiculoMotoTest.kt,f/8/f88f3c54e30e6f7f5633413d41ba5cb25ec586f5
-x
-Hdominio/src/main/java/com/example/usuario/modelo/UsuarioVehiculoCarro.kt,1/9/19fe410b6c055bbdbc1910348497a1aeaebf6190
-w
-Gdominio/src/main/java/com/example/usuario/modelo/UsuarioVehiculoMoto.kt,4/b/4bdc7b2bedf733ca62f1421ff24960d8360689e8
 
 Odominio/src/main/java/com/example/estacionamiento/modelo/EstacionamientoMoto.kt,f/d/fdc1979972a00be4483f4c2899994c0955b72abf
 €
@@ -96,9 +90,5 @@ Y
 )presentacion/src/main/AndroidManifest.xml,0/1/01423137c9ba83b646a644dc875abe54f9098a9e
 ‘
 apresentacion/src/main/java/com/example/pantallapresentacion/vista/ActividadPantallaPesentacion.kt,a/1/a18c625cf00bab8603fd7931d9ec04f23c0283e3
-ž
-npresentacion/src/main/java/com/example/serviciosestacionamiento/viewmodel/ServiciosEstacionamientoViewModel.kt,2/d/2d8080db0c1215c69bf091e11455ea4013b69ea2
 ±
 €presentacion/src/androidTest/java/com/example/serviciosestacionamiento/vista/pagina/ServiciosEstacionamientoUsuarioPageObject.kt,c/f/cf358d367971686eac8f521e819b0680b97b4a8f
-¤
-tpresentacion/src/androidTest/java/com/example/serviciosestacionamiento/vista/ActividadServicioEstacionamientoTest.kt,1/1/112d223be7e8aead3a2dd982e7fd30618e5b39bd
