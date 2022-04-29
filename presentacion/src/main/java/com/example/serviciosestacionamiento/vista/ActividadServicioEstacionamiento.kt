@@ -39,12 +39,13 @@ class ActividadServicioEstacionamiento : AppCompatActivity() {
             viewModel.excepcionCobro.collect { excepcion ->
                 if (excepcion.isNotEmpty()) {
                     dialogoExcepciones.setMessage(excepcion)
-                        .setPositiveButton(getString(R.string.boton_aceptar)) { dialog, which -> finish() }
+                        .setPositiveButton(R.string.boton_aceptar) { _, _ -> finish() }
                         .show()
                 }
             }
         }
     }
+
 
     private fun generarInformacionCobro() {
         lifecycleScope.launchWhenStarted {

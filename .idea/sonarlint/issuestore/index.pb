@@ -100,9 +100,5 @@ apresentacion/src/main/java/com/example/pantallapresentacion/vista/ActividadPant
 npresentacion/src/main/java/com/example/serviciosestacionamiento/viewmodel/ServiciosEstacionamientoViewModel.kt,2/d/2d8080db0c1215c69bf091e11455ea4013b69ea2
 ±
 €presentacion/src/androidTest/java/com/example/serviciosestacionamiento/vista/pagina/ServiciosEstacionamientoUsuarioPageObject.kt,c/f/cf358d367971686eac8f521e819b0680b97b4a8f
-Ÿ
-opresentacion/src/androidTest/java/com/example/ingresousuarios/vista/pagina/ActividadIngresoUsuarioPageObject.kt,6/f/6f149bd4a81b5a3fc313fe6fc61226de60e03560
 ¤
 tpresentacion/src/androidTest/java/com/example/serviciosestacionamiento/vista/ActividadServicioEstacionamientoTest.kt,1/1/112d223be7e8aead3a2dd982e7fd30618e5b39bd
-“
-cpresentacion/src/androidTest/java/com/example/ingresousuarios/vista/ActividadIngresoUsuariosTest.kt,d/3/d3f07d19f09fd2551f302f3600747f58f298bb31
