@@ -12,9 +12,11 @@
         android:theme="@style/Theme.Estacionamiento">
         <activity
             android:name="com.example.serviciosestacionamiento.vista.ActividadServicioEstacionamiento"
+            android:configChanges="screenSize|orientation"
             android:exported="false" />
         <activity
             android:name="com.example.ingresousuarios.vista.ActividadIngresoUsuarios"
+            android:configChanges="screenSize|orientation"
             android:exported="false" />
         <activity
             android:name="com.example.pantallapresentacion.vista.ActividadPantallaPesentacion"
