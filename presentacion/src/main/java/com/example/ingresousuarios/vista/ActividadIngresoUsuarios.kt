@@ -71,12 +71,9 @@ class ActividadIngresoUsuarios : AppCompatActivity() {
     private fun cobrarTarifa() {
         binding.botonCobroTarifa.setOnClickListener {
             val textoPlaca = binding.ingresoPlacaVehiculoCalculoCobro.text.toString()
-            if (textoPlaca.isNotEmpty()) {
-                val intento = Intent(this, ActividadServicioEstacionamiento::class.java)
-                intento.putExtra(PLACA_VEHICULO, textoPlaca)
-                startActivity(intento)
-            }
+            val intento = Intent(this, ActividadServicioEstacionamiento::class.java)
+            intento.putExtra(PLACA_VEHICULO, textoPlaca)
+            startActivity(intento)
         }
     }
 }
-
