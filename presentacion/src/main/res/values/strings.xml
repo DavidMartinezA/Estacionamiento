@@ -44,7 +44,7 @@
     <string name="texto_cilindraje">Cilindraje Mayor A = 500CC</string>
     <string name="prueba">prueba</string>
     <string name="boton_aceptar">Aceptar</string>
-    <string name="limitacion_alfanumerica">1234567890ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz-</string>
+    <string name="limitacion_alfanumerica">1234567890ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz</string>
 
 
 </resources>
